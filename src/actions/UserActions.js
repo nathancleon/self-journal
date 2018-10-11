@@ -3,9 +3,12 @@ import axios from 'axios';
 export function FetchUserInfo() {
 
   return (dispatch) => {
-    const request = axios.get('https://content.guardianapis.com/search?q=debates&api-key=test')
+    const request = axios.get('http://localhost:5000/journal/all')
       .then((res) => {
-        dispatch(SetUserInfo(res));
+        dispatch({
+          type: 'FETCH_USER_INFO',
+          payload: res
+        });
       });
   }
 }
@@ -17,9 +20,9 @@ export function FetchAuthUser() {
   }
 }
 
-export function SetUserInfo(data) {
-  return {
-    type: 'FETCH_USER_INFO',
-    payload: data
-  };
-}
+// export function SetUserInfo(data) {
+//   return {
+//     type: 'FETCH_USER_INFO',
+//     payload: data
+//   };
+// }

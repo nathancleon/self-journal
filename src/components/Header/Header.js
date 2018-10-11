@@ -11,6 +11,7 @@ export default class Header extends Component {
         <li><Link to="/">List</Link></li>
         <li><Link to="/create-new">Form</Link></li>
         <li><Link to="/user">User</Link></li>
+        <li><Link to="/prompts">Prompts</Link></li>
       </ul>
       </header>
     );
