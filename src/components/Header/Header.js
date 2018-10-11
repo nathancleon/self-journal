@@ -6,12 +6,12 @@ export default class Header extends Component {
   render() {
     return(
       <header>
-      <h1>Header</h1>
-      <ul>
-        <li><Link to="/">List</Link></li>
-        <li><Link to="/create-new">Form</Link></li>
-        <li><Link to="/user">User</Link></li>
-        <li><Link to="/prompts">Prompts</Link></li>
+      <h1 className="header-title">Self-Journal</h1>
+      <ul className="header-links">
+        <li className="header-link"><Link to="/list">List</Link></li>
+        <li className="header-link"><Link to="/create-new">Form</Link></li>
+        <li className="header-link"><Link to="/user">User</Link></li>
+        <li className="header-link"><Link to="/prompts">Prompts</Link></li>
       </ul>
       </header>
     );

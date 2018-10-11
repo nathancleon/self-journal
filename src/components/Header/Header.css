@@ -1,4 +1,27 @@
+/* * {
+  border: 1px solid red;
+} */
+
 header {
   background-color: var(--main-color);
   color: white;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.header-title {
+  width: 30%;
+}
+
+.header-links {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 40%;
+}
+
+.header-link {
+  flex-direction: row;
+  list-style: none;
 }
