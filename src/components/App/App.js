@@ -7,9 +7,14 @@ import Landing from '../Landing/Landing';
 
 class App extends Component {
   render() {
+    const ifLanding = window.location.pathname === "/";
     return (
       <div className="App">
-        <Main />
+      {
+        ifLanding ? <h1>LandingHeader</h1>:
+        <Header />
+      }
+      <Main />
 
       </div>
     );

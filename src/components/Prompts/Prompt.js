@@ -19,7 +19,10 @@ export default class Prompt extends Component {
   }
 
   handleSubmitEvent() {
-    console.log(this.state);
+    this.props.goNext({
+      answer: this.state.answer,
+      answerText: this.state.answerText
+    });
   }
 
   render() {
@@ -42,7 +45,7 @@ export default class Prompt extends Component {
           <div>
           <input onChange={this.handleChange.bind(this)} type="text" name="answerText" placeholder={placeholder} />
           </div>
-          <button onClick={this.handleSubmitEvent.bind(this)} type="submit">Submit</button>
+          <button onClick={this.handleSubmitEvent.bind(this)} type="button">Next</button>
         </div>
       </div>
     );
