@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Prompt from '../Prompts/Prompt';
+import './PromptContainer.css';
 
 export default class PromptContainer extends Component {
   constructor(props) {
@@ -50,8 +51,7 @@ export default class PromptContainer extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Prompt</h1>
+      <div className="prompt-container">
         {this.state.steps === 0 && <Prompt goNext={this.goToNextPrompt.bind(this)} data={this.state.self} />}
         {this.state.steps === 1 && <Prompt goNext={this.goToNextPrompt.bind(this)} data={this.state.family} />}
         {this.state.steps === 2 && <Prompt goNext={this.goToNextPrompt.bind(this)} data={this.state.self} />}

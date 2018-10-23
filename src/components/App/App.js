@@ -11,7 +11,7 @@ class App extends Component {
     return (
       <div className="App">
       {
-        ifLanding ? <h1>LandingHeader</h1>:
+        // ifLanding ? <h1>LandingHeader</h1>:
         <Header />
       }
       <Main />
