@@ -1,40 +1,63 @@
 import React, { Component } from 'react';
 import Prompt from '../Prompts/Prompt';
 import './PromptContainer.css';
+import {saveJournalData} from '../../actions/JournalActions';
+import {connect} from 'react-redux';
 
-export default class PromptContainer extends Component {
+class PromptContainer extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       keys: [
-        'self',
-        'family',
-        'secondSelf'
+        'Self',
+        'Anxiety',
+        'Depression',
+        'Concentration',
+        'Family',
+        'Friendships'
       ],
       dataObject: {
 
       },
       steps: 0,
       self: {
-        title: 'Self',
-        question: 'How do you feel about yourself today?',
-        answers: ['Bad', 'Not Great', 'Good', 'Great', 'Excellent'],
-        placeholder: 'Briefly explain how you feel about yourself today'
+        question: 'How do you describe your overall mental health today?',
+        answers: ['Poor', 'Not Great', 'Good', 'Great', 'Excellent'],
+        placeholder: 'Briefly explain'
+      },
+      anxiety: {
+        question: 'How anxious would you say you feel today?',
+        answers: ['Not at all', 'Slightly', 'Moderately', 'Very', 'Extremely'],
+        placeholder: 'Briefly explain'
+      },
+      depression: {
+        question: 'How depressed would you say you feel today?',
+        answers: ['Not at all', 'Slightly', 'Moderately', 'Very', 'Extremely'],
+        placeholder: 'Briefly explain'
+      },
+      concentration: {
+        question: 'How would you describe your ability to concentrate today?',
+        answers: ['Poor', 'Not Great', 'Good', 'Great', 'Excellent'],
+        placeholder: 'Briefly explain'
       },
       family: {
-        title: 'Family',
-        question: 'How do you feel about your family today?',
-        answers: ['Bad', 'Not Great', 'Good', 'Great', 'Excellent'],
-        placeholder: 'Briefly explain how you feel about yourself today'
-      }
+        question: 'How do would you rate the connections you have with your family today?',
+        answers: ['Poor', 'Not Great', 'Good', 'Great', 'Excellent'],
+        placeholder: 'Briefly explain'
+      },
+      friendships: {
+        question: 'How do would you rate the connections you have with your friends today?',
+        answers: ['Poor', 'Not Great', 'Good', 'Great', 'Excellent'],
+        placeholder: 'Briefly explain'
+      },
     }
   }
 
   goToNextPrompt(data) {
     let newData = {
-      ['answer-' + this.state.keys[this.state.steps]]: data.answer,
-      ['answerText-' + this.state.keys[this.state.steps]]: data.answerText
+      ['answer' + this.state.keys[this.state.steps]]: data.answer,
+      ['answerText' + this.state.keys[this.state.steps]]: data.answerText
     }
     let newDataObject = Object.assign(this.state.dataObject, newData);
     let newStep = this.state.steps + 1;
@@ -47,16 +70,22 @@ export default class PromptContainer extends Component {
 
   submitAllData() {
     console.log(this.state);
+    this.props.saveJournalData(this.state.dataObject);
   }
 
   render() {
     return (
       <div className="prompt-container">
         {this.state.steps === 0 && <Prompt goNext={this.goToNextPrompt.bind(this)} data={this.state.self} />}
-        {this.state.steps === 1 && <Prompt goNext={this.goToNextPrompt.bind(this)} data={this.state.family} />}
-        {this.state.steps === 2 && <Prompt goNext={this.goToNextPrompt.bind(this)} data={this.state.self} />}
-        {this.state.steps === 3 && <button onClick={this.submitAllData.bind(this)}>Submit</button>}
+        {this.state.steps === 1 && <Prompt goNext={this.goToNextPrompt.bind(this)} data={this.state.anxiety} />}
+        {this.state.steps === 2 && <Prompt goNext={this.goToNextPrompt.bind(this)} data={this.state.depression} />}
+        {this.state.steps === 3 && <Prompt goNext={this.goToNextPrompt.bind(this)} data={this.state.concentration} />}
+        {this.state.steps === 4 && <Prompt goNext={this.goToNextPrompt.bind(this)} data={this.state.family} />}
+        {this.state.steps === 5 && <Prompt goNext={this.goToNextPrompt.bind(this)} data={this.state.friendships} />}
+        {this.state.steps === 6 && <button onClick={this.submitAllData.bind(this)}>Submit</button>}
       </div>
     )
   }
 }
+
+export default connect(null, {saveJournalData})(PromptContainer);
