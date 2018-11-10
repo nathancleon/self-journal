@@ -57,7 +57,9 @@ class PromptContainer extends Component {
   goToNextPrompt(data) {
     let newData = {
       ['answer' + this.state.keys[this.state.steps]]: data.answer,
-      ['answerText' + this.state.keys[this.state.steps]]: data.answerText
+      ['answerText' + this.state.keys[this.state.steps]]: data.answerText,
+      userID: this.props.userID,
+      token: this.props.token
     }
     let newDataObject = Object.assign(this.state.dataObject, newData);
     let newStep = this.state.steps + 1;
@@ -88,4 +90,12 @@ class PromptContainer extends Component {
   }
 }
 
-export default connect(null, {saveJournalData})(PromptContainer);
+const mapStateToProps = (reduxState) => {
+  console.log(reduxState.user.user.token);
+  return ({
+    userID: reduxState.user.user.id,
+    token: reduxState.user.user.token
+  })
+} 
+
+export default connect(mapStateToProps, {saveJournalData})(PromptContainer);

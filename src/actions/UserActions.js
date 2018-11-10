@@ -20,6 +20,32 @@ export function FetchAuthUser() {
   }
 }
 
+export function loginUser(user) {
+
+  return (dispatch) => {
+    return axios.post('http://localhost:5000/auth/login', user)
+    .then((res) => {
+      dispatch({
+        type: 'USER_LOGIN',
+        payload: res
+      })
+    })
+  }
+}
+
+export function registerUser(user) {
+
+  return (dispatch) => {
+    return axios.post('http://localhost:5000/auth/register', user)
+    .then((res) => {
+      dispatch({
+        type: 'REGISTER_USER',
+        payload: res
+      })
+    })
+  }
+}
+
 // export function SetUserInfo(data) {
 //   return {
 //     type: 'FETCH_USER_INFO',

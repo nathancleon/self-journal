@@ -12,6 +12,14 @@ const UserReducer = (state = InitialState, action) => {
     case "AUTH_USER": 
       console.log('fetch user auth');
       return state;
+    case "USER_LOGIN":
+      localStorage.setItem('token', action.payload.data.data.token);
+      localStorage.setItem('id', action.payload.data.data.id);
+      return { ...state, user: action.payload.data.data};
+    case "REGISTER_USER":
+      debugger;
+      console.log('register user reducer payload' + action.payload.data);
+      return { ...state, user: action.payload.data.data};
     default: 
       return state;
   }
