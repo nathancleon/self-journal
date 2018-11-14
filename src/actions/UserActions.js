@@ -38,11 +38,18 @@ export function registerUser(user) {
   return (dispatch) => {
     return axios.post('http://localhost:5000/auth/register', user)
     .then((res) => {
+      console.log('this is the register user response' + res);
       dispatch({
         type: 'REGISTER_USER',
         payload: res
       })
     })
+  }
+}
+
+export function logoutUser() {
+  return {
+    type: 'LOGOUT_USER',
   }
 }
 

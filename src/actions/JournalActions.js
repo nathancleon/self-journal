@@ -30,3 +30,16 @@ export function saveJournalData(journalData) {
       });
   }
 }
+
+export function fetchAllJournalData() {
+  return (dispatch) => {
+
+    axios.get('http://localhost:5000/journal/all?token=' + localStorage.getItem('token'))
+      .then((res) => {
+        dispatch({
+          type: 'FETCH_JOURNAL_DATA',
+          payload: res.data
+        })
+      })
+  }
+}
