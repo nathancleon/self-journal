@@ -4,7 +4,7 @@ import PromptContainer from '../PromptContainer/PromptContainer';
 import Landing from '../Landing/Landing';
 import Login from '../User/Login/Login';
 import Register from '../User/Register/Register';
-import JournalListContainer from '../JournalList/JournalListContainer';
+import JournalListContainer from '../JournalListContainer/JournalListContainer';
 
 export default class Main extends Component {
   render() {

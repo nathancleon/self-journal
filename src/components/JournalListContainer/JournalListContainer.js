@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import { fetchAllJournalData } from '../../actions/JournalActions';
-import JournalList from '../JournalList/JournalList';
-import JournalSelected from '../JournalList/JournalSelected';
+import JournalList from './JournalList/JournalList';
+import JournalSelected from './JournalSelected/JournalSelected';
 
 class JournalListContainer extends Component {
   constructor(props) {

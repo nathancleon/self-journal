@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Prompt from '../Prompts/Prompt';
+import Prompt from './Prompts/Prompt';
 import './PromptContainer.css';
 import {saveJournalData} from '../../actions/JournalActions';
 import {connect} from 'react-redux';
