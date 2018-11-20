@@ -43,9 +43,9 @@ class JournalList extends Component {
           <h4>List of Journal Entries</h4>
         </ListLabel>
         <ul>
-          {//reversed the order of journal items so most recent journal entry shows at the top vs the bottom
+          {
           this.props.journals.length !== 0
-            ? journalItemsRender.reverse()
+            ? journalItemsRender
             : NoItemsAvailable}
         </ul>
       </JList>
