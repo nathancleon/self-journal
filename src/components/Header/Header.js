@@ -1,19 +1,28 @@
-import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
-import './Header.css';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import "./Header.css";
 
 export default class Header extends Component {
   render() {
-    return(
+    return (
       <header>
-      <h1 className="header-title">Self-Journal</h1>
-      <ul className="header-links">
-        <li className="header-link"><Link to="/list">List</Link></li>
-        <li className="header-link"><Link to="/login">Login</Link></li>
-        <li className="header-link"><Link to="/register">Register</Link></li>
-        <li className="header-link"><Link to="/prompts">Prompts</Link></li>
-      </ul>
+        <h1 className="header-title">Self-Journal</h1>
+        <ul className="header-links">
+          <li className="header-link">
+            <Link to="/list">List</Link>
+          </li>
+          <li className="header-link">
+            <Link to="/login">Login</Link>
+          </li>
+          <li className="header-link">
+            <Link to="/register">Register</Link>
+          </li>
+          <li className="header-link">
+            <Link to="/prompts">Prompts</Link>
+          </li>
+        </ul>
       </header>
     );
-  }4
+  }
+  4;
 }

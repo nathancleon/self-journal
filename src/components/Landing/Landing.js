@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import Header from '../Header/Header';
-import './Landing.css';
+import React, { Component } from "react";
+import Header from "../Header/Header";
+import "./Landing.css";
 
 export default class Landing extends Component {
   render() {
-    return(
+    return (
       <div className="Landing">
-        <section className="banner"></section>
+        <section className="banner" />
       </div>
     );
   }

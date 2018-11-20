@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import JournalListItem from '../JournalListItem/JournalListItem';
-import styled from 'react-emotion';
+import React, { Component } from "react";
+import JournalListItem from "../JournalListItem/JournalListItem";
+import styled from "react-emotion";
 
 const JList = styled("div")`
-  {
+   {
     border-right: 1px solid #ddd;
     background-color: #fefefe;
     width: 30%;
@@ -17,43 +17,40 @@ const JList = styled("div")`
 `;
 
 const ListLabel = styled("div")`
-  {
+   {
     text-align: center;
     padding: 35px;
   }
 `;
 
 class JournalList extends Component {
-
-    render() {
-
-      const journalItemsRender = this.props.journals.map((element, index) => {
-        return (
-          <JournalListItem 
-            onJournalSelect={this.props.onJournalSelect}
-            key={index}
-            journal={element}
-          />
-        );
-      });
-
-      const NoItemsAvailable =  <p>No journal entries available</p>;
-
-      return(
-        <JList>
-          <ListLabel>
-            <h4>List of Journal Entries</h4>
-          </ListLabel>
-          <ul>
-            {
-              this.props.journals.length !== 0 ? journalItemsRender: NoItemsAvailable
-            }
-          </ul>
-  
-        </JList>
+  render() {
+    const journalItemsRender = this.props.journals.map((element, index) => {
+      return (
+        <JournalListItem
+          onJournalSelect={this.props.onJournalSelect}
+          key={index}
+          journal={element}
+        />
       );
-    }
-}
+    });
 
+    const NoItemsAvailable = <p>No journal entries available</p>;
+
+    return (
+      <JList>
+        <ListLabel>
+          <h4>List of Journal Entries</h4>
+        </ListLabel>
+        <ul>
+          {//reversed the order of journal items so most recent journal entry shows at the top vs the bottom
+          this.props.journals.length !== 0
+            ? journalItemsRender.reverse()
+            : NoItemsAvailable}
+        </ul>
+      </JList>
+    );
+  }
+}
 
 export default JournalList;
