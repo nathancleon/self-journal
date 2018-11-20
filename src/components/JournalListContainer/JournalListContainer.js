@@ -4,6 +4,13 @@ import { connect } from 'react-redux';
 import { fetchAllJournalData } from '../../actions/JournalActions';
 import JournalList from './JournalList/JournalList';
 import JournalSelected from './JournalSelected/JournalSelected';
+import styled from 'react-emotion';
+
+const JLContainer = styled("div")`
+  display: flex;
+  width: 100%;
+  height: 92vh;
+`;
 
 class JournalListContainer extends Component {
   constructor(props) {
@@ -46,11 +53,10 @@ class JournalListContainer extends Component {
     }
 
     return (
-      <div>
-        <h1>JournalList</h1>
+      <JLContainer>
         <JournalList onJournalSelect={selectedJournal => this.setState({selectedJournal})} journals={journalData} />
         <JournalSelected journal={selectedJournal} />
-      </div>
+      </JLContainer>
     );
   }
 }

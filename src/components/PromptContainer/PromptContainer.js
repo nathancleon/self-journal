@@ -15,7 +15,8 @@ class PromptContainer extends Component {
         'Depression',
         'Concentration',
         'Family',
-        'Friendships'
+        'Friendships',
+        'Gratitude'
       ],
       dataObject: {
 
@@ -51,6 +52,11 @@ class PromptContainer extends Component {
         answers: ['Poor', 'Not Great', 'Good', 'Great', 'Excellent'],
         placeholder: 'Briefly explain'
       },
+      gratitude: {
+        question: 'List at least three things you are grateful for today',
+        answers: [],
+        placeholder: 'Today, I am grateful for...'
+      },
     }
   }
 
@@ -84,7 +90,8 @@ class PromptContainer extends Component {
         {this.state.steps === 3 && <Prompt goNext={this.goToNextPrompt.bind(this)} data={this.state.concentration} />}
         {this.state.steps === 4 && <Prompt goNext={this.goToNextPrompt.bind(this)} data={this.state.family} />}
         {this.state.steps === 5 && <Prompt goNext={this.goToNextPrompt.bind(this)} data={this.state.friendships} />}
-        {this.state.steps === 6 && <button onClick={this.submitAllData.bind(this)}>Submit</button>}
+        {this.state.steps === 6 && <Prompt goNext={this.goToNextPrompt.bind(this)} data={this.state.gratitude} />}
+        {this.state.steps === 7 && <button onClick={this.submitAllData.bind(this)}>Submit</button>}
       </div>
     )
   }

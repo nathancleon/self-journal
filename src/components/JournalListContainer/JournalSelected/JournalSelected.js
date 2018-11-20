@@ -1,21 +1,33 @@
-import React from 'react';
+import React, { Component } from 'react';
+import styled from 'react-emotion';
+import PromptResponses from './PromptResponses/PromptResponses';
 
-const JournalSelected = ({journal}) => {
-  if (!journal) {
-    return <div>You haven't created a journal entry yet</div>
+const JSelected = styled("div")`
+  {
+    display: flex;
+    justify-content: center;
+    background-color: #fff;
+    width: 70%;
   }
+`;
 
-  const style = {
-    color: 'blue'
+class JournalSelected extends Component {
+  render() {
+    if (!this.props.journal) {
+      return (
+      <JSelected>
+        <div>You haven't created a journal entry yet</div>
+      </JSelected>
+      );
+    }
+  
+    return (
+      <JSelected>
+        <PromptResponses journal={this.props.journal} />
+      </JSelected>
+    )
   }
-
-  return (
-    <div>
-      <p style={style}>Journal Selected {journal.created}</p>
-      <p style={style}>Answer: {journal.answerSelf}</p>
-      <p style={style}>Answer Text: {journal.answerTextSelf}</p>
-    </div>
-  )
+  
 }
 
 export default JournalSelected;

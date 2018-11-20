@@ -4,9 +4,6 @@ import { connect } from 'react-redux';
 import { registerUser } from '../../../actions/UserActions';
 
 class Register extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   handleChange(event) {
     let key = event.target.name;

@@ -1,14 +1,32 @@
-import React from 'react';
+import React, { Component } from 'react';
 import moment from 'moment';
+import styled from 'react-emotion';
 
-const JournalListItem = ({journal, onJournalSelect}) => {
+const JListItem = styled("li")`
+  {
+    padding: 40px;
+    cursor: pointer;
+  }
+  &:hover {
+    background-color: #eee;
+  }
+  h1 {
+    color: #222;
+    font-size: 14px;
+   }
+`;
 
-  return(
+class JournalListItem extends Component {
 
-    <li onClick={() => onJournalSelect(journal)} className="journal-list-item">
-      <h1>{moment(journal.created).format("LLLL")}</h1>
-    </li>
-  )
+  render() {
+    return(
+
+      <JListItem onClick={() => this.props.onJournalSelect(this.props.journal)}>
+        <h1>{moment(this.props.journal.created).format("LLL")}</h1>
+      </JListItem>
+    )
+  }
+  
 }
 
 export default JournalListItem;
