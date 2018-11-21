@@ -11,13 +11,6 @@ export function FetchUserInfo() {
   };
 }
 
-export function FetchAuthUser() {
-  return {
-    type: "AUTH_USER",
-    payload: "fetch user auth payload"
-  };
-}
-
 export function loginUser(user) {
   return dispatch => {
     return axios.post("http://localhost:5000/auth/login", user).then(res => {
@@ -47,10 +40,3 @@ export function logoutUser() {
       type: "LOGOUT_USER"
     }
 }
-
-// export function SetUserInfo(data) {
-//   return {
-//     type: 'FETCH_USER_INFO',
-//     payload: data
-//   };
-// }

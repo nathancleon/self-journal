@@ -27,7 +27,7 @@ class Login extends Component {
     this.props.loginUser(this.state).then(() => {
       this.setState({
         toDashboard: true
-      });
+      })
     });
   }
 
