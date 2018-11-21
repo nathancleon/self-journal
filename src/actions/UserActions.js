@@ -42,9 +42,10 @@ export function registerUser(user) {
 }
 
 export function logoutUser() {
-  return {
-    type: "LOGOUT_USER"
-  };
+  console.log('userAction ran');
+  return  {
+      type: "LOGOUT_USER"
+    }
 }
 
 // export function SetUserInfo(data) {

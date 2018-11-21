@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Redirect } from 'react-router-dom';
 import "./Login.css";
 import { connect } from "react-redux";
 import { loginUser } from "../../../actions/UserActions";
@@ -9,7 +10,8 @@ class Login extends Component {
 
     this.state = {
       email: "",
-      password: ""
+      password: "",
+      toDashboard: false
     };
   }
 
@@ -23,11 +25,18 @@ class Login extends Component {
   handleSubmit(event) {
     event.preventDefault();
     this.props.loginUser(this.state).then(() => {
-      this.props.history.push("/prompts");
+      this.setState({
+        toDashboard: true
+      });
     });
   }
 
   render() {
+
+    if (this.state.toDashboard === true) {
+      return <Redirect to='/list' />;
+    }
+
     return (
       <section className="registration-container">
         <div className="form-container">

@@ -1,9 +1,20 @@
 import React, { Component } from "react";
+import { Redirect } from 'react-router-dom';
 import "./Register.css";
 import { connect } from "react-redux";
 import { registerUser } from "../../../actions/UserActions";
 
 class Register extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      email: "",
+      password: "",
+      toDashboard: false
+    };
+  }
+
   handleChange(event) {
     let key = event.target.name;
     this.setState({
@@ -14,11 +25,18 @@ class Register extends Component {
   handleSubmit(event) {
     event.preventDefault();
     this.props.registerUser(this.state).then(() => {
-      this.props.history.push("/prompts");
+      this.setState({
+        toDashboard: true
+      });
     });
   }
 
   render() {
+
+    if (this.state.toDashboard === true) {
+      return <Redirect to='/list' />;
+    }
+
     return (
       <section className="registration-container">
         <div className="form-container">

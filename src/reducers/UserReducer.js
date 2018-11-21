@@ -19,10 +19,11 @@ const UserReducer = (state = InitialState, action) => {
       console.log("register user reducer payload" + action.payload.data);
       return { ...state, user: action.payload.data.data };
     case "LOGOUT_USER":
-      localStorage.removeItem("token", action.payload.data.data.token);
-      localStorage.removeItem("id", action.payload.data.data.id);
+      console.log('userReducer ran');
+      localStorage.removeItem('token');
+      localStorage.removeItem('id');
       console.log("user logged out");
-      return { ...state, user: "" };
+      return null;
     default:
       return state;
   }
