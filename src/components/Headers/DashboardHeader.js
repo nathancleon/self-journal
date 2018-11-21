@@ -37,6 +37,9 @@ class DashboardHeader extends Component {
           <li className="header-link">
             <Link to="/prompts">Prompts</Link>
           </li>
+          <li className="header-link">
+            <Link to="/data">Data</Link>
+          </li>
           <li className="header-link" onClick={ this.logOut.bind(this) }>
             <Link to="#">Log Out</Link>
           </li>

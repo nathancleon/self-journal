@@ -9,7 +9,7 @@ class App extends Component {
   render() {
     const ifLanding = window.location.pathname === "/";
     const ifLoginOrRegister = window.location.pathname === "/login" || window.location.pathname === "/register";
-    const ifDashboard = window.location.pathname === "/list" || window.location.pathname === "/prompts";
+    const ifDashboard = window.location.pathname === "/list" || window.location.pathname === "/prompts" || window.location.pathname === "/data";
     return (
       <div className="App">
         {

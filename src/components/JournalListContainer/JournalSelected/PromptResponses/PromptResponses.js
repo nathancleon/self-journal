@@ -174,6 +174,17 @@ class PromptResponses extends Component {
     }
   }
 
+  componentWillUpdate(nextProps) {
+    if(this.state.makeEdit) {
+      if (this.props.journal._id !== nextProps.journal.id) {
+        // document.addEventListener('click', this.clickOutside, false);
+        this.setState({
+          makeEdit: false
+        });
+      }
+    }
+  }
+
   render() {
     console.log(this.props.journal);
     return (
@@ -192,7 +203,7 @@ class PromptResponses extends Component {
               Answer:
               {
                 this.state.makeEdit ?
-                <select defaultValue={this.props.journal.answerSelf}>
+                <select defaultValue={this.props.journal.answerSelf - 1}>
                   {promptData.response.self.answers.map((element, index) => {
                     return <option key={index} value={index}>{element}</option>;
                   })}
@@ -210,10 +221,19 @@ class PromptResponses extends Component {
             <h4>{promptData.questions.anxiety.question}</h4>
             <p>
               Answer:
-              {this.convertAnswerNumber(
+              {
+                this.state.makeEdit ?
+                <select defaultValue={this.props.journal.answerAnxiety - 1}>
+                  {promptData.response.anxiety.answers.map((element, index) => {
+                    return <option key={index} value={index}>{element}</option>;
+                  })}
+                </select>:
+                this.convertAnswerNumber(
                 this.props.journal.answerAnxiety,
                 promptData.response.anxiety.answers
-              )}
+              )
+              
+              }
             </p>
             <p>Answer Text: {this.props.journal.answerTextAnxiety}</p>
           </div>
@@ -221,10 +241,19 @@ class PromptResponses extends Component {
             <h4>{promptData.questions.depression.question}</h4>
             <p>
               Answer:
-              {this.convertAnswerNumber(
+              {
+                this.state.makeEdit ?
+                <select defaultValue={this.props.journal.answerDepression - 1}>
+                  {promptData.response.depression.answers.map((element, index) => {
+                    return <option key={index} value={index}>{element}</option>;
+                  })}
+                </select>:
+                this.convertAnswerNumber(
                 this.props.journal.answerDepression,
                 promptData.response.depression.answers
-              )}
+              )
+              
+              }
             </p>
             <p>Answer Text: {this.props.journal.answerTextDepression}</p>
           </div>
@@ -232,10 +261,19 @@ class PromptResponses extends Component {
             <h4>{promptData.questions.concentration.question}</h4>
             <p>
               Answer:
-              {this.convertAnswerNumber(
+              {
+                this.state.makeEdit ?
+                <select defaultValue={this.props.journal.answerConcentration - 1}>
+                  {promptData.response.concentration.answers.map((element, index) => {
+                    return <option key={index} value={index}>{element}</option>;
+                  })}
+                </select>:
+                this.convertAnswerNumber(
                 this.props.journal.answerConcentration,
                 promptData.response.concentration.answers
-              )}
+              )
+              
+              }
             </p>
             <p>Answer Text: {this.props.journal.answerTextConcentration}</p>
           </div>
@@ -243,21 +281,39 @@ class PromptResponses extends Component {
             <h4>{promptData.questions.family.question}</h4>
             <p>
               Answer:
-              {this.convertAnswerNumber(
+              {
+                this.state.makeEdit ?
+                <select defaultValue={this.props.journal.answerFamily - 1}>
+                  {promptData.response.family.answers.map((element, index) => {
+                    return <option key={index} value={index}>{element}</option>;
+                  })}
+                </select>:
+                this.convertAnswerNumber(
                 this.props.journal.answerFamily,
                 promptData.response.family.answers
-              )}
+              )
+              
+              }
             </p>
             <p>Answer Text: {this.props.journal.answerTextFamily}</p>
           </div>
           <div>
             <h4>{promptData.questions.friendships.question}</h4>
             <p>
-              Answer: 
-              {this.convertAnswerNumber(
+              Answer:
+              {
+                this.state.makeEdit ?
+                <select defaultValue={this.props.journal.answerFriendships - 1}>
+                  {promptData.response.friendships.answers.map((element, index) => {
+                    return <option key={index} value={index}>{element}</option>;
+                  })}
+                </select>:
+                this.convertAnswerNumber(
                 this.props.journal.answerFriendships,
                 promptData.response.friendships.answers
-              )}
+              )
+              
+              }
             </p>
             <p>Answer Text: {this.props.journal.answerTextFriendships}</p>
           </div>
