@@ -36,7 +36,7 @@ class JournalListContainer extends Component {
       .then(result => {
         this.setState({
           //reversed the order of journal items so most recent journal entry shows at the top vs the bottom
-          journalData: result.data.data.reverse(),
+          journalData: result.data.data,
           selectedJournal: result.data.data[0],
           isLoading: false
         });
@@ -50,6 +50,7 @@ class JournalListContainer extends Component {
   }
 
   render() {
+    console.log(this.state.journalData);
     const { journalData, selectedJournal, isLoading, error } = this.state;
 
     if (error) {

@@ -25,7 +25,11 @@ const ListLabel = styled("div")`
 
 class JournalList extends Component {
   render() {
-    const journalItemsRender = this.props.journals.map((element, index) => {
+    //sort items in data by descending order and render each item to JournalListItem component
+    const sortedJournalItems = this.props.journals.sort((date1, date2) => {
+       return new Date(date2.created) - new Date(date1.created)
+      });
+    const journalItemsRender = sortedJournalItems.map((element, index) => {
       return (
         <JournalListItem
           onJournalSelect={this.props.onJournalSelect}

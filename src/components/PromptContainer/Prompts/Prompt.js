@@ -39,7 +39,7 @@ export default class Prompt extends Component {
                     onChange={this.handleChange.bind(this)}
                     type="radio"
                     name="answer"
-                    value={index + 1}
+                    value={element}
                   />{" "}
                   <span>{element}</span>
                 </div>
