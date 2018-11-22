@@ -137,7 +137,8 @@ class PromptResponses extends Component {
   constructor(props) {
     super(props)
 
-    this.dataAnswerFilter.bind(this);
+    this.renderAnswerOptions.bind(this);
+    this.renderAnswerValue.bind(this);
 
     this.state = {
       makeEdit: false
@@ -166,7 +167,12 @@ class PromptResponses extends Component {
     }
   }
 
-  dataAnswerFilter(key, i) {
+  renderAnswerValue(i) {
+    let journalAnswerArray = Object.entries(this.props.journal).slice(3, -9).map(newArray => newArray[1]);
+    return <p>{journalAnswerArray[i]}</p>
+  }
+
+  renderAnswerOptions(key, i) {
 
     //TODO: refactor  this function after promptData refactor to then use only keys to update, limit use of index
     let journalAnswerArray = Object.entries(this.props.journal).slice(3, -9).map(newArray => newArray[1]);
@@ -213,11 +219,9 @@ class PromptResponses extends Component {
                       Answer:
                     </p>
                     {
-                        !this.state.makeEdit ?
-                        this.dataAnswerFilter(key, index): 
-                        <select>
-                          <option>placeholder</option>
-                        </select>
+                        this.state.makeEdit ?
+                        this.renderAnswerOptions(key, index): 
+                        this.renderAnswerValue(index)
                       }
                   </div>
                 );
