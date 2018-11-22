@@ -80,6 +80,7 @@ const PromptIcons = styled("div")`
 //----------------------------------------------------------
 
 const promptData = {
+  //TODO: refactor object to have keys in questions to contain individual questions and answers array
   questions: {
     self: {
       question: "How do you describe your overall mental health today?"
@@ -165,43 +166,21 @@ class PromptResponses extends Component {
     }
   }
 
-  dataAnswerFilter(data) {
-    let JournalAnswerArray = Object.entries(data).slice(3, -9).map(entry => entry[1]);
-    console.log(JournalAnswerArray);
-    // for(let i = 0; i < 6; i++) {
-      
-    //   // console.log(data);
-    //   // return (
-    //   //   <select defaultValue={data[i] - 1}>
-    //   //   {
-    //   //     Object.keys(promptData.response).map((key, index) => {
-    //   //       let responseData = promptData.response[key];
-    //   //       responseData.answers.map((element, index) => {
-    //   //        return <option key={index} value={index}>{element}</option>;
-    //   //      })
-    //   //     })
-    //   //   }
-            
-    //   //   </select>
-    //   // )
-    //  }
-    let responseFilter = Object.keys(promptData.response).map((key, index) => {
-      let responseData = promptData.response[key];
-     return responseData.answers.map((element, index) => {
-       return <option key={index} value={index}>{element}</option>;
-     })
-    });
+  dataAnswerFilter(key, i) {
 
-    JournalAnswerArray.map((element, index) => {
-      console.log(element);
-      return (
-        <select defaultValue={element - 1}>
-        { 
-          responseFilter
-        }
-        </select>
-      )
-    })
+    //TODO: refactor  this function after promptData refactor to then use only keys to update, limit use of index
+    let journalAnswerArray = Object.entries(this.props.journal).slice(3, -9).map(newArray => newArray[1]);
+    console.warn(journalAnswerArray);
+      let responseData = promptData.response[key];
+      if(!responseData) {
+        return null;
+      }
+      console.log(responseData);
+      let responseFilter = responseData.answers.map((element, index) => {
+        console.log(element);
+       return <option key={index} value={element}>{element}</option>;
+     })
+    return <select defaultValue={journalAnswerArray[i]}>{responseFilter}</select>;
   }
 
   componentWillUpdate(nextProps) {
@@ -235,8 +214,10 @@ class PromptResponses extends Component {
                     </p>
                     {
                         !this.state.makeEdit ?
-                        this.dataAnswerFilter(this.props.journal): 
-                        null
+                        this.dataAnswerFilter(key, index): 
+                        <select>
+                          <option>placeholder</option>
+                        </select>
                       }
                   </div>
                 );
