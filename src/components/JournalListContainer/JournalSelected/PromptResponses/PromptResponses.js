@@ -205,7 +205,6 @@ class PromptResponses extends Component {
       return null;
     }
     let renderOptions = userResponseOptions.answers.map(element => {
-      console.log(element);
       return <option key={element} value={element}>{element}</option>;
     })
     return (
@@ -224,7 +223,7 @@ class PromptResponses extends Component {
 
   renderAnswerTextValue(questionIndex) {
     let journalTextArray = Object.entries(this.props.journal).slice(9, -2).map(newArray => newArray[1]);
-    return <p>{journalTextArray[questionIndex]}</p>
+    return <textarea rows="4" cols="50" key={journalTextArray[questionIndex]} defaultValue={journalTextArray[questionIndex]} readOnly></textarea>
   }
 
   componentWillUpdate(nextProps) {
