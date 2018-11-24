@@ -23,42 +23,17 @@ const SelectedPromptContainer = styled("div")`
 const SelectedPromptHeader = styled("div")`
   {
     display: flex;
+    justify-content: space-between;
+    width: 50%;
     margin-top: 40px;
+    background-color: #fefefe;
+    box-shadow:  0 4px 2px -2px rgba(0,0,0,0.2);
     position: relative;
-  }
-  &:after {
-    position: absolute;
-    content: "";
-    bottom: -10px;
-    left: 0px;
-    width: 60%;
-    height: 2px;
-    background-color: #ddd;
   }
   h1 {
     font-size: 24px;
-    width: 50%;
     height: 50px;
     padding-top: 10px;
-  }
-  
-`
-
-const SelectedPromptData = styled("div")`
-   {
-    display: flex;
-    flex-direction: column;
-    max-height: 92vh;
-    width: 100%;
-    overflow-y: scroll;
-  }
-  p {
-    text-align: left;
-    margin-top: 15px;
-  }
- 
-  h4 {
-    margin-top: 25px;
   }
 `;
 
@@ -66,20 +41,58 @@ const PromptIcons = styled("div")`
   {
     display: flex;
     justify-content: space-around;
+    width: 15%;
     position: inline-block;
-    width: 10%;
     height: 50px;
   }
   svg {
     width: 25px;
     cursor: pointer;
+    margin-bottom: 2px;
   }
   svg:first-child {
     fill: orange;
+    margin-right: 20px;
   }
   svg:nth-child(2) {
     fill: red;
     width: 23px;
+  }
+`;
+
+const SelectedPromptData = styled("div")`
+   {
+    display: flex;
+    flex-direction: column;
+    max-height: 92vh;
+    width: 100%;
+    margin-left: 5px;
+    overflow-y: scroll;
+  }
+  h4 {
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+`;
+
+const UserAnswers = styled("div")`
+  {
+    display: flex;
+  }
+  p {
+    text-align: left;
+    margin-right: 5px;
+    margin-bottom: 10px;
+  }
+`;
+
+const UserTextAnswers = styled("div")`
+
+  {
+    margin-bottom: 10px;
+  }
+  textarea {
+    font-size: 14px;
   }
 `;
 
@@ -154,6 +167,18 @@ class PromptResponses extends Component {
   }
 
   //----------------------------------------------------------
+  // Lifecycle Methods
+  //----------------------------------------------------------
+
+  componentWillUpdate(nextProps) {
+    if (this.state.makeEdit && this.props.journal._id !== nextProps.journal.id) {
+      this.setState({
+        makeEdit: false
+      });
+    }
+}
+
+  //----------------------------------------------------------
   // FUNCTIONS
   //----------------------------------------------------------
 
@@ -181,10 +206,10 @@ class PromptResponses extends Component {
     //only return answers if the question index is less than the answer array
     if(questionIndex < journalAnswerArray.length) {
       return (
-        <div style={{display: "flex"}}>
+        <UserAnswers>
           <p>Answer: </p>
           <p>{journalAnswerArray[questionIndex]}</p>
-        </div>
+        </UserAnswers>
         )
     } else {
       return null;
@@ -208,10 +233,10 @@ class PromptResponses extends Component {
       return <option key={element} value={element}>{element}</option>;
     })
     return (
-      <div style={{display: "flex"}}>
+      <UserAnswers>
         <p>Answer: </p>
         <select defaultValue={journalAnswerArray[questionIndex]}>{renderOptions}</select>
-      </div>
+      </UserAnswers>
       );
   }
 
@@ -224,14 +249,6 @@ class PromptResponses extends Component {
   renderAnswerTextValue(questionIndex) {
     let journalTextArray = Object.entries(this.props.journal).slice(9, -2).map(newArray => newArray[1]);
     return <textarea rows="4" cols="50" key={journalTextArray[questionIndex]} defaultValue={journalTextArray[questionIndex]} readOnly></textarea>
-  }
-
-  componentWillUpdate(nextProps) {
-      if (this.state.makeEdit && this.props.journal._id !== nextProps.journal.id) {
-        this.setState({
-          makeEdit: false
-        });
-      }
   }
 
   render() {
@@ -255,7 +272,7 @@ class PromptResponses extends Component {
                 return (
                   <div key={index}>
                     <h4 key={index}>{promptData.questions[key].question}</h4>
-                    <div style={{ display: "flex"}}>
+                    <div>
                           {
                             //if edit state is active, return answer options, else return just the value from user data to the page
                             this.state.makeEdit ?
@@ -263,14 +280,14 @@ class PromptResponses extends Component {
                             this.renderAnswerValue(index)
                           }
                     </div>
-                    <div>
+                    <UserTextAnswers>
                       {
                         //if edit state is active, return textarea, else return just the text value from user data to the page
                         this.state.makeEdit ?
                         this.renderAnswerText(key, index): 
                         this.renderAnswerTextValue(index)
                         }
-                    </div>
+                    </UserTextAnswers>
                     
                   </div>
                 );
