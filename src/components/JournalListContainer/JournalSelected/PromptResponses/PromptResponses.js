@@ -102,50 +102,34 @@ const UserTextAnswers = styled("div")`
 //----------------------------------------------------------
 
 const promptData = {
-  //TODO: refactor object to have keys in questions to contain individual questions and answers array
-  questions: {
+  data: {
     self: {
-      question: "How do you describe your overall mental health today?"
+      question: "How do you describe your overall mental health today?",
+      answers: ["Poor", "Not Great", "Good", "Great", "Excellent"]
     },
     anxiety: {
-      question: "How anxious would you say you feel today?"
+      question: "How anxious would you say you feel today?",
+      answers: ["Not at all", "Slightly", "Moderately", "Very", "Extremely"]
     },
     depression: {
-      question: "How depressed would you say you feel today?"
+      question: "How depressed would you say you feel today?",
+      answers: ["Not at all", "Slightly", "Moderately", "Very", "Extremely"]
     },
     concentration: {
-      question: "How would you describe your ability to concentrate today?"
+      question: "How would you describe your ability to concentrate today?",
+      answers: ["Poor", "Not Great", "Good", "Great", "Excellent"]
     },
     family: {
-      question:
-        "How do would you rate the connections you have with your family today?"
+      question: "How do would you rate the connections you have with your family today?",
+      answers: ["Poor", "Not Great", "Good", "Great", "Excellent"]
+        
     },
     friendships: {
-      question:
-        "How do would you rate the connections you have with your friends today?"
+      question: "How do would you rate the connections you have with your friends today?", 
+      answers: ["Poor", "Not Great", "Good", "Great", "Excellent"]
     },
     gratitude: {
       question: "List at least three things you are grateful for today"
-    }
-  },
-  response: {
-    self: {
-      answers: ["Poor", "Not Great", "Good", "Great", "Excellent"]
-    },
-    anxiety: {
-      answers: ["Not at all", "Slightly", "Moderately", "Very", "Extremely"]
-    },
-    depression: {
-      answers: ["Not at all", "Slightly", "Moderately", "Very", "Extremely"]
-    },
-    concentration: {
-      answers: ["Poor", "Not Great", "Good", "Great", "Excellent"]
-    },
-    family: {
-      answers: ["Poor", "Not Great", "Good", "Great", "Excellent"]
-    },
-    friendships: {
-      answers: ["Poor", "Not Great", "Good", "Great", "Excellent"]
     }
   }
 };
@@ -183,12 +167,7 @@ class PromptResponses extends Component {
   // FUNCTIONS
   //----------------------------------------------------------
 
-  convertAnswerNumber(number, answer) {
-    return " " + answer[number - 1];
-  }
-
-
-  toggleEdit(e) {
+  toggleEdit() {
     if (this.state.makeEdit) {
       this.setState({
         makeEdit: false
@@ -219,22 +198,23 @@ class PromptResponses extends Component {
 
   renderAnswerOptions(questionKey, questionIndex) {
 
-    //TODO: refactor  this function after promptData refactor to then use only keys to update, limit use of index
+    //TODO: refactor  this function to use only keys to update, limit use of index
     //also refactor data model in database so that slice is not needed
 
     //this pulls just the user answer data (e.g. "answerSelf: Good")
     let journalAnswerArray = Object.entries(this.props.journal).slice(3, -9).map(newArray => newArray[1]);
 
-    let userResponseOptions = promptData.response[questionKey];
-    if(!userResponseOptions) {
+    let userResponseOptions = promptData.data[questionKey];
+    if(!userResponseOptions.answers) {
       return null;
     }
-
-    let responsePropertiesArray = Object.getOwnPropertyNames(promptData.response);
 
     let renderOptions = userResponseOptions.answers.map(element => {
       return <option key={element} value={element}>{element}</option>;
     })
+
+    let responsePropertiesArray = Object.getOwnPropertyNames(promptData.data);
+
     return (
       <UserAnswers>
         <p>Answer: </p>
@@ -244,7 +224,7 @@ class PromptResponses extends Component {
   }
 
   renderAnswerText(questionKey, questionIndex) {
-    let responsePropertiesArray = Object.getOwnPropertyNames(promptData.response);
+    let responsePropertiesArray = Object.getOwnPropertyNames(promptData.data);
     let journalTextArray = Object.entries(this.props.journal).slice(9, -2).map(newArray => newArray[1]);
     let userTextValue = journalTextArray[questionIndex];
        return <textarea rows="4" cols="50" key={questionKey} defaultValue={userTextValue} name={responsePropertiesArray[questionIndex]}></textarea>;
@@ -273,10 +253,10 @@ class PromptResponses extends Component {
             <SelectedPromptData>
             {
               //Render all questions from promptData object to page
-              Object.keys(promptData.questions).map((key, index) => {
+              Object.keys(promptData.data).map((key, index) => {
                 return (
                   <div key={index}>
-                    <h4 key={index}>{promptData.questions[key].question}</h4>
+                    <h4 key={index}>{promptData.data[key].question}</h4>
                     <div>
                           {
                             //if edit state is active, return answer options, else return just the value from user data to the page
@@ -287,16 +267,20 @@ class PromptResponses extends Component {
                     </div>
                     <UserTextAnswers>
                       {
-                        //if edit state is active, return textarea, else return just the text value from user data to the page
+                        //if edit state is active, return editable textarea, else return readonly textarea from user data to the page
                         this.state.makeEdit ?
                         this.renderAnswerText(key, index): 
                         this.renderAnswerTextValue(index)
                         }
                     </UserTextAnswers>
-                    
                   </div>
                 );
               })
+            }
+            {
+              this.state.makeEdit ?
+              <button>Submit</button>:
+              null
             }
             </SelectedPromptData>
       </SelectedPromptContainer>
