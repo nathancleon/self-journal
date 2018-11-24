@@ -7,6 +7,9 @@ const JournalReducer = (state = InitialState, action) => {
     case "SAVE_JOURNAL_DATA":
       console.log("save journal reducer");
       return state;
+    case "UPDATE_JOURNAL_DATA":
+      console.log("update journal reducer");
+      return state;
     case "FETCH_JOURNAL_DATA":
       return { ...state, all: action.payload.data };
     default:

@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import styled from "react-emotion";
 import moment from "moment";
+import { saveJournalData } from "../../../../actions/JournalActions";
+import { connect } from "react-redux";
 
 //----------------------------------------------------------
 // STYLES
@@ -97,38 +99,60 @@ const UserTextAnswers = styled("div")`
   }
 `;
 
+const SubmitButton = styled("button")`
+  {
+    display: inline-block;
+    padding: 30px;
+    width: 370px;
+    font-size: 18px;
+    color: #fff;
+    text-align: center;
+    line-height: 0px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #06BB00;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    cursor: pointer;
+  }
+  &:hover {
+    background-color: #fefefe;
+    color: #333;
+  }
+`;
+
 //----------------------------------------------------------
 // DATA
 //----------------------------------------------------------
 
 const promptData = {
   data: {
-    self: {
+    Self: {
       question: "How do you describe your overall mental health today?",
       answers: ["Poor", "Not Great", "Good", "Great", "Excellent"]
     },
-    anxiety: {
+    Anxiety: {
       question: "How anxious would you say you feel today?",
       answers: ["Not at all", "Slightly", "Moderately", "Very", "Extremely"]
     },
-    depression: {
+    Depression: {
       question: "How depressed would you say you feel today?",
       answers: ["Not at all", "Slightly", "Moderately", "Very", "Extremely"]
     },
-    concentration: {
+    Concentration: {
       question: "How would you describe your ability to concentrate today?",
       answers: ["Poor", "Not Great", "Good", "Great", "Excellent"]
     },
-    family: {
+    Family: {
       question: "How do would you rate the connections you have with your family today?",
       answers: ["Poor", "Not Great", "Good", "Great", "Excellent"]
         
     },
-    friendships: {
+    Friendships: {
       question: "How do would you rate the connections you have with your friends today?", 
       answers: ["Poor", "Not Great", "Good", "Great", "Excellent"]
     },
-    gratitude: {
+    Gratitude: {
       question: "List at least three things you are grateful for today"
     }
   }
@@ -143,10 +167,9 @@ class PromptResponses extends Component {
   constructor(props) {
     super(props)
 
-    this.renderAnswerOptions.bind(this);
-    this.renderAnswerValue.bind(this);
-
     this.state = {
+      dataObject: {
+      },
       makeEdit: false
     }
   }
@@ -155,11 +178,11 @@ class PromptResponses extends Component {
   // Lifecycle Methods
   //----------------------------------------------------------
 
-  componentWillUpdate(nextProps) {
-    if (this.state.makeEdit && this.props.journal._id !== nextProps.journal.id) {
+   componentDidUpdate(nextProps) {
+    if (this.state.makeEdit && this.props.journal._id !== nextProps.journal._id) {
       this.setState({
         makeEdit: false
-      });
+      })
     }
 }
 
@@ -198,7 +221,7 @@ class PromptResponses extends Component {
 
   renderAnswerOptions(questionKey, questionIndex) {
 
-    //TODO: refactor  this function to use only keys to update, limit use of index
+    //TODO: refactor this function to use only keys to update, limit use of index
     //also refactor data model in database so that slice is not needed
 
     //this pulls just the user answer data (e.g. "answerSelf: Good")
@@ -218,7 +241,7 @@ class PromptResponses extends Component {
     return (
       <UserAnswers>
         <p>Answer: </p>
-        <select defaultValue={journalAnswerArray[questionIndex]} name={responsePropertiesArray[questionIndex]}>{renderOptions}</select>
+        <select onChange={this.saveAnswerEditValue.bind(this)} defaultValue={journalAnswerArray[questionIndex]} name={responsePropertiesArray[questionIndex]}>{renderOptions}</select>
       </UserAnswers>
       );
   }
@@ -227,7 +250,7 @@ class PromptResponses extends Component {
     let responsePropertiesArray = Object.getOwnPropertyNames(promptData.data);
     let journalTextArray = Object.entries(this.props.journal).slice(9, -2).map(newArray => newArray[1]);
     let userTextValue = journalTextArray[questionIndex];
-       return <textarea rows="4" cols="50" key={questionKey} defaultValue={userTextValue} name={responsePropertiesArray[questionIndex]}></textarea>;
+       return <textarea onChange={this.saveAnswerEditTextValue.bind(this)} rows="4" cols="50" key={questionKey} defaultValue={userTextValue} name={responsePropertiesArray[questionIndex]}></textarea>;
   }
 
   renderAnswerTextValue(questionIndex) {
@@ -235,6 +258,40 @@ class PromptResponses extends Component {
     let userTextValue = journalTextArray[questionIndex]; 
     return <textarea rows="4" cols="50" key={userTextValue} defaultValue={journalTextArray[questionIndex]} readOnly></textarea>
   }
+
+  saveAnswerEditValue(event) {
+    let newDataObject = {...this.state.dataObject};
+    let editedDataObject = {...newDataObject, ['answer' + event.target.name]: event.target.value};
+    this.setState({...this.state, dataObject: {...editedDataObject}});
+    console.log(this.state);
+  }
+
+  saveAnswerEditTextValue(event) {
+    
+    let newDataObject = {...this.state.dataObject};
+    let editedDataObject = {...newDataObject, ['answerText' + event.target.name]: event.target.value};
+    this.setState({...this.state, dataObject: {...editedDataObject}});
+    console.log(this.state);
+  }
+
+  submitEditedValues(event) {
+    console.log('submitted edited values ran');
+    event.preventDefault();
+    let newData = Object.assign({}, this.state.dataObject)
+    newData.userID = this.props.userID;
+    newData.token = this.props.token;
+    debugger;
+    console.log('edited values data ' + newData);
+
+    this.setState({
+      makeEdit: false
+    });
+
+  }
+
+  //----------------------------------------------------------
+  // RENDER
+  //----------------------------------------------------------
 
   render() {
     return (
@@ -248,8 +305,6 @@ class PromptResponses extends Component {
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M0 84V56c0-13.3 10.7-24 24-24h112l9.4-18.7c4-8.2 12.3-13.3 21.4-13.3h114.3c9.1 0 17.4 5.1 21.5 13.3L312 32h112c13.3 0 24 10.7 24 24v28c0 6.6-5.4 12-12 12H12C5.4 96 0 90.6 0 84zm416 56v324c0 26.5-21.5 48-48 48H80c-26.5 0-48-21.5-48-48V140c0-6.6 5.4-12 12-12h360c6.6 0 12 5.4 12 12zm-272 68c0-8.8-7.2-16-16-16s-16 7.2-16 16v224c0 8.8 7.2 16 16 16s16-7.2 16-16V208zm96 0c0-8.8-7.2-16-16-16s-16 7.2-16 16v224c0 8.8 7.2 16 16 16s16-7.2 16-16V208zm96 0c0-8.8-7.2-16-16-16s-16 7.2-16 16v224c0 8.8 7.2 16 16 16s16-7.2 16-16V208z"/></svg>
               </PromptIcons>
             </SelectedPromptHeader>
-        
-            
             <SelectedPromptData>
             {
               //Render all questions from promptData object to page
@@ -279,7 +334,7 @@ class PromptResponses extends Component {
             }
             {
               this.state.makeEdit ?
-              <button>Submit</button>:
+              <SubmitButton onClick={this.submitEditedValues.bind(this)}>Submit</SubmitButton>:
               null
             }
             </SelectedPromptData>
@@ -288,4 +343,17 @@ class PromptResponses extends Component {
   }
 }
 
-export default PromptResponses;
+const mapStateToProps = reduxState => {
+  console.log(reduxState.user.user.token);
+  return {
+    userID: reduxState.user.user.id,
+    token: reduxState.user.user.token
+  };
+};
+
+
+export default connect(
+  mapStateToProps,
+  { saveJournalData }
+)(PromptResponses);
+

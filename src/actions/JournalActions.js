@@ -34,6 +34,40 @@ export function saveJournalData(journalData) {
   };
 }
 
+export function UpdateJournalData(journalData) {
+  console.log('UpdateJournalData' + journalData);
+  return dispatch => {
+    let headers = {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + journalData.token
+    };
+
+    let data = JSON.stringify({ journalData });
+    console.log("this is saveJournalData " + data.journalData);
+
+    // const instance = axios.create({
+    //   baseURL: 'http://localhost:5000/',
+    //   timeout: 1000,
+    //   headers: headers
+    // })
+    axios
+      .put(
+        "http://localhost:5000/journal/one/" + journalData.userID + "?token=" + journalData.token,
+        data,
+        {
+          headers: headers
+        }
+      )
+      .then(res => {
+        console.log("this is the post response" + res);
+        dispatch({
+          type: "UPDATE_JOURNAL_DATA",
+          payload: res.data
+        });
+      });
+  };
+}
+
 export function fetchAllJournalData() {
   return dispatch => {
     axios
