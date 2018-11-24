@@ -15,7 +15,7 @@ const SelectedPromptContainer = styled("div")`
     background-color: #fefefe;
     width: 100%;
     margin-left: 60px;
-    margin-top: 20px;
+    margin-top: 5px;
   }
   
 `;
@@ -24,10 +24,10 @@ const SelectedPromptHeader = styled("div")`
   {
     display: flex;
     justify-content: space-between;
-    width: 50%;
+    width: 470px;
     margin-top: 40px;
     background-color: #fefefe;
-    box-shadow:  0 4px 2px -2px rgba(0,0,0,0.2);
+    box-shadow:  0px 6px 2px -5px rgba(0,0,0,0.2);
     position: relative;
   }
   h1 {
@@ -41,7 +41,7 @@ const PromptIcons = styled("div")`
   {
     display: flex;
     justify-content: space-around;
-    width: 15%;
+    width: 80px;
     position: inline-block;
     height: 50px;
   }
@@ -67,6 +67,7 @@ const SelectedPromptData = styled("div")`
     max-height: 92vh;
     width: 100%;
     margin-left: 5px;
+    overflow: -moz-scrollbars-vertical; 
     overflow-y: scroll;
   }
   h4 {
@@ -188,7 +189,6 @@ class PromptResponses extends Component {
 
 
   toggleEdit(e) {
-    console.log(e.target);
     if (this.state.makeEdit) {
       this.setState({
         makeEdit: false
@@ -229,26 +229,31 @@ class PromptResponses extends Component {
     if(!userResponseOptions) {
       return null;
     }
+
+    let responsePropertiesArray = Object.getOwnPropertyNames(promptData.response);
+
     let renderOptions = userResponseOptions.answers.map(element => {
       return <option key={element} value={element}>{element}</option>;
     })
     return (
       <UserAnswers>
         <p>Answer: </p>
-        <select defaultValue={journalAnswerArray[questionIndex]}>{renderOptions}</select>
+        <select defaultValue={journalAnswerArray[questionIndex]} name={responsePropertiesArray[questionIndex]}>{renderOptions}</select>
       </UserAnswers>
       );
   }
 
   renderAnswerText(questionKey, questionIndex) {
+    let responsePropertiesArray = Object.getOwnPropertyNames(promptData.response);
     let journalTextArray = Object.entries(this.props.journal).slice(9, -2).map(newArray => newArray[1]);
     let userTextValue = journalTextArray[questionIndex];
-       return <textarea rows="4" cols="50" key={questionKey} defaultValue={userTextValue}></textarea>;
+       return <textarea rows="4" cols="50" key={questionKey} defaultValue={userTextValue} name={responsePropertiesArray[questionIndex]}></textarea>;
   }
 
   renderAnswerTextValue(questionIndex) {
     let journalTextArray = Object.entries(this.props.journal).slice(9, -2).map(newArray => newArray[1]);
-    return <textarea rows="4" cols="50" key={journalTextArray[questionIndex]} defaultValue={journalTextArray[questionIndex]} readOnly></textarea>
+    let userTextValue = journalTextArray[questionIndex]; 
+    return <textarea rows="4" cols="50" key={userTextValue} defaultValue={journalTextArray[questionIndex]} readOnly></textarea>
   }
 
   render() {
