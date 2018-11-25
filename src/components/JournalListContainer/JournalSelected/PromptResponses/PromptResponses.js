@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styled from "react-emotion";
 import moment from "moment";
-import { saveJournalData } from "../../../../actions/JournalActions";
+import { updateJournalData } from "../../../../actions/JournalActions";
 import { connect } from "react-redux";
 
 //----------------------------------------------------------
@@ -278,6 +278,7 @@ class PromptResponses extends Component {
     console.log('submitted edited values ran');
     event.preventDefault();
     let newData = Object.assign({}, this.state.dataObject)
+    newData._id = this.props.journal._id;
     newData.userID = this.props.userID;
     newData.token = this.props.token;
     debugger;
@@ -287,6 +288,7 @@ class PromptResponses extends Component {
       makeEdit: false
     });
 
+    this.props.updateJournalData(newData);
   }
 
   //----------------------------------------------------------
@@ -354,6 +356,6 @@ const mapStateToProps = reduxState => {
 
 export default connect(
   mapStateToProps,
-  { saveJournalData }
+  { updateJournalData }
 )(PromptResponses);
 

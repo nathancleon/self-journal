@@ -7,9 +7,15 @@ const JList = styled("div")`
     border-right: 1px solid #ddd;
     background-color: #fefefe;
     width: 30%;
+    position: relative;
+    overflow-y: scroll;
+  }
+  ul{
+    margin-top: 100px;
   }
   ul li {
     border-top: 1px solid #ddd;
+    background-color: #fefefe;
   }
   ul li:last-child {
     border-bottom: 1px solid #ddd;
@@ -20,6 +26,10 @@ const ListLabel = styled("div")`
    {
     text-align: center;
     padding: 35px;
+    width: 30%;
+    position: fixed;
+    background-color: #fefefe;
+    border: 1px solid #ddd;
   }
 `;
 

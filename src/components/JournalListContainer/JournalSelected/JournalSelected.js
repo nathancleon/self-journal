@@ -13,6 +13,7 @@ const JSelected = styled("div")`
 
 class JournalSelected extends Component {
   render() {
+    console.log(this.props.journal);
     if (!this.props.journal) {
       return (
         <JSelected>

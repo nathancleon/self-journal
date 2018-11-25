@@ -34,7 +34,7 @@ export function saveJournalData(journalData) {
   };
 }
 
-export function UpdateJournalData(journalData) {
+export function updateJournalData(journalData) {
   console.log('UpdateJournalData' + journalData);
   return dispatch => {
     let headers = {
@@ -43,23 +43,17 @@ export function UpdateJournalData(journalData) {
     };
 
     let data = JSON.stringify({ journalData });
-    console.log("this is saveJournalData " + data.journalData);
-
-    // const instance = axios.create({
-    //   baseURL: 'http://localhost:5000/',
-    //   timeout: 1000,
-    //   headers: headers
-    // })
+    console.log("this is updateJournalData " + data.journalData);
     axios
       .put(
-        "http://localhost:5000/journal/one/" + journalData.userID + "?token=" + journalData.token,
-        data,
+        "http://localhost:5000/journal/one/" + data.userID + "?token=" + journalData.token,
+        data.journalData,
         {
           headers: headers
         }
       )
       .then(res => {
-        console.log("this is the post response" + res);
+        console.log("this is the put response" + res);
         dispatch({
           type: "UPDATE_JOURNAL_DATA",
           payload: res.data
