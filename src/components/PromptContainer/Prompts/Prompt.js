@@ -32,7 +32,9 @@ export default class Prompt extends Component {
         <div className="prompt-answers-container">
           <h2 className="prompt-question">{question}</h2>
           <div className="prompt-answers">
-            {answers.map((element, index) => {
+            {
+              answers ?
+              answers.map((element, index) => {
               return (
                 <div className="prompt-answer" key={index}>
                   <input
@@ -44,7 +46,8 @@ export default class Prompt extends Component {
                   <span>{element}</span>
                 </div>
               );
-            })}
+            }): null
+          }
           </div>
           <textarea
             className="prompt-text-field"

@@ -18,7 +18,8 @@ class PromptContainer extends Component {
         "Friendships",
         "Gratitude"
       ],
-      dataObject: {},
+      dataObject: {
+      },
       steps: 0,
       self: {
         question: "How do you describe your overall mental health today?",
@@ -54,20 +55,25 @@ class PromptContainer extends Component {
       },
       gratitude: {
         question: "List at least three things you are grateful for today",
-        answers: [],
         placeholder: "Today, I am grateful for..."
       }
     };
   }
 
   goToNextPrompt(data) {
-    let newData = {
-      ["answer" + this.state.keys[this.state.steps]]: data.answer,
-      ["answerText" + this.state.keys[this.state.steps]]: data.answerText,
-      userID: this.props.userID,
-      token: this.props.token
-    };
-    let newDataObject = Object.assign(this.state.dataObject, newData);
+    let storeData = {...this.state.dataObject};
+    storeData.answervalues = {};
+    storeData.answerTextValues = {};
+
+    let storeAnswers = {["answer" + this.state.keys[this.state.steps]]: data.answer};
+    let storeTextAnswers = {["answerText" + this.state.keys[this.state.steps]]: data.answerText};
+  
+    let answerValues = Object.assign(storeData.answervalues, {...storeAnswers});
+    let answerTextValues = Object.assign(storeData.answerTextValues, {...storeTextAnswers});
+    console.log(answerValues);
+
+    let newDataObject = Object.assign({}, storeData);
+    // console.log(newDataObject);
     let newStep = this.state.steps + 1;
     this.setState({
       dataObject: newDataObject,
@@ -76,8 +82,33 @@ class PromptContainer extends Component {
   }
 
   submitAllData() {
-    console.log(this.state);
-    this.props.saveJournalData(this.state.dataObject);
+    let answersArray = Object.entries(this.state.dataObject).sort().slice(0, -7).map(newArray => newArray[1]);
+    let textAnswersArray = Object.entries(this.state.dataObject).sort().slice(7).map(newArray => newArray[1]);
+    
+
+    let userResponses = {
+      answerValues: {},
+      answerTextValues: {}
+    };
+
+    let userResponseData = this.state.keys.map((key, index) => {
+        let newData = {};
+         let answerValue = {["answer" + key]: answersArray[index]};
+         if (!answersArray[index]) {
+           return null;
+         }
+         let answerTextValue = {["answerText" + key]: textAnswersArray[index]};
+          let answerValues = Object.assign(newData, answerValue);
+          let answerTextValues = Object.assign(newData, answerTextValue);
+    })
+
+   
+
+    console.log(userResponseData);
+
+
+    debugger;
+    // this.props.saveJournalData(this.state.dataObject);
   }
 
   render() {

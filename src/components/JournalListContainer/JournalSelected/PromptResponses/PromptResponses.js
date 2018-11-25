@@ -204,13 +204,13 @@ class PromptResponses extends Component {
 
   renderAnswerValue(questionIndex) {
     //this pulls just the user answer data (e.g. "answerSelf: Good")
-    let journalAnswerArray = Object.entries(this.props.journal).slice(3, -9).map(newArray => newArray[1]);
+    let journalAnswers = this.props.journal.answerValues;
     //only return answers if the question index is less than the answer array
-    if(questionIndex < journalAnswerArray.length) {
+    if(questionIndex < journalAnswers.length) {
       return (
         <UserAnswers>
           <p>Answer: </p>
-          <p>{journalAnswerArray[questionIndex]}</p>
+          <p>{journalAnswers[questionIndex]}</p>
         </UserAnswers>
         )
     } else {
@@ -225,7 +225,7 @@ class PromptResponses extends Component {
     //also refactor data model in database so that slice is not needed
 
     //this pulls just the user answer data (e.g. "answerSelf: Good")
-    let journalAnswerArray = Object.entries(this.props.journal).slice(3, -9).map(newArray => newArray[1]);
+    let journalAnswers = this.props.journal.answerValues;
 
     let userResponseOptions = promptData.data[questionKey];
     if(!userResponseOptions.answers) {
@@ -241,36 +241,36 @@ class PromptResponses extends Component {
     return (
       <UserAnswers>
         <p>Answer: </p>
-        <select onChange={this.saveAnswerEditValue.bind(this)} defaultValue={journalAnswerArray[questionIndex]} name={responsePropertiesArray[questionIndex]}>{renderOptions}</select>
+        <select onChange={this.saveAnswerEditValue.bind(this)} defaultValue={journalAnswers[questionIndex]} name={responsePropertiesArray[questionIndex]}>{renderOptions}</select>
       </UserAnswers>
       );
   }
 
   renderAnswerText(questionKey, questionIndex) {
     let responsePropertiesArray = Object.getOwnPropertyNames(promptData.data);
-    let journalTextArray = Object.entries(this.props.journal).slice(9, -2).map(newArray => newArray[1]);
-    let userTextValue = journalTextArray[questionIndex];
+    let journalTextAnswers = this.props.journal.answerTextValues;
+    let userTextValue = journalTextAnswers[questionIndex];
        return <textarea onChange={this.saveAnswerEditTextValue.bind(this)} rows="4" cols="50" key={questionKey} defaultValue={userTextValue} name={responsePropertiesArray[questionIndex]}></textarea>;
   }
 
   renderAnswerTextValue(questionIndex) {
-    let journalTextArray = Object.entries(this.props.journal).slice(9, -2).map(newArray => newArray[1]);
-    let userTextValue = journalTextArray[questionIndex]; 
-    return <textarea rows="4" cols="50" key={userTextValue} defaultValue={journalTextArray[questionIndex]} readOnly></textarea>
+    let journalTextAnswers = this.props.journal.answerTextValues;
+    let userTextValue = journalTextAnswers[questionIndex]; 
+    return <textarea rows="4" cols="50" key={userTextValue} defaultValue={journalTextAnswers[questionIndex]} readOnly></textarea>
   }
 
   saveAnswerEditValue(event) {
     let newDataObject = {...this.state.dataObject};
-    let editedDataObject = {...newDataObject, ['answer' + event.target.name]: event.target.value};
-    this.setState({...this.state, dataObject: {...editedDataObject}});
+    let answerValues = {...newDataObject, ['answer' + event.target.name]: event.target.value};
+    this.setState({...this.state, dataObject: answerValues});
     console.log(this.state);
   }
 
   saveAnswerEditTextValue(event) {
     
     let newDataObject = {...this.state.dataObject};
-    let editedDataObject = {...newDataObject, ['answerText' + event.target.name]: event.target.value};
-    this.setState({...this.state, dataObject: {...editedDataObject}});
+    let answerTextValues = {...newDataObject, ['answerText' + event.target.name]: event.target.value};
+    this.setState({...this.state, dataObject: answerTextValues});
     console.log(this.state);
   }
 

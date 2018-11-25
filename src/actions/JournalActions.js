@@ -43,11 +43,10 @@ export function updateJournalData(journalData) {
     };
 
     let data = JSON.stringify({ journalData });
-    console.log("this is updateJournalData " + data.journalData);
     axios
       .put(
         "http://localhost:5000/journal/one/" + data.userID + "?token=" + journalData.token,
-        data.journalData,
+        data,
         {
           headers: headers
         }
