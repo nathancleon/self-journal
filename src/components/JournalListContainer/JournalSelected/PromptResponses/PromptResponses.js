@@ -26,7 +26,7 @@ const SelectedPromptHeader = styled("div")`
   {
     display: flex;
     justify-content: space-between;
-    width: 470px;
+    width: 500px;
     margin-top: 40px;
     background-color: #fefefe;
     box-shadow:  0px 6px 2px -5px rgba(0,0,0,0.2);
@@ -185,6 +185,7 @@ class PromptResponses extends Component {
         makeEdit: false
       })
     }
+    
 }
 
   //----------------------------------------------------------

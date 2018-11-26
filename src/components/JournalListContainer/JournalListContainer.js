@@ -77,8 +77,10 @@ class JournalListContainer extends Component {
 }
 
 const mapStateToProps = reduxState => {
+  debugger;
+  console.log(reduxState.journal);
   return {
-    journal: reduxState.journal
+    journal: reduxState.journal.all
   };
 };
 

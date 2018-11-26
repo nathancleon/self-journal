@@ -9,10 +9,10 @@ const JournalReducer = (state = InitialState, action) => {
       localStorage.getItem("token");
       return state;
     case "UPDATE_JOURNAL_DATA":
-      console.log("update journal reducer");
-      localStorage.getItem("token");
-      return state;
+    debugger;
+    return { ...state, all: action.payload };
     case "FETCH_JOURNAL_DATA":
+      debugger;
       return { ...state, all: action.payload.data };
     default:
       return state;
