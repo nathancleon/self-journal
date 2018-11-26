@@ -11,7 +11,7 @@ const JList = styled("div")`
     overflow-y: scroll;
   }
   ul{
-    margin-top: 100px;
+    margin-top: 80px;
   }
   ul li {
     border-top: 1px solid #ddd;
@@ -26,10 +26,11 @@ const ListLabel = styled("div")`
    {
     text-align: center;
     padding: 35px;
-    width: 30%;
-    position: fixed;
+    width: 100%;
+    position: absolute;
+    top: 0;
     background-color: #fefefe;
-    border: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
   }
 `;
 

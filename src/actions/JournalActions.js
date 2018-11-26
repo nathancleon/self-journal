@@ -5,20 +5,14 @@ export function saveJournalData(journalData) {
   return dispatch => {
     let headers = {
       "Content-Type": "application/json",
-      Authorization: "Bearer " + journalData.token
+      Authorization: "Bearer " + localStorage.getItem("token")
     };
 
     let data = JSON.stringify({ journalData });
-    console.log("this is saveJournalData " + data.journalData);
 
-    // const instance = axios.create({
-    //   baseURL: 'http://localhost:5000/',
-    //   timeout: 1000,
-    //   headers: headers
-    // })
     axios
       .post(
-        "http://localhost:5000/journal/submit?token=" + journalData.token,
+        "http://localhost:5000/journal/submit?token=" + localStorage.getItem("token"),
         data,
         {
           headers: headers
@@ -39,15 +33,16 @@ export function updateJournalData(journalData) {
   return dispatch => {
     let headers = {
       "Content-Type": "application/json",
-      Authorization: "Bearer " + journalData.token
+      Authorization: "Bearer " + localStorage.getItem("token")
     };
 
-    let data = JSON.stringify({ journalData });
-    console.log("this is updateJournalData " + data.journalData);
+    let data = JSON.stringify({ ...journalData });
+    debugger;
+
     axios
       .put(
-        "http://localhost:5000/journal/one/" + data.userID + "?token=" + journalData.token,
-        data.journalData,
+        "http://localhost:5000/journal/one/" + journalData.userID + "?token=" + localStorage.getItem("token"),
+        data,
         {
           headers: headers
         }

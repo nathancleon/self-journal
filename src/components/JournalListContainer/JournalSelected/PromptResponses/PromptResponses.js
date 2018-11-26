@@ -113,6 +113,7 @@ const SubmitButton = styled("button")`
     background-color: #06BB00;
     margin-top: 20px;
     margin-bottom: 50px;
+    margin-left: 1px;
     cursor: pointer;
   }
   &:hover {
@@ -178,7 +179,7 @@ class PromptResponses extends Component {
   // Lifecycle Methods
   //----------------------------------------------------------
 
-   componentDidUpdate(nextProps) {
+   componentWillUpdate(nextProps) {
     if (this.state.makeEdit && this.props.journal._id !== nextProps.journal._id) {
       this.setState({
         makeEdit: false
@@ -281,7 +282,7 @@ class PromptResponses extends Component {
     newData._id = this.props.journal._id;
     newData.userID = this.props.userID;
     newData.token = this.props.token;
-    debugger;
+
     console.log('edited values data ' + newData);
 
     this.setState({
