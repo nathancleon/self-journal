@@ -29,10 +29,10 @@ class Header extends Component {
 
     return (
       <header>
-        <div className="header-branding"> 
-          <img className="header-logo" src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/reading_list_4boi.svg" />
-          <h1 className="header-title">mentalnote</h1>
-        </div>
+          <a className="header-branding" href="/">
+            <img className="header-logo" src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/reading_list_4boi.svg" />
+            <h1 className="header-title">mentalnote</h1>
+          </a>
         <ul className="header-links">
         {
           this.props.links.map(link => {
