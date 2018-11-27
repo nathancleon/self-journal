@@ -20,8 +20,7 @@ class JournalListContainer extends Component {
     this.state = {
       journalData: [],
       selectedJournal: null,
-      isLoading: false,
-      error: null
+      isLoading: false
     };
   }
 
@@ -29,25 +28,17 @@ class JournalListContainer extends Component {
     this.setState({
       isLoading: true
     });
-    axios
-      .get(
-        "http://localhost:5000/journal/all?token=" +
-          localStorage.getItem("token")
-      )
-      .then(result => {
+    this.props.fetchAllJournalData().then(() => {
+      const sortedJournalItems = this.props.journal.sort((date1, date2) => {
+        return new Date(date2.created) - new Date(date1.created)
+       });
         this.setState({
           //reversed the order of journal items so most recent journal entry displays in selectedJournal
-          journalData: result.data.data.reverse(),
-          selectedJournal: result.data.data[0],
+          journalData: sortedJournalItems,
+          selectedJournal: sortedJournalItems[0],
           isLoading: false
         });
-      })
-      .catch(error =>
-        this.setState({
-          error,
-          isLoading: false
-        })
-      );
+      });
   }
 
   render() {
@@ -83,7 +74,6 @@ class JournalListContainer extends Component {
 }
 
 const mapStateToProps = reduxState => {
-  debugger;
   console.log(reduxState.journal);
   return {
     journal: reduxState.journal.all

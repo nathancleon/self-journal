@@ -7,7 +7,7 @@ const JSelected = styled("div")`
     display: flex;
     justify-content: center;
     background-color: #fff;
-    width: 70%;
+    width: 60%;
   }
 `;
 

@@ -36,7 +36,6 @@ export function updateJournalData(journalData) {
     };
 
     let data = JSON.stringify({ ...journalData });
-    debugger;
 
     return axios.put(
         "http://localhost:5000/journal/one/" + journalData.userID + "?token=" + localStorage.getItem("token"),
@@ -52,6 +51,31 @@ export function updateJournalData(journalData) {
           payload: res.data
         });
       });
+  };
+}
+
+export function deleteJournalEntry(journalData) {
+  return dispatch => {
+
+    let headers = {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + localStorage.getItem("token")
+    };
+    debugger;
+    return axios.delete(
+      
+      "http://localhost:5000/journal/one/" + journalData._id + "?token=" + localStorage.getItem("token"),
+      {
+        headers: headers
+      }
+    )
+    .then(() => {
+      debugger;
+      dispatch({
+        type: "DELETE_JOURNAL_DATA",
+        message: "journal entry successfully deleted"
+      });
+    });
   };
 }
 

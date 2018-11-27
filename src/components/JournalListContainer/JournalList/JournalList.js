@@ -26,21 +26,20 @@ const ListLabel = styled("div")`
    {
     text-align: center;
     padding: 35px;
-    width: 100%;
-    position: absolute;
-    top: 0;
+    width: 30%;
+    position: fixed;
+    top: 8vh;
     background-color: #fefefe;
     border-bottom: 1px solid #ddd;
+    border-right: 1px solid #ddd;
   }
+
 `;
 
 class JournalList extends Component {
   render() {
     //sort items in data by descending order and render each item to JournalListItem component
-    const sortedJournalItems = this.props.journals.sort((date1, date2) => {
-       return new Date(date2.created) - new Date(date1.created)
-      });
-    const journalItemsRender = sortedJournalItems.map((element, index) => {
+    const journalItemsRender = this.props.journals.map((element, index) => {
       return (
         <JournalListItem
           onJournalSelect={this.props.onJournalSelect}
