@@ -16,7 +16,7 @@ export default class Prompt extends Component {
     });
   }
 
-  handleSubmitEvent() {
+  handleNextEvent() {
     this.props.goNext({
       answer: this.state.answer,
       answerText: this.state.answerText
@@ -24,11 +24,11 @@ export default class Prompt extends Component {
   }
 
   render() {
-    const { title, question, answers, placeholder } = this.props.data;
+    const { question, answers, placeholder, image} = this.props.data;
 
     return (
       <div className="prompt">
-        <h1 className="prompt-title">{title}</h1>
+        <img className="prompt-image" src={image} />
         <div className="prompt-answers-container">
           <h2 className="prompt-question">{question}</h2>
           <div className="prompt-answers">
@@ -55,8 +55,8 @@ export default class Prompt extends Component {
             placeholder={placeholder}
           />
           <button
-            className="prompt-submit-btn"
-            onClick={this.handleSubmitEvent.bind(this)}
+            className="prompt-next-btn"
+            onClick={this.handleNextEvent.bind(this)}
             type="button"
           >
             Next

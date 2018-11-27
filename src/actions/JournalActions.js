@@ -10,8 +10,7 @@ export function saveJournalData(journalData) {
 
     let data = JSON.stringify({ journalData });
 
-    axios
-      .post(
+   return axios.post(
         "http://localhost:5000/journal/submit?token=" + localStorage.getItem("token"),
         data,
         {
@@ -39,8 +38,7 @@ export function updateJournalData(journalData) {
     let data = JSON.stringify({ ...journalData });
     debugger;
 
-    axios
-      .put(
+    return axios.put(
         "http://localhost:5000/journal/one/" + journalData.userID + "?token=" + localStorage.getItem("token"),
         data,
         {
@@ -59,8 +57,7 @@ export function updateJournalData(journalData) {
 
 export function fetchAllJournalData() {
   return dispatch => {
-    axios
-      .get(
+    return axios.get(
         "http://localhost:5000/journal/all?token=" +
           localStorage.getItem("token")
       )

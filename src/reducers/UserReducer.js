@@ -5,9 +5,6 @@ const InitialState = {
 
 const UserReducer = (state = InitialState, action) => {
   switch (action.type) {
-    case "FETCH_USER_INFO":
-      console.log("fetch user info reducer");
-      return { ...state, name: action.payload.data.message };
     case "USER_LOGIN":
       localStorage.setItem("token", action.payload.data.data.token);
       localStorage.setItem("id", action.payload.data.data.id);

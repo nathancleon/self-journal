@@ -12,7 +12,7 @@
   width: 650px;
   background-color: #fff;
   border-radius: 2px;
-  box-shadow: rgba(27, 39, 51, 0.15) 0px 2px 10px 2px;
+  box-shadow: rgba(27, 39, 51, 0.25) 0px 10px 20px -8px;
 }
 
 .form {
@@ -61,6 +61,7 @@
   font-size: 16px;
   align-self: center;
   background-color: #fff;
-  border-radius: 2px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
   margin-top: 50px;
 }

@@ -35,7 +35,7 @@ class Login extends Component {
   render() {
 
     if (this.state.toDashboard === true) {
-      return <Redirect to='/list' />;
+      return <Redirect to='/prompts' />;
     }
     const linksArray = ["home", "register"];
 

@@ -3,9 +3,17 @@
   flex-direction: column;
   height: 600px;
   width: 650px;
+  position: relative;
   background-color: #fff;
   border-radius: 5px;
-  box-shadow: rgba(27, 39, 51, 0.25) 0px 0px 20px 0px;
+  box-shadow: rgba(27, 39, 51, 0.25) 0px 10px 20px -8px;
+}
+
+.prompt-image {
+  position: absolute;
+  top: -90px;
+  left: 35%;
+  width: 200px;
 }
 
 .prompt-answers-container {
@@ -18,14 +26,14 @@
 .prompt-question {
   font-size: 24px;
   text-align: center;
-  margin-top: 30px;
+  margin-top: 80px;
   margin-bottom: 40px;
 }
 
 .prompt-answers {
   display: flex;
   justify-content: space-evenly;
-  align-items: center;]
+  align-items: center;
   width: 100%;
 }
 
@@ -39,12 +47,18 @@
   font-size: 16px;
 }
 
-.prompt-submit-btn {
+.prompt-next-btn {
   height: 45px;
   width: 50%;
   font-size: 16px;
   align-self: center;
   background-color: #fff;
-  border-radius: 2px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
   margin-top: 50px;
+  cursor: pointer;
+}
+
+.prompt-next-btn:hover {
+  background-color: #fbfbfb;
 }

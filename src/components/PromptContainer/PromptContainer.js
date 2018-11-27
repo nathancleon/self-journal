@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Prompt from "./Prompts/Prompt";
+import PromptSubmit from "./PromptSubmit/PromptSubmit";
 import "./PromptContainer.css";
 import { saveJournalData } from "../../actions/JournalActions";
 import { connect } from "react-redux";
@@ -24,39 +25,46 @@ class PromptContainer extends Component {
       self: {
         question: "How do you describe your overall mental health today?",
         answers: ["Poor", "Not Great", "Good", "Great", "Excellent"],
-        placeholder: "Briefly explain"
+        placeholder: "Briefly explain",
+        image: "https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/forgot_password_gi2d.svg"
       },
       anxiety: {
-        question: "How anxious would you say you feel today?",
+        question: "How anxious would you say you feel?",
         answers: ["Not at all", "Slightly", "Moderately", "Very", "Extremely"],
-        placeholder: "Briefly explain"
+        placeholder: "Briefly explain",
+        image: "https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/meeting_115p.svg"
       },
       depression: {
-        question: "How depressed would you say you feel today?",
+        question: "How depressed would you say you feel?",
         answers: ["Not at all", "Slightly", "Moderately", "Very", "Extremely"],
-        placeholder: "Briefly explain"
+        placeholder: "Briefly explain",
+        image: "https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/sleep_analysis_o5f9.svg"
       },
       concentration: {
-        question: "How would you describe your ability to concentrate today?",
+        question: "How would you describe your ability to concentrate?",
         answers: ["Poor", "Not Great", "Good", "Great", "Excellent"],
-        placeholder: "Briefly explain"
+        placeholder: "Briefly explain",
+        image: "https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/in_progress_ql66.svg"
       },
       family: {
         question:
-          "How do would you rate the connections you have with your family today?",
+          "How do would you rate the connections you have with your family?",
         answers: ["Poor", "Not Great", "Good", "Great", "Excellent"],
-        placeholder: "Briefly explain"
+        placeholder: "Briefly explain",
+        image: "https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/hang_out_h9ud.svg"
       },
       friendships: {
         question:
-          "How do would you rate the connections you have with your friends today?",
+          "How do would you rate the connections you have with your friends?",
         answers: ["Poor", "Not Great", "Good", "Great", "Excellent"],
-        placeholder: "Briefly explain"
+        placeholder: "Briefly explain",
+        image: "https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/group_selfie_ijc6.svg"
       },
       gratitude: {
-        question: "List at least three things you are grateful for today",
+        question: "List at least three things you are grateful for",
         answers: [],
-        placeholder: "Today, I am grateful for..."
+        placeholder: "Today, I am grateful for...",
+        image: "https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/Bibliophile_hwqc.svg"
       }
     };
   }
@@ -76,9 +84,8 @@ class PromptContainer extends Component {
     });
   }
 
-  submitAllData() {
-    console.log(this.state);
-    this.props.saveJournalData(this.state.dataObject);
+  submitAllData(data) {
+    return this.props.saveJournalData(data);
   }
 
   render() {
@@ -132,7 +139,7 @@ class PromptContainer extends Component {
           />
         )}
         {this.state.steps === 7 && (
-          <button onClick={this.submitAllData.bind(this)}>Submit</button>
+          <PromptSubmit submitPromptData={this.submitAllData.bind(this)} data={this.state.dataObject} />
         )}
       </div>
       </div>
