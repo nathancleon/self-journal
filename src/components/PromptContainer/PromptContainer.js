@@ -3,6 +3,7 @@ import Prompt from "./Prompts/Prompt";
 import "./PromptContainer.css";
 import { saveJournalData } from "../../actions/JournalActions";
 import { connect } from "react-redux";
+import Header from "../Headers/Header";
 
 class PromptContainer extends Component {
   constructor(props) {
@@ -81,7 +82,12 @@ class PromptContainer extends Component {
   }
 
   render() {
+
+    const linksArray = ["list", "log out"];
+
     return (
+      <div>
+        <Header links={linksArray} />
       <div className="prompt-container">
         {this.state.steps === 0 && (
           <Prompt
@@ -129,6 +135,8 @@ class PromptContainer extends Component {
           <button onClick={this.submitAllData.bind(this)}>Submit</button>
         )}
       </div>
+      </div>
+      
     );
   }
 }

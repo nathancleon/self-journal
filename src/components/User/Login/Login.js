@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom';
 import "./Login.css";
 import { connect } from "react-redux";
 import { loginUser } from "../../../actions/UserActions";
+import Header from "../../Headers/Header";
 
 class Login extends Component {
   constructor(props) {
@@ -36,8 +37,11 @@ class Login extends Component {
     if (this.state.toDashboard === true) {
       return <Redirect to='/list' />;
     }
+    const linksArray = ["home", "register"];
 
     return (
+      <div>
+        <Header links={linksArray} />
       <section className="registration-container">
         <div className="form-container">
           <form className="form">
@@ -74,6 +78,8 @@ class Login extends Component {
           </form>
         </div>
       </section>
+      </div>
+      
     );
   }
 }

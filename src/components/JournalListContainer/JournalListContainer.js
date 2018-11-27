@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import { connect } from "react-redux";
 import { fetchAllJournalData } from "../../actions/JournalActions";
+import Header from "../Headers/Header";
 import JournalList from "./JournalList/JournalList";
 import JournalSelected from "./JournalSelected/JournalSelected";
 import styled from "react-emotion";
@@ -51,6 +52,7 @@ class JournalListContainer extends Component {
 
   render() {
     const { journalData, selectedJournal, isLoading, error } = this.state;
+    const linksArray = ["prompts", "log out"];
 
     if (error) {
       return <p> {error.message} </p>;
@@ -61,17 +63,21 @@ class JournalListContainer extends Component {
     }
 
     return (
-      <JLContainer>
-        <JournalList
-          onJournalSelect={selectedJournal =>
-            this.setState({
-              selectedJournal
-            })
-          }
-          journals={journalData}
-        />{" "}
-        <JournalSelected journal={selectedJournal} />{" "}
-      </JLContainer>
+      <div>
+        <Header links={linksArray} />
+        <JLContainer>
+          <JournalList
+            onJournalSelect={selectedJournal =>
+              this.setState({
+                selectedJournal
+              })
+            }
+            journals={journalData}
+          />{" "}
+          <JournalSelected journal={selectedJournal} />{" "}
+        </JLContainer>
+      </div>
+      
     );
   }
 }

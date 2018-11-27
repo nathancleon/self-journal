@@ -31,18 +31,29 @@ class DashboardHeader extends Component {
       <header>
         <h1 className="header-title">Self-Journal</h1>
         <ul className="header-links">
-          <li className="header-link">
-            <Link to="/list">List</Link>
-          </li>
-          <li className="header-link">
-            <Link to="/prompts">Prompts</Link>
-          </li>
-          <li className="header-link">
-            <Link to="/data">Data</Link>
-          </li>
-          <li className="header-link" onClick={ this.logOut.bind(this) }>
-            <Link to="#">Log Out</Link>
-          </li>
+        {
+          this.props.links.map(link => {
+            if(link === "log out") {
+              return (
+                <li className="header-link">
+                  <Link onClick={ this.logOut.bind(this) } className="header-link-ref" to="#">log out</Link>
+                </li>
+                );
+            } else if (link === "home") {
+                return (
+                  <li className="header-link">
+                    <Link className="header-link-ref" to="/">home</Link>
+                  </li>
+                  );
+              } else {
+                return (
+                  <li className="header-link">
+                    <Link className="header-link-ref" to={`/${link}`}>{link}</Link>
+                  </li>
+                  );
+              }
+          })
+        }
         </ul>
       </header>
     );
