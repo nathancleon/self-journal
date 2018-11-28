@@ -15,7 +15,7 @@ const JournalReducer = (state = InitialState, action) => {
       return { ...state, all: action.payload.data };
     case "DELETE_JOURNAL_DATA":
       debugger;
-      return state;
+      return { ...state, all: action.payload.data };
     default:
       return state;
   }

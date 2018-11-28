@@ -29,7 +29,7 @@ const SelectedPromptHeader = styled("div")`
     width: 500px;
     margin-top: 40px;
     background-color: #fefefe;
-    box-shadow:  -3px 5px 3px -5px rgba(0,0,0,0.2);
+    box-shadow:  -2px 6px 3px -5px rgba(0,0,0,0.2);
     position: relative;
   }
   h1 {

@@ -57,23 +57,20 @@ export function updateJournalData(journalData) {
 export function deleteJournalEntry(journalData) {
   return dispatch => {
 
-    let headers = {
-      "Content-Type": "application/json",
-      Authorization: "Bearer " + localStorage.getItem("token")
-    };
     debugger;
     return axios.delete(
-      
       "http://localhost:5000/journal/one/" + journalData._id + "?token=" + localStorage.getItem("token"),
       {
-        headers: headers
+        params: {
+          id: journalData._id
+        }
       }
     )
-    .then(() => {
+    .then(res => {
       debugger;
       dispatch({
         type: "DELETE_JOURNAL_DATA",
-        message: "journal entry successfully deleted"
+        payload: res.data
       });
     });
   };

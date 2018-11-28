@@ -36,12 +36,14 @@ export default class Prompt extends Component {
               return (
                 <div className="prompt-answer" key={index}>
                   <input
+                    className="prompt-input"
                     onChange={this.handleChange.bind(this)}
                     type="radio"
                     name="answer"
+                    id={element}
                     value={element}
-                  />{" "}
-                  <span>{element}</span>
+                  />
+                  <label htmlFor={element}>{element}</label>
                 </div>
               );
             })}
