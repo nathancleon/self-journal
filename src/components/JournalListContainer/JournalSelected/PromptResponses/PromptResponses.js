@@ -26,7 +26,7 @@ const SelectedPromptHeader = styled("div")`
   {
     display: flex;
     justify-content: space-between;
-    width: 50%;
+    width: 60%;
     margin-top: 40px;
     background-color: #fefefe;
     box-shadow:  -2px 6px 3px -5px rgba(0,0,0,0.2);
@@ -36,6 +36,19 @@ const SelectedPromptHeader = styled("div")`
     font-size: 24px;
     height: 50px;
     padding-top: 10px;
+  }
+  @media only screen and (max-width: 1400px) {
+    {
+      width: 80%;
+    }
+  }
+  @media only screen and (max-width: 1100px) {
+    {
+      width: 100%;
+    }
+    h1 {
+      font-size: 18px;
+    }
   }
 `;
 
@@ -84,18 +97,29 @@ const UserAnswers = styled("div")`
   }
   p {
     text-align: left;
-    margin-right: 5px;
+    margin-right: 8px;
     margin-bottom: 10px;
+  }
+  select {
+    margin-bottom: 8px;
+    padding: 50px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #fafafa;
+    font-size: 14px;
   }
 `;
 
 const UserTextAnswers = styled("div")`
 
   {
+    margin-top: 10px;
     margin-bottom: 10px;
   }
   textarea {
     font-size: 14px;
+    border: 1px solid #ddd;
+    padding: 5px;
   }
 `;
 
@@ -110,7 +134,7 @@ const SubmitButton = styled("button")`
     line-height: 0px;
     border: 1px solid #ddd;
     border-radius: 4px;
-    background-color: #06BB00;
+    background-color: rgba(80, 200, 80, 0.9);
     margin-top: 20px;
     margin-bottom: 50px;
     margin-left: 1px;

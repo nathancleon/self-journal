@@ -20,6 +20,18 @@ const JList = styled("div")`
   ul li:last-child {
     border-bottom: 1px solid #ddd;
   }
+
+  @media only screen and (max-width: 1200px) {
+      ul {
+        margin-top: 76px;
+      }
+    }
+
+  @media only screen and (max-width: 600px) {
+    ul {
+        margin-top: 74px;
+      }
+  }
 `;
 
 const ListLabel = styled("div")`
@@ -34,6 +46,23 @@ const ListLabel = styled("div")`
     border-right: 1px solid #ddd;
   }
 
+  @media only screen and (max-width: 1200px) {
+      {
+        padding: 30px;
+      }
+      h4 {
+        font-size: 14px;
+      }
+    }
+
+  @media only screen and (max-width: 600px) {
+    {
+      padding: 30px 10px;
+    }
+    h4 {
+      font-size: 12px;
+    }
+  }
 `;
 
 class JournalList extends Component {
@@ -55,7 +84,7 @@ class JournalList extends Component {
     return (
       <JList>
         <ListLabel>
-          <h4>List of Journal Entries</h4>
+          <h4>Journal Entries</h4>
         </ListLabel>
         <ul>
           {
