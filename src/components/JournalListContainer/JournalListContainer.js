@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import axios from "axios";
 import { connect } from "react-redux";
-import { fetchAllJournalData } from "../../actions/JournalActions";
+import { fetchAllJournalData, saveSelectedJournal } from "../../actions/JournalActions";
 import Header from "../Headers/Header";
 import JournalList from "./JournalList/JournalList";
 import JournalSelected from "./JournalSelected/JournalSelected";
@@ -29,13 +28,10 @@ class JournalListContainer extends Component {
       isLoading: true
     });
     this.props.fetchAllJournalData().then(() => {
-      const sortedJournalItems = this.props.journal.sort((date1, date2) => {
-        return new Date(date2.created) - new Date(date1.created)
-       });
+     
         this.setState({
           //reversed the order of journal items so most recent journal entry displays in selectedJournal
-          journalData: sortedJournalItems,
-          selectedJournal: sortedJournalItems[0],
+          journalData: this.props.journal.all,
           isLoading: false
         });
       });
@@ -58,14 +54,15 @@ class JournalListContainer extends Component {
         <Header links={linksArray} />
         <JLContainer>
           <JournalList
-            onJournalSelect={selectedJournal =>
-              this.setState({
-                selectedJournal
-              })
-            }
+            onJournalSelect={(selectedJournal, positionKey) => 
+            {
+
+              selectedJournal.position = positionKey
+              this.props.saveSelectedJournal(selectedJournal);
+            }}
             journals={journalData}
-          />{" "}
-          <JournalSelected journal={selectedJournal} />{" "}
+          />
+          <JournalSelected />
         </JLContainer>
       </div>
       
@@ -76,13 +73,13 @@ class JournalListContainer extends Component {
 const mapStateToProps = reduxState => {
   console.log(reduxState.journal);
   return {
-    journal: reduxState.journal.all
+    journal: reduxState.journal,
   };
 };
 
 export default connect(
   mapStateToProps,
   {
-    fetchAllJournalData
+    fetchAllJournalData, saveSelectedJournal
   }
 )(JournalListContainer);

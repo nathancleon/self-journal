@@ -6,7 +6,7 @@ const JList = styled("div")`
    {
     border-right: 1px solid #ddd;
     background-color: #fefefe;
-    width: 30%;
+    width: 20%;
     position: relative;
     overflow-y: scroll;
   }
@@ -26,9 +26,9 @@ const ListLabel = styled("div")`
    {
     text-align: center;
     padding: 35px;
-    width: 30%;
+    width: 20%;
     position: fixed;
-    top: 8vh;
+    top: 80px;
     background-color: #fefefe;
     border-bottom: 1px solid #ddd;
     border-right: 1px solid #ddd;
@@ -45,6 +45,7 @@ class JournalList extends Component {
           onJournalSelect={this.props.onJournalSelect}
           key={index}
           journal={element}
+          position={index}
         />
       );
     });

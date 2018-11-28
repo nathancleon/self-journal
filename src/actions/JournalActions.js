@@ -36,19 +36,23 @@ export function updateJournalData(journalData) {
     };
 
     let data = JSON.stringify({ ...journalData });
-
+    debugger;
     return axios.put(
-        "http://localhost:5000/journal/one/" + journalData.userID + "?token=" + localStorage.getItem("token"),
+        "http://localhost:5000/journal/one/" + journalData._id + "?token=" + localStorage.getItem("token"),
         data,
         {
           headers: headers
         }
       )
       .then(res => {
+        debugger;
         console.log("this is the put response" + res);
         dispatch({
           type: "UPDATE_JOURNAL_DATA",
-          payload: res.data
+          payload: {
+            journal: res.data,
+            position: journalData.position
+          }
         });
       });
   };
@@ -57,7 +61,6 @@ export function updateJournalData(journalData) {
 export function deleteJournalEntry(journalData) {
   return dispatch => {
 
-    debugger;
     return axios.delete(
       "http://localhost:5000/journal/one/" + journalData._id + "?token=" + localStorage.getItem("token"),
       {
@@ -67,12 +70,21 @@ export function deleteJournalEntry(journalData) {
       }
     )
     .then(res => {
-      debugger;
       dispatch({
         type: "DELETE_JOURNAL_DATA",
-        payload: res.data
+        payload: {
+          message: res.data.message,
+          position: journalData.position
+        }
       });
     });
+  };
+}
+
+export function saveSelectedJournal(journal) {
+  return {
+    type: "SELECT_ONE_JOURNAL",
+    payload: journal
   };
 }
 

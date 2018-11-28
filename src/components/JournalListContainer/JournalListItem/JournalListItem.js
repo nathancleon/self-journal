@@ -10,7 +10,7 @@ const JListItem = styled("li")`
   &:hover {
     background-color: #eee;
   }
-  h1 {
+  h3 {
     color: #222;
     font-size: 14px;
   }
@@ -19,8 +19,8 @@ const JListItem = styled("li")`
 class JournalListItem extends Component {
   render() {
     return (
-      <JListItem onClick={() => this.props.onJournalSelect(this.props.journal)}>
-        <h1>{moment(this.props.journal.created).format("LLL")}</h1>
+      <JListItem onClick={() => this.props.onJournalSelect(this.props.journal, this.props.position)}>
+        <h3>{moment(this.props.journal.created).format("LL")}</h3>
       </JListItem>
     );
   }

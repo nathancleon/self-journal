@@ -16,7 +16,7 @@ const SelectedPromptContainer = styled("div")`
     position: relative;
     background-color: #fefefe;
     width: 100%;
-    margin-left: 60px;
+    margin-left: 80px;
     margin-top: 5px;
   }
   
@@ -26,7 +26,7 @@ const SelectedPromptHeader = styled("div")`
   {
     display: flex;
     justify-content: space-between;
-    width: 500px;
+    width: 50%;
     margin-top: 40px;
     background-color: #fefefe;
     box-shadow:  -2px 6px 3px -5px rgba(0,0,0,0.2);
@@ -281,6 +281,7 @@ class PromptResponses extends Component {
     event.preventDefault();
     let newData = Object.assign({}, this.state.dataObject)
     newData._id = this.props.journal._id;
+    newData.position = this.props.journal.position;
     newData.userID = this.props.userID;
     newData.token = this.props.token;
 

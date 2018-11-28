@@ -30,7 +30,7 @@ class Header extends Component {
     return (
       <header>
           <a className="header-branding" href="/">
-            <img className="header-logo" src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/reading_list_4boi.svg" />
+            <img className="header-logo" src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/reading_list_4boi.svg" alt="a man reading a book" />
             <h1 className="header-title">mentalnote</h1>
           </a>
         <ul className="header-links">

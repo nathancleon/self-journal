@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import styled from "react-emotion";
 import PromptResponses from "./PromptResponses/PromptResponses";
 
@@ -12,7 +13,7 @@ const JSelected = styled("div")`
 `;
 
 class JournalSelected extends Component {
-  
+
   render() {
     console.log(this.props.journal);
     if (!this.props.journal) {
@@ -31,4 +32,12 @@ class JournalSelected extends Component {
   }
 }
 
-export default JournalSelected;
+const mapStateToProps = reduxState => {
+  return {
+    journal: reduxState.journal.selected
+  };
+};
+
+export default connect(
+  mapStateToProps, null
+)(JournalSelected);

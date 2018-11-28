@@ -16,6 +16,13 @@ export default class Prompt extends Component {
     });
   }
 
+  handleEnterKeyPress(event) {
+    console.log(event);
+    // if (event.keyCode == 13) {
+    //   event.setAttribute("aria-checked", "true");
+    // }
+  }
+
   handleNextEvent() {
     this.props.goNext({
       answer: this.state.answer,
@@ -24,17 +31,17 @@ export default class Prompt extends Component {
   }
 
   render() {
-    const { question, answers, placeholder, image} = this.props.data;
+    const { question, answers, placeholder, image, alt} = this.props.data;
 
     return (
       <div className="prompt">
-        <img className="prompt-image" src={image} />
+        <img className="prompt-image" src={image} alt={alt}/>
         <div className="prompt-answers-container">
           <h2 className="prompt-question">{question}</h2>
-          <div className="prompt-answers">
+          <ul className="prompt-answers" role="radiogroup">
             {answers.map((element, index) => {
               return (
-                <div className="prompt-answer" key={index}>
+                <li className="prompt-answer" key={index} role="radio" aria-checked="false" tabIndex="0" onKeyDown={this.handleEnterKeyPress.bind(this)}>
                   <input
                     className="prompt-input"
                     onChange={this.handleChange.bind(this)}
@@ -44,10 +51,10 @@ export default class Prompt extends Component {
                     value={element}
                   />
                   <label htmlFor={element}>{element}</label>
-                </div>
+                </li>
               );
             })}
-          </div>
+          </ul>
           <textarea
             className="prompt-text-field"
             onChange={this.handleChange.bind(this)}
