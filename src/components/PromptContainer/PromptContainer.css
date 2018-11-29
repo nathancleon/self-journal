@@ -1,10 +1,18 @@
 .prompt-container {
   display: flex;
+  position: relative;
   justify-content: center;
   align-items: center;
   height: 92vh;
   width: 100%;
   background-color: #fafafafa;
+}
+
+.no-answer--error, .no-answerText--error {
+  position: relative;
+  top: 500px;
+  font-size: 200px;
+  color: red;
 }
 
 @media only screen and (max-height: 600px) { 

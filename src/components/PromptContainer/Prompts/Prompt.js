@@ -174,7 +174,7 @@ const form__next_btn = css`
     font-weight: bold;
     border: 1px solid #ddd;
     border-radius: 4px;
-    margin-top: 50px;
+    margin-top: 30px;
     cursor: pointer;
     letter-spacing: 1px;
   }
@@ -185,26 +185,69 @@ const form__next_btn = css`
   }
 `;
 
+const answer__error = css`
+  {
+    color: rgb(220, 80, 80);
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: -20px;
+    align-self: center;
+  }
+`;
+
+
+
 export default class Prompt extends Component {
   constructor(props) {
     super(props);
     this.state = {
       answer: "",
-      answerText: ""
+      answerText: "",
+      answerError: false,
+      answerTextError: false
     };
   }
 
   handleChange(event) {
     this.setState({
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
+      [event.target.name + "Error"]: false
     });
   }
 
   handleNextEvent() {
-    this.props.goNext({
-      answer: this.state.answer,
-      answerText: this.state.answerText
-    });
+
+    if (this.props.data.answers.length === 0 && this.state.answerText === "") {
+      console.log("first check ran");
+      console.log(this.props.data.answers.length);
+      this.setState({
+        answerTextError: true
+      })
+    } else if (this.props.data.answers.length === 0 && this.state.answer === "") {
+      console.log("second check ran");
+      console.log(this.props.data.answers.length);
+      this.props.goNext({
+        answer: this.state.answer,
+        answerText: this.state.answerText
+      });
+    } else if (this.state.answer === "" && this.props.data.answers.length > 0) {
+      console.log("third check ran");
+      this.setState({
+        answerError: true
+      })
+    } else if (this.state.answerText === "" && this.props.data.answers.length > 0) {
+      console.log("fourth check ran");
+      this.setState({
+        answerTextError: true
+      })
+    } else if (this.state.answerError === false && this.state.answerTextError === false) {
+      this.props.goNext({
+        answer: this.state.answer,
+        answerText: this.state.answerText
+      });
+    }
+  
+
   }
 
   render() {
@@ -240,6 +283,10 @@ export default class Prompt extends Component {
             name="answerText"
             placeholder={placeholder}
           />
+          {
+            this.state.answerError ? <p className={answer__error}>You must select an answer</p>:
+            this.state.answerTextError ? <p className={answer__error}>You must enter some text</p>: null
+          }
           <button
             className={form__next_btn}
             onClick={this.handleNextEvent.bind(this)}

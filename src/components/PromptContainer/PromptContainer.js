@@ -23,7 +23,7 @@ class PromptContainer extends Component {
       dataObject: {},
       steps: 0,
       self: {
-        question: "How do you describe your overall mental health today?",
+        question: "How would you describe your overall mental health today?",
         answers: ["Poor", "Not Great", "Good", "Great", "Excellent"],
         placeholder: "Briefly explain",
         image: "https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/forgot_password_gi2d.svg",
@@ -85,6 +85,7 @@ class PromptContainer extends Component {
     };
     let newDataObject = Object.assign(this.state.dataObject, newData);
     let newStep = this.state.steps + 1;
+
     this.setState({
       dataObject: newDataObject,
       steps: newStep
