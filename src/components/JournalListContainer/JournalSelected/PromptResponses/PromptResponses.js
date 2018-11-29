@@ -19,7 +19,9 @@ const SelectedPromptContainer = styled("div")`
     margin-left: 80px;
     margin-top: 5px;
   }
-  
+  @media only screen and (max-width: 600px) {
+    margin-left: 20px;
+  }
 `;
 
 const SelectedPromptHeader = styled("div")`
@@ -50,6 +52,13 @@ const SelectedPromptHeader = styled("div")`
       font-size: 18px;
     }
   }
+  @media only screen and (max-width: 600px) {
+    h1 {
+      font-size: 10px;
+      margin-top: 10px;
+      height: 30px;
+    }
+  }
 `;
 
 const PromptIcons = styled("div")`
@@ -73,13 +82,28 @@ const PromptIcons = styled("div")`
     fill: red;
     width: 23px;
   }
+
+  @media only screen and (max-width: 600px) {
+    {
+      width: 50px;
+      height: 35px;
+      margin-top: 5px;
+    }
+    svg {
+      width: 20px;
+    }
+    svg:nth-child(2) {
+    fill: red;
+    width: 18px;
+  }
+  }
 `;
 
 const SelectedPromptData = styled("div")`
    {
     display: flex;
     flex-direction: column;
-    max-height: 92vh;
+    max-height: 80vh;
     width: 100%;
     margin-left: 5px;
     overflow: -moz-scrollbars-vertical; 
@@ -88,6 +112,11 @@ const SelectedPromptData = styled("div")`
   h4 {
     margin-top: 15px;
     margin-bottom: 15px;
+  }
+  @media only screen and (max-width: 600px) {
+    h4 {
+      font-size: 12px;
+    }
   }
 `;
 
@@ -102,11 +131,15 @@ const UserAnswers = styled("div")`
   }
   select {
     margin-bottom: 8px;
-    padding: 50px;
     border: 1px solid #ddd;
     border-radius: 4px;
     background-color: #fafafa;
     font-size: 14px;
+  }
+  @media only screen and (max-width: 600px) {
+    p {
+      font-size: 12px;
+    }
   }
 `;
 
@@ -120,6 +153,12 @@ const UserTextAnswers = styled("div")`
     font-size: 14px;
     border: 1px solid #ddd;
     padding: 5px;
+  }
+  @media only screen and (max-width: 600px) {
+    textarea {
+      width: 100%;
+      font-size: 10px;
+    }
   }
 `;
 
@@ -143,6 +182,11 @@ const SubmitButton = styled("button")`
   &:hover {
     background-color: #fefefe;
     color: #333;
+  }
+  @media only screen and (max-width: 600px) {
+    {
+      width: 100%;
+    }
   }
 `;
 

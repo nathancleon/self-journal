@@ -1,5 +1,38 @@
 import React, { Component } from "react";
 import "./Prompt.css";
+import styled from "react-emotion";
+
+const PromptStyled = styled("div")`
+  {
+    display: flex;
+    flex-direction: column;
+    height: 600px;
+    width: 650px;
+    margin-top: 50px;
+    position: relative;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: rgba(27, 39, 51, 0.25) 0px 10px 20px -8px;
+  }
+`;
+
+const PromptIcon = styled("img")`
+  {
+    position: absolute;
+    top: -60px;
+    left: 40%;
+    width: 150px;
+  }
+`;
+
+const PromptAnswersContainer = styled("div")`
+  {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    width: 80%;
+  }
+`;
 
 export default class Prompt extends Component {
   constructor(props) {
@@ -34,9 +67,9 @@ export default class Prompt extends Component {
     const { question, answers, placeholder, image, alt} = this.props.data;
 
     return (
-      <div className="prompt">
-        <img className="prompt-image" src={image} alt={alt}/>
-        <div className="prompt-answers-container">
+      <PromptStyled>
+        <PromptIcon src={image} alt={alt}/>
+        <PromptAnswersContainer>
           <h2 className="prompt-question">{question}</h2>
           <ul className="prompt-answers" role="radiogroup">
             {answers.map((element, index) => {
@@ -70,8 +103,8 @@ export default class Prompt extends Component {
           >
             Next
           </button>
-        </div>
-      </div>
+        </PromptAnswersContainer>
+      </PromptStyled>
     );
   }
 }

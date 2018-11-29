@@ -7,9 +7,6 @@ const JListItem = styled("li")`
     padding: 40px;
     cursor: pointer;
   }
-  &:hover {
-    background-color: #eee;
-  }
   h3 {
     color: #222;
     font-size: 14px;

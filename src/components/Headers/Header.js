@@ -6,7 +6,7 @@ import { logoutUser } from '../../actions/UserActions';
 import styled from "react-emotion";
 
 
-const HeaderContainer = styled("div")` 
+const HeaderContainer = styled("nav")` 
   {
     background-color: rgba(58, 94, 255, 0.65);
     color: white;
@@ -29,17 +29,18 @@ const HeaderBranding = styled("a")`
     width: 40px;
     margin-top: -20px;
   }
-  h1 {
+  h2 {
     margin-left: 5px;
     margin-top: 5px;
     font-family: 'Nunito', sans-serif;
+    font-size: 32px;
   }
 
   @media only screen and (max-width: 600px) {
     img {
       margin-top: -22px;
     }
-    h1 {
+    h2 {
       font-size: 18px;
       margin-top: 15px;
     }
@@ -53,7 +54,7 @@ const HeaderBranding = styled("a")`
       width: 25px;
       margin-top: -10px;
     }
-    h1 {
+    h2 {
       font-size: 16px;
       margin-top: 20px;
     }
@@ -140,7 +141,7 @@ class Header extends Component {
       <HeaderContainer>
           <HeaderBranding href="/">
             <img src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/reading_list_4boi.svg" alt="a man reading a book" />
-            <h1>mentalnote</h1>
+            <h2>mentalnote</h2>
           </HeaderBranding>
         <HeaderLinks>
         {

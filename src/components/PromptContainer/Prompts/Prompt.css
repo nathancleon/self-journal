@@ -80,7 +80,7 @@ label {
 
 
 .prompt-input:checked + label {
-  background-color: rgba(58, 94, 255, 0.2);
+  background-color: rgba(58, 94, 255, 0.15);
 }
 
 .prompt-text-field {

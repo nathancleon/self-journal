@@ -9,6 +9,12 @@ const JSelected = styled("div")`
     justify-content: center;
     background-color: #fff;
     width: 60%;
+    height: 88vh;
+  }
+  @media only screen and (max-width: 600px) {
+    {
+      width: 70%;
+    }
   }
 `;
 

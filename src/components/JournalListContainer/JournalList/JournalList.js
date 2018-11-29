@@ -17,6 +17,12 @@ const JList = styled("div")`
     border-top: 1px solid #ddd;
     background-color: #fefefe;
   }
+  ul li:hover {
+    background-color: rgba(58, 94, 255, 0.1);
+    transform: scale(1.2);
+    padding-left: 25%;
+    margin-bottom: 10px;
+  }
   ul li:last-child {
     border-bottom: 1px solid #ddd;
   }
@@ -25,12 +31,18 @@ const JList = styled("div")`
       ul {
         margin-top: 76px;
       }
+      ul li:hover {
+        margin-bottom: 8px;
+      }
     }
 
   @media only screen and (max-width: 600px) {
     ul {
         margin-top: 74px;
       }
+    ul li:hover {
+      padding-left: 15px;
+    }
   }
 `;
 
@@ -38,12 +50,11 @@ const ListLabel = styled("div")`
    {
     text-align: center;
     padding: 35px;
-    width: 20%;
-    position: fixed;
-    top: 80px;
+    width: 100%;
+    position: absolute;
     background-color: #fefefe;
     border-bottom: 1px solid #ddd;
-    border-right: 1px solid #ddd;
+    z-index: 20;
   }
 
   @media only screen and (max-width: 1200px) {
