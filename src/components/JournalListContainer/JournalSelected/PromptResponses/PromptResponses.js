@@ -20,7 +20,9 @@ const SelectedPromptContainer = styled("div")`
     margin-top: 5px;
   }
   @media only screen and (max-width: 600px) {
-    margin-left: 20px;
+    {
+      margin-left: 20px;
+    }
   }
 `;
 
@@ -53,9 +55,12 @@ const SelectedPromptHeader = styled("div")`
     }
   }
   @media only screen and (max-width: 600px) {
+    {
+      margin-top: 20px;
+    }
     h1 {
       font-size: 10px;
-      margin-top: 10px;
+      margin-top: 8px;
       height: 30px;
     }
   }
@@ -87,6 +92,7 @@ const PromptIcons = styled("div")`
     {
       width: 50px;
       height: 35px;
+      padding-left: 5px;
       margin-top: 5px;
     }
     svg {
@@ -197,32 +203,32 @@ const SubmitButton = styled("button")`
 const promptData = {
   data: {
     Self: {
-      question: "How do you describe your overall mental health today?",
+      question: "How do you describe your overall mental health?",
       answers: ["Poor", "Not Great", "Good", "Great", "Excellent"]
     },
     Anxiety: {
-      question: "How anxious would you say you feel today?",
+      question: "How anxious would you say you feel?",
       answers: ["Not at all", "Slightly", "Moderately", "Very", "Extremely"]
     },
     Depression: {
-      question: "How depressed would you say you feel today?",
+      question: "How depressed would you say you feel?",
       answers: ["Not at all", "Slightly", "Moderately", "Very", "Extremely"]
     },
     Concentration: {
-      question: "How would you describe your ability to concentrate today?",
+      question: "How would you describe your ability to concentrate?",
       answers: ["Poor", "Not Great", "Good", "Great", "Excellent"]
     },
     Family: {
-      question: "How do would you rate the connections you have with your family today?",
+      question: "How do would you rate the connections you have with your family?",
       answers: ["Poor", "Not Great", "Good", "Great", "Excellent"]
         
     },
     Friendships: {
-      question: "How do would you rate the connections you have with your friends today?", 
+      question: "How do would you rate the connections you have with your friends?", 
       answers: ["Poor", "Not Great", "Good", "Great", "Excellent"]
     },
     Gratitude: {
-      question: "List at least three things you are grateful for today"
+      question: "List at least three things you are grateful for."
     }
   }
 };

@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import "./Prompt.css";
-import styled from "react-emotion";
+import { css } from "react-emotion";
 
-const PromptStyled = styled("div")`
+const prompt = css`
   {
     display: flex;
     flex-direction: column;
@@ -14,9 +13,37 @@ const PromptStyled = styled("div")`
     border-radius: 5px;
     box-shadow: rgba(27, 39, 51, 0.25) 0px 10px 20px -8px;
   }
+
+  @media only screen and (max-width: 600px) {
+    {
+      width: 100%;
+    }
+
+    img {
+      top: -30px;
+      width: 100px;
+    }
+  }
+
+  @media only screen and (max-width: 360px) {
+    img {
+      left: 35%;
+    }
+  }
+
+  @media only screen and (max-height: 600px) {
+  {
+    height: 80vh;
+    margin-top: 0px;
+  }
+  img {
+    width: 80px;
+    top: 10px;
+  }
+}
 `;
 
-const PromptIcon = styled("img")`
+const prompt__icon = css`
   {
     position: absolute;
     top: -60px;
@@ -25,12 +52,136 @@ const PromptIcon = styled("img")`
   }
 `;
 
-const PromptAnswersContainer = styled("div")`
+const prompt__form_container = css`
   {
     display: flex;
     flex-direction: column;
     align-self: center;
     width: 80%;
+  }
+
+  @media only screen and (max-width: 600px) {
+    {
+      width: 100%;
+    }
+
+    h2 {
+      font-size: 18px;
+    }
+
+    ul li label {
+      padding: 5px 10px;
+    }
+  }
+
+  @media only screen and (max-width: 410px) {
+    ul li label {
+      font-size: 12px;
+      padding: 5px;
+    }
+  }
+
+  @media only screen and (max-height: 600px) {
+  h2 {
+    margin-bottom: 15px;
+  }
+  textarea {
+    height: 100px;
+  }
+}
+`;
+
+const form__question = css`
+  {
+    font-size: 24px;
+    text-align: center;
+    margin-top: 80px;
+    margin-bottom: 40px;
+  }
+`;
+
+const form__options = css`
+  {
+    display: inline-block;
+    margin: 0 auto;
+    border-radius: 5px;
+  }
+`;
+
+const form__option = css`
+  {
+    position: relative;
+    display: inline-block;
+    border: 1px solid #ddd;
+    border-right: 0px;
+  }
+  &:first-child{
+    border-left: 1px solid #ddd;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+  }
+  &:last-child {
+    border-right: 1px solid #ddd;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+  }
+  label {
+    display: inline-block;
+    cursor: pointer;
+    padding: 10px 20px;
+  }
+  &:first-child label {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+  }
+  &:last-child label {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+  }
+`;
+
+const form__option_input = css`
+  {
+    position: absolute;
+    visibility: hidden;
+    display: none;
+  }
+  &:checked + label {
+    background-color: rgba(58, 94, 255, 0.15);
+  }
+`;
+
+const form__text_field = css`
+  {
+    max-height: 200px;
+    height: 200px;
+    margin-top: 40px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    font-size: 16px;
+  }
+`;
+
+const form__next_btn = css`
+  {
+    height: 45px;
+    width: 50%;
+    font-size: 16px;
+    align-self: center;
+    background-color: rgba(58, 94, 255, 0.7);
+    color: #fff;
+    font-weight: bold;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-top: 50px;
+    cursor: pointer;
+    letter-spacing: 1px;
+  }
+  &:hover {
+    background-color: #fff;
+    color: #000;
+    font-weight: normal;
   }
 `;
 
@@ -49,13 +200,6 @@ export default class Prompt extends Component {
     });
   }
 
-  handleEnterKeyPress(event) {
-    console.log(event);
-    // if (event.keyCode == 13) {
-    //   event.setAttribute("aria-checked", "true");
-    // }
-  }
-
   handleNextEvent() {
     this.props.goNext({
       answer: this.state.answer,
@@ -67,16 +211,16 @@ export default class Prompt extends Component {
     const { question, answers, placeholder, image, alt} = this.props.data;
 
     return (
-      <PromptStyled>
-        <PromptIcon src={image} alt={alt}/>
-        <PromptAnswersContainer>
-          <h2 className="prompt-question">{question}</h2>
-          <ul className="prompt-answers" role="radiogroup">
+      <div className={prompt}>
+        <img className={prompt__icon} src={image} alt={alt}/>
+        <div className={prompt__form_container}>
+          <h2 className={form__question}>{question}</h2>
+          <ul className={form__options} role="radiogroup">
             {answers.map((element, index) => {
               return (
-                <li className="prompt-answer" key={index} role="radio" aria-checked="false" tabIndex="0" onKeyDown={this.handleEnterKeyPress.bind(this)}>
+                <li className={form__option} key={index} role="radio" aria-checked="false" tabIndex="0">
                   <input
-                    className="prompt-input"
+                    className={form__option_input}
                     onChange={this.handleChange.bind(this)}
                     type="radio"
                     name="answer"
@@ -89,7 +233,7 @@ export default class Prompt extends Component {
             })}
           </ul>
           <textarea
-            className="prompt-text-field"
+            className={form__text_field}
             onChange={this.handleChange.bind(this)}
             rows="4"
             cols="50"
@@ -97,14 +241,14 @@ export default class Prompt extends Component {
             placeholder={placeholder}
           />
           <button
-            className="prompt-next-btn"
+            className={form__next_btn}
             onClick={this.handleNextEvent.bind(this)}
             type="button"
           >
             Next
           </button>
-        </PromptAnswersContainer>
-      </PromptStyled>
+        </div>
+      </div>
     );
   }
 }

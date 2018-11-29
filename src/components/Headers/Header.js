@@ -72,6 +72,7 @@ const HeaderLinks = styled("ul")`
 
   li {
     flex-direction: row;
+    position: relative;
     list-style: none;
     font-size: 18px;
     margin-top: 12px;
@@ -85,6 +86,17 @@ const HeaderLinks = styled("ul")`
     letter-spacing: 2px;
     color: #fff;
     font-weight: bold;
+  }
+
+  li:hover:after {
+    content: '';
+    position: absolute;
+    top: 27px;
+    left: 0px;
+    width: 100%;
+    height: 4px;
+    background-color: #fff;
+    border-radius: 4px;
   }
 
   @media only screen and (max-width: 1200px) {
@@ -111,6 +123,10 @@ const HeaderLinks = styled("ul")`
     li {
       font-size: 10px;
       margin-top: 20px;
+    }
+    li:hover:after {
+      height: 3px;
+      top: 15px;
     }
   }
 `;
