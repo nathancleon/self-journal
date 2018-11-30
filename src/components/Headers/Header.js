@@ -8,12 +8,11 @@ import styled from "react-emotion";
 
 const HeaderContainer = styled("nav")` 
   {
-    background-color: rgba(58, 94, 255, 0.65);
+    background-color: rgba(58, 94, 255, 0.8);
     color: white;
     display: flex;
     height: 8vh;
     justify-content: space-between;
-    padding-top: 10px;
   }
 `;
 

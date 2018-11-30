@@ -1,9 +1,17 @@
 import React, { Component } from "react";
 import { Redirect } from 'react-router-dom';
-import "./Register.css";
 import { connect } from "react-redux";
 import { registerUser } from "../../../actions/UserActions";
 import Header from "../../Headers/Header";
+import { 
+  auth__container, 
+  form__container,
+  form__icon,  
+  form, 
+  form__title, 
+  form__user, 
+  form__submit_btn
+} from "../userStyles";
 
 class Register extends Component {
   constructor(props) {
@@ -43,26 +51,26 @@ class Register extends Component {
     return (
       <div>
         <Header links={linksArray} />
-        <section className="registration-container">
-          <div className="form-container">
-            <form className="form">
-              <h1 className="form-title">Register</h1>
-              <div className="form-user">
-                <label className="email-label" htmlFor="email">
+        <section className={auth__container}>
+          <div className={form__container}>
+            <img className={form__icon} src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/superhero_kguv.svg"
+                alt="person diving in the air wearing business clothes" />
+            <form className={form}>
+              <h1 className={form__title}>Register</h1>
+              <div className={form__user}>
+                <label htmlFor="email">
                   Email
                 </label>
                 <input
-                  className="user-email"
                   type="email"
                   name="email"
                   id="email"
                   onChange={this.handleChange.bind(this)}
                 />
-                <label className="password-label" htmlFor="password">
+                <label htmlFor="password">
                   Password
                 </label>
                 <input
-                  className="user-password"
                   type="password"
                   name="password"
                   id="password"
@@ -70,7 +78,7 @@ class Register extends Component {
                 />
               </div>
               <button
-                className="btn btn-submit"
+                className={form__submit_btn}
                 type="password"
                 onClick={this.handleSubmit.bind(this)}
               >

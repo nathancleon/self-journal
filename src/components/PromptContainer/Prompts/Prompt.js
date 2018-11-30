@@ -4,7 +4,7 @@ import { css } from "react-emotion";
 const prompt = css`
   {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     height: 600px;
     width: 650px;
     margin-top: 50px;
@@ -21,17 +21,11 @@ const prompt = css`
 
     img {
       top: -30px;
-      width: 100px;
+      width: 120px;
     }
   }
 
-  @media only screen and (max-width: 360px) {
-    img {
-      left: 35%;
-    }
-  }
-
-  @media only screen and (max-height: 600px) {
+  @media only screen and (max-height: 640px) {
   {
     height: 80vh;
     margin-top: 0px;
@@ -47,7 +41,6 @@ const prompt__icon = css`
   {
     position: absolute;
     top: -60px;
-    left: 40%;
     width: 150px;
   }
 `;
@@ -81,9 +74,9 @@ const prompt__form_container = css`
     }
   }
 
-  @media only screen and (max-height: 600px) {
+  @media only screen and (max-height: 840px) {
   h2 {
-    margin-bottom: 15px;
+    margin-bottom: 45px;
   }
   textarea {
     height: 100px;
