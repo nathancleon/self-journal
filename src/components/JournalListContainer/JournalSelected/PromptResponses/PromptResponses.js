@@ -19,6 +19,12 @@ const SelectedPromptContainer = styled("div")`
     margin-left: 80px;
     margin-top: 5px;
   }
+  @media only screen and (max-width: 1200px) {
+    {
+      margin-left: 40px;
+    }
+  }
+
   @media only screen and (max-width: 600px) {
     {
       margin-left: 20px;
@@ -32,6 +38,7 @@ const SelectedPromptHeader = styled("div")`
     justify-content: space-between;
     width: 60%;
     margin-top: 40px;
+    padding-bottom: 20px;
     background-color: #fefefe;
     box-shadow:  -2px 6px 3px -5px rgba(0,0,0,0.2);
     position: relative;
@@ -39,28 +46,29 @@ const SelectedPromptHeader = styled("div")`
   h1 {
     font-size: 24px;
     height: 50px;
-    padding-top: 10px;
+    padding-top: 15px;
   }
   @media only screen and (max-width: 1400px) {
     {
       width: 80%;
     }
   }
-  @media only screen and (max-width: 1100px) {
+  @media only screen and (max-width: 1200px) {
     {
       width: 100%;
+      padding-bottom: 10px;
     }
     h1 {
       font-size: 18px;
     }
   }
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 645px) {
     {
-      margin-top: 20px;
+      margin-top: 10px;
+      padding-bottom: 5px;
     }
     h1 {
       font-size: 10px;
-      margin-top: 8px;
       height: 30px;
     }
   }
@@ -109,7 +117,6 @@ const SelectedPromptData = styled("div")`
    {
     display: flex;
     flex-direction: column;
-    max-height: 80vh;
     width: 100%;
     margin-left: 5px;
     overflow: -moz-scrollbars-vertical; 
@@ -156,13 +163,20 @@ const UserTextAnswers = styled("div")`
     margin-bottom: 10px;
   }
   textarea {
-    font-size: 14px;
+    font-size: 16px;
+    width: 100%;
     border: 1px solid #ddd;
     padding: 5px;
   }
+
+  @media only screen and (max-width: 1200px) {
+    textarea {
+      font-size: 14px;
+    }
+  }
+
   @media only screen and (max-width: 600px) {
     textarea {
-      width: 100%;
       font-size: 10px;
     }
   }

@@ -12,6 +12,7 @@ const JList = styled("div")`
   }
   ul{
     margin-top: 80px;
+    z-index: 1;
   }
   ul li {
     border-top: 1px solid #ddd;

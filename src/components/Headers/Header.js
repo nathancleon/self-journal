@@ -11,7 +11,7 @@ const HeaderContainer = styled("nav")`
     background-color: rgba(58, 94, 255, 0.65);
     color: white;
     display: flex;
-    height: 80px;
+    height: 8vh;
     justify-content: space-between;
     padding-top: 10px;
   }
@@ -27,22 +27,18 @@ const HeaderBranding = styled("a")`
   }
   img {
     width: 40px;
-    margin-top: -20px;
+    align-self: center;
   }
   h2 {
     margin-left: 5px;
-    margin-top: 5px;
+    align-self: center;
     font-family: 'Nunito', sans-serif;
     font-size: 32px;
   }
 
   @media only screen and (max-width: 600px) {
-    img {
-      margin-top: -22px;
-    }
     h2 {
       font-size: 18px;
-      margin-top: 15px;
     }
   }
 
@@ -52,11 +48,9 @@ const HeaderBranding = styled("a")`
      }
     img {
       width: 25px;
-      margin-top: -10px;
     }
     h2 {
       font-size: 16px;
-      margin-top: 20px;
     }
   }
 `;
@@ -75,7 +69,7 @@ const HeaderLinks = styled("ul")`
     position: relative;
     list-style: none;
     font-size: 18px;
-    margin-top: 12px;
+    align-self: center;
   }
 
   li a {
@@ -112,7 +106,6 @@ const HeaderLinks = styled("ul")`
     }
     li {
       font-size: 14px;
-      margin-top: 15px;
     }
   }
 
@@ -122,7 +115,6 @@ const HeaderLinks = styled("ul")`
     }
     li {
       font-size: 10px;
-      margin-top: 20px;
     }
     li:hover:after {
       height: 3px;

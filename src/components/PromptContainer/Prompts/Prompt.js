@@ -218,25 +218,19 @@ export default class Prompt extends Component {
   handleNextEvent() {
 
     if (this.props.data.answers.length === 0 && this.state.answerText === "") {
-      console.log("first check ran");
-      console.log(this.props.data.answers.length);
       this.setState({
         answerTextError: true
       })
     } else if (this.props.data.answers.length === 0 && this.state.answer === "") {
-      console.log("second check ran");
-      console.log(this.props.data.answers.length);
       this.props.goNext({
         answer: this.state.answer,
         answerText: this.state.answerText
       });
     } else if (this.state.answer === "" && this.props.data.answers.length > 0) {
-      console.log("third check ran");
       this.setState({
         answerError: true
       })
     } else if (this.state.answerText === "" && this.props.data.answers.length > 0) {
-      console.log("fourth check ran");
       this.setState({
         answerTextError: true
       })
