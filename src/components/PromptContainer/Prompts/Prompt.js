@@ -5,9 +5,8 @@ const prompt = css`
   {
     display: flex;
     justify-content: center;
-    height: 600px;
+    height: 500px;
     width: 650px;
-    margin-top: 50px;
     position: relative;
     background-color: #fff;
     border-radius: 5px;
@@ -40,7 +39,7 @@ const prompt = css`
 const prompt__icon = css`
   {
     position: absolute;
-    top: -60px;
+    top: -8vh;
     width: 150px;
   }
 `;
@@ -88,7 +87,7 @@ const form__question = css`
   {
     font-size: 24px;
     text-align: center;
-    margin-top: 80px;
+    margin-top: 40px;
     margin-bottom: 40px;
   }
 `;

@@ -8,7 +8,7 @@ import styled from "react-emotion";
 
 const HeaderContainer = styled("nav")` 
   {
-    background-color: rgba(58, 94, 255, 0.8);
+    background-color: rgb(128, 124, 255);
     color: white;
     display: flex;
     height: 8vh;

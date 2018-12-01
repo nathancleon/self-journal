@@ -31,13 +31,13 @@ export const form__container = css`
 export const form__icon = css`
   {
     position: absolute;
-    top: -130px;
-    width: 200px;
+    top: -90px;
+    width: 150px;
   }
 
   @media only screen and (max-width: 700px) {
-    width: 150px;
-    top: -80px;
+    width: 120px;
+    top: -60px;
   }
 `;
 

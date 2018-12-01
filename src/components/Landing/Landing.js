@@ -11,8 +11,10 @@ export default class Landing extends Component {
       <div>
        <Header links={linksArray} />
         <div className="Landing">
-        <section className="banner" />
-      </div>
+        <section className="banner">
+          <div className="triangle"></div>
+        </section>
+        </div>
       </div>
       
     );
