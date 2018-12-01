@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import styled from "react-emotion";
+import { css } from "react-emotion";
 import PromptResponses from "./PromptResponses/PromptResponses";
 
-const JSelected = styled("div")`
+const journal_selected = css`
    {
     display: flex;
     justify-content: center;
@@ -23,16 +23,16 @@ class JournalSelected extends Component {
     console.log(this.props.journal);
     if (!this.props.journal) {
       return (
-        <JSelected>
+        <div className={journal_selected}>
           <div> You haven 't created a journal entry yet</div>{" "}
-        </JSelected>
+        </div>
       );
     }
 
     return (
-      <JSelected>
+      <div className={journal_selected}>
         <PromptResponses journal={this.props.journal} />{" "}
-      </JSelected>
+      </div>
     );
   }
 }

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import "./PromptSubmit.css";
 import { Redirect } from 'react-router-dom';
 import { css } from "emotion";
+import { colors } from "../../../globalStyles";
 
 const prompt__submit_container = css`
   {
@@ -71,7 +71,7 @@ const prompt__submit_btn = css`
     width: 50%;
     font-size: 16px;
     align-self: center;
-    background-color: rgba(58, 94, 255, 0.7);
+    background-color: ${colors.main};
     color: #fff;
     font-weight: bold;
     border: 1px solid #ddd;

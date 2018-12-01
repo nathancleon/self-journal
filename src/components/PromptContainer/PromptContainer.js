@@ -1,10 +1,24 @@
 import React, { Component } from "react";
 import Prompt from "./Prompts/Prompt";
 import PromptSubmit from "./PromptSubmit/PromptSubmit";
-import "./PromptContainer.css";
 import { saveJournalData } from "../../actions/JournalActions";
 import { connect } from "react-redux";
 import Header from "../Headers/Header";
+import { css } from "react-emotion";
+import { colors } from "../../globalStyles";
+
+
+const prompt_container = css`
+  {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    height: 92vh;
+    width: 100%;
+    background-color: ${colors.backgroundLight};
+  }
+`;
 
 class PromptContainer extends Component {
   constructor(props) {
@@ -103,7 +117,7 @@ class PromptContainer extends Component {
     return (
       <div>
         <Header links={linksArray} />
-      <div className="prompt-container">
+      <div className={prompt_container}>
         {this.state.steps === 0 && (
           <Prompt
             goNext={this.goToNextPrompt.bind(this)}

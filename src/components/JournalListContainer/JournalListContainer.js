@@ -4,9 +4,9 @@ import { fetchAllJournalData, saveSelectedJournal } from "../../actions/JournalA
 import Header from "../Headers/Header";
 import JournalList from "./JournalList/JournalList";
 import JournalSelected from "./JournalSelected/JournalSelected";
-import styled from "react-emotion";
+import { css } from "react-emotion";
 
-const JLContainer = styled("div")`
+const journal_list__container = css`
 
   {
     display: flex;
@@ -47,7 +47,7 @@ class JournalListContainer extends Component {
   }
 
   render() {
-    const { journalData, selectedJournal, isLoading, error } = this.state;
+    const { journalData, isLoading, error } = this.state;
     const linksArray = ["prompts", "log out"];
 
     if (error) {
@@ -61,7 +61,7 @@ class JournalListContainer extends Component {
     return (
       <div>
         <Header links={linksArray} />
-        <JLContainer>
+        <div className={journal_list__container}>
           <JournalList
             onJournalSelect={(selectedJournal, positionKey) => 
             {
@@ -72,7 +72,7 @@ class JournalListContainer extends Component {
             journals={journalData}
           />
           <JournalSelected />
-        </JLContainer>
+        </div>
       </div>
       
     );

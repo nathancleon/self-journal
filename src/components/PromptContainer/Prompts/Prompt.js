@@ -1,192 +1,16 @@
 import React, { Component } from "react";
-import { css } from "react-emotion";
-
-const prompt = css`
-  {
-    display: flex;
-    justify-content: center;
-    height: 500px;
-    width: 650px;
-    position: relative;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: rgba(27, 39, 51, 0.25) 0px 10px 20px -8px;
-  }
-
-  @media only screen and (max-width: 600px) {
-    {
-      width: 100%;
-    }
-
-    img {
-      top: -30px;
-      width: 120px;
-    }
-  }
-
-  @media only screen and (max-height: 640px) {
-  {
-    height: 80vh;
-    margin-top: 0px;
-  }
-  img {
-    width: 80px;
-    top: 10px;
-  }
-}
-`;
-
-const prompt__icon = css`
-  {
-    position: absolute;
-    top: -8vh;
-    width: 150px;
-  }
-`;
-
-const prompt__form_container = css`
-  {
-    display: flex;
-    flex-direction: column;
-    align-self: center;
-    width: 80%;
-  }
-
-  @media only screen and (max-width: 600px) {
-    {
-      width: 100%;
-    }
-
-    h2 {
-      font-size: 18px;
-    }
-
-    ul li label {
-      padding: 5px 10px;
-    }
-  }
-
-  @media only screen and (max-width: 410px) {
-    ul li label {
-      font-size: 12px;
-      padding: 5px;
-    }
-  }
-
-  @media only screen and (max-height: 840px) {
-  h2 {
-    margin-bottom: 45px;
-  }
-  textarea {
-    height: 100px;
-  }
-}
-`;
-
-const form__question = css`
-  {
-    font-size: 24px;
-    text-align: center;
-    margin-top: 40px;
-    margin-bottom: 40px;
-  }
-`;
-
-const form__options = css`
-  {
-    display: inline-block;
-    margin: 0 auto;
-    border-radius: 5px;
-  }
-`;
-
-const form__option = css`
-  {
-    position: relative;
-    display: inline-block;
-    border: 1px solid #ddd;
-    border-right: 0px;
-  }
-  &:first-child{
-    border-left: 1px solid #ddd;
-    border-top-left-radius: 4px;
-    border-bottom-left-radius: 4px;
-  }
-  &:last-child {
-    border-right: 1px solid #ddd;
-    border-top-right-radius: 4px;
-    border-bottom-right-radius: 4px;
-  }
-  label {
-    display: inline-block;
-    cursor: pointer;
-    padding: 10px 20px;
-  }
-  &:first-child label {
-    border-top-left-radius: 4px;
-    border-bottom-left-radius: 4px;
-  }
-  &:last-child label {
-    border-top-right-radius: 4px;
-    border-bottom-right-radius: 4px;
-  }
-`;
-
-const form__option_input = css`
-  {
-    position: absolute;
-    visibility: hidden;
-    display: none;
-  }
-  &:checked + label {
-    background-color: rgba(58, 94, 255, 0.15);
-  }
-`;
-
-const form__text_field = css`
-  {
-    max-height: 200px;
-    height: 200px;
-    margin-top: 40px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 2px;
-    font-size: 16px;
-  }
-`;
-
-const form__next_btn = css`
-  {
-    height: 45px;
-    width: 50%;
-    font-size: 16px;
-    align-self: center;
-    background-color: rgba(58, 94, 255, 0.7);
-    color: #fff;
-    font-weight: bold;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    margin-top: 30px;
-    cursor: pointer;
-    letter-spacing: 1px;
-  }
-  &:hover {
-    background-color: #fff;
-    color: #000;
-    font-weight: normal;
-  }
-`;
-
-const answer__error = css`
-  {
-    color: rgb(220, 80, 80);
-    font-weight: bold;
-    margin-top: 10px;
-    margin-bottom: -20px;
-    align-self: center;
-  }
-`;
-
+import {
+  prompt,
+  prompt__icon,
+  prompt__form_container,
+  form__question,
+  form__options,
+  form__option,
+  form__option_input,
+  form__text_field,
+  form__next_btn,
+  answer__error
+} from "./PromptStyles";
 
 
 export default class Prompt extends Component {
@@ -232,8 +56,6 @@ export default class Prompt extends Component {
         answerText: this.state.answerText
       });
     }
-  
-
   }
 
   render() {

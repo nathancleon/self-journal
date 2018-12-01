@@ -4,11 +4,11 @@ import { Redirect } from 'react-router-dom';
 import { connect } from "react-redux";
 import { logoutUser } from '../../actions/UserActions';
 import styled from "react-emotion";
-
+import { colors } from "../../globalStyles";
 
 const HeaderContainer = styled("nav")` 
   {
-    background-color: rgb(128, 124, 255);
+    background-color: ${colors.main};
     color: white;
     display: flex;
     height: 8vh;

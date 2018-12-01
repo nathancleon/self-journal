@@ -1,4 +1,5 @@
 import { css } from "react-emotion";
+import { colors } from "../../globalStyles";
 
 export const auth__container = css`
   {
@@ -7,7 +8,7 @@ export const auth__container = css`
     align-items: center;
     height: 92vh;
     width: 100%;
-    background-color: #fafafafa;
+    background-color: ${colors.backgroundLight};
   }
 `;
 
@@ -93,7 +94,7 @@ export const form__submit_btn = css`
     width: 50%;
     font-size: 16px;
     align-self: center;
-    background-color: rgba(58, 94, 255, 0.7);
+    background-color: ${colors.main};
     color: #fff;
     font-weight: bold;
     border: 1px solid #ddd;
