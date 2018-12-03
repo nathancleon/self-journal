@@ -80,8 +80,8 @@ export const form__user = css`
     height: 40px;
     border: none;
     border: 1px solid #ddd;
-    border-radius: 2px;
-    background-color: #f8f8f8;
+    border-radius: 4px;
+    background-color: #fbfbfb;
     margin-bottom: 30px;
     font-size: 14px;
     padding: 5px;

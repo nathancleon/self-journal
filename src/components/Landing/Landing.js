@@ -3,6 +3,7 @@ import Header from "../Headers/Header";
 import { css } from "react-emotion";
 import Banner from "./Banner/Banner";
 import MobileSection from "./MobileSection/MobileSection";
+import TakeABreakSection from "./TakeABreakSection/TakeABreakSection";
 
 const landing = css`
   {
@@ -20,6 +21,7 @@ export default class Landing extends Component {
         <Header links={linksArray} />
         <Banner />
         <MobileSection />
+        <TakeABreakSection />
       </div>
       
     );

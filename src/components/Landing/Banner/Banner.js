@@ -6,12 +6,12 @@ const banner = css`
   {
     display: flex;
     justify-content: space-around;
+    align-items: center;
     height: 80vh;
     width: 100%;
-    padding-top: 28vh;
     position: relative;
     background-color: ${colors.backgroundDark};
-    z-index: 1;
+    z-index: 2;
   }
   &:before {
     content: '';
@@ -28,13 +28,36 @@ const banner = css`
     bottom: -20vh;
     border-left: 100vw solid transparent;
     border-right: 0vw solid transparent;
-    border-top: 20vh solid ${colors.backgroundDark};
+    border-top: 20.1vh solid ${colors.backgroundDark};
+  }
+
+  @media only screen and (max-width: 780px) {
+    {
+      flex-direction: column;
+      height: 95vh;
+    }
+
+    div {
+      order: 2;
+      width: 90%;
+    }
+
+    div h1 {
+      line-height: 10vh;
+    }
+
+    img {
+      order: 1;
+      width: 50vw;
+      min-width: 40vw;
+      margin-bottom: -25vh;
+    }
   }
 `;
 
 const banner_content = css`
   {
-    width: 40%;
+    width: 30vw;
     order: 1;
   }
 `;
@@ -57,7 +80,7 @@ const title__name = css`
   &:after {
     content: '';
     position: absolute;
-    top: 7.5vh;
+    bottom: 0;
     left: 0px;
     width: 100%;
     height: 4px;
@@ -76,8 +99,7 @@ const banner_content__text = css`
 
 const banner_img = css`
   {
-    width: 45%;
-    margin-top: -22vh;
+    width: 40vw;
     order: 2;
   }
 `;

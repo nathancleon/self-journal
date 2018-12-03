@@ -6,12 +6,13 @@ const banner = css`
   {
     display: flex;
     justify-content: space-around;
-    height: 95vh;
+    align-items: center;
+    height: 90vh;
     width: 100%;
-    padding-top: 40vh;
+    padding-top: 10vh;
     position: relative;
     background-color: ${colors.main};
-    z-index: 0;
+    z-index: 1;
   }
   &:after {
     content: '';
@@ -19,13 +20,27 @@ const banner = css`
     bottom: -20vh;
     border-left: 0 solid transparent;
     border-right: 100vw solid transparent;
-    border-top: 20vh solid ${colors.main}
+    border-top: 20.1vh solid ${colors.main}
+  }
+
+ @media only screen and (max-width: 780px) {
+    {
+      flex-direction: column;
+      height: 105vh;
+    }
+    div {
+      width: 90%;
+    }
+    img {
+      width: 50vw;
+      min-width: 40vw;
+    }
   }
 `;
 
 const banner_content = css`
   {
-    width: 40%;
+    width: 35vw;
     order: 2;
   }
 `;
@@ -50,8 +65,8 @@ const banner_content__text = css`
 
 const banner_img = css`
   {
-    max-width: 400px;
-    margin-top: -22vh;
+    width: 25vw;
+    min-width: 400px;
     order: 1;
   }
 `;

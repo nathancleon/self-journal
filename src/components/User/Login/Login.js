@@ -58,7 +58,7 @@ class Login extends Component {
             <h1 className={form__title}>Login</h1>
             <div className={form__user}>
               <label htmlFor="email">
-                Email
+                Email:
               </label>
               <input
                 type="email"
@@ -67,7 +67,7 @@ class Login extends Component {
                 onChange={this.handleChange.bind(this)}
               />
               <label htmlFor="password">
-                Password
+                Password:
               </label>
               <input
                 type="password"
