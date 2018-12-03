@@ -109,3 +109,12 @@ export const form__submit_btn = css`
     font-weight: normal;
   }
 `;
+
+export const submit__error = css`
+  {
+    color: rgb(220, 80, 80);
+    font-weight: bold;
+    margin-bottom: -10px;
+    align-self: center;
+  }
+`;

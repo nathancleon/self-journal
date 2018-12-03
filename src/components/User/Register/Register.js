@@ -10,7 +10,8 @@ import {
   form, 
   form__title, 
   form__user, 
-  form__submit_btn
+  form__submit_btn,
+  submit__error
 } from "../userStyles";
 
 class Register extends Component {
@@ -34,10 +35,13 @@ class Register extends Component {
   handleSubmit(event) {
     event.preventDefault();
     this.props.registerUser(this.state).then(() => {
-      this.setState({
-        toDashboard: true
-      });
-    });
+      if (!this.props.user.error) {
+        debugger;
+        this.setState({
+          toDashboard: true
+        });
+      }
+    })
   }
 
   render() {
@@ -77,6 +81,11 @@ class Register extends Component {
                   onChange={this.handleChange.bind(this)}
                 />
               </div>
+              {
+                this.props.user.error ? 
+                <p className={submit__error}>{this.props.user.error}</p>:
+                null
+              }
               <button
                 className={form__submit_btn}
                 type="password"

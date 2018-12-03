@@ -10,7 +10,8 @@ import {
   form, 
   form__title, 
   form__user, 
-  form__submit_btn
+  form__submit_btn,
+  submit__error
 } from "../userStyles";
 
 class Login extends Component {
@@ -34,10 +35,13 @@ class Login extends Component {
   handleSubmit(event) {
     event.preventDefault();
     this.props.loginUser(this.state).then(() => {
-      this.setState({
-        toDashboard: true
-      })
-    });
+      if (!this.props.user.error) {
+        debugger;
+        this.setState({
+          toDashboard: true
+        });
+      }
+    })
   }
 
   render() {
@@ -76,6 +80,12 @@ class Login extends Component {
                 onChange={this.handleChange.bind(this)}
               />
             </div>
+
+            {
+             this.props.user.error ? 
+             <p className={submit__error}>{this.props.user.error}</p>:
+             null
+            }
             <button
               className={form__submit_btn}
               type="submit"
@@ -93,7 +103,6 @@ class Login extends Component {
 }
 
 const mapStateToProps = reduxState => {
-  console.log(reduxState.user.user.token);
   return {
     user: reduxState.user
   };

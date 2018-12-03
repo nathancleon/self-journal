@@ -14,10 +14,17 @@ export function FetchUserInfo() {
 export function loginUser(user) {
   return dispatch => {
     return axios.post("http://localhost:5000/auth/login", user).then(res => {
+      
       dispatch({
         type: "USER_LOGIN",
         payload: res
       });
+    })
+    .catch(error => {
+      dispatch({
+        type: "USER_LOGIN_ERROR",
+        payload: error.response.data.message
+      })
     });
   };
 }
@@ -29,8 +36,21 @@ export function registerUser(user) {
       dispatch({
         type: "REGISTER_USER",
         payload: res
-      });
+      })
+    })
+    .catch(error => {
+      debugger;
+      dispatch({
+        type: "USER_LOGIN_ERROR",
+        payload: error.response.data.message
+      })
     });
+  };
+}
+
+export function setUserInfo() {
+  return {
+    type: "SET_USER"
   };
 }
 

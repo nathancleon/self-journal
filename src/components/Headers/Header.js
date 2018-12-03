@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Redirect } from 'react-router-dom';
 import { connect } from "react-redux";
-import { logoutUser } from '../../actions/UserActions';
+import { logoutUser, setUserInfo } from '../../actions/UserActions';
 import styled from "react-emotion";
 import { colors } from "../../globalStyles";
 
@@ -129,6 +129,13 @@ class Header extends Component {
     this.state = {
       toHomePage: false
     };
+
+    if (this.props.user) {
+      if (!this.props.user.id && localStorage.getItem('token')) {
+        console.log('setUser ran');
+        this.props.setUserInfo();
+      }
+    }
   }
 
   logOut() {
@@ -189,5 +196,5 @@ const mapStateToProps = reduxState => {
 
 export default connect(
   mapStateToProps,
-  { logoutUser }
+  { logoutUser, setUserInfo }
 )(Header);

@@ -8,6 +8,7 @@ import JournalListContainer from "../JournalListContainer/JournalListContainer";
 import DataVisualization from "../DataVisualization/DataVisualization";
 
 export default class Main extends Component {
+
   render() {
     return (
       <Switch>
