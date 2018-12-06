@@ -77,6 +77,12 @@ const ListLabel = styled("div")`
   }
 `;
 
+const NoItems = styled('div')`
+  {
+    margin-top: 20px;
+  }
+`;
+
 class JournalList extends Component {
   render() {
     //sort items in data by descending order and render each item to JournalListItem component
@@ -91,7 +97,7 @@ class JournalList extends Component {
       );
     });
 
-    const NoItemsAvailable = <p>No journal entries available</p>;
+    const NoItemsAvailable = <NoItems>No journal entries available</NoItems>;
 
     return (
       <JList>
@@ -102,7 +108,8 @@ class JournalList extends Component {
           {
           this.props.journals.length !== 0
             ? journalItemsRender
-            : NoItemsAvailable}
+            : NoItemsAvailable
+          }
         </ul>
       </JList>
     );
