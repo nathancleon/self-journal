@@ -132,7 +132,6 @@ class Header extends Component {
 
     if (this.props.user) {
       if (!this.props.user.id && localStorage.getItem('token')) {
-        console.log('setUser ran');
         this.props.setUserInfo();
       }
     }
@@ -188,7 +187,6 @@ class Header extends Component {
 }
 
 const mapStateToProps = reduxState => {
-  console.log(reduxState.user.user.token);
   return {
     user: reduxState.user
   };

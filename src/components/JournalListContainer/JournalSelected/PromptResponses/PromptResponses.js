@@ -154,7 +154,6 @@ class PromptResponses extends Component {
     let newDataObject = {...this.state.dataObject};
     let editedDataObject = {...newDataObject, ['answer' + event.target.name]: event.target.value};
     this.setState({...this.state, dataObject: {...editedDataObject}});
-    console.log(this.state);
   }
 
   saveAnswerEditTextValue(event) {
@@ -162,19 +161,15 @@ class PromptResponses extends Component {
     let newDataObject = {...this.state.dataObject};
     let editedDataObject = {...newDataObject, ['answerText' + event.target.name]: event.target.value};
     this.setState({...this.state, dataObject: {...editedDataObject}});
-    console.log(this.state);
   }
 
   submitEditedValues(event) {
-    console.log('submitted edited values ran');
     event.preventDefault();
     let newData = Object.assign({}, this.state.dataObject)
     newData._id = this.props.journal._id;
     newData.position = this.props.journal.position;
     newData.userID = this.props.userID;
     newData.token = this.props.token;
-
-    console.log('edited values data ' + newData);
 
     this.setState({
       makeEdit: false
@@ -242,7 +237,6 @@ class PromptResponses extends Component {
 }
 
 const mapStateToProps = reduxState => {
-  console.log(reduxState.user.user.token);
   return {
     userID: reduxState.user.user.id,
     token: reduxState.user.user.token

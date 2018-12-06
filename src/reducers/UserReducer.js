@@ -25,10 +25,8 @@ const UserReducer = (state = InitialState, action) => {
     case "SET_USER":
       return { ...state, user: { token: localStorage.getItem("token"), id: localStorage.getItem("id") } };
     case "LOGOUT_USER":
-      console.log('userReducer ran');
       localStorage.removeItem('token');
       localStorage.removeItem('id');
-      console.log("user logged out");
       return state;
     default:
       return state;

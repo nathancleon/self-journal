@@ -171,7 +171,6 @@ class PromptContainer extends Component {
 }
 
 const mapStateToProps = reduxState => {
-  console.log(reduxState.user.user.token);
   return {
     userID: reduxState.user.user.id,
     token: reduxState.user.user.token

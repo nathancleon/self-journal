@@ -36,7 +36,6 @@ class Register extends Component {
     event.preventDefault();
     this.props.registerUser(this.state).then(() => {
       if (!this.props.user.error) {
-        debugger;
         this.setState({
           toDashboard: true
         });
@@ -103,7 +102,6 @@ class Register extends Component {
 }
 
 const mapStateToProps = reduxState => {
-  console.log(reduxState);
   return {
     user: reduxState.user
   };

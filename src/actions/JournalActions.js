@@ -8,7 +8,6 @@ import axios from "axios";
 const API_URL = "https://mentalnote-server.herokuapp.com";
 
 export function saveJournalData(journalData) {
-  console.log(journalData);
   return dispatch => {
     let headers = {
       "Content-Type": "application/json",
@@ -25,7 +24,6 @@ export function saveJournalData(journalData) {
         }
       )
       .then(res => {
-        console.log("this is the post response" + res);
         dispatch({
           type: "SAVE_JOURNAL_DATA",
           payload: res.data
@@ -35,7 +33,6 @@ export function saveJournalData(journalData) {
 }
 
 export function updateJournalData(journalData) {
-  console.log('UpdateJournalData' + journalData);
   return dispatch => {
     let headers = {
       "Content-Type": "application/json",
@@ -43,7 +40,6 @@ export function updateJournalData(journalData) {
     };
 
     let data = JSON.stringify({ ...journalData });
-    debugger;
     return axios.put(
         `${API_URL}/journal/one/` + journalData._id + "?token=" + localStorage.getItem("token"),
         data,
@@ -52,8 +48,6 @@ export function updateJournalData(journalData) {
         }
       )
       .then(res => {
-        debugger;
-        console.log("this is the put response" + res);
         dispatch({
           type: "UPDATE_JOURNAL_DATA",
           payload: {

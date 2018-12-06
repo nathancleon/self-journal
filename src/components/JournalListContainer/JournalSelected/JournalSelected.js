@@ -20,7 +20,6 @@ const journal_selected = css`
 class JournalSelected extends Component {
 
   render() {
-    console.log(this.props.journal);
     if (!this.props.journal) {
       return (
         <div className={journal_selected}>

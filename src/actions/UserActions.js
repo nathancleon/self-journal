@@ -38,14 +38,13 @@ export function loginUser(user) {
 export function registerUser(user) {
   return dispatch => {
     return axios.post(`${API_URL}/auth/register`, user).then(res => {
-      console.log("this is the register user response" + res);
       dispatch({
         type: "REGISTER_USER",
         payload: res
       })
     })
     .catch(error => {
-      debugger;
+      
       dispatch({
         type: "USER_LOGIN_ERROR",
         payload: error.response.data.message
@@ -61,7 +60,6 @@ export function setUserInfo() {
 }
 
 export function logoutUser() {
-  console.log('userAction ran');
   return  {
       type: "LOGOUT_USER"
     }
