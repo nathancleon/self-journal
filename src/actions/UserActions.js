@@ -1,8 +1,14 @@
 import axios from "axios";
 
+//If developing locally, use localhost
+//If not, use 2nd for production
+//Comment out url not being used
+// const API_URL = "http://localhost:5000";
+const API_URL = "https://mentalnote-server.herokuapp.com";
+
 export function FetchUserInfo() {
   return dispatch => {
-    return axios.get("http://localhost:5000/journal/all").then(res => {
+    return axios.get(`${API_URL}/journal/all`).then(res => {
       dispatch({
         type: "FETCH_USER_INFO",
         payload: res
@@ -13,7 +19,7 @@ export function FetchUserInfo() {
 
 export function loginUser(user) {
   return dispatch => {
-    return axios.post("http://localhost:5000/auth/login", user).then(res => {
+    return axios.post(`${API_URL}/auth/login`, user).then(res => {
       
       dispatch({
         type: "USER_LOGIN",
@@ -31,7 +37,7 @@ export function loginUser(user) {
 
 export function registerUser(user) {
   return dispatch => {
-    return axios.post("http://localhost:5000/auth/register", user).then(res => {
+    return axios.post(`${API_URL}/auth/register`, user).then(res => {
       console.log("this is the register user response" + res);
       dispatch({
         type: "REGISTER_USER",
