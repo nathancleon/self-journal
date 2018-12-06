@@ -4,8 +4,8 @@ import axios from "axios";
 //If developing locally, use localhost
 //If not, use 2nd for production
 //Comment out url not being used
-const API_URL = "http://localhost:5000";
-// const API_URL = "";
+// const API_URL = "http://localhost:5000";
+const API_URL = "https://mentalnote-server.herokuapp.com";
 
 export function saveJournalData(journalData) {
   console.log(journalData);
