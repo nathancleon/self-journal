@@ -2,6 +2,7 @@
   "name": "self-journal",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://mentalnote.herokuapp.com",
   "dependencies": {
     "axios": "^0.18.0",
     "emotion": "^9.2.12",
@@ -19,7 +20,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "heroku-postbuild": "npm run build"
   },
   "browserslist": [
     ">0.2%",
