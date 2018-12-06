@@ -1,5 +1,12 @@
 import axios from "axios";
 
+
+//If developing locally, use localhost
+//If not, use 2nd for production
+//Comment out url not being used
+const API_URL = "http://localhost:5000";
+// const API_URL = "";
+
 export function saveJournalData(journalData) {
   console.log(journalData);
   return dispatch => {
@@ -11,7 +18,7 @@ export function saveJournalData(journalData) {
     let data = JSON.stringify({ journalData });
 
    return axios.post(
-        "http://localhost:5000/journal/submit?token=" + localStorage.getItem("token"),
+        `${API_URL}/journal/submit?token=` + localStorage.getItem("token"),
         data,
         {
           headers: headers
@@ -38,7 +45,7 @@ export function updateJournalData(journalData) {
     let data = JSON.stringify({ ...journalData });
     debugger;
     return axios.put(
-        "http://localhost:5000/journal/one/" + journalData._id + "?token=" + localStorage.getItem("token"),
+        `${API_URL}/journal/one/` + journalData._id + "?token=" + localStorage.getItem("token"),
         data,
         {
           headers: headers
@@ -62,7 +69,7 @@ export function deleteJournalEntry(journalData) {
   return dispatch => {
 
     return axios.delete(
-      "http://localhost:5000/journal/one/" + journalData._id + "?token=" + localStorage.getItem("token"),
+      `${API_URL}/journal/one/` + journalData._id + "?token=" + localStorage.getItem("token"),
       {
         params: {
           id: journalData._id
@@ -91,7 +98,7 @@ export function saveSelectedJournal(journal) {
 export function fetchAllJournalData() {
   return dispatch => {
     return axios.get(
-        "http://localhost:5000/journal/all?token=" +
+        `${API_URL}/journal/all?token=` +
           localStorage.getItem("token")
       )
       .then(res => {
