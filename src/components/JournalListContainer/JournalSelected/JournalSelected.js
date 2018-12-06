@@ -17,13 +17,19 @@ const journal_selected = css`
   }
 `;
 
+const no_journal__entries = css`
+  {
+    margin-top: 10vh;
+  }
+`;
+
 class JournalSelected extends Component {
 
   render() {
     if (!this.props.journal) {
       return (
         <div className={journal_selected}>
-          <div> You haven 't created a journal entry yet</div>{" "}
+          <div className={no_journal__entries}> You haven 't created a journal entry yet</div>{" "}
         </div>
       );
     }

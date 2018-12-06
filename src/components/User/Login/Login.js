@@ -36,7 +36,6 @@ class Login extends Component {
     event.preventDefault();
     this.props.loginUser(this.state).then(() => {
       if (!this.props.user.error) {
-        debugger;
         this.setState({
           toDashboard: true
         });

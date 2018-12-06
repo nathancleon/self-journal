@@ -77,9 +77,21 @@ const ListLabel = styled("div")`
   }
 `;
 
-const NoItems = styled('div')`
+const NoItems = styled('p')`
   {
-    margin-top: 20px;
+    padding-top: 30px;
+    padding-left: 15px;
+  }
+  @media only screen and (max-width: 1200px) {
+      {
+        font-size: 12px;
+      }
+    }
+
+  @media only screen and (max-width: 600px) {
+    {
+      font-size: 10px;
+    }
   }
 `;
 
