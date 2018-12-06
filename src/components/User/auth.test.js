@@ -10,20 +10,24 @@ const store = mockStore({});
 
 describe('<Login />', () => {
   it('Renders without crashing', () => {
-        shallow(
-            <Provider store={store}>
-                <Login />
-            </Provider>
+      const wrapper = shallow(<Provider store={store}><Login />
+            </Provider>,
+            {context: {}, 
+            disableLifecycleMethods: true }
         )
+        console.log(wrapper.debug());
     });
 });
 
 describe('<Register />', () => {
   it('Renders without crashing', () => {
-        shallow(
-            <Provider store={store}>
-                <Register />
-            </Provider>
-        )
+      const wrapper = shallow(
+        <Provider store={store}>
+            <Register />
+        </Provider>,
+        {context: {}, 
+        disableLifecycleMethods: true }
+      )
+      console.log(wrapper.debug());
     });
 });

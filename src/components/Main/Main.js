@@ -5,7 +5,6 @@ import Landing from "../Landing/Landing";
 import Login from "../User/Login/Login";
 import Register from "../User/Register/Register";
 import JournalListContainer from "../JournalListContainer/JournalListContainer";
-import DataVisualization from "../DataVisualization/DataVisualization";
 
 export default class Main extends Component {
 
@@ -17,7 +16,6 @@ export default class Main extends Component {
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
         <Route path="/prompts" component={PromptContainer} />
-        <Route path="/data" component={DataVisualization} />
       </Switch>
     );
   }

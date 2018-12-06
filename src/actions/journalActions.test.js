@@ -15,9 +15,7 @@ describe('saveSelectedJournal', () => {
       answerTextDepression: "sdgfsdfgsdf",
       answerTextFamily: "sdfgsdgf",
       answerTextFriendships: "sdgfsdfg",
-      answerTextSelf: "sgfsdgs",
-      token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXIxMTFAZ21haWwuY29tIiwiaWQiOiI1YmU0Nzk5NzdhNzc1MTRlOTQwZmFiNGYiLCJpYXQiOjE1NDE4MjA0NjR9.B8C00ozfZz23wgmBedclhZS4VBPzdTxPHI1vLEhx_-o",
-      userID: "5be479977a77514e940fab4f"
+      answerTextSelf: "sgfsdgs"
     }
       const action = saveSelectedJournal(journalData);
       expect(action.type).toEqual("SELECT_ONE_JOURNAL")
