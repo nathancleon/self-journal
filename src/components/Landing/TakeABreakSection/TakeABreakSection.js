@@ -115,7 +115,8 @@ export default class MobileSection extends Component {
         </div>
         <img 
           className={banner_img}
-          src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/Camping_2g8w.svg" />
+          src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/Camping_2g8w.svg"
+          alt="a man riding a scooter in the woods next to a tent and a car in the background" />
       </div>
     );
   }

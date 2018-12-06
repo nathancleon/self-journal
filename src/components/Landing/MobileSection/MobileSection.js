@@ -84,7 +84,8 @@ export default class MobileSection extends Component {
         </div>
         <img 
           className={banner_img}
-          src={require("../../../Assets/iphone-screenshot@2x.png")} />
+          src={require("../../../Assets/iphone-screenshot@2x.png")}
+          alt="screenshot of the mobile application inside a mock phone" />
       </div>
     );
   }

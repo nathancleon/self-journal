@@ -117,7 +117,8 @@ export default class Banner extends Component {
         </div>
         <img 
           className={banner_img}
-          src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/weather_d9t2.svg" />
+          src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/weather_d9t2.svg"
+          alt="man in a suit pointing at different weather conditions" />
       </div>
     );
   }
