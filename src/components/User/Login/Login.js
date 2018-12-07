@@ -38,13 +38,11 @@ class Login extends Component {
     event.preventDefault();
 
     if(this.state.email === "") {
-      console.log('email error ran');
       this.setState({
         emailError: true,
         passwordError: false
       });
     } else if (this.state.password === "") {
-      console.log('password error ran');
       this.setState({
         emailError: false,
         passwordError: true
