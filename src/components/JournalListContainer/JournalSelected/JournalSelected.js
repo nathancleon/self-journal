@@ -8,7 +8,7 @@ const journal_selected = css`
     display: flex;
     justify-content: center;
     background-color: #fff;
-    width: 60%;
+    width: 100%;
   }
   @media only screen and (max-width: 600px) {
     {
