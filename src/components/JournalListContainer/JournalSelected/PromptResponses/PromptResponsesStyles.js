@@ -39,6 +39,7 @@ export const SelectedPromptHeader = styled("div")`
     font-size: 24px;
     height: 50px;
     padding-top: 15px;
+    margin-bottom: 15px;
   }
   @media only screen and (max-width: 1400px) {
     {
@@ -47,7 +48,6 @@ export const SelectedPromptHeader = styled("div")`
   }
   @media only screen and (max-width: 1200px) {
     {
-      width: 100%;
       padding-bottom: 10px;
     }
     h1 {
@@ -88,7 +88,7 @@ export const PromptIcons = styled("div")`
     width: 23px;
   }
 
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 645px) {
     {
       width: 50px;
       height: 35px;
@@ -118,7 +118,7 @@ export const SelectedPromptData = styled("div")`
     margin-top: 15px;
     margin-bottom: 15px;
   }
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 645px) {
     h4 {
       font-size: 12px;
     }
@@ -141,7 +141,7 @@ export const UserAnswers = styled("div")`
     background-color: #fafafa;
     font-size: 14px;
   }
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 645px) {
     p {
       font-size: 12px;
     }
@@ -156,7 +156,7 @@ export const UserTextAnswers = styled("div")`
   }
   textarea {
     font-size: 16px;
-    width: 100%;
+    width: 60%;
     border: 1px solid #ddd;
     padding: 5px;
   }
@@ -167,9 +167,10 @@ export const UserTextAnswers = styled("div")`
     }
   }
 
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 645px) {
     textarea {
       font-size: 10px;
+      width: 90%;
     }
   }
 `;
@@ -195,7 +196,7 @@ export const SubmitButton = styled("button")`
     background-color: #fefefe;
     color: #333;
   }
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 645px) {
     {
       width: 100%;
     }

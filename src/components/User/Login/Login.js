@@ -21,7 +21,9 @@ class Login extends Component {
     this.state = {
       email: "",
       password: "",
-      toDashboard: false
+      toDashboard: false,
+      emailError: false,
+      passwordError: false
     };
   }
 
@@ -34,13 +36,41 @@ class Login extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    this.props.loginUser(this.state).then(() => {
-      if (!this.props.user.error) {
-        this.setState({
-          toDashboard: true
-        });
-      }
-    })
+
+    if(this.state.email === "") {
+      console.log('email error ran');
+      this.setState({
+        emailError: true,
+        passwordError: false
+      });
+    } else if (this.state.password === "") {
+      console.log('password error ran');
+      this.setState({
+        emailError: false,
+        passwordError: true
+      });
+    } else if (this.state.email !== "" && this.state.password !== "") {
+      this.setState({
+        emailError: false,
+        passwordError: false
+      });
+      this.props.loginUser(this.state).then(() => {
+        if (!this.props.user.error) {
+          this.setState({
+            toDashboard: true
+          });
+        }
+      })
+    }
+  }
+
+  componentDidMount() {
+    let emailVal = document.getElementById('email').value;
+    let passwordVal = document.getElementById('password').value;
+    this.setState({
+      email: emailVal,
+      password: passwordVal
+    });
   }
 
   render() {
@@ -67,6 +97,7 @@ class Login extends Component {
                 type="email"
                 name="email"
                 id="email"
+                defaultValue="user@gmail.com"
                 onChange={this.handleChange.bind(this)}
               />
               <label htmlFor="password">
@@ -76,14 +107,19 @@ class Login extends Component {
                 type="password"
                 name="password"
                 id="password"
+                defaultValue="password123"
                 onChange={this.handleChange.bind(this)}
               />
             </div>
 
             {
-             this.props.user.error ? 
-             <p className={submit__error}>{this.props.user.error}</p>:
-             null
+              this.state.emailError ? 
+              <p className={submit__error}>You must enter an email</p>:
+              this.state.passwordError ? 
+              <p className={submit__error}>You must enter a password</p>:
+              this.props.user.error ? 
+              <p className={submit__error}>{this.props.user.error}</p>:
+              null
             }
             <button
               className={form__submit_btn}
