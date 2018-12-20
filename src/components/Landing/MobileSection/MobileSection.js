@@ -29,11 +29,19 @@ const banner = css`
       height: 105vh;
     }
     div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       width: 90%;
+      margin-top: -8vh;
     }
-    img {
-      width: 50vw;
-      min-width: 40vw;
+    div h1 {
+      text-align: center;
+      font-size: 1.75rem;
+      line-height: 6vh;
+    }
+    div p {
+      font-size: 1rem;
     }
   }
 `;
@@ -66,8 +74,15 @@ const banner_content__text = css`
 const banner_img = css`
   {
     width: 25vw;
-    min-width: 400px;
+    min-width: 40vmin;
     order: 1;
+  }
+
+  @media only screen and (max-width: 600px) {
+    {
+      margin-top: 6vh;
+      min-width: 50vmin;
+    }
   }
 `;
 

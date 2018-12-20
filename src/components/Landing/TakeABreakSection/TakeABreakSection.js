@@ -9,7 +9,7 @@ const banner = css`
     align-items: center;
     height: 90vh;
     width: 100%;
-    padding-top: 10vh;
+    padding-top: 28vh;
     position: relative;
     background-color: #fff;
     z-index: 0;
@@ -24,11 +24,21 @@ const banner = css`
       width: 90%;
       order: 2;
     }
+    div h1 {
+      text-align: center;
+      font-size: 1.75rem;
+      line-height: 6vh;
+    }
+    div p {
+      font-size: 1rem;
+    }
     img {
       width: 50vw;
       min-width: 40vw;
       order: 1;
-      margin-bottom: -25vh;
+    }
+    a button {
+      font-size: 1rem;
     }
   }
 `;

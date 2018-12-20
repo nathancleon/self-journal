@@ -38,12 +38,21 @@ const banner = css`
     }
 
     div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       order: 2;
       width: 90%;
     }
 
     div h1 {
-      line-height: 10vh;
+      text-align: center;
+      font-size: 1.75rem;
+      line-height: 6vh;
+    }
+    
+    div p {
+      font-size: 1rem;
     }
 
     img {
