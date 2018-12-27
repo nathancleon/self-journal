@@ -37,6 +37,9 @@ export const form__icon = css`
     width: 120px;
     top: -60px;
   }
+  @media only screen and (max-width: 320px) {
+    top: -20px;
+  }
 `;
 
 export const form = css`
@@ -55,6 +58,11 @@ export const form__title = css`
     text-align: center;
     margin-top: 30px;
     margin-bottom: 40px;
+  }
+  @media only screen and (max-width: 320px) {
+    {
+      padding-top: 10vw;
+    }
   }
 `;
 
