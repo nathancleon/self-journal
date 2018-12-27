@@ -11,6 +11,8 @@ const banner = css`
     padding-top: 10vh;
     position: relative;
     background-color: ${colors.main};
+    padding-top: 10vw;
+    padding-bottom: 5vw;
     z-index: 1;
   }
   &:after {
@@ -25,6 +27,8 @@ const banner = css`
  @media only screen and (max-width: 780px) {
     {
       flex-direction: column;
+      padding-top: 20vw;
+      padding-bottom: 10vw;
     }
     div {
       display: flex;

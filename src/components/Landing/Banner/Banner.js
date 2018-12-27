@@ -7,10 +7,12 @@ const banner = css`
     display: flex;
     justify-content: space-around;
     align-items: center;
-    height: 80vh;
+    min-height: 50vw;
     width: 100%;
     position: relative;
     background-color: ${colors.backgroundDark};
+    padding-top: 10vw;
+    padding-bottom: 10vw;
     z-index: 2;
   }
   &:before {
@@ -34,7 +36,8 @@ const banner = css`
   @media only screen and (max-width: 780px) {
     {
       flex-direction: column;
-      height: 95vh;
+      padding-top: 20vw;
+      padding-bottom: 20vw;
     }
 
     div {
@@ -59,7 +62,7 @@ const banner = css`
       order: 1;
       width: 80vw;
       min-width: 40vw;
-      margin-bottom: -10vw;
+      margin-bottom: 5vw;
     }
   }
 `;

@@ -11,12 +11,14 @@ const banner = css`
     position: relative;
     background-color: #fff;
     z-index: 0;
-    margin-top: 20vw;
+    padding-top: 20vw;
+    padding-bottom: 10vw;
   }
 
  @media only screen and (max-width: 780px) {
     {
       flex-direction: column;
+      padding-top: 30vw;
     }
     div {
       width: 90%;
