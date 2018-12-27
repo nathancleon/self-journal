@@ -22,10 +22,7 @@ export const form__container = css`
     background-color: #fff;
     border-radius: 5px;
     box-shadow: rgba(27, 39, 51, 0.25) 0px 10px 20px -8px;
-  }
-
-  @media only screen and (max-height: 600px) {
-    margin-top: 120px;
+    margin-top: 10vw;
   }
 `;
 
