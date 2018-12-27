@@ -21,8 +21,14 @@ const banner = css`
     position: absolute;
     border-left: 0 solid transparent;
     border-right: 100vw solid transparent;
-    border-top: 20.1vh solid ${colors.main}
+    border-top: 20.2vh solid ${colors.main}
   }
+
+  @media only screen and (max-width: 1024px) {
+    {
+     padding-top: 20vw;
+    }
+   }
 
  @media only screen and (max-width: 780px) {
     {

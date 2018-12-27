@@ -33,6 +33,12 @@ const banner = css`
     border-top: 20.1vh solid ${colors.backgroundDark};
   }
 
+  @media only screen and (max-width: 1024px) {
+   {
+    padding-top: 20vw;
+   }
+  }
+
   @media only screen and (max-width: 780px) {
     {
       flex-direction: column;

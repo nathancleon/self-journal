@@ -15,10 +15,14 @@ const banner = css`
     padding-bottom: 10vw;
   }
 
+  @media only screen and (max-width: 1024px) {
+    {
+      padding-top: 30vw;
+    }
+  }
  @media only screen and (max-width: 780px) {
     {
       flex-direction: column;
-      padding-top: 30vw;
     }
     div {
       width: 90%;
