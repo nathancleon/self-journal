@@ -7,7 +7,6 @@ const banner = css`
     display: flex;
     justify-content: space-around;
     align-items: center;
-    height: 90vh;
     width: 100%;
     padding-top: 10vh;
     position: relative;
@@ -16,8 +15,8 @@ const banner = css`
   }
   &:after {
     content: '';
+    bottom: -20.1vh;
     position: absolute;
-    bottom: -20vh;
     border-left: 0 solid transparent;
     border-right: 100vw solid transparent;
     border-top: 20.1vh solid ${colors.main}
@@ -26,19 +25,17 @@ const banner = css`
  @media only screen and (max-width: 780px) {
     {
       flex-direction: column;
-      height: 105vh;
     }
     div {
       display: flex;
       flex-direction: column;
       align-items: center;
       width: 90%;
-      margin-top: -8vh;
     }
     div h1 {
       text-align: center;
       font-size: 1.75rem;
-      line-height: 6vh;
+      line-height: 3rem;
     }
     div p {
       font-size: 1rem;
@@ -80,7 +77,7 @@ const banner_img = css`
 
   @media only screen and (max-width: 600px) {
     {
-      margin-top: 6vh;
+      margin-top: 5vw;
       min-width: 50vmin;
     }
   }

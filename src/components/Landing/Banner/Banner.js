@@ -16,7 +16,7 @@ const banner = css`
   &:before {
     content: '';
     position: absolute;
-    top: 0vh;
+    top: 0;
     border-bottom: 20vh solid $blue;
     border-left: 0 solid transparent;
     border-right: 100vw solid transparent;
@@ -48,7 +48,7 @@ const banner = css`
     div h1 {
       text-align: center;
       font-size: 1.75rem;
-      line-height: 6vh;
+      line-height: 3rem;
     }
     
     div p {
@@ -57,9 +57,9 @@ const banner = css`
 
     img {
       order: 1;
-      width: 50vw;
+      width: 80vw;
       min-width: 40vw;
-      margin-bottom: -25vh;
+      margin-bottom: -10vw;
     }
   }
 `;

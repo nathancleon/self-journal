@@ -6,19 +6,17 @@ const banner = css`
   {
     display: flex;
     justify-content: space-around;
-    align-items: center;
-    height: 90vh;
+    align-items: center; 
     width: 100%;
-    padding-top: 28vh;
     position: relative;
     background-color: #fff;
     z-index: 0;
+    margin-top: 20vw;
   }
 
  @media only screen and (max-width: 780px) {
     {
       flex-direction: column;
-      height: 105vh;
     }
     div {
       width: 90%;
@@ -33,9 +31,10 @@ const banner = css`
       font-size: 1rem;
     }
     img {
-      width: 50vw;
+      width: 80vw;
       min-width: 40vw;
       order: 1;
+      margin-bottom: 10vw;
     }
     a button {
       font-size: 1rem;
@@ -51,6 +50,7 @@ const banner_content = css`
     align-items: center;
     width: 36vw;
     order: 1;
+    margin-bottom: 50px;
   }
 `;
 
@@ -77,6 +77,7 @@ const banner_img = css`
     width: 35vw;
     min-width: 400px;
     order: 2;
+    margin-bottom: 50px;
   }
 `;
 
