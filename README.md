@@ -4,7 +4,7 @@ View a live demo [here](https://mentalnote.herokuapp.com "Mentalnote")!
 
 ## About The App
 
-The intention behind MentalNote is to have an application where a user can log in and describe how they feel through a series of prompts every day. The prompts center around three categories: *the self*, *your friends*, and *your family*. The prompts have a score ranging from Poor to Excellent or Not At All to Extremely. Essentially the scores are a basic 1 - 5 ranking but with a text range. Following the self score evaluation there is an text field for you to enter your response to each prompt.
+The intention behind MentalNote is to have an application where a user can log in and describe how they feel through a series of prompts every day. The prompts center around three categories: *the self*, *your friends*, and *your family*. The prompts have a score ranging from Poor to Excellent or Not At All to Extremely. Following the self score evaluation there is an text field for you to enter your response to each prompt.
 
 ![prompt sample screenshot](https://lh3.googleusercontent.com/qFOZpl6jeqT9vfOixX50FFK5Q-8sji9z5MyTI4HrxteSkfkJFdN6xFLiYm9gG3mWmX1BnOG4uIEg6hZ6ggiM=w1920-h1090)
 
