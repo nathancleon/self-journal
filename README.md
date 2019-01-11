@@ -6,11 +6,11 @@ View a live demo [here](https://mentalnote.herokuapp.com "Mentalnote")!
 
 The intention behind MentalNote is to have an application where a user can log in and describe how they feel through a series of prompts every day. The prompts center around three categories: *the self*, *your friends*, and *your family*. The prompts have a score ranging from Poor to Excellent or Not At All to Extremely. Following the self score evaluation there is an text field for you to enter your response to each prompt.
 
-![prompt sample screenshot](https://lh3.googleusercontent.com/qFOZpl6jeqT9vfOixX50FFK5Q-8sji9z5MyTI4HrxteSkfkJFdN6xFLiYm9gG3mWmX1BnOG4uIEg6hZ6ggiM=w1920-h1090)
+![prompt sample screenshot](mentalnote-prompt-screenshot.png)
 
 Both the score and the text response are required, because the intention of the application is to be more like a journal that you can go over each prompt and then review your responses for that date at any point in the future.
 
-![journal list panel screenshot](https://lh5.googleusercontent.com/nRO_hL_-zjD_tUq-oNCBhdzYwpIjD4Yavi3X0tSyNoa92iWBiLenhpaDrThjsziSBTvcSW3N74xiWySCJSXa=w1920-h1041-rw)
+![journal list panel screenshot](journal-list-panel-screenshot2.png)
 
 ## API Documentation
 
