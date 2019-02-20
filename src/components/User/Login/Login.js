@@ -14,6 +14,8 @@ import {
   submit__error
 } from "../userStyles";
 
+const initialState = {};
+
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -69,6 +71,10 @@ class Login extends Component {
       email: emailVal,
       password: passwordVal
     });
+  }
+
+  componentWillUnmount() {
+    this.state = initialState;
   }
 
   render() {

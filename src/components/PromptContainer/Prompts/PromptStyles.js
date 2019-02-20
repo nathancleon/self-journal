@@ -96,7 +96,6 @@ export const form__options = css`
   {
     display: inline-block;
     margin: 0 auto;
-    border-radius: 5px;
   }
 `;
 
@@ -119,8 +118,9 @@ export const form__option = css`
   }
   label {
     display: inline-block;
+    text-align: center;
     cursor: pointer;
-    padding: 10px 20px;
+    padding: 10px 15px;
   }
   &:first-child label {
     border-top-left-radius: 4px;
@@ -135,8 +135,9 @@ export const form__option = css`
 export const form__option_input = css`
   {
     position: absolute;
-    visibility: hidden;
-    display: none;
+    width: 0;
+    height: 0;
+    opacity: 0;
   }
   &:checked + label {
     background-color: ${colors.mainLight};

@@ -14,19 +14,6 @@ const JList = styled("div")`
     margin-top: 80px;
     z-index: 1;
   }
-  ul li {
-    border-top: 1px solid #ddd;
-    background-color: #fefefe;
-  }
-  ul li:hover {
-    background-color: rgba(58, 94, 255, 0.1);
-    transform: scale(1.2);
-    padding-left: 25%;
-    margin-bottom: 10px;
-  }
-  ul li:last-child {
-    border-bottom: 1px solid #ddd;
-  }
 
   @media only screen and (max-width: 1200px) {
       ul {
