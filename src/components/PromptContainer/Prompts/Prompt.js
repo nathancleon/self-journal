@@ -67,7 +67,7 @@ export default class Prompt extends Component {
         <div className={prompt__form_container}>
           <h2 className={form__question}>{question}</h2>
           <ul className={form__options} role="radiogroup">
-            {answers.map((element, index) => {
+            {answers.map((answer, index) => {
               return (
                 <li className={form__option} key={index} role="radio" aria-checked="false" tabIndex="0">
                   <input
@@ -75,10 +75,10 @@ export default class Prompt extends Component {
                     onChange={this.handleChange.bind(this)}
                     type="radio"
                     name="answer"
-                    id={element}
-                    value={element}
+                    id={answer}
+                    value={answer}
                   />
-                  <label htmlFor={element}>{element}</label>
+                  <label htmlFor={answer}>{answer}</label>
                 </li>
               );
             })}

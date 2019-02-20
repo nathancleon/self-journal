@@ -6,29 +6,44 @@ const banner = css`
   {
     display: flex;
     justify-content: space-around;
-    align-items: center;
-    height: 90vh;
+    align-items: center; 
     width: 100%;
-    padding-top: 10vh;
     position: relative;
     background-color: #fff;
     z-index: 0;
+    padding-top: 20vw;
+    padding-bottom: 10vw;
   }
 
+  @media only screen and (max-width: 1024px) {
+    {
+      padding-top: 30vw;
+    }
+  }
  @media only screen and (max-width: 780px) {
     {
       flex-direction: column;
-      height: 105vh;
     }
     div {
       width: 90%;
       order: 2;
     }
+    div h1 {
+      text-align: center;
+      font-size: 1.75rem;
+      line-height: 6vh;
+    }
+    div p {
+      font-size: 1rem;
+    }
     img {
-      width: 50vw;
+      width: 80vw;
       min-width: 40vw;
       order: 1;
-      margin-bottom: -25vh;
+      margin-bottom: 10vw;
+    }
+    a button {
+      font-size: 1rem;
     }
   }
 `;
@@ -41,6 +56,7 @@ const banner_content = css`
     align-items: center;
     width: 36vw;
     order: 1;
+    margin-bottom: 50px;
   }
 `;
 
@@ -67,6 +83,7 @@ const banner_img = css`
     width: 35vw;
     min-width: 400px;
     order: 2;
+    margin-bottom: 50px;
   }
 `;
 

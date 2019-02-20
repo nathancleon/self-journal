@@ -7,33 +7,48 @@ const banner = css`
     display: flex;
     justify-content: space-around;
     align-items: center;
-    height: 90vh;
     width: 100%;
     padding-top: 10vh;
     position: relative;
     background-color: ${colors.main};
+    padding-top: 10vw;
+    padding-bottom: 5vw;
     z-index: 1;
   }
   &:after {
     content: '';
+    bottom: -20.1vh;
     position: absolute;
-    bottom: -20vh;
     border-left: 0 solid transparent;
     border-right: 100vw solid transparent;
-    border-top: 20.1vh solid ${colors.main}
+    border-top: 20.2vh solid ${colors.main}
   }
+
+  @media only screen and (max-width: 1024px) {
+    {
+     padding-top: 20vw;
+    }
+   }
 
  @media only screen and (max-width: 780px) {
     {
       flex-direction: column;
-      height: 105vh;
+      padding-top: 20vw;
+      padding-bottom: 10vw;
     }
     div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       width: 90%;
     }
-    img {
-      width: 50vw;
-      min-width: 40vw;
+    div h1 {
+      text-align: center;
+      font-size: 1.75rem;
+      line-height: 3rem;
+    }
+    div p {
+      font-size: 1rem;
     }
   }
 `;
@@ -66,8 +81,15 @@ const banner_content__text = css`
 const banner_img = css`
   {
     width: 25vw;
-    min-width: 400px;
+    min-width: 40vmin;
     order: 1;
+  }
+
+  @media only screen and (max-width: 600px) {
+    {
+      margin-top: 5vw;
+      min-width: 50vmin;
+    }
   }
 `;
 

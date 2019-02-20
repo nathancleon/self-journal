@@ -22,10 +22,7 @@ export const form__container = css`
     background-color: #fff;
     border-radius: 5px;
     box-shadow: rgba(27, 39, 51, 0.25) 0px 10px 20px -8px;
-  }
-
-  @media only screen and (max-height: 600px) {
-    margin-top: 120px;
+    margin-top: 10vw;
   }
 `;
 
@@ -39,6 +36,9 @@ export const form__icon = css`
   @media only screen and (max-width: 700px) {
     width: 120px;
     top: -60px;
+  }
+  @media only screen and (max-width: 320px) {
+    top: -20px;
   }
 `;
 
@@ -58,6 +58,11 @@ export const form__title = css`
     text-align: center;
     margin-top: 30px;
     margin-bottom: 40px;
+  }
+  @media only screen and (max-width: 320px) {
+    {
+      padding-top: 10vw;
+    }
   }
 `;
 

@@ -15,6 +15,9 @@ import {
 } from "../userStyles";
 
 class Login extends Component {
+
+  _isMounted = false;
+
   constructor(props) {
     super(props);
 
@@ -25,6 +28,8 @@ class Login extends Component {
       emailError: false,
       passwordError: false
     };
+
+    this.emailAndPasswordValidation =  this.emailAndPasswordValidation.bind(this);
   }
 
   handleChange(event) {
@@ -34,9 +39,7 @@ class Login extends Component {
     });
   }
 
-  handleSubmit(event) {
-    event.preventDefault();
-
+  emailAndPasswordValidation() {
     if(this.state.email === "") {
       this.setState({
         emailError: true,
@@ -62,13 +65,27 @@ class Login extends Component {
     }
   }
 
+  handleSubmit(event) {
+    event.preventDefault();
+
+    if (this._isMounted) {
+      this.emailAndPasswordValidation();
+    }
+
+  }
+
   componentDidMount() {
+    this._isMounted = true;
     let emailVal = document.getElementById('email').value;
     let passwordVal = document.getElementById('password').value;
     this.setState({
       email: emailVal,
       password: passwordVal
     });
+  }
+
+  componentWillUnmount() {
+    this._isMounted = false;
   }
 
   render() {
