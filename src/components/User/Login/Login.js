@@ -56,7 +56,9 @@ class Login extends Component {
         passwordError: false
       });
       this.props.loginUser(this.state).then(() => {
-        if (!this.props.user.error) {
+        if (!this._isMounted) {
+          return;
+        } else if (!this.props.user.error) {
           this.setState({
             toDashboard: true
           });
