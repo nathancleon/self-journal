@@ -141,7 +141,7 @@ class PromptResponses extends Component {
     let responsePropertiesArray = Object.getOwnPropertyNames(promptData.data);
     let journalTextArray = Object.entries(this.props.journal).slice(9, -2).map(newArray => newArray[1]);
     let userTextValue = journalTextArray[questionIndex];
-       return <textarea onChange={this.saveAnswerEditTextValue.bind(this)} rows="4" cols="50" key={questionKey} defaultValue={userTextValue} name={responsePropertiesArray[questionIndex]}></textarea>;
+    return <textarea onChange={this.saveAnswerEditTextValue.bind(this)} rows="4" cols="50" key={questionKey} defaultValue={userTextValue} name={responsePropertiesArray[questionIndex]}></textarea>;
   }
 
   renderAnswerTextValue(questionIndex) {

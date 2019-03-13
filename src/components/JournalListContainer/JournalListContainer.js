@@ -6,21 +6,6 @@ import JournalList from "./JournalList/JournalList";
 import JournalSelected from "./JournalSelected/JournalSelected";
 import { css } from "react-emotion";
 
-const journal_list__container = css`
-
-  {
-    display: flex;
-    width: 100%;
-    height: 92vh;
-  }
-
-  @media only screen and (max-height: 600px) {
-   {
-     height: 100%;
-   }
-  }
-`;
-
 class JournalListContainer extends Component {
   constructor(props) {
     super(props);
@@ -85,9 +70,25 @@ const mapStateToProps = reduxState => {
   };
 };
 
+
 export default connect(
   mapStateToProps,
   {
     fetchAllJournalData, saveSelectedJournal
   }
 )(JournalListContainer);
+
+const journal_list__container = css`
+
+  {
+    display: flex;
+    width: 100%;
+    height: 92vh;
+  }
+
+  @media only screen and (max-height: 600px) {
+   {
+     height: 100%;
+   }
+  }
+`;

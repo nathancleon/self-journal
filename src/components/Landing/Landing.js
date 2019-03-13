@@ -5,12 +5,6 @@ import Banner from "./Banner/Banner";
 import MobileSection from "./MobileSection/MobileSection";
 import TakeABreakSection from "./TakeABreakSection/TakeABreakSection";
 
-const landing = css`
-  {
-    height: 100%;
-  }
-`;
-
 export default class Landing extends Component {
   render() {
 
@@ -27,3 +21,9 @@ export default class Landing extends Component {
     );
   }
 }
+
+const landing = css`
+  {
+    height: 100%;
+  }
+`;

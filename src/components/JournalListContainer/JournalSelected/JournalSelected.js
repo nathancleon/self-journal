@@ -3,26 +3,6 @@ import { connect } from "react-redux";
 import { css } from "react-emotion";
 import PromptResponses from "./PromptResponses/PromptResponses";
 
-const journal_selected = css`
-   {
-    display: flex;
-    justify-content: center;
-    background-color: #fff;
-    width: 100%;
-  }
-  @media only screen and (max-width: 600px) {
-    {
-      width: 70%;
-    }
-  }
-`;
-
-const no_journal__entries = css`
-  {
-    margin-top: 10vh;
-  }
-`;
-
 class JournalSelected extends Component {
 
   render() {
@@ -51,3 +31,23 @@ const mapStateToProps = reduxState => {
 export default connect(
   mapStateToProps, null
 )(JournalSelected);
+
+const journal_selected = css`
+   {
+    display: flex;
+    justify-content: center;
+    background-color: #fff;
+    width: 100%;
+  }
+  @media only screen and (max-width: 600px) {
+    {
+      width: 70%;
+    }
+  }
+`;
+
+const no_journal__entries = css`
+  {
+    margin-top: 10vh;
+  }
+`;
