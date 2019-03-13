@@ -114,6 +114,7 @@ const signup_link = css`
   {
     height: 60px;
     width: 35%;
+    min-width: 200px;
     margin: 0 auto;
     margin-top: 40px;
   }

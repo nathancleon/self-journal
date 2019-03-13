@@ -16,6 +16,7 @@ export const prompt = css`
   @media only screen and (max-width: 600px) {
     {
       width: 100%;
+      margin-top: 40px;
     }
 
     img {
@@ -24,16 +25,41 @@ export const prompt = css`
     }
   }
 
-  @media only screen and (max-height: 640px) {
-  {
-    height: 80vh;
-    margin-top: 0px;
+  @media only screen and (max-width: 640px) {
+    {
+      height: 80vh;
+      margin-top: 0px;
+    }
+    img {
+      width: 80px;
+      top: 10px;
+    }
   }
-  img {
-    width: 80px;
-    top: 10px;
+
+  @media only screen and (max-width: 440px) {
+    {
+      width: 98%;
+      margin-top: 20px;
+      padding: 15px;
+    }
+    img {
+      width: 150px;
+      top: -4vh;
+    }
   }
-}
+
+  @media only screen and (max-width: 320px) {
+    {
+      width: 98%;
+      padding: 15px;
+      margin-top: 50px;
+    }
+
+    img {
+      width: 100px;
+      top: -3vh;
+    }
+  }
 `;
 
 export const prompt__icon = css`
@@ -66,10 +92,17 @@ export const prompt__form_container = css`
     }
   }
 
-  @media only screen and (max-width: 410px) {
+  @media only screen and (max-width: 440px) {
+    ul li label {
+      font-size: 14px;
+      padding: 8px 8px;
+    }
+  }
+
+  @media only screen and (max-width: 320px) {
     ul li label {
       font-size: 12px;
-      padding: 5px;
+      padding: 5px 5px;
     }
   }
 
