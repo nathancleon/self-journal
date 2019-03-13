@@ -70,6 +70,13 @@ class Login extends Component {
   handleSubmit(event) {
     event.preventDefault();
 
+    let count = 0;
+    count++;
+
+    if (count > 1) {
+      return;
+    }
+
     if (this._isMounted) {
       this.emailAndPasswordValidation();
     }
