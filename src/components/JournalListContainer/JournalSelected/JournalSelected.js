@@ -37,7 +37,7 @@ const journal_selected = css`
     display: flex;
     justify-content: center;
     background-color: #fff;
-    width: 100%;
+    width: 79%;
   }
   @media only screen and (max-width: 600px) {
     {
