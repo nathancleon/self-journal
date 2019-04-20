@@ -50,7 +50,6 @@ class JournalListContainer extends Component {
           <JournalList
             onJournalSelect={(selectedJournal, positionKey) => 
             {
-
               selectedJournal.position = positionKey
               this.props.saveSelectedJournal(selectedJournal);
             }}

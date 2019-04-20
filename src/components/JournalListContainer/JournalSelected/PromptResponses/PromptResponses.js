@@ -95,7 +95,7 @@ class PromptResponses extends Component {
 
   renderAnswerValue(questionIndex) {
     //this pulls just the user answer data (e.g. "answerSelf: Good")
-    let journalAnswerArray = Object.entries(this.props.journal).slice(3, -9).map(newArray => newArray[1]);
+    let journalAnswerArray = Object.values(this.props.journal.answer);
     //only return answers if the question index is less than the answer array
     if(questionIndex < journalAnswerArray.length) {
       return (
@@ -116,7 +116,8 @@ class PromptResponses extends Component {
     //also refactor data model in database so that slice is not needed
 
     //this pulls just the user answer data (e.g. "answerSelf: Good")
-    let journalAnswerArray = Object.entries(this.props.journal).slice(3, -9).map(newArray => newArray[1]);
+    let journalAnswerArray = Object.values(this.props.journal.answerText);
+    console.log(journalAnswerArray);
 
     let userResponseOptions = promptData.data[questionKey];
     if(!userResponseOptions.answers) {
@@ -139,27 +140,26 @@ class PromptResponses extends Component {
 
   renderAnswerText(questionKey, questionIndex) {
     let responsePropertiesArray = Object.getOwnPropertyNames(promptData.data);
-    let journalTextArray = Object.entries(this.props.journal).slice(9, -2).map(newArray => newArray[1]);
+    let journalTextArray = Object.values(this.props.journal.answerText);
     let userTextValue = journalTextArray[questionIndex];
     return <textarea onChange={this.saveAnswerEditTextValue.bind(this)} rows="4" cols="50" key={questionKey} defaultValue={userTextValue} name={responsePropertiesArray[questionIndex]}></textarea>;
   }
 
   renderAnswerTextValue(questionIndex) {
-    let journalTextArray = Object.entries(this.props.journal).slice(9, -2).map(newArray => newArray[1]);
+    let journalTextArray = Object.values(this.props.journal.answerText);
     let userTextValue = journalTextArray[questionIndex]; 
     return <textarea rows="4" cols="50" key={userTextValue} defaultValue={journalTextArray[questionIndex]} readOnly></textarea>
   }
 
   saveAnswerEditValue(event) {
     let newDataObject = {...this.state.dataObject};
-    let editedDataObject = {...newDataObject, ['answer' + event.target.name]: event.target.value};
+    let editedDataObject = {...newDataObject, answer: {['answer' + event.target.name]: event.target.value}};
     this.setState({...this.state, dataObject: {...editedDataObject}});
   }
 
   saveAnswerEditTextValue(event) {
-    
     let newDataObject = {...this.state.dataObject};
-    let editedDataObject = {...newDataObject, ['answerText' + event.target.name]: event.target.value};
+    let editedDataObject = {...newDataObject, answerText: {['answerText' + event.target.name]: event.target.value}};
     this.setState({...this.state, dataObject: {...editedDataObject}});
   }
 
@@ -170,7 +170,8 @@ class PromptResponses extends Component {
     newData.position = this.props.journal.position;
     newData.userID = this.props.userID;
     newData.token = this.props.token;
-
+    console.warn(this.props);
+    console.log(newData.position);
     this.setState({
       makeEdit: false
     });

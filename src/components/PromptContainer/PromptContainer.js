@@ -35,6 +35,8 @@ class PromptContainer extends Component {
         "Gratitude"
       ],
       dataObject: {},
+      answer: {}, 
+      answerText: {},
       steps: 0,
       self: {
         question: "How would you describe your overall mental health today?",
@@ -91,22 +93,39 @@ class PromptContainer extends Component {
   }
 
   goToNextPrompt(data) {
+    console.log('this is the data', data);
     let newData = {
-      ["answer" + this.state.keys[this.state.steps]]: data.answer,
-      ["answerText" + this.state.keys[this.state.steps]]: data.answerText,
-      userID: this.props.userID,
-      token: this.props.token
+      answer: {
+        ["answer" + this.state.keys[this.state.steps]]: data.answer,
+      },
+      answerText: {
+        ["answerText" + this.state.keys[this.state.steps]]: data.answerText,
+      }
     };
-    let newDataObject = Object.assign(this.state.dataObject, newData);
+
+    console.log('this is newData', newData);
+    let newAnswer = Object.assign(this.state.answer, newData.answer);
+    let newAnswerText = Object.assign(this.state.answerText, newData.answerText);
     let newStep = this.state.steps + 1;
 
+    let newDataObject = {
+      answer: this.state.answer,
+      answerText: this.state.answerText,
+      userID: this.props.userID,
+      token: this.props.token
+    }
+
     this.setState({
+      answer: newAnswer,
+      answerText: newAnswerText,
       dataObject: newDataObject,
       steps: newStep
     });
+    console.log(this.state);
   }
 
   submitAllData(data) {
+    console.log(data);
     return this.props.saveJournalData(data);
   }
 

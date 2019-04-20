@@ -4,10 +4,11 @@ import axios from "axios";
 //If developing locally, use localhost
 //If not, use 2nd for production
 //Comment out url not being used
-// const API_URL = "http://localhost:5000";
-const API_URL = "https://mentalnote-server.herokuapp.com";
+const API_URL = "http://localhost:5000";
+// const API_URL = "https://mentalnote-server.herokuapp.com";
 
 export function saveJournalData(journalData) {
+  console.log(journalData);
   return dispatch => {
     let headers = {
       "Content-Type": "application/json",
@@ -96,6 +97,7 @@ export function fetchAllJournalData() {
           localStorage.getItem("token")
       )
       .then(res => {
+        console.log(res.data);
         dispatch({
           type: "FETCH_JOURNAL_DATA",
           payload: res.data
