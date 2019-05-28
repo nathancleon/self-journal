@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import { Redirect } from 'react-router-dom';
+import { Redirect } from "react-router-dom";
 import { css } from "emotion";
 import { colors } from "../../../globalStyles";
 
 const prompt__submit_container = css`
-  {
+   {
     display: flex;
     flex-direction: column;
     height: 350px;
@@ -17,7 +17,7 @@ const prompt__submit_container = css`
   }
 
   @media only screen and (max-width: 600px) {
-    {
+     {
       width: 100%;
     }
 
@@ -47,7 +47,7 @@ const prompt__submit_container = css`
 `;
 
 const prompt__submit_img = css`
-  {
+   {
     position: absolute;
     top: -100px;
     left: 35%;
@@ -56,7 +56,7 @@ const prompt__submit_img = css`
 `;
 
 const prompt__submit_text = css`
-  {
+   {
     font-size: 24px;
     text-align: center;
     width: 100%;
@@ -66,7 +66,7 @@ const prompt__submit_text = css`
 `;
 
 const prompt__submit_btn = css`
-  {
+   {
     height: 45px;
     width: 50%;
     font-size: 16px;
@@ -105,15 +105,20 @@ export default class PromptSubmit extends Component {
   }
 
   render() {
-
     if (this.state.toList === true) {
-      return <Redirect to='/list' />;
+      return <Redirect to="/list" />;
     }
 
     return (
       <div className={prompt__submit_container}>
-        <img className={prompt__submit_img} src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/Jogging_t14q.svg" alt="a man running with little hearts around him" />
-        <h2 className={prompt__submit_text}>Thank you for checking in with yourself today!</h2>
+        <img
+          className={prompt__submit_img}
+          src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/Jogging_t14q.svg"
+          alt="a man running with little hearts around him"
+        />
+        <h2 className={prompt__submit_text}>
+          Thank you for checking in with yourself today!
+        </h2>
         <button
           className={prompt__submit_btn}
           onClick={this.handleSubmitEvent.bind(this)}
