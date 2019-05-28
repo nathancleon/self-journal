@@ -1,10 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchAllJournalData, saveSelectedJournal } from "../../actions/JournalActions";
+import {
+  fetchAllJournalData,
+  saveSelectedJournal
+} from "../../actions/JournalActions";
 import Header from "../Headers/Header";
 import JournalList from "./JournalList/JournalList";
 import JournalSelected from "./JournalSelected/JournalSelected";
-import { css } from "react-emotion";
+import { journal_list__container } from "./JournalListContainerStyles";
 
 class JournalListContainer extends Component {
   constructor(props) {
@@ -22,13 +25,12 @@ class JournalListContainer extends Component {
       isLoading: true
     });
     this.props.fetchAllJournalData().then(() => {
-     
-        this.setState({
-          //reversed the order of journal items so most recent journal entry displays in selectedJournal
-          journalData: this.props.journal.all,
-          isLoading: false
-        });
+      this.setState({
+        //reversed the order of journal items so most recent journal entry displays in selectedJournal
+        journalData: this.props.journal.all,
+        isLoading: false
       });
+    });
   }
 
   render() {
@@ -48,9 +50,8 @@ class JournalListContainer extends Component {
         <Header links={linksArray} />
         <div className={journal_list__container}>
           <JournalList
-            onJournalSelect={(selectedJournal, positionKey) => 
-            {
-              selectedJournal.position = positionKey
+            onJournalSelect={(selectedJournal, positionKey) => {
+              selectedJournal.position = positionKey;
               this.props.saveSelectedJournal(selectedJournal);
             }}
             journals={journalData}
@@ -58,36 +59,20 @@ class JournalListContainer extends Component {
           <JournalSelected />
         </div>
       </div>
-      
     );
   }
 }
 
 const mapStateToProps = reduxState => {
   return {
-    journal: reduxState.journal,
+    journal: reduxState.journal
   };
 };
-
 
 export default connect(
   mapStateToProps,
   {
-    fetchAllJournalData, saveSelectedJournal
+    fetchAllJournalData,
+    saveSelectedJournal
   }
 )(JournalListContainer);
-
-const journal_list__container = css`
-
-  {
-    display: flex;
-    width: 100%;
-    height: 92vh;
-  }
-
-  @media only screen and (max-height: 600px) {
-   {
-     height: 100%;
-   }
-  }
-`;

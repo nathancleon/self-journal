@@ -1,114 +1,32 @@
 import React, { Component } from "react";
-import { css } from "react-emotion";
-import { colors } from "../../../globalStyles";
+import {
+  banner,
+  banner_content,
+  banner_content__text,
+  banner_content__title,
+  banner_img
+} from "./MobileSectionStyles";
 
 export default class MobileSection extends Component {
-
   render() {
     return (
       <div className={banner}>
         <div className={banner_content}>
-          <h1 className={banner_content__title}>Take your journaling on the road</h1>
+          <h1 className={banner_content__title}>
+            Take your journaling on the road
+          </h1>
           <p className={banner_content__text}>
-          Check in with yourself on any device. Whether you're on your phone, tablet, or computer, you'll be able to log how you feel wherever and whenever you are.
+            Check in with yourself on any device. Whether you're on your phone,
+            tablet, or computer, you'll be able to log how you feel wherever and
+            whenever you are.
           </p>
         </div>
-        <img 
+        <img
           className={banner_img}
           src={require("../../../Assets/iphone-screenshot@2x.png")}
-          alt="screenshot of the mobile application inside a mock phone" />
+          alt="screenshot of the mobile application inside a mock phone"
+        />
       </div>
     );
   }
 }
-
-const banner = css`
-  {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 100%;
-    padding-top: 10vh;
-    position: relative;
-    background-color: ${colors.main};
-    padding-top: 10vw;
-    padding-bottom: 5vw;
-    z-index: 1;
-  }
-  &:after {
-    content: '';
-    bottom: -20.1vh;
-    position: absolute;
-    border-left: 0 solid transparent;
-    border-right: 100vw solid transparent;
-    border-top: 20.2vh solid ${colors.main}
-  }
-
-  @media only screen and (max-width: 1024px) {
-    {
-     padding-top: 20vw;
-    }
-   }
-
- @media only screen and (max-width: 780px) {
-    {
-      flex-direction: column;
-      padding-top: 20vw;
-      padding-bottom: 10vw;
-    }
-    div {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 90%;
-    }
-    div h1 {
-      text-align: center;
-      font-size: 1.75rem;
-      line-height: 3rem;
-    }
-    div p {
-      font-size: 1rem;
-    }
-  }
-`;
-
-const banner_content = css`
-  {
-    width: 35vw;
-    order: 2;
-  }
-`;
-
-const banner_content__title = css`
-  {
-    font-size: 3rem;
-    font-family: 'Nunito', sans-serif;
-    line-height: 3.5rem;
-    color: #fff;
-    margin-bottom: 1.5rem;
-  }
-`;
-
-const banner_content__text = css`
-  {
-    width: 95%;
-    font-size: 1.25rem;
-    color: #fff;
-  }
-`;
-
-const banner_img = css`
-  {
-    width: 25vw;
-    min-width: 40vmin;
-    order: 1;
-  }
-
-  @media only screen and (max-width: 600px) {
-    {
-      margin-top: 5vw;
-      min-width: 50vmin;
-    }
-  }
-`;
