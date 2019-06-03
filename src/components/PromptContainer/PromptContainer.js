@@ -3,20 +3,27 @@ import Prompt from "./Prompts/Prompt";
 import PromptSubmit from "./PromptSubmit/PromptSubmit";
 import { saveJournalData } from "../../actions/JournalActions";
 import { connect } from "react-redux";
-import Header from "../Headers/Header";
-import { css } from "react-emotion";
+import Nav from "../Nav/Nav";
+import styled from "react-emotion";
 import { colors } from "../../globalStyles";
 
-const prompt_container = css`
-   {
-    display: flex;
-    position: relative;
-    justify-content: center;
-    align-items: center;
-    height: 92vh;
-    width: 100%;
-    background-color: ${colors.backgroundLight};
-  }
+const Container = styled("div")`
+  display: flex;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background-color: ${colors.backgroundLight};
+`;
+
+const Prompts = styled("div")`
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  position: relative;
+  margin-top: 300px;
+  height: 100%;
+  width: 100%;
+  background-color: ${colors.backgroundLight};
 `;
 
 class PromptContainer extends Component {
@@ -137,9 +144,9 @@ class PromptContainer extends Component {
     const linksArray = ["list", "log out"];
 
     return (
-      <div>
-        <Header links={linksArray} />
-        <div className={prompt_container}>
+      <Container>
+        <Nav links={linksArray} />
+        <Prompts>
           {this.state.steps === 0 && (
             <Prompt
               goNext={this.goToNextPrompt.bind(this)}
@@ -188,8 +195,8 @@ class PromptContainer extends Component {
               data={this.state.dataObject}
             />
           )}
-        </div>
-      </div>
+        </Prompts>
+      </Container>
     );
   }
 }

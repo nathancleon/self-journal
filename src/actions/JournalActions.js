@@ -13,13 +13,14 @@ export function saveJournalData(journalData) {
       Authorization: "Bearer " + localStorage.getItem("token")
     };
 
-    let data = JSON.stringify({ journalData });
+    let data = JSON.stringify({
+      journalData
+    });
 
     return axios
       .post(
         `${API_URL}/journal/submit?token=` + localStorage.getItem("token"),
-        data,
-        {
+        data, {
           headers: headers
         }
       )
@@ -39,15 +40,16 @@ export function updateJournalData(journalData) {
       Authorization: "Bearer " + localStorage.getItem("token")
     };
 
-    let data = JSON.stringify({ ...journalData });
+    let data = JSON.stringify({
+      ...journalData
+    });
     return axios
       .put(
         `${API_URL}/journal/one/` +
-          journalData._id +
-          "?token=" +
-          localStorage.getItem("token"),
-        data,
-        {
+        journalData._id +
+        "?token=" +
+        localStorage.getItem("token"),
+        data, {
           headers: headers
         }
       )
@@ -68,10 +70,9 @@ export function deleteJournalEntry(journalData) {
     return axios
       .delete(
         `${API_URL}/journal/one/` +
-          journalData._id +
-          "?token=" +
-          localStorage.getItem("token"),
-        {
+        journalData._id +
+        "?token=" +
+        localStorage.getItem("token"), {
           params: {
             id: journalData._id
           }
