@@ -7,7 +7,7 @@ export const Container = styled.div`
   justify-content: center;
   height: 500px;
   width: 650px;
-  margin-top: 80px;
+  margin-top: 70px;
   background-color: #fff;
   border-radius: 5px;
   box-shadow: 0 1px 3px 0 rgba(21, 27, 38, 0.15);
@@ -182,14 +182,14 @@ export const FormTextField = styled.textarea`
 
 export const NextButton = styled.button`
   height: 45px;
-  width: 50%;
+  width: 60%;
   font-size: 16px;
   align-self: center;
   background-color: ${colors.main};
   color: #fff;
   font-weight: bold;
   border: 1px solid #ddd;
-  border-radius: 4px;
+  border-radius: 25px;
   margin-top: 30px;
   margin-bottom: 30px;
   cursor: pointer;
