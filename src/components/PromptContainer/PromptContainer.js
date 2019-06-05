@@ -11,25 +11,26 @@ import { colors } from "../../globalStyles";
 const Container = styled.div`
   display: flex;
   position: relative;
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   background-color: ${colors.backgroundLight};
 `;
 
-const Main = styled.main`
+const Main = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
   height: 100%;
+  overflow-y: scroll;
 `;
 
 const Prompts = styled.div`
   display: flex;
   width: 100%;
+  height: 100%;
   justify-content: center;
   align-items: center;
   position: relative;
-  margin-top: 60px;
   background-color: ${colors.backgroundLight};
 `;
 

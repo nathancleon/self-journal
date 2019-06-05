@@ -5,9 +5,9 @@ export const Container = styled.div`
   position: relative;
   display: flex;
   justify-content: center;
-  height: 500px;
+  height: 440px;
   width: 650px;
-  margin-top: 70px;
+  margin-top: 80px;
   background-color: #fff;
   border-radius: 5px;
   box-shadow: 0 1px 3px 0 rgba(21, 27, 38, 0.15);
@@ -74,43 +74,7 @@ export const FormContainer = styled.form`
   flex-direction: column;
   align-self: center;
   width: 80%;
-
-  @media only screen and (max-width: 600px) {
-     {
-      width: 100%;
-    }
-
-    h2 {
-      font-size: 18px;
-    }
-
-    ul li label {
-      padding: 5px 10px;
-    }
-  }
-
-  @media only screen and (max-width: 440px) {
-    ul li label {
-      font-size: 14px;
-      padding: 8px 8px;
-    }
-  }
-
-  @media only screen and (max-width: 320px) {
-    ul li label {
-      font-size: 12px;
-      padding: 5px 5px;
-    }
-  }
-
-  @media only screen and (max-height: 840px) {
-    h2 {
-      margin-bottom: 45px;
-    }
-    textarea {
-      height: 100px;
-    }
-  }
+  height: 100%;
 `;
 
 export const FormQuestion = styled.h2`
@@ -118,8 +82,8 @@ export const FormQuestion = styled.h2`
   font-size: 24px;
   font-weight: bold;
   text-align: center;
-  margin-top: 80px;
-  margin-bottom: 40px;
+  margin-top: 40px;
+  margin-bottom: 20px;
 `;
 
 export const FormOptions = styled.ul`
@@ -184,7 +148,7 @@ export const FormTextField = styled.textarea`
 
 export const NextButton = styled.button`
   height: 45px;
-  width: 60%;
+  width: 50%;
   font-size: 16px;
   align-self: center;
   background-color: ${colors.main};
@@ -192,8 +156,8 @@ export const NextButton = styled.button`
   font-weight: bold;
   border: 1px solid #ddd;
   border-radius: 25px;
-  margin-top: 30px;
-  margin-bottom: 30px;
+  margin-top: 20px;
+  margin-bottom: 0px;
   cursor: pointer;
   letter-spacing: 1px;
   &:hover {

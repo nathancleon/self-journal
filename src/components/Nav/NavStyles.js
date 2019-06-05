@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import { colors } from "../../globalStyles";
 
 export const NavContainer = styled.nav`
+  position: relative;
   background-color: ${colors.main};
   color: white;
   display: flex;
