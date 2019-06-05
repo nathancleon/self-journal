@@ -4,7 +4,7 @@ import PromptSubmit from "./PromptSubmit/PromptSubmit";
 import { saveJournalData } from "../../actions/JournalActions";
 import { connect } from "react-redux";
 import Nav from "../Nav/Nav";
-import styled from "react-emotion";
+import styled from "@emotion/styled";
 import { colors } from "../../globalStyles";
 
 const Container = styled("div")`

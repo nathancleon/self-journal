@@ -1,6 +1,6 @@
-import { css } from "react-emotion";
+import styled from "@emotion/styled";
 
-export const journal_list__container = css`
+export const Container = styled.div`
    {
     display: flex;
     width: 100%;

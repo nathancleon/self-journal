@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Header from "../Headers/Header";
-import { css } from "react-emotion";
+import { css } from "@emotion/core";
 import Banner from "./Banner/Banner";
 import MobileSection from "./MobileSection/MobileSection";
 import TakeABreakSection from "./TakeABreakSection/TakeABreakSection";

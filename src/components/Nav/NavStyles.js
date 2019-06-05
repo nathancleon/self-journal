@@ -1,7 +1,7 @@
-import styled from "react-emotion";
+import styled from "@emotion/styled";
 import { colors } from "../../globalStyles";
 
-export const HeaderContainer = styled("nav")`
+export const HeaderContainer = styled.nav`
   background-color: ${colors.main};
   color: white;
   display: flex;
@@ -10,38 +10,20 @@ export const HeaderContainer = styled("nav")`
   height: 100vh;
 `;
 
-export const HeaderBranding = styled("a")`
+export const HeaderBranding = styled.a`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-decoration: none;
   color: #fff;
   img {
     width: 40px;
     align-self: center;
   }
-  h2 {
-    margin-left: 5px;
-    align-self: center;
-    font-family: "Nunito", sans-serif;
-    font-size: 32px;
-  }
-
-  @media only screen and (max-width: 600px) {
-    h2 {
-      font-size: 18px;
-    }
-  }
-
-  @media only screen and (max-width: 380px) {
-    margin-left: 10px;
-    img {
-      width: 25px;
-    }
-    h2 {
-      font-size: 16px;
-    }
-  }
 `;
 
-export const HeaderLinks = styled("ul")`
+export const HeaderLinks = styled.ul`
   display: flex;
   flex-direction: column;
   align-items: center;

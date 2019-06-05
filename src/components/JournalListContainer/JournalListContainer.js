@@ -7,7 +7,7 @@ import {
 import Header from "../Headers/Header";
 import JournalList from "./JournalList/JournalList";
 import JournalSelected from "./JournalSelected/JournalSelected";
-import { journal_list__container } from "./JournalListContainerStyles";
+import { Container } from "./JournalListContainerStyles";
 
 class JournalListContainer extends Component {
   constructor(props) {
@@ -48,7 +48,7 @@ class JournalListContainer extends Component {
     return (
       <div>
         <Header links={linksArray} />
-        <div className={journal_list__container}>
+        <Container>
           <JournalList
             onJournalSelect={(selectedJournal, positionKey) => {
               selectedJournal.position = positionKey;
@@ -57,7 +57,7 @@ class JournalListContainer extends Component {
             journals={journalData}
           />
           <JournalSelected />
-        </div>
+        </Container>
       </div>
     );
   }

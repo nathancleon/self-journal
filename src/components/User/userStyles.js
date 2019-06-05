@@ -1,4 +1,4 @@
-import { css } from "react-emotion";
+import { css } from "@emotion/core";
 import { colors } from "../../globalStyles";
 
 export const auth__container = css`

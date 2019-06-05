@@ -1,20 +1,18 @@
-import { css } from "react-emotion";
+import styled from "@emotion/styled";
 import { colors } from "../../../globalStyles";
 
-export const prompt = css`
-  {
-    display: flex;
-    justify-content: center;
-    height: 540px;
-    width: 650px;
-    position: relative;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: rgba(27, 39, 51, 0.25) 0px 10px 20px -8px;
-  }
+export const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  height: 540px;
+  width: 650px;
+  position: relative;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: rgba(27, 39, 51, 0.25) 0px 10px 20px -8px;
 
   @media only screen and (max-width: 600px) {
-    {
+     {
       width: 100%;
       margin-top: 40px;
     }
@@ -26,7 +24,7 @@ export const prompt = css`
   }
 
   @media only screen and (max-width: 640px) {
-    {
+     {
       height: 80vh;
       margin-top: 0px;
     }
@@ -37,7 +35,7 @@ export const prompt = css`
   }
 
   @media only screen and (max-width: 440px) {
-    {
+     {
       width: 98%;
       margin-top: 20px;
       padding: 15px;
@@ -49,7 +47,7 @@ export const prompt = css`
   }
 
   @media only screen and (max-width: 320px) {
-    {
+     {
       width: 98%;
       padding: 15px;
       margin-top: 50px;
@@ -62,24 +60,22 @@ export const prompt = css`
   }
 `;
 
-export const prompt__icon = css`
-  {
+export const Icon = styled.img`
+   {
     position: absolute;
     top: -8vh;
     width: 150px;
   }
 `;
 
-export const prompt__form_container = css`
-  {
-    display: flex;
-    flex-direction: column;
-    align-self: center;
-    width: 80%;
-  }
+export const FormContainer = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  width: 80%;
 
   @media only screen and (max-width: 600px) {
-    {
+     {
       width: 100%;
     }
 
@@ -107,39 +103,35 @@ export const prompt__form_container = css`
   }
 
   @media only screen and (max-height: 840px) {
-  h2 {
-    margin-bottom: 45px;
-  }
-  textarea {
-    height: 100px;
-  }
-}
-`;
-
-export const form__question = css`
-  {
-    font-size: 24px;
-    text-align: center;
-    margin-top: 40px;
-    margin-bottom: 40px;
+    h2 {
+      margin-bottom: 45px;
+    }
+    textarea {
+      height: 100px;
+    }
   }
 `;
 
-export const form__options = css`
-  {
+export const FormQuestion = styled.h2`
+  font-size: 24px;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+`;
+
+export const FormOptions = styled.ul`
+   {
     display: inline-block;
     margin: 0 auto;
   }
 `;
 
-export const form__option = css`
-  {
-    position: relative;
-    display: inline-block;
-    border: 1px solid #ddd;
-    border-right: 0px;
-  }
-  &:first-child{
+export const FormOption = styled.li`
+  position: relative;
+  display: inline-block;
+  border: 1px solid #ddd;
+  border-right: 0px;
+  &:first-child {
     border-left: 1px solid #ddd;
     border-top-left-radius: 4px;
     border-bottom-left-radius: 4px;
@@ -165,46 +157,40 @@ export const form__option = css`
   }
 `;
 
-export const form__option_input = css`
-  {
-    position: absolute;
-    width: 0;
-    height: 0;
-    opacity: 0;
-  }
+export const OptionInput = styled.input`
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
   &:checked + label {
     background-color: ${colors.mainLight};
   }
 `;
 
-export const form__text_field = css`
-  {
-    max-height: 200px;
-    height: 200px;
-    margin-top: 40px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 2px;
-    font-size: 16px;
-  }
+export const FormTextField = styled.textarea`
+  max-height: 200px;
+  height: 200px;
+  margin-top: 40px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  font-size: 16px;
 `;
 
-export const form__next_btn = css`
-  {
-    height: 45px;
-    width: 50%;
-    font-size: 16px;
-    align-self: center;
-    background-color: ${colors.main};
-    color: #fff;
-    font-weight: bold;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    cursor: pointer;
-    letter-spacing: 1px;
-  }
+export const NextButton = styled.button`
+  height: 45px;
+  width: 50%;
+  font-size: 16px;
+  align-self: center;
+  background-color: ${colors.main};
+  color: #fff;
+  font-weight: bold;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  cursor: pointer;
+  letter-spacing: 1px;
   &:hover {
     background-color: #fff;
     color: #000;
@@ -212,12 +198,10 @@ export const form__next_btn = css`
   }
 `;
 
-export const answer__error = css`
-  {
-    color: rgb(220, 80, 80);
-    font-weight: bold;
-    margin-top: 10px;
-    margin-bottom: -20px;
-    align-self: center;
-  }
+export const AnswerError = styled.p`
+  color: rgb(220, 80, 80);
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: -20px;
+  align-self: center;
 `;
