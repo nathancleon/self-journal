@@ -1,28 +1,35 @@
 import React, { Component } from "react";
 import Prompt from "./Prompts/Prompt";
 import PromptSubmit from "./PromptSubmit/PromptSubmit";
+import Nav from "../Nav/Nav";
+import UserBanner from "../UserBanner/UserBanner";
 import { saveJournalData } from "../../actions/JournalActions";
 import { connect } from "react-redux";
-import Nav from "../Nav/Nav";
 import styled from "@emotion/styled";
 import { colors } from "../../globalStyles";
 
-const Container = styled("div")`
+const Container = styled.div`
   display: flex;
   position: relative;
-  height: 100%;
-  width: 100%;
+  height: 100vh;
+  width: 100vw;
   background-color: ${colors.backgroundLight};
 `;
 
-const Prompts = styled("div")`
+const Main = styled.main`
   display: flex;
-  justify-content: center;
-  align-self: center;
-  position: relative;
-  margin-top: 300px;
-  height: 100%;
+  flex-direction: column;
   width: 100%;
+  height: 100%;
+`;
+
+const Prompts = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-top: 60px;
   background-color: ${colors.backgroundLight};
 `;
 
@@ -144,56 +151,59 @@ class PromptContainer extends Component {
     return (
       <Container>
         <Nav active="prompts" />
-        <Prompts>
-          {this.state.steps === 0 && (
-            <Prompt
-              goNext={this.goToNextPrompt.bind(this)}
-              data={this.state.self}
-            />
-          )}
-          {this.state.steps === 1 && (
-            <Prompt
-              goNext={this.goToNextPrompt.bind(this)}
-              data={this.state.anxiety}
-            />
-          )}
-          {this.state.steps === 2 && (
-            <Prompt
-              goNext={this.goToNextPrompt.bind(this)}
-              data={this.state.depression}
-            />
-          )}
-          {this.state.steps === 3 && (
-            <Prompt
-              goNext={this.goToNextPrompt.bind(this)}
-              data={this.state.concentration}
-            />
-          )}
-          {this.state.steps === 4 && (
-            <Prompt
-              goNext={this.goToNextPrompt.bind(this)}
-              data={this.state.family}
-            />
-          )}
-          {this.state.steps === 5 && (
-            <Prompt
-              goNext={this.goToNextPrompt.bind(this)}
-              data={this.state.friendships}
-            />
-          )}
-          {this.state.steps === 6 && (
-            <Prompt
-              goNext={this.goToNextPrompt.bind(this)}
-              data={this.state.gratitude}
-            />
-          )}
-          {this.state.steps === 7 && (
-            <PromptSubmit
-              submitPromptData={this.submitAllData.bind(this)}
-              data={this.state.dataObject}
-            />
-          )}
-        </Prompts>
+        <Main>
+          <UserBanner />
+          <Prompts>
+            {this.state.steps === 0 && (
+              <Prompt
+                goNext={this.goToNextPrompt.bind(this)}
+                data={this.state.self}
+              />
+            )}
+            {this.state.steps === 1 && (
+              <Prompt
+                goNext={this.goToNextPrompt.bind(this)}
+                data={this.state.anxiety}
+              />
+            )}
+            {this.state.steps === 2 && (
+              <Prompt
+                goNext={this.goToNextPrompt.bind(this)}
+                data={this.state.depression}
+              />
+            )}
+            {this.state.steps === 3 && (
+              <Prompt
+                goNext={this.goToNextPrompt.bind(this)}
+                data={this.state.concentration}
+              />
+            )}
+            {this.state.steps === 4 && (
+              <Prompt
+                goNext={this.goToNextPrompt.bind(this)}
+                data={this.state.family}
+              />
+            )}
+            {this.state.steps === 5 && (
+              <Prompt
+                goNext={this.goToNextPrompt.bind(this)}
+                data={this.state.friendships}
+              />
+            )}
+            {this.state.steps === 6 && (
+              <Prompt
+                goNext={this.goToNextPrompt.bind(this)}
+                data={this.state.gratitude}
+              />
+            )}
+            {this.state.steps === 7 && (
+              <PromptSubmit
+                submitPromptData={this.submitAllData.bind(this)}
+                data={this.state.dataObject}
+              />
+            )}
+          </Prompts>
+        </Main>
       </Container>
     );
   }

@@ -7,7 +7,7 @@ export const NavContainer = styled.nav`
   display: flex;
   flex-direction: column;
   min-width: 80px;
-  height: 100vh;
+  height: 100%;
 `;
 
 export const NavLinks = styled.ul`
@@ -18,7 +18,7 @@ export const NavLinks = styled.ul`
 
 export const NavIcon = styled.a`
   width: 100%;
-  height: 100px;
+  height: 80px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -38,7 +38,7 @@ export const NavIcon = styled.a`
 export const NavIconActive = styled.a`
   position: relative;
   width: 100%;
-  height: 100px;
+  height: 80px;
   display: flex;
   flex-direction: column;
   justify-content: center;
