@@ -114,7 +114,9 @@ export const FormContainer = styled.form`
 `;
 
 export const FormQuestion = styled.h2`
+  color: ${colors.backgroundDark};
   font-size: 24px;
+  font-weight: bold;
   text-align: center;
   margin-top: 80px;
   margin-bottom: 40px;

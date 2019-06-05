@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import styled from "@emotion/styled";
 import Picture from "../../Assets/me.jpg";
+import { colors } from "../../globalStyles";
 
 export default class UserBanner extends Component {
   constructor(props) {
@@ -66,23 +67,24 @@ const Image = styled.img`
   height: 100px;
   border-radius: 50%;
   margin-right: 20px;
-  background-color: rgb(128, 124, 255);
+  background-color: ${colors.main};
   &:hover {
-    background-color: rgb(128, 124, 255, 0.2);
+    background-color: ${colors.mainLight};
     cursor: pointer;
   }
 `;
 
 const Name = styled.h1`
+  color: ${colors.backgroundDark};
   font-size: 1.25rem;
   font-weight: bold;
   margin-bottom: 10px;
 `;
 
 const NoteCount = styled.p`
+  color: ${colors.backgroundDark};
   font-size: 1rem;
   font-weight: bold;
-  color: #000;
   text-align: left;
 `;
 
@@ -102,6 +104,7 @@ const TipOfTheDay = styled.div`
 `;
 
 const Title = styled.h3`
+  color: ${colors.backgroundDark};
   font-size: 1.25rem;
   font-weight: bold;
   margin-bottom: 10px;

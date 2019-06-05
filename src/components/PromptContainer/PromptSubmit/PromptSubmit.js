@@ -12,8 +12,9 @@ const prompt__submit_container = css`
     position: relative;
     background-color: #fff;
     border-radius: 5px;
-    box-shadow: rgba(27, 39, 51, 0.25) 0px 10px 20px -8px;
+    box-shadow: 0 1px 3px 0 rgba(21, 27, 38, 0.15)
     padding: 50px;
+    margin-top: 70px;
   }
 
   @media only screen and (max-width: 600px) {
