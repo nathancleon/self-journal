@@ -2,14 +2,15 @@ import styled from "@emotion/styled";
 import { colors } from "../../../globalStyles";
 
 export const Container = styled.div`
+  position: relative;
   display: flex;
   justify-content: center;
-  height: 540px;
+  height: 500px;
   width: 650px;
-  position: relative;
+  margin-top: 80px;
   background-color: #fff;
   border-radius: 5px;
-  box-shadow: rgba(27, 39, 51, 0.25) 0px 10px 20px -8px;
+  box-shadow: 0 1px 3px 0 rgba(21, 27, 38, 0.15);
 
   @media only screen and (max-width: 600px) {
      {
@@ -63,7 +64,7 @@ export const Container = styled.div`
 export const Icon = styled.img`
    {
     position: absolute;
-    top: -8vh;
+    top: -90px;
     width: 150px;
   }
 `;
@@ -115,7 +116,7 @@ export const FormContainer = styled.form`
 export const FormQuestion = styled.h2`
   font-size: 24px;
   text-align: center;
-  margin-top: 40px;
+  margin-top: 80px;
   margin-bottom: 40px;
 `;
 
@@ -168,8 +169,10 @@ export const OptionInput = styled.input`
 `;
 
 export const FormTextField = styled.textarea`
-  max-height: 200px;
-  height: 200px;
+  min-height: 150px;
+  max-height: 150px;
+  min-width: 100%;
+  max-width: 100%;
   margin-top: 40px;
   padding: 10px;
   border: 1px solid #ddd;
