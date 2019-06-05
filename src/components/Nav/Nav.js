@@ -1,17 +1,16 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { logoutUser, setUserInfo } from "../../actions/UserActions";
-import { HeaderContainer, HeaderBranding, HeaderLinks } from "./NavStyles";
+import { NavContainer, NavIcon, NavLinks, NavIconActive } from "./NavStyles";
+import HomeIcon from "../../Assets/home.svg";
+import JournalIcon from "../../Assets/book.svg";
+import PromptsIcon from "../../Assets/pencil.svg";
+import AnalyticsIcon from "../../Assets/analytics.svg";
+import LogOutIcon from "../../Assets/sign-out.svg";
 
 class Nav extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      toHomePage: false
-    };
 
     if (this.props.user) {
       if (!this.props.user.id && localStorage.getItem("token")) {
@@ -28,45 +27,56 @@ class Nav extends Component {
   }
 
   render() {
-    if (this.state.toHomePage === true) {
-      return <Redirect to="/" />;
-    }
-
     return (
-      <HeaderContainer>
-        <HeaderBranding href="/">
-          <img
-            src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/reading_list_4boi.svg"
-            alt="a man reading a book"
-          />
-          <h2>mentalnote</h2>
-        </HeaderBranding>
-        <HeaderLinks>
-          {this.props.links.map(link => {
-            if (link === "log out") {
-              return (
-                <li key={link}>
-                  <Link onClick={this.logOut.bind(this)} to="#">
-                    log out
-                  </Link>
-                </li>
-              );
-            } else if (link === "home") {
-              return (
-                <li key={link}>
-                  <Link to="/">home</Link>
-                </li>
-              );
-            } else {
-              return (
-                <li key={link}>
-                  <Link to={`/${link}`}>{link}</Link>
-                </li>
-              );
-            }
-          })}
-        </HeaderLinks>
-      </HeaderContainer>
+      <NavContainer>
+        <NavLinks>
+          {this.props.active === "home" ? (
+            <NavIconActive href="/">
+              <img src={HomeIcon} alt="home" />
+            </NavIconActive>
+          ) : (
+            <NavIcon href="/">
+              <img src={HomeIcon} alt="home" />
+            </NavIcon>
+          )}
+          {this.props.active === "journal" ? (
+            <NavIconActive href="/list">
+              <img src={JournalIcon} alt="journal" />
+            </NavIconActive>
+          ) : (
+            <NavIcon href="/list">
+              <img src={JournalIcon} alt="journal" />
+            </NavIcon>
+          )}
+          {this.props.active === "prompts" ? (
+            <NavIconActive href="/prompts">
+              <img src={PromptsIcon} alt="prompts" />
+            </NavIconActive>
+          ) : (
+            <NavIcon href="/prompts">
+              <img src={PromptsIcon} alt="prompts" />
+            </NavIcon>
+          )}
+          {this.props.active === "analytics" ? (
+            <NavIconActive href="#">
+              <img src={AnalyticsIcon} alt="analytics" />
+            </NavIconActive>
+          ) : (
+            <NavIcon href="#">
+              <img src={AnalyticsIcon} alt="analytics" />
+            </NavIcon>
+          )}
+          {this.props.active === "analytics" ? (
+            <NavIconActive onClick={this.logOut.bind(this)} href="/">
+              <img src={LogOutIcon} alt="log out" />
+            </NavIconActive>
+          ) : (
+            <NavIcon onClick={this.logOut.bind(this)} href="/">
+              <img src={LogOutIcon} alt="log out" />
+            </NavIcon>
+          )}
+        </NavLinks>
+      </NavContainer>
     );
   }
 }

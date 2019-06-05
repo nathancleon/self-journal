@@ -141,11 +141,9 @@ class PromptContainer extends Component {
   }
 
   render() {
-    const linksArray = ["list", "log out"];
-
     return (
       <Container>
-        <Nav links={linksArray} />
+        <Nav active="prompts" />
         <Prompts>
           {this.state.steps === 0 && (
             <Prompt

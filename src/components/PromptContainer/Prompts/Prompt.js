@@ -9,7 +9,6 @@ import {
   OptionInput,
   FormTextField,
   NextButton,
-  answerError,
   AnswerError
 } from "./PromptStyles";
 
