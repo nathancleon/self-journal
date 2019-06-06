@@ -4,10 +4,11 @@ import {
   fetchAllJournalData,
   saveSelectedJournal
 } from "../../actions/JournalActions";
-import Header from "../Headers/Header";
+import Nav from "../Nav/Nav";
+import UserBanner from "../UserBanner/UserBanner";
 import JournalList from "./JournalList/JournalList";
 import JournalSelected from "./JournalSelected/JournalSelected";
-import { Container } from "./JournalListContainerStyles";
+import { Container, InsideContainer } from "./JournalListContainerStyles";
 
 class JournalListContainer extends Component {
   constructor(props) {
@@ -46,19 +47,20 @@ class JournalListContainer extends Component {
     }
 
     return (
-      <div>
-        <Header links={linksArray} />
-        <Container>
-          <JournalList
+      <Container>
+        <Nav active="journal" />
+        {/* <JournalList
             onJournalSelect={(selectedJournal, positionKey) => {
               selectedJournal.position = positionKey;
               this.props.saveSelectedJournal(selectedJournal);
             }}
             journals={journalData}
-          />
+          /> */}
+        <InsideContainer>
+          <UserBanner />
           <JournalSelected />
-        </Container>
-      </div>
+        </InsideContainer>
+      </Container>
     );
   }
 }

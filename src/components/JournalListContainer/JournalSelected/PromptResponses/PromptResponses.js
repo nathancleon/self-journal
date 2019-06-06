@@ -115,17 +115,13 @@ class PromptResponses extends Component {
   }
 
   renderAnswerOptions(questionKey, questionIndex) {
-    //TODO: refactor this function to use only keys to update, limit use of index
-    //also refactor data model in database so that slice is not needed
-
-    //this pulls just the user answer data (e.g. "answerSelf: Good")
     let journalAnswerArray = Object.values(this.props.journal.answerValues);
-
     let userResponseOptions = promptData.data[questionKey];
     if (!userResponseOptions.answers) {
       return null;
     }
 
+    let responsePropertiesArray = Object.getOwnPropertyNames(promptData.data);
     let renderOptions = userResponseOptions.answers.map(element => {
       return (
         <option key={element} value={element}>
@@ -133,8 +129,6 @@ class PromptResponses extends Component {
         </option>
       );
     });
-
-    let responsePropertiesArray = Object.getOwnPropertyNames(promptData.data);
 
     return (
       <UserAnswers>
@@ -169,15 +163,7 @@ class PromptResponses extends Component {
   renderAnswerTextValue(questionIndex) {
     let journalTextArray = Object.values(this.props.journal.answerTextValues);
     let userTextValue = journalTextArray[questionIndex];
-    return (
-      <textarea
-        rows="4"
-        cols="50"
-        key={userTextValue}
-        defaultValue={journalTextArray[questionIndex]}
-        readOnly
-      />
-    );
+    return <p>{userTextValue}</p>;
   }
 
   saveAnswerEditValue(event) {
@@ -244,7 +230,8 @@ class PromptResponses extends Component {
       <SelectedPromptContainer>
         <SelectedPromptHeader>
           <h1>
-            Journal from {moment(this.props.journal.created).format("LL")}
+            Journal
+            <span>{moment(this.props.journal.created).format("LL")}</span>
           </h1>
           <PromptIcons>
             <svg
@@ -286,7 +273,7 @@ class PromptResponses extends Component {
           })}
           {this.state.makeEdit ? (
             <SubmitButton onClick={this.submitEditedValues.bind(this)}>
-              Submit
+              Save
             </SubmitButton>
           ) : null}
         </SelectedPromptData>

@@ -1,203 +1,126 @@
 import styled from "@emotion/styled";
+import { colors } from "../../../../globalStyles";
 
-export const SelectedPromptContainer = styled("div")`
-   {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    position: relative;
-    background-color: #fefefe;
-    width: 100%;
-    margin-left: 80px;
-    margin-top: 5px;
-  }
-  @media only screen and (max-width: 1200px) {
-     {
-      margin-left: 40px;
-    }
-  }
-
-  @media only screen and (max-width: 600px) {
-     {
-      margin-left: 20px;
-    }
-  }
+export const SelectedPromptContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  position: relative;
+  background-color: #fefefe;
+  width: 100%;
+  height: 100%;
+  padding: 40px 100px;
 `;
 
-export const SelectedPromptHeader = styled("div")`
-   {
-    display: flex;
-    justify-content: space-between;
-    width: 60%;
-    margin-top: 40px;
-    padding-bottom: 20px;
-    background-color: #fefefe;
-    box-shadow: -2px 6px 3px -5px rgba(0, 0, 0, 0.2);
-    position: relative;
-  }
+export const SelectedPromptHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  background-color: #fefefe;
+  position: relative;
+  height: 50px;
+  margin-bottom: 20px;
   h1 {
-    font-size: 24px;
+    font-size: 2rem;
+    color: ${colors.backgroundDark};
     height: 50px;
     padding-top: 15px;
     margin-bottom: 15px;
-  }
-  @media only screen and (max-width: 1400px) {
-     {
-      width: 80%;
-    }
-  }
-  @media only screen and (max-width: 1200px) {
-     {
-      padding-bottom: 10px;
-    }
-    h1 {
-      font-size: 18px;
-    }
-  }
-  @media only screen and (max-width: 645px) {
-     {
-      margin-top: 10px;
-      padding-bottom: 5px;
-    }
-    h1 {
-      font-size: 10px;
-      height: 30px;
+    span {
+      margin-left: 45px;
+      font-size: 1.5rem;
+      font-weight: normal;
+      color: #888;
     }
   }
 `;
 
-export const PromptIcons = styled("div")`
-   {
-    display: flex;
-    justify-content: space-around;
-    width: 80px;
-    position: inline-block;
-    height: 50px;
-  }
+export const PromptIcons = styled.div`
+  display: flex;
+  justify-content: space-around;
+  width: 80px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 2rem;
   svg {
     width: 25px;
     cursor: pointer;
     margin-bottom: 2px;
   }
   svg:first-child {
-    fill: orange;
+    fill: #5b5b5b;
     margin-right: 20px;
   }
   svg:nth-child(2) {
-    fill: red;
-    width: 23px;
-  }
-
-  @media only screen and (max-width: 645px) {
-     {
-      width: 50px;
-      height: 35px;
-      padding-left: 5px;
-      margin-top: 5px;
-    }
-    svg {
-      width: 20px;
-    }
-    svg:nth-child(2) {
-      fill: red;
-      width: 18px;
-    }
+    fill: #5b5b5b;
+    width: 22px;
   }
 `;
 
-export const SelectedPromptData = styled("div")`
-   {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    margin-left: 5px;
-    overflow: -moz-scrollbars-vertical;
-    overflow-y: scroll;
-  }
+export const SelectedPromptData = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  overflow-y: scroll;
   h4 {
-    margin-top: 15px;
-    margin-bottom: 15px;
-  }
-  @media only screen and (max-width: 645px) {
-    h4 {
-      font-size: 12px;
-    }
+    color: ${colors.backgroundDark};
+    margin-top: 20px;
   }
 `;
 
-export const UserAnswers = styled("div")`
-   {
-    display: flex;
-  }
+export const UserAnswers = styled.div`
+  display: flex;
   p {
+    font-size: 16px;
+    color: #555;
     text-align: left;
     margin-right: 8px;
-    margin-bottom: 10px;
+    margin-top: 5px;
+    margin-bottom: 2px;
   }
   select {
+    margin-top: 5px;
     margin-bottom: 8px;
     border: 1px solid #ddd;
     border-radius: 4px;
     background-color: #fafafa;
     font-size: 14px;
   }
-  @media only screen and (max-width: 645px) {
-    p {
-      font-size: 12px;
-    }
-  }
 `;
 
-export const UserTextAnswers = styled("div")`
-   {
-    margin-top: 10px;
-    margin-bottom: 10px;
+export const UserTextAnswers = styled.div`
+  p {
+    font-size: 16px;
+    color: #555;
   }
   textarea {
     font-size: 16px;
-    width: 60%;
+    width: 100%;
     border: 1px solid #ddd;
     padding: 5px;
-  }
-
-  @media only screen and (max-width: 1200px) {
-    textarea {
-      font-size: 14px;
-    }
-  }
-
-  @media only screen and (max-width: 645px) {
-    textarea {
-      font-size: 10px;
-      width: 90%;
-    }
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
 `;
 
-export const SubmitButton = styled("button")`
-   {
-    display: inline-block;
-    padding: 30px;
-    width: 370px;
-    font-size: 18px;
-    color: #fff;
-    text-align: center;
-    line-height: 0px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    background-color: rgba(80, 200, 80, 0.9);
-    margin-top: 20px;
-    margin-bottom: 50px;
-    margin-left: 1px;
-    cursor: pointer;
-  }
+export const SubmitButton = styled.button`
+  min-height: 45px;
+  width: 50%;
+  font-size: 16px;
+  align-self: center;
+  background-color: ${colors.main};
+  color: #fff;
+  font-weight: bold;
+  border: 1px solid #ddd;
+  border-radius: 25px;
+  margin-top: 20px;
+  margin-bottom: 0px;
+  cursor: pointer;
+  letter-spacing: 1px;
   &:hover {
-    background-color: #fefefe;
-    color: #333;
-  }
-  @media only screen and (max-width: 645px) {
-     {
-      width: 100%;
-    }
+    background-color: #fff;
+    color: #000;
+    font-weight: normal;
   }
 `;

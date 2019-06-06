@@ -1,25 +1,24 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { css } from "@emotion/core";
+import styled from "@emotion/styled";
 import PromptResponses from "./PromptResponses/PromptResponses";
 
 class JournalSelected extends Component {
   render() {
     if (!this.props.journal) {
       return (
-        <div className={journal_selected}>
-          <div className={no_journal__entries}>
-            {" "}
+        <JournalSelectedContainer>
+          <NoJournalEntries>
             You haven 't created a journal entry yet
-          </div>{" "}
-        </div>
+          </NoJournalEntries>
+        </JournalSelectedContainer>
       );
     }
 
     return (
-      <div className={journal_selected}>
-        <PromptResponses journal={this.props.journal} />{" "}
-      </div>
+      <JournalSelectedContainer>
+        <PromptResponses journal={this.props.journal} />
+      </JournalSelectedContainer>
     );
   }
 }
@@ -35,22 +34,14 @@ export default connect(
   null
 )(JournalSelected);
 
-const journal_selected = css`
-   {
-    display: flex;
-    justify-content: center;
-    background-color: #fff;
-    width: 79%;
-  }
-  @media only screen and (max-width: 600px) {
-     {
-      width: 70%;
-    }
-  }
+const JournalSelectedContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+  width: 100%;
+  max-height: 100%;
 `;
 
-const no_journal__entries = css`
-   {
-    margin-top: 10vh;
-  }
+const NoJournalEntries = styled.div`
+  margin-top: 10vh;
 `;

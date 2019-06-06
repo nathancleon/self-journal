@@ -8,7 +8,8 @@ export const NavContainer = styled.nav`
   display: flex;
   flex-direction: column;
   min-width: 80px;
-  height: 100%;
+  max-width: 80px;
+  min-height: 100%;
 `;
 
 export const NavLinks = styled.ul`
