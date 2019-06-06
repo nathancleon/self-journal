@@ -1,89 +1,56 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
-import { css } from "emotion";
+import styled from "@emotion/styled";
 import { colors } from "../../../globalStyles";
 
-const prompt__submit_container = css`
-   {
-    display: flex;
-    flex-direction: column;
-    height: 350px;
-    width: 650px;
-    position: relative;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 1px 3px 0 rgba(21, 27, 38, 0.15)
-    padding: 50px;
-    margin-top: 70px;
-  }
-
-  @media only screen and (max-width: 600px) {
-     {
-      width: 100%;
-    }
-
-    img {
-      left: 30%;
-    }
-
-    h2 {
-      font-size: 20px;
-      line-height: 25px;
-    }
-  }
-
-  @media only screen and (max-width: 400px) {
-    img {
-      left: 25%;
-    }
-  }
-
-  @media only screen and (max-height: 600px) {
-    img {
-      left: 36%;
-      width: 100px;
-      top: 0px;
-    }
-  }
+const PromptSubmitContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 350px;
+  width: 650px;
+  position: relative;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px 0 rgba(21, 27, 38, 0.15);
+  padding: 50px;
+  margin-top: 70px;
 `;
 
-const prompt__submit_img = css`
-   {
-    position: absolute;
-    top: -100px;
-    left: 35%;
-    width: 200px;
-  }
+const PromptSubmitImage = styled.img`
+  position: absolute;
+  top: -50px;
+  left: 35%;
+  width: 200px;
 `;
 
-const prompt__submit_text = css`
-   {
-    font-size: 24px;
-    text-align: center;
-    width: 100%;
-    line-height: 50px;
-    margin-top: 40px;
-  }
+const PromptSubmitText = styled.h2`
+  font-size: 24px;
+  text-align: center;
+  width: 100%;
+  line-height: 50px;
+  margin-top: 40px;
 `;
 
-const prompt__submit_btn = css`
-   {
-    height: 45px;
-    width: 50%;
-    font-size: 16px;
-    align-self: center;
-    background-color: ${colors.main};
-    color: #fff;
-    font-weight: bold;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    margin-top: 35px;
-    cursor: pointer;
-    letter-spacing: 1px;
-  }
+const PromptSubmitButton = styled.button`
+  height: 45px;
+  width: 50%;
+  font-size: 16px;
+  align-self: center;
+  background-color: ${colors.main};
+  color: #fff;
+  font-weight: bold;
+  border: 1px solid #ddd;
+  border-radius: 25px;
+  margin-top: 20px;
+  margin-bottom: 0px;
+  cursor: pointer;
+  letter-spacing: 1px;
   &:hover {
-    background-color: #fefefe;
-    color: #333;
+    background-color: #fff;
+    color: #000;
+    font-weight: normal;
   }
 `;
 
@@ -111,23 +78,21 @@ export default class PromptSubmit extends Component {
     }
 
     return (
-      <div className={prompt__submit_container}>
-        <img
-          className={prompt__submit_img}
+      <PromptSubmitContainer>
+        <PromptSubmitImage
           src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/Jogging_t14q.svg"
           alt="a man running with little hearts around him"
         />
-        <h2 className={prompt__submit_text}>
+        <PromptSubmitText>
           Thank you for checking in with yourself today!
-        </h2>
-        <button
-          className={prompt__submit_btn}
+        </PromptSubmitText>
+        <PromptSubmitButton
           onClick={this.handleSubmitEvent.bind(this)}
           type="button"
         >
           Submit
-        </button>
-      </div>
+        </PromptSubmitButton>
+      </PromptSubmitContainer>
     );
   }
 }
