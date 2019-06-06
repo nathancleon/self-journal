@@ -12,7 +12,9 @@ export default class UserBanner extends Component {
       <Container>
         <ContentContainer>
           {/* replace with actual info from user */}
-          <Image src={Picture} alt="picture of myself" />
+          <Image>
+            <img src={Picture} alt="picture of myself" />
+          </Image>
           <TextContainer>
             <UserInfo>
               <Name>Nathan León</Name>
@@ -62,15 +64,34 @@ const UserInfo = styled.div`
   align-self: center;
 `;
 
-const Image = styled.img`
+const Image = styled.div`
+  position: relative;
   width: 100px;
   height: 100px;
   border-radius: 50%;
   margin-right: 20px;
   background-color: ${colors.main};
+  z-index: 1;
+  img {
+    border-radius: inherit;
+    width: inherit;
+    height: inherit;
+  }
   &:hover {
-    background-color: ${colors.mainLight};
     cursor: pointer;
+    &:after {
+      display: block;
+      content: ""; //replace with image icon url
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      right: 0;
+      bottom: 0;
+      z-index: 20;
+      background: ${colors.main};
+      opacity: 0.7;
+      border-radius: 50%;
+    }
   }
 `;
 
