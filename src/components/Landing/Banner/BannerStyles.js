@@ -1,19 +1,17 @@
-import { css } from "@emotion/core";
+import styled from "@emotion/styled";
 import { colors } from "../../../globalStyles";
 
-export const banner = css`
-   {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    min-height: 50vw;
-    width: 100%;
-    position: relative;
-    background-color: ${colors.backgroundDark};
-    padding-top: 10vw;
-    padding-bottom: 10vw;
-    z-index: 2;
-  }
+export const BannerContainer = styled.div`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 50vw;
+  width: 100%;
+  position: relative;
+  background-color: ${colors.backgroundDark};
+  padding-top: 10vw;
+  padding-bottom: 10vw;
+  z-index: 2;
   &:before {
     content: "";
     position: absolute;
@@ -72,28 +70,22 @@ export const banner = css`
   }
 `;
 
-export const banner_content = css`
-   {
-    width: 30vw;
-    order: 1;
-  }
+export const BannerContent = styled.div`
+  width: 30vw;
+  order: 1;
 `;
 
-export const banner_content__title = css`
-   {
-    font-size: 3rem;
-    font-family: "Nunito", sans-serif;
-    line-height: 3.5rem;
-    color: #fff;
-    margin-bottom: 1.5rem;
-  }
+export const BannerContentTitle = styled.h1`
+  font-size: 3rem;
+  font-family: "Nunito", sans-serif;
+  line-height: 3.5rem;
+  color: #fff;
+  margin-bottom: 1.5rem;
 `;
 
-export const title__name = css`
-   {
-    font-family: "Nunito", sans-serif;
-    position: relative;
-  }
+export const TitleName = styled.span`
+  font-family: "Nunito", sans-serif;
+  position: relative;
   &:after {
     content: "";
     position: absolute;
@@ -106,15 +98,13 @@ export const title__name = css`
   }
 `;
 
-export const banner_content__text = css`
-   {
-    width: 95%;
-    font-size: 1.25rem;
-    color: #fff;
-  }
+export const BannerContentText = styled.p`
+  width: 95%;
+  font-size: 1.25rem;
+  color: #fff;
 `;
 
-export const banner_img = css`
+export const BannerImg = styled.img`
    {
     width: 40vw;
     order: 2;

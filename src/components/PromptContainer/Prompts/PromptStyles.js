@@ -5,25 +5,22 @@ export const Container = styled.div`
   position: relative;
   display: flex;
   justify-content: center;
-  height: 440px;
+  height: 450px;
   width: 650px;
   margin-top: 80px;
   background-color: #fff;
   border-radius: 5px;
   box-shadow: 0 1px 3px 0 rgba(21, 27, 38, 0.15);
-
   @media only screen and (max-width: 600px) {
      {
       width: 100%;
       margin-top: 40px;
     }
-
     img {
-      top: -50px;
+      top: -40px;
       width: 120px;
     }
   }
-
   @media only screen and (max-width: 640px) {
      {
       height: 80vh;
@@ -34,7 +31,6 @@ export const Container = styled.div`
       top: 10px;
     }
   }
-
   @media only screen and (max-width: 440px) {
      {
       width: 98%;
@@ -46,14 +42,12 @@ export const Container = styled.div`
       top: -4vh;
     }
   }
-
   @media only screen and (max-width: 320px) {
      {
       width: 98%;
       padding: 15px;
       margin-top: 50px;
     }
-
     img {
       width: 100px;
       top: -3vh;
@@ -64,7 +58,7 @@ export const Container = styled.div`
 export const Icon = styled.img`
    {
     position: absolute;
-    top: -90px;
+    top: -80px;
     width: 150px;
   }
 `;

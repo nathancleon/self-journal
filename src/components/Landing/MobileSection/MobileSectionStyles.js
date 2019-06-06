@@ -1,19 +1,17 @@
-import { css } from "@emotion/core";
+import styled from "@emotion/styled";
 import { colors } from "../../../globalStyles";
 
-export const banner = css`
-   {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 100%;
-    padding-top: 10vh;
-    position: relative;
-    background-color: ${colors.main};
-    padding-top: 10vw;
-    padding-bottom: 5vw;
-    z-index: 1;
-  }
+export const Banner = styled.div`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  padding-top: 10vh;
+  position: relative;
+  background-color: ${colors.main};
+  padding-top: 10vw;
+  padding-bottom: 5vw;
+  z-index: 1;
   &:after {
     content: "";
     bottom: -20.1vh;
@@ -52,38 +50,29 @@ export const banner = css`
   }
 `;
 
-export const banner_content = css`
-   {
-    width: 35vw;
-    order: 2;
-  }
+export const BannerContent = styled.div`
+  width: 35vw;
+  order: 2;
 `;
 
-export const banner_content__title = css`
-   {
-    font-size: 3rem;
-    font-family: "Nunito", sans-serif;
-    line-height: 3.5rem;
-    color: #fff;
-    margin-bottom: 1.5rem;
-  }
+export const BannerContentTitle = styled.h1`
+  font-size: 3rem;
+  font-family: "Nunito", sans-serif;
+  line-height: 3.5rem;
+  color: #fff;
+  margin-bottom: 1.5rem;
 `;
 
-export const banner_content__text = css`
-   {
-    width: 95%;
-    font-size: 1.25rem;
-    color: #fff;
-  }
+export const BannerContentText = styled.p`
+  width: 95%;
+  font-size: 1.25rem;
+  color: #fff;
 `;
 
-export const banner_img = css`
-   {
-    width: 25vw;
-    min-width: 40vmin;
-    order: 1;
-  }
-
+export const BannerImg = styled.img`
+  width: 25vw;
+  min-width: 40vmin;
+  order: 1;
   @media only screen and (max-width: 600px) {
      {
       margin-top: 5vw;
