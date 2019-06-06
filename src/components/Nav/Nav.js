@@ -12,6 +12,10 @@ class Nav extends Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      active: null
+    };
+
     if (this.props.user) {
       if (!this.props.user.id && localStorage.getItem("token")) {
         this.props.setUserInfo();
@@ -26,55 +30,69 @@ class Nav extends Component {
     });
   }
 
+  setToActive(event) {
+    this.setState({
+      active: event.currentTarget.id
+    });
+
+    this.props.selectComponent(event.currentTarget.id);
+  }
+
   render() {
     return (
       <NavContainer>
         <NavLinks>
-          {this.props.active === "home" ? (
-            <NavIconActive href="/">
+          {this.state.active === "home" ? (
+            <NavIconActive href="#" id="home">
               <img src={HomeIcon} alt="home" />
             </NavIconActive>
           ) : (
-            <NavIcon href="/">
+            <NavIcon onClick={this.setToActive.bind(this)} href="#" id="home">
               <img src={HomeIcon} alt="home" />
             </NavIcon>
           )}
-          {this.props.active === "journal" ? (
-            <NavIconActive href="/list">
+          {this.state.active === "journal" ? (
+            <NavIconActive href="#" id="journal">
               <img src={JournalIcon} alt="journal" />
             </NavIconActive>
           ) : (
-            <NavIcon href="/list">
-              <img src={JournalIcon} alt="journal" />
+            <NavIcon
+              onClick={this.setToActive.bind(this)}
+              href="#"
+              id="journal"
+            >
+              <img src={JournalIcon} alt="journal" id="journal" />
             </NavIcon>
           )}
-          {this.props.active === "prompts" ? (
-            <NavIconActive href="/prompts">
+          {this.state.active === "prompts" ? (
+            <NavIconActive href="#" id="prompts">
               <img src={PromptsIcon} alt="prompts" />
             </NavIconActive>
           ) : (
-            <NavIcon href="/prompts">
+            <NavIcon
+              onClick={this.setToActive.bind(this)}
+              href="#"
+              id="prompts"
+            >
               <img src={PromptsIcon} alt="prompts" />
             </NavIcon>
           )}
-          {this.props.active === "analytics" ? (
-            <NavIconActive href="#">
+          {this.state.active === "analytics" ? (
+            <NavIconActive href="#" id="analytics">
               <img src={AnalyticsIcon} alt="analytics" />
             </NavIconActive>
           ) : (
-            <NavIcon href="#">
+            <NavIcon
+              onClick={this.setToActive.bind(this)}
+              href="#"
+              id="analytics"
+            >
               <img src={AnalyticsIcon} alt="analytics" />
             </NavIcon>
           )}
-          {this.props.active === "analytics" ? (
-            <NavIconActive onClick={this.logOut.bind(this)} href="/">
-              <img src={LogOutIcon} alt="log out" />
-            </NavIconActive>
-          ) : (
-            <NavIcon onClick={this.logOut.bind(this)} href="/">
-              <img src={LogOutIcon} alt="log out" />
-            </NavIcon>
-          )}
+          <NavIcon onClick={this.logOut.bind(this)} href="/">
+            <img src={LogOutIcon} alt="log out" />
+          </NavIcon>
         </NavLinks>
       </NavContainer>
     );

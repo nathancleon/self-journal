@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import Prompt from "./Prompts/Prompt";
 import PromptSubmit from "./PromptSubmit/PromptSubmit";
-import Nav from "../Nav/Nav";
-import UserBanner from "../UserBanner/UserBanner";
 import { saveJournalData } from "../../actions/JournalActions";
 import { connect } from "react-redux";
 import styled from "@emotion/styled";
@@ -151,9 +149,7 @@ class PromptContainer extends Component {
   render() {
     return (
       <Container>
-        <Nav active="prompts" />
         <Main>
-          <UserBanner />
           <Prompts>
             {this.state.steps === 0 && (
               <Prompt

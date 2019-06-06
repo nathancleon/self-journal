@@ -4,11 +4,9 @@ import {
   fetchAllJournalData,
   saveSelectedJournal
 } from "../../actions/JournalActions";
-import Nav from "../Nav/Nav";
-import UserBanner from "../UserBanner/UserBanner";
 import JournalList from "./JournalList/JournalList";
 import JournalSelected from "./JournalSelected/JournalSelected";
-import { Container, InsideContainer } from "./JournalListContainerStyles";
+import { Container, ErrorMessage, Loading } from "./JournalListContainerStyles";
 
 class JournalListContainer extends Component {
   constructor(props) {
@@ -39,16 +37,15 @@ class JournalListContainer extends Component {
     const linksArray = ["prompts", "log out"];
 
     if (error) {
-      return <p> {error.message} </p>;
+      return <ErrorMessage> {error.message} </ErrorMessage>;
     }
 
     if (isLoading) {
-      return <p> Loading... </p>;
+      return <Loading> Loading... </Loading>;
     }
 
     return (
       <Container>
-        <Nav active="journal" />
         {/* <JournalList
             onJournalSelect={(selectedJournal, positionKey) => {
               selectedJournal.position = positionKey;
@@ -56,10 +53,7 @@ class JournalListContainer extends Component {
             }}
             journals={journalData}
           /> */}
-        <InsideContainer>
-          <UserBanner />
-          <JournalSelected />
-        </InsideContainer>
+        {isLoading ? <Loading /> : <JournalSelected />}
       </Container>
     );
   }

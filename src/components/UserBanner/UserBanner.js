@@ -7,12 +7,11 @@ export default class UserBanner extends Component {
   constructor(props) {
     super(props);
   }
-
   render() {
     return (
       <Container>
         <ContentContainer>
-          {/* replace with actual image from user */}
+          {/* replace with actual info from user */}
           <Image src={Picture} alt="picture of myself" />
           <TextContainer>
             <UserInfo>
@@ -38,6 +37,7 @@ const Container = styled.div`
   align-items: center;
   width: 100%;
   min-height: 241px;
+  max-height: 241px;
   background-color: #fff;
   border-bottom: 1px solid #ddd;
 `;

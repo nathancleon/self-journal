@@ -6,9 +6,15 @@ export const Container = styled.div`
   height: 100%;
 `;
 
-export const InsideContainer = styled.div`
+export const ErrorMessage = styled.p`
   display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
+  align-self: center;
+  font-size: 2rem;
+`;
+
+export const Loading = styled.p`
+  display: flex;
+  align-self: center;
+  font-size: 2rem;
+  margin-top: 15%;
 `;
