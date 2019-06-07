@@ -17,6 +17,8 @@ class JournalListContainer extends Component {
       selectedJournal: null,
       isLoading: false
     };
+
+    this.changeSelectedJournal = this.changeSelectedJournal.bind(this);
   }
 
   componentDidMount() {
@@ -24,13 +26,19 @@ class JournalListContainer extends Component {
       isLoading: true
     });
     this.props.fetchAllJournalData().then(() => {
-      const recentJournal = this.props.journal.all.reverse();
+      const journals = this.props.journal.all.reverse();
       this.setState({
         //reversed the order of journal items so most recent journal entry displays in selectedJournal
-        journalData: this.props.journal.all,
-        selectedJournal: recentJournal[0],
+        journalData: journals,
+        selectedJournal: journals[0],
         isLoading: false
       });
+    });
+  }
+
+  changeSelectedJournal(journal) {
+    this.setState({
+      selectedJournal: journal
     });
   }
 
@@ -57,7 +65,11 @@ class JournalListContainer extends Component {
         {isLoading ? (
           <Loading />
         ) : (
-          <JournalSelected journal={selectedJournal} />
+          <JournalSelected
+            journal={selectedJournal}
+            changeJournal={this.changeSelectedJournal}
+            journalData={journalData}
+          />
         )}
       </Container>
     );

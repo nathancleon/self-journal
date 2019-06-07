@@ -17,7 +17,11 @@ class JournalSelected extends Component {
 
     return (
       <JournalSelectedContainer>
-        <PromptResponses journal={this.props.journal} />
+        <PromptResponses
+          journal={this.props.journal}
+          changeJournal={this.props.changeJournal}
+          journalData={this.props.journalData}
+        />
       </JournalSelectedContainer>
     );
   }

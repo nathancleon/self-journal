@@ -3,10 +3,15 @@ import { colors } from "../../../../globalStyles";
 
 export const SelectedPromptContainer = styled.div`
   display: flex;
+  width: 100%;
+  height: 100%;
+`;
+
+export const DataContainer = styled.div`
+  display: flex;
   flex-direction: column;
   align-items: stretch;
   position: relative;
-  background-color: #fefefe;
   width: 100%;
   height: 100%;
   padding: 40px 100px;
@@ -16,7 +21,6 @@ export const SelectedPromptHeader = styled.div`
   display: flex;
   justify-content: space-between;
   padding-bottom: 20px;
-  background-color: #fefefe;
   position: relative;
   height: 50px;
   margin-bottom: 20px;
@@ -60,6 +64,7 @@ export const PromptIcons = styled.div`
 
 export const SelectedPromptData = styled.div`
   display: flex;
+  width: 100%;
   flex-direction: column;
   padding-top: 10px;
   overflow-y: scroll;
@@ -123,4 +128,41 @@ export const SubmitButton = styled.button`
     color: #000;
     font-weight: normal;
   }
+`;
+
+export const NavigateLeft = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10%;
+  height: 100%;
+  background-color: #fbfbfb;
+  img {
+    width: 40%;
+  }
+  cursor: pointer;
+  &:hover {
+    background-color: #f2f2f2;
+  }
+`;
+
+export const NavigateRight = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10%;
+  height: 100%;
+  background-color: #fbfbfb;
+  img {
+    width: 40%;
+  }
+  cursor: pointer;
+  &:hover {
+    background-color: #f2f2f2;
+  }
+`;
+
+export const NavigationDisabled = styled.div`
+  width: 10%;
+  height: 100%;
 `;
