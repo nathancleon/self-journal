@@ -24,17 +24,18 @@ class JournalListContainer extends Component {
       isLoading: true
     });
     this.props.fetchAllJournalData().then(() => {
+      const recentJournal = this.props.journal.all.reverse();
       this.setState({
         //reversed the order of journal items so most recent journal entry displays in selectedJournal
         journalData: this.props.journal.all,
+        selectedJournal: recentJournal[0],
         isLoading: false
       });
     });
   }
 
   render() {
-    const { journalData, isLoading, error } = this.state;
-    const linksArray = ["prompts", "log out"];
+    const { journalData, selectedJournal, isLoading, error } = this.state;
 
     if (error) {
       return <ErrorMessage> {error.message} </ErrorMessage>;
@@ -53,7 +54,11 @@ class JournalListContainer extends Component {
             }}
             journals={journalData}
           /> */}
-        {isLoading ? <Loading /> : <JournalSelected />}
+        {isLoading ? (
+          <Loading />
+        ) : (
+          <JournalSelected journal={selectedJournal} />
+        )}
       </Container>
     );
   }

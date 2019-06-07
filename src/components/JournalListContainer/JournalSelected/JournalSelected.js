@@ -9,7 +9,7 @@ class JournalSelected extends Component {
       return (
         <JournalSelectedContainer>
           <NoJournalEntries>
-            You haven 't created a journal entry yet
+            You haven't created a journal entry yet
           </NoJournalEntries>
         </JournalSelectedContainer>
       );
@@ -23,16 +23,7 @@ class JournalSelected extends Component {
   }
 }
 
-const mapStateToProps = reduxState => {
-  return {
-    journal: reduxState.journal.selected
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  null
-)(JournalSelected);
+export default JournalSelected;
 
 const JournalSelectedContainer = styled.div`
   display: flex;

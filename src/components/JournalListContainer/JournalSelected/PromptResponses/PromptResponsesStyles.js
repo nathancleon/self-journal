@@ -61,7 +61,7 @@ export const PromptIcons = styled.div`
 export const SelectedPromptData = styled.div`
   display: flex;
   flex-direction: column;
-  padding-top: 20px;
+  padding-top: 10px;
   overflow-y: scroll;
   h4 {
     color: ${colors.backgroundDark};
