@@ -4,7 +4,6 @@ import {
   fetchAllJournalData,
   saveSelectedJournal
 } from "../../actions/JournalActions";
-import JournalList from "./JournalList/JournalList";
 import JournalSelected from "./JournalSelected/JournalSelected";
 import { Container, ErrorMessage, Loading } from "./JournalListContainerStyles";
 
@@ -26,9 +25,9 @@ class JournalListContainer extends Component {
       isLoading: true
     });
     this.props.fetchAllJournalData().then(() => {
+      //reversed the order of journal items so most recent journal entry displays in selectedJournal
       const journals = this.props.journal.all.reverse();
       this.setState({
-        //reversed the order of journal items so most recent journal entry displays in selectedJournal
         journalData: journals,
         selectedJournal: journals[0],
         isLoading: false

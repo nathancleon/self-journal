@@ -5,6 +5,7 @@ import {
   deleteJournalEntry
 } from "../../../../actions/JournalActions";
 import { connect } from "react-redux";
+import { promptData } from "./promptData";
 import {
   SelectedPromptContainer,
   DataContainer,
@@ -20,47 +21,6 @@ import {
 } from "./PromptResponsesStyles";
 import LeftArrow from "../../../../Assets/angle-left.svg";
 import RightArrow from "../../../../Assets/angle-right.svg";
-//----------------------------------------------------------
-// DATA
-//----------------------------------------------------------
-
-const promptData = {
-  data: {
-    Self: {
-      question: "How do you describe your overall mental health?",
-      answers: ["Poor", "Not Great", "Good", "Great", "Excellent"]
-    },
-    Anxiety: {
-      question: "How anxious would you say you feel?",
-      answers: ["Not at all", "Slightly", "Moderately", "Very", "Extremely"]
-    },
-    Depression: {
-      question: "How depressed would you say you feel?",
-      answers: ["Not at all", "Slightly", "Moderately", "Very", "Extremely"]
-    },
-    Concentration: {
-      question: "How would you describe your ability to concentrate?",
-      answers: ["Poor", "Not Great", "Good", "Great", "Excellent"]
-    },
-    Family: {
-      question:
-        "How do would you rate the connections you have with your family?",
-      answers: ["Poor", "Not Great", "Good", "Great", "Excellent"]
-    },
-    Friendships: {
-      question:
-        "How do would you rate the connections you have with your friends?",
-      answers: ["Poor", "Not Great", "Good", "Great", "Excellent"]
-    },
-    Gratitude: {
-      question: "List at least three things you are grateful for."
-    }
-  }
-};
-
-//----------------------------------------------------------
-// COMPONENT
-//----------------------------------------------------------
 
 class PromptResponses extends Component {
   constructor(props) {
@@ -75,10 +35,6 @@ class PromptResponses extends Component {
     };
   }
 
-  //----------------------------------------------------------
-  // Lifecycle Methods
-  //----------------------------------------------------------
-
   componentWillUpdate(nextProps) {
     if (
       this.state.makeEdit &&
@@ -89,10 +45,6 @@ class PromptResponses extends Component {
       });
     }
   }
-
-  //----------------------------------------------------------
-  // FUNCTIONS
-  //----------------------------------------------------------
 
   toggleEdit() {
     if (this.state.makeEdit) {
@@ -105,6 +57,10 @@ class PromptResponses extends Component {
       });
     }
   }
+
+  //----------------------------------------------------------
+  // RENDER FUNCTIONS
+  //----------------------------------------------------------
 
   renderAnswerValue(questionIndex) {
     //this pulls just the user answer data (e.g. "answerSelf: Good")
@@ -174,6 +130,10 @@ class PromptResponses extends Component {
     return <p>{userTextValue}</p>;
   }
 
+  //----------------------------------------------------------
+  // SAVE/SUBMIT/EDIT FUNCTIONS
+  //----------------------------------------------------------
+
   saveAnswerEditValue(event) {
     let editedDataObject = {
       ["answer" + event.target.name]: event.target.value
@@ -228,6 +188,10 @@ class PromptResponses extends Component {
   deleteJournal() {
     return this.props.deleteJournalEntry(this.props.journal);
   }
+
+  //----------------------------------------------------------
+  // SELECT FUNCTIONS
+  //----------------------------------------------------------
 
   selectPreviousJournalDate() {
     let currentJournalIndex = this.props.journalData.indexOf(

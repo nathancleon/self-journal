@@ -45,7 +45,7 @@ class Register extends Component {
 
   render() {
     if (this.state.toDashboard === true) {
-      return <Redirect to="/prompts" />;
+      return <Redirect to="/dashboard" />;
     }
 
     const linksArray = ["home", "login"];

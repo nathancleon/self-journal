@@ -1,10 +1,9 @@
 import React, { Component } from "react";
-import styled from "@emotion/styled";
-import { colors } from "../../globalStyles";
 import Nav from "../Nav/Nav";
 import UserBanner from "../UserBanner/UserBanner";
 import JournalListContainer from "../JournalListContainer/JournalListContainer";
 import PromptContainer from "../PromptContainer/PromptContainer";
+import { DashboardContainer, DashboardContent } from "./DashboardStyles";
 
 class Dashboard extends Component {
   constructor(props) {
@@ -39,17 +38,3 @@ class Dashboard extends Component {
 }
 
 export default Dashboard;
-
-const DashboardContainer = styled.div`
-  display: flex;
-  width: 100%;
-  height: 100%;
-  background-color: ${colors.backgroundLight};
-`;
-
-const DashboardContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
-`;

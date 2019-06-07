@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import styled from "@emotion/styled";
 import PromptResponses from "./PromptResponses/PromptResponses";
+import {
+  JournalSelectedContainer,
+  NoJournalEntries
+} from "./JournalSelectedStyles";
 
 class JournalSelected extends Component {
   render() {
@@ -28,15 +31,3 @@ class JournalSelected extends Component {
 }
 
 export default JournalSelected;
-
-const JournalSelectedContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  background-color: #fff;
-  width: 100%;
-  max-height: 100%;
-`;
-
-const NoJournalEntries = styled.div`
-  margin-top: 10vh;
-`;

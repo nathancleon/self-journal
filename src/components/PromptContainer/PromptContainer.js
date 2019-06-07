@@ -3,34 +3,7 @@ import Prompt from "./Prompts/Prompt";
 import PromptSubmit from "./PromptSubmit/PromptSubmit";
 import { saveJournalData } from "../../actions/JournalActions";
 import { connect } from "react-redux";
-import styled from "@emotion/styled";
-import { colors } from "../../globalStyles";
-
-const Container = styled.div`
-  display: flex;
-  position: relative;
-  min-height: 70%;
-  width: 100%;
-  background-color: ${colors.backgroundLight};
-  overflow-y: scroll;
-`;
-
-const Main = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
-`;
-
-const Prompts = styled.div`
-  display: flex;
-  width: 100%;
-  height: 100%;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  background-color: ${colors.backgroundLight};
-`;
+import { Container, Main, Prompts } from "./PropmtContainerStyles";
 
 class PromptContainer extends Component {
   constructor(props) {
