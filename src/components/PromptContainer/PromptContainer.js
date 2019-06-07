@@ -3,7 +3,7 @@ import Prompt from "./Prompts/Prompt";
 import PromptSubmit from "./PromptSubmit/PromptSubmit";
 import { saveJournalData } from "../../actions/JournalActions";
 import { connect } from "react-redux";
-import { Container, Main, Prompts } from "./PropmtContainerStyles";
+import { Container, Main, Prompts } from "./PromptContainerStyles";
 
 class PromptContainer extends Component {
   constructor(props) {

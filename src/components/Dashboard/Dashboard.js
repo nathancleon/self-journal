@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Nav from "../Nav/Nav";
 import UserBanner from "../UserBanner/UserBanner";
+import Home from "../Home/Home";
 import JournalListContainer from "../JournalListContainer/JournalListContainer";
 import PromptContainer from "../PromptContainer/PromptContainer";
 import { DashboardContainer, DashboardContent } from "./DashboardStyles";
@@ -26,11 +27,15 @@ class Dashboard extends Component {
         <Nav selectComponent={this.renderPage.bind(this)} />
         <DashboardContent>
           <UserBanner />
-          {this.state.currentPage === "journal" ? (
+          {this.state.currentPage === "home" ? (
+            <Home />
+          ) : this.state.currentPage === "journal" ? (
             <JournalListContainer />
           ) : this.state.currentPage === "prompts" ? (
             <PromptContainer />
-          ) : null}
+          ) : (
+            <Home />
+          )}
         </DashboardContent>
       </DashboardContainer>
     );

@@ -43,16 +43,25 @@ class Nav extends Component {
       <NavContainer>
         <NavLinks>
           {this.state.active === "home" ? (
-            <NavIconActive href="#" id="home">
+            <NavIconActive href="#" id="home" title="home">
+              <img src={HomeIcon} alt="home" />
+            </NavIconActive>
+          ) : this.state.active === null ? (
+            <NavIconActive href="#" id="home" title="home">
               <img src={HomeIcon} alt="home" />
             </NavIconActive>
           ) : (
-            <NavIcon onClick={this.setToActive.bind(this)} href="#" id="home">
+            <NavIcon
+              onClick={this.setToActive.bind(this)}
+              href="#"
+              id="home"
+              title="home"
+            >
               <img src={HomeIcon} alt="home" />
             </NavIcon>
           )}
           {this.state.active === "journal" ? (
-            <NavIconActive href="#" id="journal">
+            <NavIconActive href="#" id="journal" title="journal">
               <img src={JournalIcon} alt="journal" />
             </NavIconActive>
           ) : (
@@ -60,12 +69,13 @@ class Nav extends Component {
               onClick={this.setToActive.bind(this)}
               href="#"
               id="journal"
+              title="journal"
             >
               <img src={JournalIcon} alt="journal" id="journal" />
             </NavIcon>
           )}
           {this.state.active === "prompts" ? (
-            <NavIconActive href="#" id="prompts">
+            <NavIconActive href="#" id="prompts" title="prompts">
               <img src={PromptsIcon} alt="prompts" />
             </NavIconActive>
           ) : (
@@ -73,12 +83,13 @@ class Nav extends Component {
               onClick={this.setToActive.bind(this)}
               href="#"
               id="prompts"
+              title="prompts"
             >
               <img src={PromptsIcon} alt="prompts" />
             </NavIcon>
           )}
           {this.state.active === "analytics" ? (
-            <NavIconActive href="#" id="analytics">
+            <NavIconActive href="#" id="analytics" title="analytics">
               <img src={AnalyticsIcon} alt="analytics" />
             </NavIconActive>
           ) : (
@@ -86,11 +97,12 @@ class Nav extends Component {
               onClick={this.setToActive.bind(this)}
               href="#"
               id="analytics"
+              title="analytics"
             >
               <img src={AnalyticsIcon} alt="analytics" />
             </NavIcon>
           )}
-          <NavIcon onClick={this.logOut.bind(this)} href="/">
+          <NavIcon onClick={this.logOut.bind(this)} href="/" title="log out">
             <img src={LogOutIcon} alt="log out" />
           </NavIcon>
         </NavLinks>

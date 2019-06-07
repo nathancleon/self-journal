@@ -11,10 +11,3 @@ export const ErrorMessage = styled.p`
   align-self: center;
   font-size: 2rem;
 `;
-
-export const Loading = styled.p`
-  display: flex;
-  align-self: center;
-  font-size: 2rem;
-  margin-top: 15%;
-`;

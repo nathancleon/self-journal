@@ -5,7 +5,8 @@ import {
   saveSelectedJournal
 } from "../../actions/JournalActions";
 import JournalSelected from "./JournalSelected/JournalSelected";
-import { Container, ErrorMessage, Loading } from "./JournalListContainerStyles";
+import Loading from "../Loading/Loading";
+import { Container, ErrorMessage } from "./JournalListContainerStyles";
 
 class JournalListContainer extends Component {
   constructor(props) {
@@ -49,18 +50,11 @@ class JournalListContainer extends Component {
     }
 
     if (isLoading) {
-      return <Loading> Loading... </Loading>;
+      return <Loading />;
     }
 
     return (
       <Container>
-        {/* <JournalList
-            onJournalSelect={(selectedJournal, positionKey) => {
-              selectedJournal.position = positionKey;
-              this.props.saveSelectedJournal(selectedJournal);
-            }}
-            journals={journalData}
-          /> */}
         {isLoading ? (
           <Loading />
         ) : (

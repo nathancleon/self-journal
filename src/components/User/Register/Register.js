@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { registerUser } from "../../../actions/UserActions";
-import Header from "../../Headers/Header";
+import Header from "../../Header/Header";
 import {
   AuthContainer,
   FormContainer,

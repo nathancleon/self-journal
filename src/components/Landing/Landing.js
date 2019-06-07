@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Header from "../Headers/Header";
+import Header from "../Header/Header";
 import styled from "@emotion/styled";
 import Banner from "./Banner/Banner";
 import MobileSection from "./MobileSection/MobileSection";

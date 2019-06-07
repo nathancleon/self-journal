@@ -14,7 +14,7 @@ export const DataContainer = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
-  padding: 40px 100px;
+  padding: 20px 50px;
 `;
 
 export const SelectedPromptHeader = styled.div`
@@ -136,7 +136,7 @@ export const NavigateLeft = styled.div`
   align-items: center;
   width: 10%;
   height: 100%;
-  background-color: #fbfbfb;
+  background-color: #f8f8f8;
   img {
     width: 40%;
   }
@@ -152,7 +152,7 @@ export const NavigateRight = styled.div`
   align-items: center;
   width: 10%;
   height: 100%;
-  background-color: #fbfbfb;
+  background-color: #f8f8f8;
   img {
     width: 40%;
   }
