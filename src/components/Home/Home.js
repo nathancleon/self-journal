@@ -49,11 +49,7 @@ class Home extends Component {
     let journalAnswerArray = Object.values(this.state.answerValues);
     //only return answers if the question index is less than the answer array
     if (questionIndex < journalAnswerArray.length) {
-      return (
-        <div>
-          <p>{journalAnswerArray[questionIndex]}</p>
-        </div>
-      );
+      return journalAnswerArray[questionIndex];
     } else {
       return null;
     }
