@@ -119,6 +119,10 @@ class PromptContainer extends Component {
     return this.props.saveJournalData(data);
   }
 
+  componentDidMount() {
+    this.props.currentComponent("prompts");
+  }
+
   render() {
     return (
       <Container>

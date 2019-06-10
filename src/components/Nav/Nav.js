@@ -14,8 +14,7 @@ class Nav extends Component {
     super(props);
 
     this.state = {
-      active: null,
-      currentPath: null
+      active: null
     };
 
     if (this.props.user) {
@@ -25,27 +24,6 @@ class Nav extends Component {
     }
   }
 
-  getPath() {
-    let url = window.location.href;
-    let path;
-    let getPosition = (string, element, occurrence) => {
-      let position = string.split(element, occurrence).join(element).length;
-      path = string.slice(position, string.length);
-    };
-
-    getPosition(url, "/", 4);
-
-    return path;
-  }
-
-  componentDidMount() {
-    this.setState({
-      currentPath: this.getPath()
-    });
-
-    console.log(this.state.currentPath);
-  }
-
   logOut() {
     this.props.logoutUser();
     this.setState({
@@ -53,93 +31,66 @@ class Nav extends Component {
     });
   }
 
-  setToActive(event) {
-    this.setState({
-      currentPath: this.getPath()
-    });
-  }
-
   render() {
     return (
       <NavContainer>
         <NavLinks>
-          {this.state.currentPath === "" ? (
+          {this.props.currentPath === "home" ? (
             <NavIconActive id="home" title="home">
               <Link to="/dashboard">
                 <img src={HomeIcon} alt="home" />
               </Link>
             </NavIconActive>
-          ) : this.state.currentPath !== "" ? (
-            <NavIcon
-              onClick={this.setToActive.bind(this)}
-              id="home"
-              title="home"
-            >
+          ) : (
+            <NavIcon id="home" title="home">
               <Link to="/dashboard">
                 <img src={HomeIcon} alt="home" />
               </Link>
             </NavIcon>
-          ) : (
-            <NavIconActive id="home" title="home">
-              <Link to="/dashboard">
-                <img src={HomeIcon} alt="home" />
-              </Link>
-            </NavIconActive>
           )}
-          {this.state.currentPath === "/journals" ? (
+          {this.props.currentPath === "journals" ? (
             <NavIconActive id="journals" title="journals">
               <Link to="/dashboard/journals">
                 <img src={JournalIcon} alt="journal" />
               </Link>
             </NavIconActive>
           ) : (
-            <NavIcon
-              onClick={this.setToActive.bind(this)}
-              id="journals"
-              title="journal"
-            >
+            <NavIcon id="journals" title="journal">
               <Link to="/dashboard/journals">
                 <img src={JournalIcon} alt="journal" id="journal" />
               </Link>
             </NavIcon>
           )}
-          {this.state.currentPath === "/prompts" ? (
+          {this.props.currentPath === "prompts" ? (
             <NavIconActive id="prompts" title="prompts">
               <Link to="/dashboard/prompts">
                 <img src={PromptsIcon} alt="prompts" />
               </Link>
             </NavIconActive>
           ) : (
-            <NavIcon
-              onClick={this.setToActive.bind(this)}
-              href="#"
-              id="prompts"
-              title="prompts"
-            >
+            <NavIcon href="#" id="prompts" title="prompts">
               <Link to="/dashboard/prompts">
                 <img src={PromptsIcon} alt="prompts" />
               </Link>
             </NavIcon>
           )}
-          {this.state.currentPath === "/analytics" ? (
+          {this.props.currentPath === "analytics" ? (
             <NavIconActive id="analytics" title="analytics">
               <Link to="/dashboard/analytics">
                 <img src={AnalyticsIcon} alt="analytics" />
               </Link>
             </NavIconActive>
           ) : (
-            <NavIcon
-              onClick={this.setToActive.bind(this)}
-              id="analytics"
-              title="analytics"
-            >
+            <NavIcon id="analytics" title="analytics">
               <Link to="/dashboard/analytics">
                 <img src={AnalyticsIcon} alt="analytics" />
               </Link>
             </NavIcon>
           )}
-          <NavIcon onClick={this.logOut.bind(this)} href="/" title="log out">
-            <img src={LogOutIcon} alt="log out" />
+          <NavIcon onClick={this.logOut.bind(this)} title="log out">
+            <Link to="/">
+              <img src={LogOutIcon} alt="log out" />
+            </Link>
           </NavIcon>
         </NavLinks>
       </NavContainer>

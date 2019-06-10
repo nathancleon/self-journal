@@ -202,7 +202,13 @@ class PromptResponses extends Component {
   }
 
   deleteJournal() {
-    return this.props.deleteJournalEntry(this.props.journal);
+    this.props.deleteJournalEntry(this.props.journal);
+    let currentJournalIndex = this.props.journalData.indexOf(
+      this.props.journal
+    );
+    let previousJournal = this.props.journalData[currentJournalIndex - 1];
+
+    this.props.changeJournal(previousJournal);
   }
 
   //----------------------------------------------------------
@@ -210,12 +216,10 @@ class PromptResponses extends Component {
   //----------------------------------------------------------
 
   selectPreviousJournalDate() {
-    console.log(this.state.id);
     let currentJournalIndex = this.props.journalData.indexOf(
       this.props.journal
     );
     let previousJournal = this.props.journalData[currentJournalIndex - 1];
-    console.log(currentJournalIndex, previousJournal);
     if (currentJournalIndex - 1 === 0) {
       this.props.changeJournal(previousJournal);
       this.setState({
@@ -235,7 +239,6 @@ class PromptResponses extends Component {
   }
 
   selectNextJournalDate() {
-    console.log(this.state.id);
     let currentJournalIndex = this.props.journalData.indexOf(
       this.props.journal
     );
@@ -244,8 +247,6 @@ class PromptResponses extends Component {
       disableLeftNavigation: false,
       id: nextJournal._id
     });
-
-    console.log(currentJournalIndex);
 
     if (currentJournalIndex + 1 === this.props.journalData.length - 1) {
       this.props.changeJournal(nextJournal);

@@ -22,6 +22,7 @@ class Home extends Component {
   }
 
   componentDidMount() {
+    this.props.currentComponent("home");
     this.setState({
       isLoading: true
     });

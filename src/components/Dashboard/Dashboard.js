@@ -12,24 +12,52 @@ class Dashboard extends Component {
     super(props);
 
     this.state = {
-      currentPage: null
+      currentPage: "home"
     };
+  }
+
+  updatePath(currentComponent) {
+    this.setState({
+      currentPage: currentComponent
+    });
   }
 
   render() {
     return (
       <DashboardContainer>
-        <Nav />
+        <Nav currentPath={this.state.currentPage} />
         <DashboardContent>
           <UserBanner />
           <Switch>
-            <Route exact path="/dashboard" component={Home} />
+            <Route
+              exact
+              path="/dashboard"
+              render={routeProps => (
+                <Home
+                  {...routeProps}
+                  currentComponent={this.updatePath.bind(this)}
+                />
+              )}
+            />
             <Route
               exact
               path="/dashboard/journals"
-              component={JournalListContainer}
+              render={routeProps => (
+                <JournalListContainer
+                  {...routeProps}
+                  currentComponent={this.updatePath.bind(this)}
+                />
+              )}
             />
-            <Route path="/dashboard/prompts" component={PromptContainer} />
+            <Route
+              path="/dashboard/prompts"
+              render={routeProps => (
+                <PromptContainer
+                  {...routeProps}
+                  currentComponent={this.updatePath.bind(this)}
+                />
+              )}
+            />
           </Switch>
         </DashboardContent>
       </DashboardContainer>

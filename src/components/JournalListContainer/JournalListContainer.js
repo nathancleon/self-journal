@@ -22,6 +22,7 @@ class JournalListContainer extends Component {
   }
 
   componentDidMount() {
+    this.props.currentComponent("journals");
     this.setState({
       isLoading: true
     });
