@@ -1,7 +1,7 @@
 export const promptData = {
   data: {
     Self: {
-      question: "How do you describe your overall mental health?",
+      question: "How would you describe your overall mental health?",
       answers: ["Poor", "Not Great", "Good", "Great", "Excellent"]
     },
     Anxiety: {

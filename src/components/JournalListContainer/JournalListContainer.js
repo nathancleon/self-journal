@@ -26,8 +26,10 @@ class JournalListContainer extends Component {
       isLoading: true
     });
     this.props.fetchAllJournalData().then(() => {
+      console.log(this.props.journal);
       //reversed the order of journal items so most recent journal entry displays in selectedJournal
-      const journals = this.props.journal.all.reverse();
+      const journals = this.props.journal.all;
+      console.log(journals[0]);
       this.setState({
         journalData: journals,
         selectedJournal: journals[0],

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Switch, Route } from "react-router-dom";
 import Nav from "../Nav/Nav";
 import UserBanner from "../UserBanner/UserBanner";
 import Home from "../Home/Home";
@@ -15,27 +16,21 @@ class Dashboard extends Component {
     };
   }
 
-  renderPage(selectedComponent) {
-    this.setState({
-      currentPage: selectedComponent
-    });
-  }
-
   render() {
     return (
       <DashboardContainer>
-        <Nav selectComponent={this.renderPage.bind(this)} />
+        <Nav />
         <DashboardContent>
           <UserBanner />
-          {this.state.currentPage === "home" ? (
-            <Home />
-          ) : this.state.currentPage === "journal" ? (
-            <JournalListContainer />
-          ) : this.state.currentPage === "prompts" ? (
-            <PromptContainer />
-          ) : (
-            <Home />
-          )}
+          <Switch>
+            <Route exact path="/dashboard" component={Home} />
+            <Route
+              exact
+              path="/dashboard/journals"
+              component={JournalListContainer}
+            />
+            <Route path="/dashboard/prompts" component={PromptContainer} />
+          </Switch>
         </DashboardContent>
       </DashboardContainer>
     );

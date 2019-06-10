@@ -20,7 +20,8 @@ export function saveJournalData(journalData) {
     return axios
       .post(
         `${API_URL}/journal/submit?token=` + localStorage.getItem("token"),
-        data, {
+        data,
+        {
           headers: headers
         }
       )
@@ -33,7 +34,7 @@ export function saveJournalData(journalData) {
   };
 }
 
-export function updateJournalData(journalData) {
+export function updateJournalData(journalData, id) {
   return dispatch => {
     let headers = {
       "Content-Type": "application/json",
@@ -46,10 +47,11 @@ export function updateJournalData(journalData) {
     return axios
       .put(
         `${API_URL}/journal/one/` +
-        journalData._id +
-        "?token=" +
-        localStorage.getItem("token"),
-        data, {
+          id +
+          "?token=" +
+          localStorage.getItem("token"),
+        data,
+        {
           headers: headers
         }
       )
@@ -70,9 +72,10 @@ export function deleteJournalEntry(journalData) {
     return axios
       .delete(
         `${API_URL}/journal/one/` +
-        journalData._id +
-        "?token=" +
-        localStorage.getItem("token"), {
+          journalData._id +
+          "?token=" +
+          localStorage.getItem("token"),
+        {
           params: {
             id: journalData._id
           }

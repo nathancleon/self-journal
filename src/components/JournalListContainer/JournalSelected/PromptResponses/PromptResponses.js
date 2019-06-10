@@ -29,6 +29,7 @@ class PromptResponses extends Component {
     this.state = {
       answer: {},
       answerText: {},
+      id: "",
       makeEdit: false,
       disableLeftNavigation: true,
       disableRightNavigation: false
@@ -43,6 +44,21 @@ class PromptResponses extends Component {
       this.setState({
         makeEdit: false
       });
+    }
+  }
+
+  componentDidMount() {
+    console.log(this.props.journal);
+
+    this.setState({
+      id: this.props.journal._id
+    });
+    if (this.props.journalData.length === 1) {
+      this.setState({
+        disableLeftNavigation: true,
+        disableRightNavigation: true
+      });
+      return;
     }
   }
 
@@ -174,15 +190,15 @@ class PromptResponses extends Component {
       answerValues: newAnswerValues,
       answerTextValues: newAnswerTextValues,
       userID: this.props.userID,
-      token: this.props.token,
-      created: this.props.journal.created
+      token: this.props.token
     };
+    let id = this.state.id;
 
     this.setState({
       makeEdit: false
     });
 
-    return this.props.updateJournalData(newData);
+    return this.props.updateJournalData(newData, id);
   }
 
   deleteJournal() {
@@ -194,6 +210,7 @@ class PromptResponses extends Component {
   //----------------------------------------------------------
 
   selectPreviousJournalDate() {
+    console.log(this.state.id);
     let currentJournalIndex = this.props.journalData.indexOf(
       this.props.journal
     );
@@ -202,30 +219,39 @@ class PromptResponses extends Component {
     if (currentJournalIndex - 1 === 0) {
       this.props.changeJournal(previousJournal);
       this.setState({
-        disableLeftNavigation: true
+        disableLeftNavigation: true,
+        disableRightNavigation: false,
+        id: previousJournal._id
       });
       return;
     } else {
       this.props.changeJournal(previousJournal);
       this.setState({
         disableLeftNavigation: false,
-        disableRightNavigation: false
+        disableRightNavigation: false,
+        id: previousJournal._id
       });
     }
   }
 
   selectNextJournalDate() {
+    console.log(this.state.id);
     let currentJournalIndex = this.props.journalData.indexOf(
       this.props.journal
     );
     let nextJournal = this.props.journalData[currentJournalIndex + 1];
     this.setState({
-      disableLeftNavigation: false
+      disableLeftNavigation: false,
+      id: nextJournal._id
     });
+
+    console.log(currentJournalIndex);
+
     if (currentJournalIndex + 1 === this.props.journalData.length - 1) {
       this.props.changeJournal(nextJournal);
       this.setState({
-        disableRightNavigation: true
+        disableRightNavigation: true,
+        id: nextJournal._id
       });
       return;
     } else {
@@ -283,7 +309,7 @@ class PromptResponses extends Component {
                       : this.renderAnswerValue(index)}
                   </div>
                   <UserTextAnswers>
-                    {//if edit state is active, return editable textarea, else return readonly textarea from user data to the page
+                    {//if edit state is active, return editable textarea, else return text from user data to the page
                     this.state.makeEdit
                       ? this.renderAnswerText(key, index)
                       : this.renderAnswerTextValue(index)}

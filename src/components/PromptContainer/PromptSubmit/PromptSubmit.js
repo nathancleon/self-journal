@@ -27,7 +27,7 @@ export default class PromptSubmit extends Component {
 
   render() {
     if (this.state.toList === true) {
-      return <Redirect to="/list" />;
+      return <Redirect to="/dashboard" />;
     }
 
     return (

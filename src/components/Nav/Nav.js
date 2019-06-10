@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import { logoutUser, setUserInfo } from "../../actions/UserActions";
 import { NavContainer, NavIcon, NavLinks, NavIconActive } from "./NavStyles";
 import HomeIcon from "../../Assets/home.svg";
@@ -13,7 +14,8 @@ class Nav extends Component {
     super(props);
 
     this.state = {
-      active: null
+      active: null,
+      currentPath: null
     };
 
     if (this.props.user) {
@@ -21,6 +23,27 @@ class Nav extends Component {
         this.props.setUserInfo();
       }
     }
+  }
+
+  getPath() {
+    let url = window.location.href;
+    let path;
+    let getPosition = (string, element, occurrence) => {
+      let position = string.split(element, occurrence).join(element).length;
+      path = string.slice(position, string.length);
+    };
+
+    getPosition(url, "/", 4);
+
+    return path;
+  }
+
+  componentDidMount() {
+    this.setState({
+      currentPath: this.getPath()
+    });
+
+    console.log(this.state.currentPath);
   }
 
   logOut() {
@@ -32,51 +55,59 @@ class Nav extends Component {
 
   setToActive(event) {
     this.setState({
-      active: event.currentTarget.id
+      currentPath: this.getPath()
     });
-
-    this.props.selectComponent(event.currentTarget.id);
   }
 
   render() {
     return (
       <NavContainer>
         <NavLinks>
-          {this.state.active === "home" ? (
-            <NavIconActive href="#" id="home" title="home">
-              <img src={HomeIcon} alt="home" />
+          {this.state.currentPath === "" ? (
+            <NavIconActive id="home" title="home">
+              <Link to="/dashboard">
+                <img src={HomeIcon} alt="home" />
+              </Link>
             </NavIconActive>
-          ) : this.state.active === null ? (
-            <NavIconActive href="#" id="home" title="home">
-              <img src={HomeIcon} alt="home" />
-            </NavIconActive>
-          ) : (
+          ) : this.state.currentPath !== "" ? (
             <NavIcon
               onClick={this.setToActive.bind(this)}
-              href="#"
               id="home"
               title="home"
             >
-              <img src={HomeIcon} alt="home" />
+              <Link to="/dashboard">
+                <img src={HomeIcon} alt="home" />
+              </Link>
             </NavIcon>
+          ) : (
+            <NavIconActive id="home" title="home">
+              <Link to="/dashboard">
+                <img src={HomeIcon} alt="home" />
+              </Link>
+            </NavIconActive>
           )}
-          {this.state.active === "journal" ? (
-            <NavIconActive href="#" id="journal" title="journal">
-              <img src={JournalIcon} alt="journal" />
+          {this.state.currentPath === "/journals" ? (
+            <NavIconActive id="journals" title="journals">
+              <Link to="/dashboard/journals">
+                <img src={JournalIcon} alt="journal" />
+              </Link>
             </NavIconActive>
           ) : (
             <NavIcon
               onClick={this.setToActive.bind(this)}
-              href="#"
-              id="journal"
+              id="journals"
               title="journal"
             >
-              <img src={JournalIcon} alt="journal" id="journal" />
+              <Link to="/dashboard/journals">
+                <img src={JournalIcon} alt="journal" id="journal" />
+              </Link>
             </NavIcon>
           )}
-          {this.state.active === "prompts" ? (
-            <NavIconActive href="#" id="prompts" title="prompts">
-              <img src={PromptsIcon} alt="prompts" />
+          {this.state.currentPath === "/prompts" ? (
+            <NavIconActive id="prompts" title="prompts">
+              <Link to="/dashboard/prompts">
+                <img src={PromptsIcon} alt="prompts" />
+              </Link>
             </NavIconActive>
           ) : (
             <NavIcon
@@ -85,21 +116,26 @@ class Nav extends Component {
               id="prompts"
               title="prompts"
             >
-              <img src={PromptsIcon} alt="prompts" />
+              <Link to="/dashboard/prompts">
+                <img src={PromptsIcon} alt="prompts" />
+              </Link>
             </NavIcon>
           )}
-          {this.state.active === "analytics" ? (
-            <NavIconActive href="#" id="analytics" title="analytics">
-              <img src={AnalyticsIcon} alt="analytics" />
+          {this.state.currentPath === "/analytics" ? (
+            <NavIconActive id="analytics" title="analytics">
+              <Link to="/dashboard/analytics">
+                <img src={AnalyticsIcon} alt="analytics" />
+              </Link>
             </NavIconActive>
           ) : (
             <NavIcon
               onClick={this.setToActive.bind(this)}
-              href="#"
               id="analytics"
               title="analytics"
             >
-              <img src={AnalyticsIcon} alt="analytics" />
+              <Link to="/dashboard/analytics">
+                <img src={AnalyticsIcon} alt="analytics" />
+              </Link>
             </NavIcon>
           )}
           <NavIcon onClick={this.logOut.bind(this)} href="/" title="log out">

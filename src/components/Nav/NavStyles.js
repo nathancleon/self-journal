@@ -14,21 +14,29 @@ export const NavContainer = styled.nav`
 
 export const NavLinks = styled.ul`
   display: flex;
+  width: 100%;
   flex-direction: column;
   align-items: center;
 `;
 
-export const NavIcon = styled.a`
+export const NavIcon = styled.li`
   width: 100%;
   height: 80px;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-decoration: none;
   color: #fff;
+  cursor: pointer;
   &:hover {
     background-color: ${colors.navColor};
+  }
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 80px;
   }
   img {
     max-width: 30px;
@@ -37,17 +45,14 @@ export const NavIcon = styled.a`
   }
 `;
 
-export const NavIconActive = styled.a`
+export const NavIconActive = styled.li`
   position: relative;
   width: 100%;
   height: 80px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   text-decoration: none;
   color: #fff;
   background-color: ${colors.navColor};
+  cursor: pointer;
   &:before {
     position: absolute;
     content: "";
@@ -56,6 +61,13 @@ export const NavIconActive = styled.a`
     top: 0;
     left: 0;
     background-color: #fff;
+  }
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
   }
   img {
     max-width: 30px;
