@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { colors } from "../../globalStyles";
+import cameraIcon from "../../Assets/camera.svg";
 
 export const Container = styled.div`
   display: flex;
@@ -47,9 +48,9 @@ export const Image = styled.div`
   }
   &:hover {
     cursor: pointer;
-    &:after {
+    &:before {
       display: block;
-      content: ""; //replace with image icon url
+      content: "";
       position: absolute;
       width: 100px;
       height: 100px;
@@ -57,8 +58,20 @@ export const Image = styled.div`
       bottom: 0;
       z-index: 20;
       background: ${colors.main};
-      opacity: 0.7;
+      opacity: 0.8;
       border-radius: 50%;
+    }
+    &:after {
+      content: url(${cameraIcon});
+      width: 25%;
+      height: 25%;
+      margin: auto;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: 0;
+      z-index: 20;
     }
   }
 `;

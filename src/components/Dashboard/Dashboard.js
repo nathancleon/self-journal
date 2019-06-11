@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Switch, Route } from "react-router-dom";
 import Nav from "../Nav/Nav";
-import UserBanner from "../UserBanner/UserBanner";
+import UserBanner from "../DashboardBanner/DashboardBanner";
 import Home from "../Home/Home";
 import JournalListContainer from "../JournalListContainer/JournalListContainer";
 import PromptContainer from "../PromptContainer/PromptContainer";

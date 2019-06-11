@@ -12,7 +12,7 @@ import {
   TipOfTheDay,
   Title,
   Tip
-} from "./UserBannerStyles";
+} from "./DashboardBannerStyles";
 
 export default class UserBanner extends Component {
   constructor(props) {

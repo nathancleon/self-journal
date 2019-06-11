@@ -1,11 +1,20 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import styled from "@emotion/styled";
-import { colors } from "../../globalStyles";
 import moment from "moment";
 import { fetchAllJournalData } from "../../actions/JournalActions";
 import Loading from "../Loading/Loading";
 import { promptData } from "../JournalListContainer/JournalSelected/PromptResponses/promptData";
+import {
+  HomeContainer,
+  ContentContainer,
+  RecentJournalHeader,
+  RecentJournalTitle,
+  RecentJournalDate,
+  RecentJournal,
+  RecentJournalData,
+  JournalQuestion,
+  JournalAnswer
+} from "./HomeStyles";
 
 class Home extends Component {
   constructor(props) {
@@ -56,8 +65,7 @@ class Home extends Component {
   }
 
   render() {
-    const { isLoading } = this.state;
-    if (isLoading) {
+    if (this.state.isLoading) {
       return <Loading />;
     }
 
@@ -77,7 +85,7 @@ class Home extends Component {
               } else {
                 return (
                   <RecentJournalData key={index}>
-                    <JournalQuestion key={index}>
+                    <JournalQuestion>
                       <h4>{promptData.data[key].question}</h4>
                     </JournalQuestion>
                     <JournalAnswer>
@@ -94,78 +102,6 @@ class Home extends Component {
     );
   }
 }
-
-const HomeContainer = styled.div`
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  background-color: #fafafaf;
-`;
-
-const ContentContainer = styled.div`
-  width: 550px;
-  height: 525px;
-  padding: 20px 50px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  background-color: #fff;
-  overflow-y: scroll;
-`;
-
-const RecentJournalHeader = styled.div`
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-`;
-
-const RecentJournalTitle = styled.h2`
-  font-size: 1.25rem;
-  color: #5b5b5b;
-`;
-
-const RecentJournalDate = styled.p`
-  display: block;
-  margin: auto 0;
-  font-size: 1.25rem;
-  color: #888;
-`;
-
-const RecentJournal = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-top: 10px;
-`;
-
-const RecentJournalData = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
-const JournalQuestion = styled.div`
-  h4 {
-    display: inline-block;
-    font-size: 0.75rem;
-    background-color: ${colors.main};
-    color: #fff;
-    border-radius: 25px;
-    padding: 5px 15px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
-`;
-
-const JournalAnswer = styled.div`
-  h4 {
-    display: inline-block;
-    font-size: 0.7rem;
-    background-color: #eee;
-    color: #555;
-    border-radius: 25px;
-    padding: 5px 15px;
-  }
-`;
 
 const mapStateToProps = reduxState => {
   return {
