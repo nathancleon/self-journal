@@ -24,6 +24,7 @@ class JournalSelected extends Component {
           journal={this.props.journal}
           changeJournal={this.props.changeJournal}
           journalData={this.props.journalData}
+          updateJournalData={this.props.updateJournalData}
         />
       </JournalSelectedContainer>
     );

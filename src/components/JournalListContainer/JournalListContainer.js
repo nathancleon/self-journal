@@ -39,6 +39,13 @@ class JournalListContainer extends Component {
     });
   }
 
+  updateJournalData(index) {
+    let newJournalData = this.state.journalData.splice(index, 1);
+    this.setState({
+      journalData: newJournalData
+    });
+  }
+
   changeSelectedJournal(journal) {
     this.setState({
       selectedJournal: journal
@@ -65,6 +72,7 @@ class JournalListContainer extends Component {
             journal={selectedJournal}
             changeJournal={this.changeSelectedJournal}
             journalData={journalData}
+            updateJournalData={this.updateJournalData}
           />
         )}
       </Container>

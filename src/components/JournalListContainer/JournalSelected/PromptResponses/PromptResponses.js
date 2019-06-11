@@ -190,25 +190,26 @@ class PromptResponses extends Component {
       answerValues: newAnswerValues,
       answerTextValues: newAnswerTextValues,
       userID: this.props.userID,
-      token: this.props.token
+      token: this.props.token,
+      lastUpdated: new Date()
     };
     let id = this.state.id;
 
     this.setState({
       makeEdit: false
     });
+    console.log(newData);
+    console.log(id);
 
-    return this.props.updateJournalData(newData, id);
+    // return this.props.updateJournalData(newData, id);
   }
 
   deleteJournal() {
-    this.props.deleteJournalEntry(this.props.journal);
     let currentJournalIndex = this.props.journalData.indexOf(
       this.props.journal
     );
-    let previousJournal = this.props.journalData[currentJournalIndex - 1];
-
-    this.props.changeJournal(previousJournal);
+    this.props.deleteJournalEntry(this.props.journal);
+    this.props.updateJournalData(currentJournalIndex);
   }
 
   //----------------------------------------------------------

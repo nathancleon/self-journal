@@ -106,7 +106,7 @@ const HomeContainer = styled.div`
 
 const ContentContainer = styled.div`
   width: 550px;
-  height: 550px;
+  height: 525px;
   padding: 20px 50px;
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -121,7 +121,7 @@ const RecentJournalHeader = styled.div`
 `;
 
 const RecentJournalTitle = styled.h2`
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   color: #5b5b5b;
 `;
 
@@ -146,7 +146,7 @@ const RecentJournalData = styled.div`
 const JournalQuestion = styled.div`
   h4 {
     display: inline-block;
-    font-size: 0.82em;
+    font-size: 0.75rem;
     background-color: ${colors.main};
     color: #fff;
     border-radius: 25px;
@@ -159,7 +159,7 @@ const JournalQuestion = styled.div`
 const JournalAnswer = styled.div`
   h4 {
     display: inline-block;
-    font-size: 0.82em;
+    font-size: 0.7rem;
     background-color: #eee;
     color: #555;
     border-radius: 25px;
