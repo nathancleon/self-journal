@@ -25,4 +25,9 @@ export const Prompts = styled.div`
   align-items: center;
   position: relative;
   background-color: ${colors.backgroundLight};
+
+  @media only screen and (max-width: 1024px) {
+    min-height: 90%;
+    margin-top: 10px;
+  }
 `;

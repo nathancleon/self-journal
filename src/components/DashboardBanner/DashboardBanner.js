@@ -3,8 +3,9 @@ import Picture from "../../Assets/me.jpg";
 import {
   Container,
   ContentContainer,
-  TextContainer,
+  InfoContainer,
   UserInfo,
+  UserText,
   Image,
   Name,
   NoteCount,
@@ -23,21 +24,31 @@ export default class UserBanner extends Component {
       <Container>
         <ContentContainer>
           {/* replace with actual info from user */}
-          <Image>
-            <img src={Picture} alt="picture of myself" />
-          </Image>
-          <TextContainer>
+          <InfoContainer>
             <UserInfo>
-              <Name>Nathan León</Name>
-              <NoteCount>
-                489<Notes>Notes</Notes>
-              </NoteCount>
+              <Image>
+                <img src={Picture} alt="picture of myself" />
+              </Image>
+              <UserText>
+                <Name>Nathan León</Name>
+                <NoteCount>
+                  489<Notes>Notes</Notes>
+                </NoteCount>
+              </UserText>
             </UserInfo>
             <TipOfTheDay>
               <Title>Tip of the day:</Title>
-              <Tip>Go for a walk outside for at least 15 minutes.</Tip>
+              {/* <Tip>Go for a walk outside for at least 15 minutes.</Tip> */}
+              <Tip>
+                Slow down your day a bit. Schedule 30 minutes for relaxation.
+                Read a book or take a quick snooze.
+              </Tip>
+              {/* <Tip>
+                Reach out to a friend or family member you haven't heard from in
+                a while.
+              </Tip> */}
             </TipOfTheDay>
-          </TextContainer>
+          </InfoContainer>
         </ContentContainer>
       </Container>
     );

@@ -15,26 +15,48 @@ export const Container = styled.div`
   @media only screen and (max-width: 1024px) {
     min-height: 180px;
   }
+
+  @media only screen and (max-width: 767px) {
+    min-height: 241px;
+  }
 `;
 
 export const ContentContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 80%;
+  width: 100%;
   height: 100%;
 `;
 
-export const TextContainer = styled.div`
+export const InfoContainer = styled.div`
   display: flex;
-  justify-content: space-around;
-  margin-left: 15px;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  @media only screen and (max-width: 767px) {
+    flex-direction: column;
+    justify-content: center;
+  }
 `;
 
 export const UserInfo = styled.div`
   display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 30%;
+  padding-left: 50px;
+  @media only screen and (max-width: 767px) {
+    padding-left: 0;
+    min-width: 100%;
+  }
+`;
+
+export const UserText = styled.div`
+  display: flex;
   flex-direction: column;
-  align-self: center;
+  min-width: 120px;
 `;
 
 export const Image = styled.div`
@@ -78,6 +100,11 @@ export const Image = styled.div`
       z-index: 20;
     }
   }
+
+  @media only screen and (max-width: 767px) {
+    width: 75px;
+    height: 75px;
+  }
 `;
 
 export const Name = styled.h1`
@@ -85,6 +112,10 @@ export const Name = styled.h1`
   font-size: 1.25rem;
   font-weight: bold;
   margin-bottom: 10px;
+
+  @media only screen and (max-width: 767px) {
+    font-size: 1.125rem;
+  }
 `;
 
 export const NoteCount = styled.p`
@@ -102,11 +133,24 @@ export const Notes = styled.span`
 
 export const TipOfTheDay = styled.div`
   display: flex;
+  align-self: center;
   justify-content: center;
   align-items: start;
   flex-direction: column;
-  height: 100%;
-  margin-left: 140px;
+  padding-top: 25px;
+  width: 50%;
+  min-height: 100%;
+  padding: 25px 25px 0px 0px;
+  @media only screen and (max-width: 768px) {
+    padding-top: 15px;
+  }
+
+  @media only screen and (max-width: 767px) {
+    min-height: auto;
+    padding: 0;
+    padding-top: 20px;
+    width: 80%;
+  }
 `;
 
 export const Title = styled.h3`
@@ -114,10 +158,16 @@ export const Title = styled.h3`
   font-size: 1.25rem;
   font-weight: bold;
   margin-bottom: 10px;
+  @media only screen and (max-width: 768px) {
+    font-size: 1rem;
+  }
 `;
 
 export const Tip = styled.p`
   font-size: 1.125rem;
   word-wrap: break-word;
   color: #5b5b5b;
+  @media only screen and (max-width: 768px) {
+    font-size: 0.825rem;
+  }
 `;

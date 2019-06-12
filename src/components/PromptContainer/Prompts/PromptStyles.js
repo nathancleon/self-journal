@@ -11,46 +11,11 @@ export const Container = styled.div`
   background-color: #fff;
   border-radius: 5px;
   box-shadow: 0 1px 3px 0 rgba(21, 27, 38, 0.15);
-  @media only screen and (max-width: 600px) {
-     {
-      width: 100%;
-      margin-top: 40px;
-    }
+  @media only screen and (max-width: 1024px) {
+    margin-top: 40px;
     img {
-      top: -40px;
+      top: -45px;
       width: 120px;
-    }
-  }
-  @media only screen and (max-width: 640px) {
-     {
-      height: 80vh;
-      margin-top: 0px;
-    }
-    img {
-      width: 80px;
-      top: 10px;
-    }
-  }
-  @media only screen and (max-width: 440px) {
-     {
-      width: 98%;
-      margin-top: 20px;
-      padding: 15px;
-    }
-    img {
-      width: 150px;
-      top: -4vh;
-    }
-  }
-  @media only screen and (max-width: 320px) {
-     {
-      width: 98%;
-      padding: 15px;
-      margin-top: 50px;
-    }
-    img {
-      width: 100px;
-      top: -3vh;
     }
   }
 `;
@@ -78,13 +43,14 @@ export const FormQuestion = styled.h2`
   text-align: center;
   margin-top: 40px;
   margin-bottom: 20px;
+  @media only screen and (max-width: 1024px) {
+    margin-top: 50px;
+  }
 `;
 
 export const FormOptions = styled.ul`
-   {
-    display: inline-block;
-    margin: 0 auto;
-  }
+  display: inline-block;
+  margin: 0 auto;
 `;
 
 export const FormOption = styled.li`
