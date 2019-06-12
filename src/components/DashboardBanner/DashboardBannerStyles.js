@@ -16,7 +16,7 @@ export const Container = styled.div`
     min-height: 180px;
   }
 
-  @media only screen and (max-width: 767px) {
+  @media only screen and (max-width: 768px) {
     min-height: 241px;
   }
 `;
@@ -25,8 +25,11 @@ export const ContentContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  height: 100%;
+  width: 80%;
+  height: auto;
+  @media only screen and (max-width: 1024px) {
+    width: 95%;
+  }
 `;
 
 export const InfoContainer = styled.div`
@@ -35,7 +38,7 @@ export const InfoContainer = styled.div`
   align-items: center;
   width: 100%;
   height: 100%;
-  @media only screen and (max-width: 767px) {
+  @media only screen and (max-width: 768px) {
     flex-direction: column;
     justify-content: center;
   }
@@ -47,7 +50,7 @@ export const UserInfo = styled.div`
   align-items: center;
   min-width: 30%;
   padding-left: 50px;
-  @media only screen and (max-width: 767px) {
+  @media only screen and (max-width: 768px) {
     padding-left: 0;
     min-width: 100%;
   }
@@ -101,7 +104,7 @@ export const Image = styled.div`
     }
   }
 
-  @media only screen and (max-width: 767px) {
+  @media only screen and (max-width: 768px) {
     width: 75px;
     height: 75px;
   }
@@ -113,7 +116,7 @@ export const Name = styled.h1`
   font-weight: bold;
   margin-bottom: 10px;
 
-  @media only screen and (max-width: 767px) {
+  @media only screen and (max-width: 768px) {
     font-size: 1.125rem;
   }
 `;
@@ -139,14 +142,11 @@ export const TipOfTheDay = styled.div`
   flex-direction: column;
   padding-top: 25px;
   width: 50%;
-  min-height: 100%;
+  height: 100%;
   padding: 25px 25px 0px 0px;
-  @media only screen and (max-width: 768px) {
-    padding-top: 15px;
-  }
 
   @media only screen and (max-width: 767px) {
-    min-height: auto;
+    max-height: auto;
     padding: 0;
     padding-top: 20px;
     width: 80%;
