@@ -40,8 +40,8 @@ export default class UserBanner extends Component {
               <Title>Tip of the day:</Title>
               {/* <Tip>Go for a walk outside for at least 15 minutes.</Tip> */}
               <Tip>
-                Slow down your day a bit. Schedule 30 minutes for relaxation.
-                Read a book or take a quick snooze.
+                Slow down your day a bit by scheduling 30 minutes for
+                relaxation. Read a book or take a quick snooze.
               </Tip>
               {/* <Tip>
                 Reach out to a friend or family member you haven't heard from in
