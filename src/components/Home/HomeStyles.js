@@ -2,20 +2,46 @@ import styled from "@emotion/styled";
 import { colors } from "../../globalStyles";
 export const HomeContainer = styled.div`
   display: flex;
+  position: relative;
   justify-content: space-around;
   align-items: center;
   width: 100%;
   height: 100%;
   background-color: #fafafaf;
+
+  @media only screen and (max-width: 1024px) {
+    height: 100%;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow-y: scroll;
+  }
 `;
 export const ContentContainer = styled.div`
-  width: 550px;
-  height: 525px;
-  padding: 20px 50px;
+  width: 40%;
+  min-width: 450px;
+  height: 500px;
+  padding: 15px 20px;
   border: 1px solid #ddd;
   border-radius: 8px;
   background-color: #fff;
-  overflow-y: scroll;
+
+  @media only screen and (max-width: 1024px) {
+    min-width: 80%;
+    min-height: 520px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 20px 35px;
+  }
+
+  @media only screen and (max-width: 768px) {
+    min-width: 95%;
+  }
+
+  @media only screen and (max-width: 480px) {
+    min-width: 100%;
+    border-radius: 0px;
+    padding: 10px 25px;
+  }
 `;
 export const RecentJournalHeader = styled.div`
   display: flex;
@@ -40,6 +66,7 @@ export const RecentJournal = styled.div`
 export const RecentJournalData = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
 `;
 export const JournalQuestion = styled.div`
   h4 {
@@ -52,6 +79,18 @@ export const JournalQuestion = styled.div`
     margin-top: 10px;
     margin-bottom: 10px;
   }
+
+  @media only screen and (max-width: 920px) {
+    h4 {
+      font-size: 0.85rem;
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    h4 {
+      font-size: 0.7rem;
+    }
+  }
 `;
 export const JournalAnswer = styled.div`
   h4 {
@@ -61,5 +100,11 @@ export const JournalAnswer = styled.div`
     color: #555;
     border-radius: 25px;
     padding: 5px 15px;
+  }
+
+  @media only screen and (max-width: 768px) {
+    h4 {
+      font-size: 0.6rem;
+    }
   }
 `;

@@ -4,7 +4,7 @@ import { colors } from "../../globalStyles";
 export const Container = styled.div`
   display: flex;
   position: relative;
-  max-height: 70%;
+  min-height: 70%;
   width: 100%;
   background-color: ${colors.backgroundLight};
   overflow-y: scroll;
@@ -12,6 +12,8 @@ export const Container = styled.div`
 export const Main = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 100%;
 `;
 export const Prompts = styled.div`

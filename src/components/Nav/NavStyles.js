@@ -5,21 +5,38 @@ export const NavContainer = styled.nav`
   position: relative;
   background-color: ${colors.main};
   color: white;
-  display: flex;
-  flex-direction: column;
   min-width: 80px;
   max-width: 80px;
   min-height: 100%;
+
+  @media only screen and (max-width: 1024px) {
+    display: flex;
+    flex-direction: row;
+    height: 80px;
+    min-height: 80px;
+    min-width: 100%;
+    order: 4;
+  }
 `;
 
 export const NavLinks = styled.ul`
+  position: relative;
   display: flex;
   width: 100%;
   flex-direction: column;
   align-items: center;
+  list-style: none;
+
+  @media only screen and (max-width: 1024px) {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    min-width: 100%;
+  }
 `;
 
 export const NavIcon = styled.li`
+  position: relative;
   width: 100%;
   height: 80px;
   display: flex;
@@ -53,12 +70,12 @@ export const NavIconActive = styled.li`
   color: #fff;
   background-color: ${colors.navColor};
   cursor: pointer;
-  &:before {
+  &:after {
     position: absolute;
     content: "";
     width: 5px;
     height: 100%;
-    top: 0;
+    bottom: 0;
     left: 0;
     background-color: #fff;
   }
@@ -73,5 +90,18 @@ export const NavIconActive = styled.li`
     max-width: 30px;
     height: 30px;
     align-self: center;
+  }
+
+  @media only screen and (max-width: 1024px) {
+    &:after {
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 5px;
+      bottom: 0;
+      left: 0;
+      background-color: #fff;
+      z-index: 500;
+    }
   }
 `;

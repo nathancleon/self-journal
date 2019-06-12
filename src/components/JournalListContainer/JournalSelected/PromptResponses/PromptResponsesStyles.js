@@ -43,9 +43,8 @@ export const PromptIcons = styled.div`
   display: flex;
   justify-content: space-around;
   width: 80px;
-  position: absolute;
-  bottom: 0;
-  right: 0;
+  position: relative;
+  margin-top: 22px;
   height: 2rem;
   svg {
     width: 25px;
