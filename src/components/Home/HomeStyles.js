@@ -75,7 +75,7 @@ export const JournalQuestion = styled.div`
     background-color: ${colors.main};
     color: #fff;
     border-radius: 25px;
-    padding: 5px 15px;
+    padding: 5px 10px 5px 8px;
     margin-top: 10px;
     margin-bottom: 10px;
   }
@@ -99,7 +99,7 @@ export const JournalAnswer = styled.div`
     background-color: #eee;
     color: #555;
     border-radius: 25px;
-    padding: 5px 15px;
+    padding: 5px 10px 5px 8px;
   }
 
   @media only screen and (max-width: 768px) {

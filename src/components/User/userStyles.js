@@ -106,3 +106,9 @@ export const SubmitError = styled.p`
     align-self: center;
   }
 `;
+
+export const LoadingContainer = styled.div`
+  width: 100%;
+  position: absolute;
+  bottom: -2px;
+`;

@@ -3,6 +3,7 @@ import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { loginUser } from "../../../actions/UserActions";
 import Header from "../../Header/Header";
+import { Loading } from "../../Loading/Loading";
 import {
   AuthContainer,
   FormContainer,
@@ -11,7 +12,8 @@ import {
   FormTitle,
   FormUser,
   FormSubmitButton,
-  SubmitError
+  SubmitError,
+  LoadingContainer
 } from "../userStyles";
 
 class Login extends Component {
@@ -25,7 +27,8 @@ class Login extends Component {
       password: "",
       toDashboard: false,
       emailError: false,
-      passwordError: false
+      passwordError: false,
+      isLoading: false
     };
 
     this.emailAndPasswordValidation = this.emailAndPasswordValidation.bind(
@@ -61,6 +64,7 @@ class Login extends Component {
           return;
         } else if (!this.props.user.error) {
           this.setState({
+            isLoading: true,
             toDashboard: true
           });
         }
@@ -144,6 +148,9 @@ class Login extends Component {
                 Submit
               </FormSubmitButton>
             </Form>
+            <LoadingContainer>
+              {this.state.isLoading ? <Loading slow /> : null}
+            </LoadingContainer>
           </FormContainer>
         </AuthContainer>
       </div>

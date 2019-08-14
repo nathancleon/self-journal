@@ -1,15 +1,21 @@
 import React from "react";
+import { keyframes } from "@emotion/core";
+import { colors } from "../../globalStyles";
 import styled from "@emotion/styled";
 
-const Loading = () => {
-  return <LoadingContainer>Loading . . .</LoadingContainer>;
-};
-
-export default Loading;
-
-const LoadingContainer = styled.h2`
-  display: flex;
-  align-self: center;
-  font-size: 2rem;
-  margin-top: 15%;
+const startLoading = keyframes`
+  from {
+    width: 0;
+  }
+  to {
+    width: 99%;
+  }
+`;
+export const Loading = styled.div`
+  width: 100%;
+  height: 4px;
+  margin-top: -2px;
+  background-color: ${colors.main};
+  animation: ${startLoading} ${props => (props.slow ? `15s` : `6s`)} ease-in-out
+    forwards;
 `;

@@ -5,15 +5,15 @@ export const NavContainer = styled.nav`
   position: relative;
   background-color: ${colors.main};
   color: white;
-  min-width: 80px;
-  max-width: 80px;
+  min-width: 60px;
+  max-width: 60px;
   min-height: 100%;
 
   @media only screen and (max-width: 1024px) {
     display: flex;
     flex-direction: row;
-    height: 80px;
-    min-height: 80px;
+    height: 60px;
+    min-height: 60px;
     min-width: 100%;
     order: 4;
   }
@@ -60,6 +60,12 @@ export const NavIcon = styled.li`
     height: 30px;
     align-self: center;
   }
+  @media only screen and (max-width: 1024px) {
+    height: 60px;
+    a {
+      height: 60px;
+    }
+  }
 `;
 
 export const NavIconActive = styled.li`
@@ -73,7 +79,7 @@ export const NavIconActive = styled.li`
   &:after {
     position: absolute;
     content: "";
-    width: 5px;
+    width: 3px;
     height: 100%;
     bottom: 0;
     left: 0;
@@ -93,6 +99,7 @@ export const NavIconActive = styled.li`
   }
 
   @media only screen and (max-width: 1024px) {
+    height: 60px;
     &:after {
       position: absolute;
       content: "";

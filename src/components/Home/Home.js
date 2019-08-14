@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import moment from "moment";
 import { fetchAllJournalData } from "../../actions/JournalActions";
-import Loading from "../Loading/Loading";
+import { Loading } from "../Loading/Loading";
 import { promptData } from "../JournalListContainer/JournalSelected/PromptResponses/promptData";
 import {
   HomeContainer,

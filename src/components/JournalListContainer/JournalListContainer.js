@@ -5,7 +5,7 @@ import {
   saveSelectedJournal
 } from "../../actions/JournalActions";
 import JournalSelected from "./JournalSelected/JournalSelected";
-import Loading from "../Loading/Loading";
+import { Loading } from "../Loading/Loading";
 import { Container, ErrorMessage } from "./JournalListContainerStyles";
 
 class JournalListContainer extends Component {

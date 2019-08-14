@@ -3,6 +3,7 @@ import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { registerUser } from "../../../actions/UserActions";
 import Header from "../../Header/Header";
+import { Loading } from "../../Loading/Loading";
 import {
   AuthContainer,
   FormContainer,
@@ -11,7 +12,8 @@ import {
   FormTitle,
   FormUser,
   FormSubmitButton,
-  SubmitError
+  SubmitError,
+  LoadingContainer
 } from "../userStyles";
 
 class Register extends Component {
@@ -21,7 +23,8 @@ class Register extends Component {
     this.state = {
       email: "",
       password: "",
-      toDashboard: false
+      toDashboard: false,
+      isLoading: false
     };
   }
 
@@ -37,6 +40,7 @@ class Register extends Component {
     this.props.registerUser(this.state).then(() => {
       if (!this.props.user.error) {
         this.setState({
+          isLoading: true,
           toDashboard: true
         });
       }
@@ -87,6 +91,9 @@ class Register extends Component {
                 Submit
               </FormSubmitButton>
             </Form>
+            <LoadingContainer>
+              {this.state.isLoading ? <Loading slow /> : null}
+            </LoadingContainer>
           </FormContainer>
         </AuthContainer>
       </div>
