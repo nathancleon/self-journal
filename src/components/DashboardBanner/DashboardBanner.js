@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import Picture from "../../Assets/me.jpg";
 import {
   Container,
@@ -15,7 +16,7 @@ import {
   Tip
 } from "./DashboardBannerStyles";
 
-export default class UserBanner extends Component {
+class UserBanner extends Component {
   constructor(props) {
     super(props);
   }
@@ -32,7 +33,8 @@ export default class UserBanner extends Component {
               <UserText>
                 <Name>Nathan León</Name>
                 <NoteCount>
-                  489<Notes>Notes</Notes>
+                  {this.props.journal.length}
+                  <Notes>Notes</Notes>
                 </NoteCount>
               </UserText>
             </UserInfo>
@@ -54,3 +56,11 @@ export default class UserBanner extends Component {
     );
   }
 }
+
+const mapStateToProps = reduxState => {
+  return {
+    journal: reduxState.journal.all
+  };
+};
+
+export default connect(mapStateToProps)(UserBanner);

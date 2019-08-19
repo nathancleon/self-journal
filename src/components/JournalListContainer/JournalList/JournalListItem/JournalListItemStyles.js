@@ -6,7 +6,7 @@ export const JListItem = styled.li`
   padding: 30px;
   cursor: pointer;
   &:hover {
-    background-color: rgba(58, 94, 255, 0.1);
+    background-color: rgba(225, 225, 225, 0.1);
   }
   &:last-of-type {
     border-bottom: 1px solid #ddd;
