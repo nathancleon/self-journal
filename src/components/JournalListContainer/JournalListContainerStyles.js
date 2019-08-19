@@ -11,3 +11,7 @@ export const ErrorMessage = styled.p`
   align-self: center;
   font-size: 2rem;
 `;
+
+export const JournalListWrapper = styled.ul`
+  width: 25%;
+`;

@@ -10,6 +10,7 @@ import {
   SelectedPromptContainer,
   DataContainer,
   SelectedPromptHeader,
+  HeaderContent,
   PromptIcons,
   SelectedPromptData,
   UserAnswers,
@@ -201,7 +202,7 @@ class PromptResponses extends Component {
     console.log(newData);
     console.log(id);
 
-    // return this.props.updateJournalData(newData, id);
+    return this.props.updateJournalData(newData, id);
   }
 
   deleteJournal() {
@@ -268,19 +269,12 @@ class PromptResponses extends Component {
   render() {
     return (
       <SelectedPromptContainer>
-        {this.state.disableLeftNavigation ? (
-          <NavigationDisabled />
-        ) : (
-          <NavigateLeft onClick={this.selectPreviousJournalDate.bind(this)}>
-            <img src={LeftArrow} alt="move backward" />
-          </NavigateLeft>
-        )}
         <DataContainer>
           <SelectedPromptHeader>
-            <h1>
-              Journal
-              <span>{moment(this.props.journal.created).format("LL")}</span>
-            </h1>
+            <HeaderContent>
+              <h1>Journal</h1>
+              <h2>{moment(this.props.journal.created).format("LL")}</h2>
+            </HeaderContent>
             <PromptIcons>
               <svg
                 onClick={this.toggleEdit.bind(this)}
@@ -326,13 +320,6 @@ class PromptResponses extends Component {
             ) : null}
           </SelectedPromptData>
         </DataContainer>
-        {this.state.disableRightNavigation ? (
-          <NavigationDisabled />
-        ) : (
-          <NavigateRight onClick={this.selectNextJournalDate.bind(this)}>
-            <img src={RightArrow} alt="move forward" />
-          </NavigateRight>
-        )}
       </SelectedPromptContainer>
     );
   }

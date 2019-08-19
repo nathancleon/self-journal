@@ -5,7 +5,7 @@ export const Container = styled.div`
   position: relative;
   display: flex;
   justify-content: center;
-  height: 450px;
+  height: 420px;
   width: 650px;
   margin-top: 80px;
   background-color: #fff;
@@ -23,8 +23,8 @@ export const Container = styled.div`
 export const Icon = styled.img`
    {
     position: absolute;
-    top: -80px;
-    width: 150px;
+    top: -60px;
+    width: 120px;
   }
 `;
 
@@ -38,7 +38,7 @@ export const FormContainer = styled.form`
 
 export const FormQuestion = styled.h2`
   color: ${colors.backgroundDark};
-  font-size: 24px;
+  font-size: 18px;
   font-weight: bold;
   text-align: center;
   margin-top: 40px;
@@ -56,6 +56,7 @@ export const FormOptions = styled.ul`
 export const FormOption = styled.li`
   position: relative;
   display: inline-block;
+  font-size: 14px;
   border: 1px solid #ddd;
   border-right: 0px;
   &:first-child {

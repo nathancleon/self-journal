@@ -56,14 +56,14 @@ export const NavIcon = styled.li`
     height: 80px;
   }
   img {
-    max-width: 30px;
-    height: 30px;
+    max-width: 20px;
+    height: 20px;
     align-self: center;
   }
   @media only screen and (max-width: 1024px) {
-    height: 60px;
+    height: 100%;
     a {
-      height: 60px;
+      height: 30px;
     }
   }
 `;
@@ -93,13 +93,13 @@ export const NavIconActive = styled.li`
     height: 100%;
   }
   img {
-    max-width: 30px;
-    height: 30px;
+    max-width: 20px;
+    height: 20px;
     align-self: center;
   }
 
   @media only screen and (max-width: 1024px) {
-    height: 60px;
+    height: 100%;
     &:after {
       position: absolute;
       content: "";

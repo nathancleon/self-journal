@@ -107,6 +107,12 @@ export const Image = styled.div`
   @media only screen and (max-width: 768px) {
     width: 75px;
     height: 75px;
+    &:hover {
+      &:before {
+        width: 75px;
+        height: 75px;
+      }
+    }
   }
 `;
 
@@ -164,10 +170,10 @@ export const Title = styled.h3`
 `;
 
 export const Tip = styled.p`
-  font-size: 1.125rem;
+  font-size: 1rem;
   word-wrap: break-word;
   color: #5b5b5b;
   @media only screen and (max-width: 768px) {
-    font-size: 0.825rem;
+    font-size: 12px;
   }
 `;

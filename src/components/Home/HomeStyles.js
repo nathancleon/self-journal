@@ -82,29 +82,23 @@ export const JournalQuestion = styled.div`
 
   @media only screen and (max-width: 920px) {
     h4 {
-      font-size: 0.85rem;
-    }
-  }
-
-  @media only screen and (max-width: 768px) {
-    h4 {
-      font-size: 0.7rem;
+      font-size: 12px;
     }
   }
 `;
 export const JournalAnswer = styled.div`
   h4 {
     display: inline-block;
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     background-color: #eee;
     color: #555;
     border-radius: 25px;
     padding: 5px 10px 5px 8px;
   }
 
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 920px) {
     h4 {
-      font-size: 0.6rem;
+      font-size: 12px;
     }
   }
 `;

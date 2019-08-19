@@ -14,48 +14,58 @@ export const DataContainer = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
-  padding: 20px 50px;
+  padding: 20px 40px;
+  @media only screen and (max-width: 768px) {
+    padding: 20px 15px 20px 70px;
+  }
 `;
 
 export const SelectedPromptHeader = styled.div`
   display: flex;
   justify-content: space-between;
-  padding-bottom: 20px;
   position: relative;
   height: 50px;
   margin-bottom: 20px;
+  @media only screen and (max-width: 768px) {
+    margin-bottom: 10px;
+  }
+`;
+
+export const HeaderContent = styled.div`
+  display: flex;
+  align-items: center;
+  height: 40px;
   h1 {
+    align-self: flex-end;
     font-size: 2rem;
+    line-height: 20px;
     color: ${colors.backgroundDark};
-    height: 50px;
-    padding-top: 15px;
-    margin-bottom: 15px;
-    span {
-      margin-left: 45px;
-      font-size: 1.5rem;
-      font-weight: normal;
-      color: #888;
-    }
+  }
+  h2 {
+    align-self: flex-end;
+    margin-left: 50px;
+    font-size: 1.25rem;
+    font-weight: normal;
+    line-height: 15px;
+    color: #888;
   }
 `;
 
 export const PromptIcons = styled.div`
   display: flex;
   justify-content: space-around;
+  align-self: flex-end;
   width: 80px;
   position: relative;
-  margin-top: 22px;
-  height: 2rem;
   svg {
     width: 25px;
     cursor: pointer;
-    margin-bottom: 2px;
   }
-  svg:first-child {
+  svg:first-of-type {
     fill: #5b5b5b;
     margin-right: 20px;
   }
-  svg:nth-child(2) {
+  svg:nth-of-type(2) {
     fill: #5b5b5b;
     width: 22px;
   }
@@ -70,6 +80,9 @@ export const SelectedPromptData = styled.div`
   h4 {
     color: ${colors.backgroundDark};
     margin-top: 20px;
+  }
+  @media only screen and (max-width: 768px) {
+    padding-top: 2px;
   }
 `;
 

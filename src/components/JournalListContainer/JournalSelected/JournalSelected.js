@@ -31,4 +31,12 @@ class JournalSelected extends Component {
   }
 }
 
-export default JournalSelected;
+const mapStateToProps = reduxState => {
+  return {
+    journal: reduxState.journal.selected
+  };
+};
+export default connect(
+  mapStateToProps,
+  null
+)(JournalSelected);
