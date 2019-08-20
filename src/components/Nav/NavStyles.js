@@ -63,7 +63,7 @@ export const NavIcon = styled.li`
   @media only screen and (max-width: 1024px) {
     height: 100%;
     a {
-      height: 30px;
+      height: 100%;
     }
   }
 `;
