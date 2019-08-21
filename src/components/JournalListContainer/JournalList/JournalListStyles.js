@@ -1,8 +1,9 @@
 import styled from "@emotion/styled";
+import { colors } from "../../../globalStyles";
 
 export const JList = styled.div`
   border-right: 1px solid #ddd;
-  background-color: #eee;
+  background-color: ${colors.backgroundLight};
   width: 100%;
   height: 100%;
   position: relative;

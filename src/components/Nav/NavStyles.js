@@ -8,6 +8,7 @@ export const NavContainer = styled.nav`
   min-width: 60px;
   max-width: 60px;
   min-height: 100%;
+  z-index: 100;
 
   @media only screen and (max-width: 1024px) {
     display: flex;
