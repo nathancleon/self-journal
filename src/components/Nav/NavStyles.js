@@ -5,8 +5,7 @@ export const NavContainer = styled.nav`
   position: relative;
   background-color: ${colors.main};
   color: white;
-  min-width: 60px;
-  max-width: 60px;
+  width: 80px;
   min-height: 100%;
   z-index: 100;
 
@@ -46,15 +45,18 @@ export const NavIcon = styled.li`
   text-decoration: none;
   color: #fff;
   cursor: pointer;
-  &:hover {
-    background-color: ${colors.navColor};
-  }
   a {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     height: 80px;
+  }
+
+  svg {
+    max-width: 20px;
+    height: 20px;
+    align-self: center;
   }
   img {
     max-width: 20px;
@@ -75,12 +77,11 @@ export const NavIconActive = styled.li`
   height: 80px;
   text-decoration: none;
   color: #fff;
-  background-color: ${colors.navColor};
   cursor: pointer;
   &:after {
     position: absolute;
     content: "";
-    width: 3px;
+    width: 4px;
     height: 100%;
     bottom: 0;
     left: 0;
@@ -92,6 +93,11 @@ export const NavIconActive = styled.li`
     align-items: center;
     width: 100%;
     height: 100%;
+  }
+  svg {
+    max-width: 20px;
+    height: 20px;
+    align-self: center;
   }
   img {
     max-width: 20px;
@@ -105,7 +111,7 @@ export const NavIconActive = styled.li`
       position: absolute;
       content: "";
       width: 100%;
-      height: 5px;
+      height: 4px;
       bottom: 0;
       left: 0;
       background-color: #fff;

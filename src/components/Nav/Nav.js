@@ -3,10 +3,14 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { logoutUser, setUserInfo } from "../../actions/UserActions";
 import { NavContainer, NavIcon, NavLinks, NavIconActive } from "./NavStyles";
-import HomeIcon from "../../Assets/home.svg";
-import JournalIcon from "../../Assets/book.svg";
-import PromptsIcon from "../../Assets/pencil.svg";
-import AnalyticsIcon from "../../Assets/analytics.svg";
+import {
+  HomeIcon,
+  JournalIcon,
+  PromptIcon,
+  AnalyticsIcon,
+  RelationshipsIcon
+} from "../../SvgComponents/SvgComponents";
+import PeopleIcon from "../../Assets/user-friends.svg";
 import LogOutIcon from "../../Assets/sign-out.svg";
 
 class Nav extends Component {
@@ -38,52 +42,65 @@ class Nav extends Component {
           {this.props.currentPath === "home" ? (
             <NavIconActive id="home" title="home">
               <Link to="/dashboard">
-                <img src={HomeIcon} alt="home" />
+                <HomeIcon fill="rgba(255, 255, 255, 1)" />
               </Link>
             </NavIconActive>
           ) : (
             <NavIcon id="home" title="home">
               <Link to="/dashboard">
-                <img src={HomeIcon} alt="home" />
+                <HomeIcon fill="rgba(255, 255, 255, 0.8)" />
               </Link>
             </NavIcon>
           )}
           {this.props.currentPath === "journals" ? (
             <NavIconActive id="journals" title="journals">
               <Link to="/dashboard/journals">
-                <img src={JournalIcon} alt="journal" />
+                <JournalIcon fill="rgba(255, 255, 255, 1)" />
               </Link>
             </NavIconActive>
           ) : (
             <NavIcon id="journals" title="journal">
               <Link to="/dashboard/journals">
-                <img src={JournalIcon} alt="journal" id="journal" />
+                <JournalIcon fill="rgba(255, 255, 255, 0.8)" />
               </Link>
             </NavIcon>
           )}
           {this.props.currentPath === "prompts" ? (
             <NavIconActive id="prompts" title="prompts">
               <Link to="/dashboard/prompts">
-                <img src={PromptsIcon} alt="prompts" />
+                <PromptIcon fill="rgba(255, 255, 255, 1)" />
               </Link>
             </NavIconActive>
           ) : (
             <NavIcon href="#" id="prompts" title="prompts">
               <Link to="/dashboard/prompts">
-                <img src={PromptsIcon} alt="prompts" />
+                <PromptIcon fill="rgba(255, 255, 255, 0.8)" />
               </Link>
             </NavIcon>
           )}
           {this.props.currentPath === "analytics" ? (
             <NavIconActive id="analytics" title="analytics">
               <Link to="/dashboard/analytics">
-                <img src={AnalyticsIcon} alt="analytics" />
+                <AnalyticsIcon fill="rgba(255, 255, 255, 1)" />
               </Link>
             </NavIconActive>
           ) : (
             <NavIcon id="analytics" title="analytics">
               <Link to="/dashboard/analytics">
-                <img src={AnalyticsIcon} alt="analytics" />
+                <AnalyticsIcon fill="rgba(255, 255, 255, 0.8)" />
+              </Link>
+            </NavIcon>
+          )}
+          {this.props.currentPath === "relationships" ? (
+            <NavIconActive id="relationships" title="relationships">
+              <Link to="#">
+                <RelationshipsIcon fill="rgba(255, 255, 255, 1)" />
+              </Link>
+            </NavIconActive>
+          ) : (
+            <NavIcon id="relationships" title="relationships">
+              <Link to="#">
+                <RelationshipsIcon fill="rgba(255, 255, 255, 0.8)" />
               </Link>
             </NavIcon>
           )}

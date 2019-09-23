@@ -27,16 +27,18 @@ class Dashboard extends Component {
       <DashboardContainer>
         <Nav currentPath={this.state.currentPage} />
         <DashboardContent>
-          <UserBanner />
           <Switch>
             <Route
               exact
               path="/dashboard"
               render={routeProps => (
-                <Home
-                  {...routeProps}
-                  currentComponent={this.updatePath.bind(this)}
-                />
+                <>
+                  <UserBanner />
+                  <Home
+                    {...routeProps}
+                    currentComponent={this.updatePath.bind(this)}
+                  />
+                </>
               )}
             />
             <Route

@@ -31,7 +31,7 @@ class UserBanner extends Component {
                 <img src={Picture} alt="picture of myself" />
               </Image>
               <UserText>
-                <Name>Nathan León</Name>
+                <Name>Nathan</Name>
                 <NoteCount>
                   {this.props.journal.length}
                   <Notes>Notes</Notes>

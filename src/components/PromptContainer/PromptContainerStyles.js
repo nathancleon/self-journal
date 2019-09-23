@@ -4,7 +4,7 @@ import { colors } from "../../globalStyles";
 export const Container = styled.div`
   display: flex;
   position: relative;
-  min-height: 70%;
+  min-height: 100%;
   width: 100%;
   background-color: ${colors.backgroundLight};
   overflow-y: scroll;

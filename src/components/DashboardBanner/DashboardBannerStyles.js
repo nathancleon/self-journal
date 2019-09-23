@@ -7,17 +7,11 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  min-height: 241px;
-  max-height: 241px;
+  height: 200px;
   background-color: #fff;
   border-bottom: 1px solid #ddd;
-
-  @media only screen and (max-width: 1024px) {
-    min-height: 180px;
-  }
-
   @media only screen and (max-width: 768px) {
-    min-height: 200px;
+    height: 240px;
   }
 `;
 
@@ -27,7 +21,7 @@ export const ContentContainer = styled.div`
   align-items: center;
   width: 80%;
   height: auto;
-  @media only screen and (max-width: 1024px) {
+  @media only screen and (max-width: 768px) {
     width: 95%;
   }
 `;
@@ -120,7 +114,7 @@ export const Name = styled.h1`
   color: ${colors.backgroundDark};
   font-size: 1.25rem;
   font-weight: bold;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 
   @media only screen and (max-width: 768px) {
     font-size: 1.125rem;
@@ -146,15 +140,12 @@ export const TipOfTheDay = styled.div`
   justify-content: center;
   align-items: start;
   flex-direction: column;
-  padding-top: 25px;
   width: 50%;
   height: 100%;
-  padding: 25px 25px 0px 0px;
 
-  @media only screen and (max-width: 767px) {
+  @media only screen and (max-width: 768px) {
     max-height: auto;
-    padding: 0;
-    padding-top: 20px;
+    margin-top: 15px;
     width: 80%;
   }
 `;
@@ -163,7 +154,7 @@ export const Title = styled.h3`
   color: ${colors.backgroundDark};
   font-size: 1.25rem;
   font-weight: bold;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   @media only screen and (max-width: 768px) {
     font-size: 1rem;
   }
@@ -173,7 +164,7 @@ export const Tip = styled.p`
   font-size: 1rem;
   word-wrap: break-word;
   color: #5b5b5b;
-  @media only screen and (max-width: 768px) {
-    font-size: 12px;
+  @media only screen and (max-width: 1024px) {
+    font-size: 14px;
   }
 `;

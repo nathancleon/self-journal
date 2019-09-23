@@ -5,7 +5,7 @@ export const DashboardContainer = styled.div`
   display: flex;
   width: 100%;
   height: 100%;
-  max-height: 100%;
+  min-height: 100%;
   background-color: ${colors.backgroundLight};
 
   @media only screen and (max-width: 1024px) {
