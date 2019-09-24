@@ -4,6 +4,8 @@
   "private": true,
   "homepage": "https://mentalnote.herokuapp.com",
   "dependencies": {
+    "@emotion/core": "^10.0.17",
+    "@emotion/styled": "^10.0.17",
     "axios": "^0.19.0",
     "emotion": "^9.2.12",
     "moment": "^2.22.2",
@@ -29,8 +31,6 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "@emotion/core": "^10.0.10",
-    "@emotion/styled": "^10.0.11",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.7.0",
     "redux-mock-store": "^1.5.3"
