@@ -28,7 +28,6 @@ export function loginUser(user) {
         });
       })
       .catch(error => {
-        console.log(error);
         dispatch({
           type: "USER_LOGIN_ERROR",
           payload: error.response.data.message
