@@ -21,8 +21,13 @@ export const ContentContainer = styled.div`
   align-items: center;
   width: 80%;
   height: auto;
+  @media only screen and (max-width: 1024px) {
+    width: 90%;
+    border: 1px solid red;
+  }
   @media only screen and (max-width: 768px) {
-    width: 95%;
+    width: 99%;
+    border: 1px solid red;
   }
 `;
 
@@ -112,25 +117,33 @@ export const Image = styled.div`
 
 export const Name = styled.h1`
   color: ${colors.backgroundDark};
-  font-size: 1.25rem;
+  font-size: 2rem;
   font-weight: bold;
   margin-bottom: 5px;
 
   @media only screen and (max-width: 768px) {
-    font-size: 1.125rem;
+    font-size: 1.5rem;
   }
 `;
 
 export const NoteCount = styled.p`
+  display: inline-block;
+  padding: 5px 15px;
   color: ${colors.backgroundDark};
   font-size: 1rem;
   font-weight: bold;
-  text-align: left;
+  color: #fff;
+  text-align: center;
+  background-color: ${colors.main};
+  border-radius: 10px;
+  @media only screen and (max-width: 768px) {
+    max-width: 100%;
+  }
 `;
 
 export const Notes = styled.span`
   font-size: 1rem;
-  color: #777;
+  color: rgba(255, 255, 255, 0.8);
   margin-left: 5px;
 `;
 

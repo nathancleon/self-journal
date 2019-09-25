@@ -27,11 +27,8 @@ class UserBanner extends Component {
           {/* replace with actual info from user */}
           <InfoContainer>
             <UserInfo>
-              <Image>
-                <img src={Picture} alt="picture of myself" />
-              </Image>
               <UserText>
-                <Name>Nathan</Name>
+                <Name>Welcome, Nathan!</Name>
                 <NoteCount>
                   {this.props.journal.length}
                   <Notes>Notes</Notes>
