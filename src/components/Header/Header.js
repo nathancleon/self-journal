@@ -4,6 +4,7 @@ import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { logoutUser, setUserInfo } from "../../actions/UserActions";
 import { HeaderContainer, HeaderBranding, HeaderLinks } from "./HeaderStyles";
+import { MentalNoteIcon } from "../../SvgComponents/LandingIcons";
 
 class Header extends Component {
   constructor(props) {
@@ -35,10 +36,7 @@ class Header extends Component {
     return (
       <HeaderContainer>
         <HeaderBranding href="/">
-          <img
-            src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/reading_list_4boi.svg"
-            alt="a man reading a book"
-          />
+          <MentalNoteIcon />
           <h2>mentalnote</h2>
         </HeaderBranding>
         <HeaderLinks>

@@ -7,7 +7,6 @@ import { Loading } from "../../Loading/Loading";
 import {
   AuthContainer,
   FormContainer,
-  FormIcon,
   Form,
   FormTitle,
   FormUser,
@@ -15,6 +14,7 @@ import {
   SubmitError,
   LoadingContainer
 } from "../userStyles";
+import { RegisterIcon } from "../../../SvgComponents/AuthIcons";
 
 class Register extends Component {
   constructor(props) {
@@ -23,6 +23,9 @@ class Register extends Component {
     this.state = {
       email: "",
       password: "",
+      emailError: false,
+      passwordError: false,
+      passwordLengthError: false,
       toDashboard: false,
       isLoading: false
     };
@@ -35,13 +38,49 @@ class Register extends Component {
     });
   }
 
+  emailAndPasswordValidation() {
+    let regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (regex.test(String(this.state.email).toLowerCase()) === false) {
+      this.setState({
+        emailError: true
+      });
+    } else if (this.state.email === "") {
+      this.setState({
+        emailError: true
+      });
+    } else if (this.state.password === "") {
+      this.setState({
+        emailError: false,
+        passwordError: true
+      });
+    } else if (this.state.password.length < 6) {
+      this.setState({
+        emailError: false,
+        passwordError: false,
+        passwordLengthError: true
+      });
+    } else {
+      this.setState({
+        emailError: false,
+        passwordError: false,
+        passwordLengthError: false,
+        isLoading: true
+      });
+    }
+  }
+
   handleSubmit(event) {
     event.preventDefault();
+    this.emailAndPasswordValidation();
+
     this.props.registerUser(this.state).then(() => {
-      if (!this.props.user.error) {
+      if (
+        this.state.emailError === false &&
+        this.state.passwordError === false &&
+        this.state.passwordLengthError === false
+      ) {
         this.setState({
-          isLoading: true,
-          toDashboard: true
+          isLoading: false
         });
       }
     });
@@ -59,10 +98,7 @@ class Register extends Component {
         <Header links={linksArray} />
         <AuthContainer>
           <FormContainer>
-            <FormIcon
-              src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/superhero_kguv.svg"
-              alt="person diving in the air wearing business clothes"
-            />
+            <RegisterIcon />
             <Form>
               <FormTitle>Register</FormTitle>
               <FormUser>
@@ -81,7 +117,15 @@ class Register extends Component {
                   onChange={this.handleChange.bind(this)}
                 />
               </FormUser>
-              {this.props.user.error ? (
+              {this.state.emailError ? (
+                <SubmitError>You must enter a valid email</SubmitError>
+              ) : this.state.passwordError ? (
+                <SubmitError>You must enter a password</SubmitError>
+              ) : this.state.passwordLengthError ? (
+                <SubmitError>
+                  Password must be more than 6 characters
+                </SubmitError>
+              ) : this.props.user.error ? (
                 <SubmitError>{this.props.user.error}</SubmitError>
               ) : null}
               <FormSubmitButton

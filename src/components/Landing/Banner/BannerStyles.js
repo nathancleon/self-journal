@@ -30,6 +30,12 @@ export const BannerContainer = styled.div`
     border-top: 20.1vh solid ${colors.backgroundDark};
   }
 
+  svg {
+    width: 40vw;
+    height: auto;
+    order: 2;
+  }
+
   @media only screen and (max-width: 1024px) {
      {
       padding-top: 20vw;
@@ -61,7 +67,7 @@ export const BannerContainer = styled.div`
       font-size: 1rem;
     }
 
-    img {
+    svg {
       order: 1;
       width: 80vw;
       min-width: 40vw;
