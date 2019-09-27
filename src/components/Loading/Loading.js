@@ -1,4 +1,3 @@
-import React from "react";
 import { keyframes } from "@emotion/core";
 import { colors } from "../../globalStyles";
 import styled from "@emotion/styled";

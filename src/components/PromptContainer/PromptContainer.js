@@ -4,6 +4,13 @@ import PromptSubmit from "./PromptSubmit/PromptSubmit";
 import { saveJournalData } from "../../actions/JournalActions";
 import { connect } from "react-redux";
 import { Container, Main, Prompts } from "./PromptContainerStyles";
+import SelfReflectionIcon from "../../Assets/mentalnote-svgs/self-reflection.svg";
+import AnxietyIcon from "../../Assets/mentalnote-svgs/stress.svg";
+import DepressionIcon from "../../Assets/mentalnote-svgs/sleep.svg";
+import ConcentrationIcon from "../../Assets/mentalnote-svgs/concentrating.svg";
+import FamilyIcon from "../../Assets/mentalnote-svgs/family.svg";
+import FriendsIcon from "../../Assets/mentalnote-svgs/friends.svg";
+import GratefulIcon from "../../Assets/mentalnote-svgs/book.svg";
 
 class PromptContainer extends Component {
   constructor(props) {
@@ -27,32 +34,28 @@ class PromptContainer extends Component {
         question: "How would you describe your overall mental health today?",
         answers: ["Poor", "Not Great", "Good", "Great", "Excellent"],
         placeholder: "Briefly explain",
-        image:
-          "https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/forgot_password_gi2d.svg",
+        image: SelfReflectionIcon,
         alt: "someone being pensive"
       },
       anxiety: {
         question: "How anxious would you say you feel?",
         answers: ["Not at all", "Slightly", "Moderately", "Very", "Extremely"],
         placeholder: "Briefly explain",
-        image:
-          "https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/meeting_115p.svg",
+        image: AnxietyIcon,
         alt: "a woman sitting down with a bear"
       },
       depression: {
         question: "How depressed would you say you feel?",
         answers: ["Not at all", "Slightly", "Moderately", "Very", "Extremely"],
         placeholder: "Briefly explain",
-        image:
-          "https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/sleep_analysis_o5f9.svg",
+        image: DepressionIcon,
         alt: "a woman sleeping on a bed"
       },
       concentration: {
         question: "How would you describe your ability to concentrate?",
         answers: ["Poor", "Not Great", "Good", "Great", "Excellent"],
         placeholder: "Briefly explain",
-        image:
-          "https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/in_progress_ql66.svg",
+        image: ConcentrationIcon,
         alt: "a woman moving some gears in the air"
       },
       family: {
@@ -60,8 +63,7 @@ class PromptContainer extends Component {
           "How do would you rate the connections you have with your family?",
         answers: ["Poor", "Not Great", "Good", "Great", "Excellent"],
         placeholder: "Briefly explain",
-        image:
-          "https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/hang_out_h9ud.svg",
+        image: FamilyIcon,
         alt: "a group of people sitting down at a table next to a tree"
       },
       friendships: {
@@ -69,16 +71,14 @@ class PromptContainer extends Component {
           "How do would you rate the connections you have with your friends?",
         answers: ["Poor", "Not Great", "Good", "Great", "Excellent"],
         placeholder: "Briefly explain",
-        image:
-          "https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/group_selfie_ijc6.svg",
+        image: FriendsIcon,
         alt: "a group of people coming together to take a selfie"
       },
       gratitude: {
         question: "List at least three things you are grateful for",
         answers: [],
         placeholder: "Today, I am grateful for...",
-        image:
-          "https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/Bibliophile_hwqc.svg",
+        image: GratefulIcon,
         alt: "a woman standing next to a giant open book"
       }
     };

@@ -8,10 +8,9 @@ import {
   JournalIcon,
   PromptIcon,
   AnalyticsIcon,
-  RelationshipsIcon
-} from "../../SvgComponents/SvgComponents";
-import PeopleIcon from "../../Assets/user-friends.svg";
-import LogOutIcon from "../../Assets/sign-out.svg";
+  RelationshipsIcon,
+  LogOutIcon
+} from "../../SvgComponents/NavIcons";
 
 class Nav extends Component {
   constructor(props) {
@@ -106,7 +105,7 @@ class Nav extends Component {
           )}
           <NavIcon onClick={this.logOut.bind(this)} title="log out">
             <Link to="/">
-              <img src={LogOutIcon} alt="log out" />
+              <RelationshipsIcon fill="rgba(255, 255, 255, 1)" />
             </Link>
           </NavIcon>
         </NavLinks>

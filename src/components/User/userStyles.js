@@ -20,18 +20,18 @@ export const FormContainer = styled.div`
   border-radius: 5px;
   box-shadow: rgba(27, 39, 51, 0.25) 0px 10px 20px -8px;
   margin-top: 10vw;
-`;
-
-export const FormIcon = styled.img`
-  position: absolute;
-  top: -90px;
-  width: 150px;
-  @media only screen and (max-width: 700px) {
-    width: 120px;
-    top: -60px;
-  }
-  @media only screen and (max-width: 320px) {
-    top: -20px;
+  svg {
+    position: absolute;
+    top: -90px;
+    width: 150px;
+    height: auto;
+    @media only screen and (max-width: 700px) {
+      width: 120px;
+      top: -60px;
+    }
+    @media only screen and (max-width: 320px) {
+      top: -20px;
+    }
   }
 `;
 

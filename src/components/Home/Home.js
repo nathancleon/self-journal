@@ -15,6 +15,7 @@ import {
   JournalQuestion,
   JournalAnswer
 } from "./HomeStyles";
+import Chart from "./Chart";
 
 class Home extends Component {
   constructor(props) {
@@ -97,7 +98,9 @@ class Home extends Component {
             })}
           </RecentJournal>
         </ContentContainer>
-        <ContentContainer />
+        <ContentContainer>
+          <Chart />
+        </ContentContainer>
       </HomeContainer>
     );
   }

@@ -21,11 +21,9 @@ export const Container = styled.div`
 `;
 
 export const Icon = styled.img`
-   {
-    position: absolute;
-    top: -60px;
-    width: 120px;
-  }
+  position: absolute;
+  top: -90px;
+  height: 120px;
 `;
 
 export const FormContainer = styled.form`

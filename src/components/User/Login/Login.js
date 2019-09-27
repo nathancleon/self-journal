@@ -7,7 +7,6 @@ import { Loading } from "../../Loading/Loading";
 import {
   AuthContainer,
   FormContainer,
-  FormIcon,
   Form,
   FormTitle,
   FormUser,
@@ -15,6 +14,7 @@ import {
   SubmitError,
   LoadingContainer
 } from "../userStyles";
+import { LoginIcon } from "../../../SvgComponents/AuthIcons";
 
 class Login extends Component {
   _isMounted = false;
@@ -121,10 +121,7 @@ class Login extends Component {
         <Header links={linksArray} />
         <AuthContainer>
           <FormContainer>
-            <FormIcon
-              src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/instant_support_elxh.svg"
-              alt="person diving in the air wearing business clothes"
-            />
+            <LoginIcon />
             <Form>
               <FormTitle>Login</FormTitle>
               <FormUser>

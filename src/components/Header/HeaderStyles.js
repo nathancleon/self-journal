@@ -14,13 +14,14 @@ export const HeaderContainer = styled("nav")`
 export const HeaderBranding = styled("a")`
    {
     display: flex;
-    width: 20%;
+    min-width: 20%;
     margin-left: 25px;
     text-decoration: none;
     color: #fff;
   }
-  img {
-    width: 40px;
+  svg {
+    width: 30px;
+    height: auto;
     align-self: center;
   }
   h2 {
@@ -40,8 +41,8 @@ export const HeaderBranding = styled("a")`
      {
       margin-left: 10px;
     }
-    img {
-      width: 25px;
+    svg {
+      width: 20px;
     }
     h2 {
       font-size: 16px;

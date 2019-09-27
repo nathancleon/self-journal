@@ -7,7 +7,6 @@ import { Loading } from "../../Loading/Loading";
 import {
   AuthContainer,
   FormContainer,
-  FormIcon,
   Form,
   FormTitle,
   FormUser,
@@ -15,6 +14,7 @@ import {
   SubmitError,
   LoadingContainer
 } from "../userStyles";
+import { RegisterIcon } from "../../../SvgComponents/AuthIcons";
 
 class Register extends Component {
   constructor(props) {
@@ -98,10 +98,7 @@ class Register extends Component {
         <Header links={linksArray} />
         <AuthContainer>
           <FormContainer>
-            <FormIcon
-              src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/superhero_kguv.svg"
-              alt="person diving in the air wearing business clothes"
-            />
+            <RegisterIcon />
             <Form>
               <FormTitle>Register</FormTitle>
               <FormUser>

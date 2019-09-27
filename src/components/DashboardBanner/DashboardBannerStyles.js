@@ -129,6 +129,7 @@ export const Name = styled.h1`
 export const NoteCount = styled.p`
   display: inline-block;
   padding: 5px 15px;
+  margin: 0 auto;
   color: ${colors.backgroundDark};
   font-size: 1rem;
   font-weight: bold;
