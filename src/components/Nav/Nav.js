@@ -77,7 +77,7 @@ class Nav extends Component {
               </Link>
             </NavIcon>
           )}
-          {this.props.currentPath === "analytics" ? (
+          {/* {this.props.currentPath === "analytics" ? (
             <NavIconActive id="analytics" title="analytics">
               <Link to="/dashboard/analytics">
                 <AnalyticsIcon fill="rgba(255, 255, 255, 1)" />
@@ -102,10 +102,10 @@ class Nav extends Component {
                 <RelationshipsIcon fill="rgba(255, 255, 255, 0.8)" />
               </Link>
             </NavIcon>
-          )}
+          )} */}
           <NavIcon onClick={this.logOut.bind(this)} title="log out">
             <Link to="/">
-              <RelationshipsIcon fill="rgba(255, 255, 255, 1)" />
+              <LogOutIcon fill="rgba(255, 255, 255, 1)" />
             </Link>
           </NavIcon>
         </NavLinks>
