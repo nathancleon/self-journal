@@ -24,7 +24,7 @@ export const ListLabel = styled.div`
   background-color: #fefefe;
   border-bottom: 1px solid #ddd;
   z-index: 20;
-  @media only screen and (max-width: 1200px) {
+  @media only screen and (max-width: 1024px) {
     padding: 30px 20px;
     h4 {
       font-size: 14px;

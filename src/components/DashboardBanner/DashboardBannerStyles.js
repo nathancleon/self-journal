@@ -7,7 +7,7 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 200px;
+  min-height: 200px;
   background-color: #fff;
   border-bottom: 1px solid #ddd;
   @media only screen and (max-width: 768px) {

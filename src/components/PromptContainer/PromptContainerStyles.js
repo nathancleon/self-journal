@@ -8,6 +8,9 @@ export const Container = styled.div`
   width: 100%;
   background-color: ${colors.backgroundLight};
   overflow-y: scroll;
+  @media only screen and (max-width: 768px) {
+    background-color: #fff;
+  }
 `;
 export const Main = styled.div`
   display: flex;
@@ -29,5 +32,8 @@ export const Prompts = styled.div`
   @media only screen and (max-width: 1024px) {
     min-height: 90%;
     margin-top: 10px;
+  }
+  @media only screen and (max-width: 768px) {
+    background-color: #fff;
   }
 `;

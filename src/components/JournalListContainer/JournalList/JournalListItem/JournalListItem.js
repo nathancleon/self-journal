@@ -6,9 +6,10 @@ class JournalListItem extends Component {
   render() {
     return (
       <JListItem
-        onClick={() =>
-          this.props.onJournalSelect(this.props.journal, this.props.position)
-        }
+        onClick={() => {
+          this.props.onJournalSelect(this.props.journal, this.props.position);
+          this.props.triggerJournalList();
+        }}
       >
         <h4>{moment(this.props.journal.created).format("LL")}</h4>
       </JListItem>

@@ -6,7 +6,7 @@ export const PromptSubmitContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 350px;
+  height: 400px;
   width: 650px;
   position: relative;
   background-color: #fff;
@@ -14,6 +14,9 @@ export const PromptSubmitContainer = styled.div`
   box-shadow: 0 1px 3px 0 rgba(21, 27, 38, 0.15);
   padding: 50px;
   margin-top: 70px;
+  @media only screen and (max-width: 768px) {
+    box-shadow: none;
+  }
 `;
 export const PromptSubmitImage = styled.img`
   position: absolute;
@@ -38,7 +41,7 @@ export const PromptSubmitButton = styled.button`
   font-weight: bold;
   border: 1px solid #ddd;
   border-radius: 25px;
-  margin-top: 20px;
+  margin-top: 30px;
   margin-bottom: 0px;
   cursor: pointer;
   letter-spacing: 1px;

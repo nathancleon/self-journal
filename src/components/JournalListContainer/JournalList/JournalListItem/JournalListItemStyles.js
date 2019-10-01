@@ -16,7 +16,7 @@ export const JListItem = styled.li`
     color: #222;
     font-size: 14px;
   }
-  @media only screen and (max-width: 1200px) {
+  @media only screen and (max-width: 1024px) {
     padding: 20px;
     h4 {
       font-size: 12px;

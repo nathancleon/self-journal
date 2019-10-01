@@ -105,7 +105,7 @@ class Nav extends Component {
           )}
           <NavIcon onClick={this.logOut.bind(this)} title="log out">
             <Link to="/">
-              <RelationshipsIcon fill="rgba(255, 255, 255, 1)" />
+              <LogOutIcon fill="rgba(255, 255, 255, 1)" />
             </Link>
           </NavIcon>
         </NavLinks>

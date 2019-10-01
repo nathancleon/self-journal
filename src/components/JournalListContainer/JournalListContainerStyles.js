@@ -14,4 +14,8 @@ export const ErrorMessage = styled.p`
 
 export const JournalListWrapper = styled.ul`
   width: 25%;
+  @media only screen and (max-width: 768px) {
+    display: ${props => (props.expand ? "flex" : "none")};
+    min-width: 100vw;
+  }
 `;

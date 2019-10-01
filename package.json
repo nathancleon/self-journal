@@ -4,6 +4,8 @@
   "private": true,
   "homepage": "https://mentalnote.herokuapp.com",
   "dependencies": {
+    "@emotion/core": "^10.0.17",
+    "@emotion/styled": "^10.0.17",
     "axios": "^0.19.0",
     "emotion": "^9.2.12",
     "moment": "^2.22.2",
@@ -11,7 +13,7 @@
     "react-dom": "^16.6.3",
     "react-redux": "^5.1.1",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "^2.1.8",
+    "react-scripts": "^3.1.2",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0"
   },
@@ -29,13 +31,12 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "@emotion/core": "^10.0.10",
-    "@emotion/styled": "^10.0.11",
+    "babel-eslint": "^10.0.3",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.7.0",
-    "eslint-plugin-prettier": "^3.1.0",
-    "eslint-plugin-react": "^7.13.0",
-    "prettier": "^1.15.2",
+    "eslint": "^6.5.0",
+    "eslint-config-prettier": "^6.3.0",
+    "prettier": "^1.18.2",
     "redux-mock-store": "^1.5.3"
   }
 }

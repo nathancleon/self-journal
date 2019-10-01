@@ -5,7 +5,7 @@ export const Container = styled.div`
   position: relative;
   display: flex;
   justify-content: center;
-  height: 420px;
+  height: 500px;
   width: 650px;
   margin-top: 80px;
   background-color: #fff;
@@ -16,6 +16,17 @@ export const Container = styled.div`
     img {
       top: -45px;
       width: 120px;
+    }
+  }
+  @media only screen and (max-width: 768px) {
+    box-shadow: none;
+    width: 100%;
+    height: 420px;
+    img {
+      top: -70px;
+    }
+    form {
+      width: 95%;
     }
   }
 `;
@@ -39,10 +50,13 @@ export const FormQuestion = styled.h2`
   font-size: 18px;
   font-weight: bold;
   text-align: center;
-  margin-top: 40px;
+  margin-top: 60px;
   margin-bottom: 20px;
   @media only screen and (max-width: 1024px) {
     margin-top: 50px;
+  }
+  @media only screen and (max-width: 321px) {
+    font-size: 16px;
   }
 `;
 
@@ -81,6 +95,19 @@ export const FormOption = styled.li`
     border-top-right-radius: 4px;
     border-bottom-right-radius: 4px;
   }
+
+  @media only screen and (max-width: 768px) {
+    label {
+      padding: 2px 8px;
+    }
+  }
+
+  @media only screen and (max-width: 321px) {
+    font-size: 12px;
+    label {
+      padding: 2px 6px;
+    }
+  }
 `;
 
 export const OptionInput = styled.input`
@@ -115,7 +142,7 @@ export const NextButton = styled.button`
   font-weight: bold;
   border: 1px solid #ddd;
   border-radius: 25px;
-  margin-top: 20px;
+  margin-top: 40px;
   margin-bottom: 0px;
   cursor: pointer;
   letter-spacing: 1px;
@@ -123,6 +150,10 @@ export const NextButton = styled.button`
     background-color: #fff;
     color: #000;
     font-weight: normal;
+  }
+  @media only screen and (max-width: 768px) {
+    margin-top: 20px;
+    height: 40px;
   }
 `;
 
