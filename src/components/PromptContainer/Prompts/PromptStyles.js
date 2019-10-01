@@ -14,8 +14,8 @@ export const Container = styled.div`
   @media only screen and (max-width: 1024px) {
     margin-top: 40px;
     img {
-      top: -45px;
-      width: 120px;
+      top: -75px;
+      height: 120px;
     }
   }
   @media only screen and (max-width: 768px) {
@@ -23,7 +23,8 @@ export const Container = styled.div`
     width: 100%;
     height: 420px;
     img {
-      top: -70px;
+      top: -60px;
+      height: 100px;
     }
     form {
       width: 95%;
@@ -34,7 +35,7 @@ export const Container = styled.div`
 export const Icon = styled.img`
   position: absolute;
   top: -90px;
-  height: 120px;
+  height: 140px;
 `;
 
 export const FormContainer = styled.form`

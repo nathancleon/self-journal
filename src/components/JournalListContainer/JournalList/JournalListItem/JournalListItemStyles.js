@@ -25,7 +25,7 @@ export const JListItem = styled.li`
   @media only screen and (max-width: 768px) {
     padding: 30px 5px;
     h4 {
-      font-size: 10px;
+      font-size: 14px;
     }
   }
 `;

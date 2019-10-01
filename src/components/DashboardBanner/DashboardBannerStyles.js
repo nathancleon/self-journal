@@ -23,11 +23,9 @@ export const ContentContainer = styled.div`
   height: auto;
   @media only screen and (max-width: 1024px) {
     width: 90%;
-    border: 1px solid red;
   }
   @media only screen and (max-width: 768px) {
     width: 99%;
-    border: 1px solid red;
   }
 `;
 
