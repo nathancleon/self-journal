@@ -38,9 +38,11 @@ export const ContentContainer = styled.div`
   }
 
   @media only screen and (max-width: 480px) {
+    height: auto;
+    min-height: auto;
     min-width: 100%;
     border-radius: 0px;
-    padding: 10px 25px;
+    padding: 5px 10px;
   }
 `;
 export const RecentJournalHeader = styled.div`
@@ -51,12 +53,18 @@ export const RecentJournalHeader = styled.div`
 export const RecentJournalTitle = styled.h2`
   font-size: 1.25rem;
   color: #5b5b5b;
+  @media only screen and (max-width: 480px) {
+    font-size: 16px;
+  }
 `;
 export const RecentJournalDate = styled.p`
   display: block;
   margin: auto 0;
   font-size: 1.25rem;
   color: #888;
+  @media only screen and (max-width: 480px) {
+    font-size: 16px;
+  }
 `;
 export const RecentJournal = styled.div`
   display: flex;
@@ -83,6 +91,7 @@ export const JournalQuestion = styled.div`
   @media only screen and (max-width: 920px) {
     h4 {
       font-size: 12px;
+      padding: 10px 20px;
     }
   }
 `;

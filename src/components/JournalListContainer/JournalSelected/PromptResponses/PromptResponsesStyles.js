@@ -29,7 +29,7 @@ export const HamburgerIcon = styled.div`
     left: 15px;
     cursor: pointer;
   }
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 1024px) {
     display: block;
   }
   @media only screen and (max-width: 400px) {
@@ -47,7 +47,7 @@ export const SelectedPromptHeader = styled.div`
   position: relative;
   height: 50px;
   margin-bottom: 20px;
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 1024px) {
     margin-bottom: 10px;
     margin-left: 40px;
   }
@@ -71,7 +71,7 @@ export const HeaderContent = styled.div`
     line-height: 15px;
     color: #888;
   }
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 1024px) {
     justify-content: center;
     width: 100%;
     h1 {
@@ -101,6 +101,9 @@ export const PromptIcons = styled.div`
   svg:nth-of-type(2) {
     fill: #5b5b5b;
     width: 22px;
+  }
+  @media only screen and (max-width: 1024px) {
+    margin-bottom: 5px;
   }
   @media only screen and (max-width: 420px) {
     margin-bottom: 2px;
