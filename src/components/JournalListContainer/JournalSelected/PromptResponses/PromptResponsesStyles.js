@@ -106,7 +106,7 @@ export const PromptIcons = styled.div`
     margin-bottom: 5px;
   }
   @media only screen and (max-width: 420px) {
-    margin-bottom: 2px;
+    margin-bottom: 8px;
     svg {
       width: 20px;
     }
@@ -114,9 +114,6 @@ export const PromptIcons = styled.div`
       fill: #5b5b5b;
       width: 18px;
     }
-  }
-  @media only screen and (max-width: 320px) {
-    margin-bottom: -2px;
   }
 `;
 

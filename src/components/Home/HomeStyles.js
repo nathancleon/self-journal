@@ -91,6 +91,10 @@ export const JournalQuestion = styled.div`
   @media only screen and (max-width: 920px) {
     h4 {
       font-size: 12px;
+    }
+  }
+  @media only screen and (max-width: 480px) {
+    h4 {
       padding: 10px 20px;
     }
   }
@@ -108,6 +112,11 @@ export const JournalAnswer = styled.div`
   @media only screen and (max-width: 920px) {
     h4 {
       font-size: 12px;
+    }
+  }
+  @media only screen and (max-width: 480px) {
+    h4 {
+      padding: 5px 20px;
     }
   }
 `;
