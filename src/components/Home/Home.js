@@ -51,7 +51,8 @@ class Home extends Component {
           createdDate: journal.created,
           answerValues: journal.answerValues,
           answerTextValues: journal.answerTextValues,
-          isLoading: false
+          isLoading: false,
+          noJournal: false
         });
       }
     });
