@@ -13,7 +13,8 @@ import {
   RecentJournal,
   RecentJournalData,
   JournalQuestion,
-  JournalAnswer
+  JournalAnswer,
+  NoJournal
 } from "./HomeStyles";
 
 class Home extends Component {
@@ -26,7 +27,7 @@ class Home extends Component {
       answerTextValues: {},
       createdDate: "",
       isLoading: false,
-      noJournal: false
+      noJournal: true
     };
   }
 
@@ -35,6 +36,9 @@ class Home extends Component {
     this.setState({
       isLoading: true
     });
+    if (!this.state.journal || this.state.journal.length === 0) {
+      this.setState({ noJournal: true, isLoading: false });
+    }
     this.props.fetchAllJournalData().then(() => {
       //reversed the order of journal items so most recent journal entry displays in selectedJournal
       console.log(this.props.journal);
@@ -71,33 +75,42 @@ class Home extends Component {
 
     return (
       <HomeContainer>
-        <ContentContainer>
-          <RecentJournalHeader>
-            <RecentJournalTitle>Most Recent Note</RecentJournalTitle>
-            <RecentJournalDate>
-              {moment(this.state.createdDate).format("LL")}
-            </RecentJournalDate>
-          </RecentJournalHeader>
-          <RecentJournal>
-            {Object.keys(promptData.data).map((key, index) => {
-              if (index === Object.keys(promptData.data).length - 1) {
-                return null;
-              } else {
-                return (
-                  <RecentJournalData key={index}>
-                    <JournalQuestion>
-                      <h4>{promptData.data[key].question}</h4>
-                    </JournalQuestion>
-                    <JournalAnswer>
-                      <h4>{this.renderAnswers(index)}</h4>
-                    </JournalAnswer>
-                  </RecentJournalData>
-                );
-              }
-            })}
-          </RecentJournal>
-        </ContentContainer>
-        <ContentContainer></ContentContainer>
+        {this.state.noJournal ? (
+          <NoJournal>
+            <p>No Journal Entries yet, click below to get started!</p>
+            <a href="/dashboard/prompts">Get Started</a>
+          </NoJournal>
+        ) : (
+          <>
+            <ContentContainer>
+              <RecentJournalHeader>
+                <RecentJournalTitle>Most Recent Note</RecentJournalTitle>
+                <RecentJournalDate>
+                  {moment(this.state.createdDate).format("LL")}
+                </RecentJournalDate>
+              </RecentJournalHeader>
+              <RecentJournal>
+                {Object.keys(promptData.data).map((key, index) => {
+                  if (index === Object.keys(promptData.data).length - 1) {
+                    return null;
+                  } else {
+                    return (
+                      <RecentJournalData key={index}>
+                        <JournalQuestion>
+                          <h4>{promptData.data[key].question}</h4>
+                        </JournalQuestion>
+                        <JournalAnswer>
+                          <h4>{this.renderAnswers(index)}</h4>
+                        </JournalAnswer>
+                      </RecentJournalData>
+                    );
+                  }
+                })}
+              </RecentJournal>
+            </ContentContainer>
+            <ContentContainer></ContentContainer>
+          </>
+        )}
       </HomeContainer>
     );
   }

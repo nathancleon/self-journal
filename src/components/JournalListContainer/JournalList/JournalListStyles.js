@@ -40,7 +40,7 @@ export const ListLabel = styled.div`
 
 export const NoItems = styled.p`
   padding-top: 30px;
-  padding-left: 15px;
+  text-align: center;
   @media only screen and (max-width: 1200px) {
      {
       font-size: 12px;

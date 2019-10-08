@@ -120,3 +120,37 @@ export const JournalAnswer = styled.div`
     }
   }
 `;
+
+export const NoJournal = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  max-width: 90%;
+  p {
+    font-size: 1rem;
+    text-align: center;
+  }
+  a {
+    padding: 15px;
+    width: 50%;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    align-self: center;
+    background-color: ${colors.main};
+    color: #fff;
+    font-weight: bold;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    margin-top: 30px;
+    cursor: pointer;
+    letter-spacing: 1px;
+    &:hover {
+      background-color: #fff;
+      color: #000;
+      font-weight: normal;
+    }
+  }
+`;

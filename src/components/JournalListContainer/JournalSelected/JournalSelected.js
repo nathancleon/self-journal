@@ -12,7 +12,8 @@ class JournalSelected extends Component {
       return (
         <JournalSelectedContainer>
           <NoJournalEntries>
-            You haven't created a journal entry yet
+            <p>You haven't created a journal entry yet</p>
+            <a href="/dashboard/prompts">Get Started</a>
           </NoJournalEntries>
         </JournalSelectedContainer>
       );
