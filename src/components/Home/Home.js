@@ -160,7 +160,7 @@ class Home extends Component {
                 <LineChart
                   data={data}
                   yAxis={yAxis}
-                  margin={{ top: 10, right: 0, bottom: 40, left: -60 }}
+                  margin={{ top: 10, right: 0, bottom: 40, left: 0 }}
                 >
                   <Line
                     type="monotone"

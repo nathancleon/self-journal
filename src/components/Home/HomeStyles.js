@@ -56,13 +56,11 @@ export const ChartContainer = styled(ContentContainer)`
   position: relative;
   .recharts-wrapper {
     position: relative;
-    padding: 5px;
     svg {
       position: absolute;
       bottom: 0;
-      left: 0;
+      left: -10px;
       right: 0;
-      margin: 0 auto;
       max-height: 80%;
       min-width: 100%;
 
