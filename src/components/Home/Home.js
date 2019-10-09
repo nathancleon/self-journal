@@ -19,6 +19,7 @@ import {
   HomeContainer,
   ContentContainer,
   ChartContainer,
+  SelectDate,
   RecentJournalHeader,
   RecentJournalTitle,
   RecentJournalDate,
@@ -82,14 +83,10 @@ class Home extends Component {
     this.setState({
       isLoading: true
     });
-    if (!this.state.journal || this.state.journal.length === 0) {
-      this.setState({ noJournal: true, isLoading: false });
-    }
     this.props.fetchAllJournalData().then(() => {
       //reversed the order of journal items so most recent journal entry displays in selectedJournal
-      console.log(this.props.journal);
-      if (this.props.journal.length === 0) {
-        return;
+      if (!this.props.journal || this.props.journal.length === 0) {
+        this.setState({ noJournal: true, isLoading: false });
       } else {
         let journal = this.props.journal[0];
         this.setState({
@@ -156,6 +153,15 @@ class Home extends Component {
               </RecentJournal>
             </ContentContainer>
             <ChartContainer>
+              <SelectDate>
+                <select>
+                  <option value="CurrentMonth">Current Month</option>
+                  <option value="PastMonth">Past Month</option>
+                  <option value="PastThreeMonths">Past Three Months</option>
+                  <option value="PastSixMonths">Past Six Months</option>
+                  <option value="PastYear">Past Year</option>
+                </select>
+              </SelectDate>
               <ResponsiveContainer>
                 <LineChart
                   data={data}

@@ -59,7 +59,7 @@ export const ChartContainer = styled(ContentContainer)`
     svg {
       position: absolute;
       bottom: 0;
-      left: -10px;
+      left: -20px;
       right: 0;
       max-height: 80%;
       min-width: 100%;
@@ -83,6 +83,23 @@ export const ChartContainer = styled(ContentContainer)`
     padding: 5px;
   }
 `;
+
+export const SelectDate = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: -50px;
+  position: relative;
+  z-index: 100;
+  select {
+    font-size: 1rem;
+    background-color: transparent;
+    height: 35px;
+    border: none;
+    border: 1px solid #ddd;
+  }
+`;
+
 export const RecentJournalHeader = styled.div`
   display: flex;
   justify-content: space-between;
