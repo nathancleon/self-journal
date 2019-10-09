@@ -45,6 +45,30 @@ export const ContentContainer = styled.div`
     padding: 5px 10px;
   }
 `;
+
+export const ChartContainer = styled(ContentContainer)`
+  padding: 0px;
+  max-width: auto;
+  min-width: 300px;
+  margin-left: 5px;
+  div {
+    padding: 5px;
+    svg {
+      max-width: 100%;
+    }
+  }
+  @media only screen and (max-width: 768px) {
+    min-width: 95%;
+  }
+
+  @media only screen and (max-width: 480px) {
+    height: auto;
+    min-height: auto;
+    min-width: 100%;
+    border-radius: 0px;
+    padding: 5px;
+  }
+`;
 export const RecentJournalHeader = styled.div`
   display: flex;
   justify-content: space-between;

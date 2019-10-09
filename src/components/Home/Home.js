@@ -1,5 +1,15 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { colors } from "../../globalStyles";
+import {
+  ResponsiveContainer,
+  LineChart,
+  Line,
+  CartesianGrid,
+  Tooltip,
+  XAxis,
+  YAxis
+} from "recharts";
 import moment from "moment";
 import { fetchAllJournalData } from "../../actions/JournalActions";
 import { Loading } from "../Loading/Loading";
@@ -7,6 +17,7 @@ import { promptData } from "../JournalListContainer/JournalSelected/PromptRespon
 import {
   HomeContainer,
   ContentContainer,
+  ChartContainer,
   RecentJournalHeader,
   RecentJournalTitle,
   RecentJournalDate,
@@ -16,6 +27,40 @@ import {
   JournalAnswer,
   NoJournal
 } from "./HomeStyles";
+
+const data = [
+  { self: Math.floor(Math.random() * 5) + 1, date: "07/1/19" },
+  { self: Math.floor(Math.random() * 5) + 1, date: "07/2/19" },
+  { self: Math.floor(Math.random() * 5) + 1, date: "07/3/19" },
+  { self: Math.floor(Math.random() * 5) + 1, date: "07/4/19" },
+  { self: Math.floor(Math.random() * 5) + 1, date: "07/5/19" },
+  { self: Math.floor(Math.random() * 5) + 1, date: "07/6/19" },
+  { self: Math.floor(Math.random() * 5) + 1, date: "07/7/19" },
+  { self: Math.floor(Math.random() * 5) + 1, date: "07/8/19" },
+  { self: Math.floor(Math.random() * 5) + 1, date: "07/9/19" },
+  { self: Math.floor(Math.random() * 5) + 1, date: "07/10/19" },
+  { self: Math.floor(Math.random() * 5) + 1, date: "07/11/19" },
+  { self: Math.floor(Math.random() * 5) + 1, date: "07/12/19" },
+  { self: Math.floor(Math.random() * 5) + 1, date: "07/13/19" },
+  { self: Math.floor(Math.random() * 5) + 1, date: "07/14/19" },
+  { self: Math.floor(Math.random() * 5) + 1, date: "07/15/19" },
+  { self: Math.floor(Math.random() * 5) + 1, date: "07/16/19" },
+  { self: Math.floor(Math.random() * 5) + 1, date: "07/17/19" },
+  { self: Math.floor(Math.random() * 5) + 1, date: "07/18/19" },
+  { self: Math.floor(Math.random() * 5) + 1, date: "07/19/19" },
+  { self: Math.floor(Math.random() * 5) + 1, date: "07/20/19" },
+  { self: Math.floor(Math.random() * 5) + 1, date: "07/21/19" },
+  { self: Math.floor(Math.random() * 5) + 1, date: "07/22/19" },
+  { self: Math.floor(Math.random() * 5) + 1, date: "07/23/19" },
+  { self: Math.floor(Math.random() * 5) + 1, date: "07/24/19" },
+  { self: Math.floor(Math.random() * 5) + 1, date: "07/25/19" },
+  { self: Math.floor(Math.random() * 5) + 1, date: "07/26/19" },
+  { self: Math.floor(Math.random() * 5) + 1, date: "07/27/19" },
+  { self: Math.floor(Math.random() * 5) + 1, date: "07/28/19" },
+  { self: Math.floor(Math.random() * 5) + 1, date: "07/29/19" },
+  { self: Math.floor(Math.random() * 5) + 1, date: "07/30/19" }
+];
+const yAxis = [1, 2, 3, 4, 5];
 
 class Home extends Component {
   constructor(props) {
@@ -109,7 +154,26 @@ class Home extends Component {
                 })}
               </RecentJournal>
             </ContentContainer>
-            <ContentContainer></ContentContainer>
+            <ChartContainer>
+              <ResponsiveContainer>
+                <LineChart
+                  data={data}
+                  yAxis={yAxis}
+                  margin={{ top: 5, right: 30, bottom: 15, left: -30 }}
+                >
+                  <Line
+                    type="monotone"
+                    stroke={colors.main}
+                    dataKey="self"
+                    activeDot={{ r: 6 }}
+                  />
+                  <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
+                  <Tooltip viewBox={{ x: 0, y: 0, width: 10, height: 10 }} />
+                  <XAxis label="January" dataKey="date" tick={false} />
+                  <YAxis type="number" domain={yAxis} allowDecimals={false} />
+                </LineChart>
+              </ResponsiveContainer>
+            </ChartContainer>
           </>
         )}
       </HomeContainer>
