@@ -5,6 +5,7 @@ import {
   ResponsiveContainer,
   LineChart,
   Line,
+  Label,
   CartesianGrid,
   Tooltip,
   XAxis,
@@ -159,17 +160,25 @@ class Home extends Component {
                 <LineChart
                   data={data}
                   yAxis={yAxis}
-                  margin={{ top: 5, right: 30, bottom: 15, left: -30 }}
+                  margin={{ top: 10, right: 0, bottom: 40, left: -60 }}
                 >
                   <Line
                     type="monotone"
                     stroke={colors.main}
                     dataKey="self"
-                    activeDot={{ r: 6 }}
+                    activeDot={{ r: 8 }}
+                    strokeWidth={3}
+                    isAnimationActive={false}
                   />
                   <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
                   <Tooltip viewBox={{ x: 0, y: 0, width: 10, height: 10 }} />
-                  <XAxis label="January" dataKey="date" tick={false} />
+                  <XAxis dataKey="date" tick={false}>
+                    <Label
+                      value="Overall Mental Health"
+                      offset={-10}
+                      position="bottom"
+                    />
+                  </XAxis>
                   <YAxis type="number" domain={yAxis} allowDecimals={false} />
                 </LineChart>
               </ResponsiveContainer>

@@ -21,7 +21,8 @@ class JournalListContainer extends Component {
       journalData: [],
       selectedJournal: null,
       isLoading: false,
-      expand: false
+      expand: false,
+      noJournals: false
     };
 
     this.changeSelectedJournal = this.changeSelectedJournal.bind(this);
@@ -30,17 +31,26 @@ class JournalListContainer extends Component {
 
   componentDidMount() {
     this.props.currentComponent("journals");
+
     this.setState({
       isLoading: true
     });
+
     this.props.fetchAllJournalData().then(() => {
       //reversed the order of journal items so most recent journal entry displays in selectedJournal
       const journals = this.props.journal.all;
-      this.setState({
-        journalData: journals,
-        selectedJournal: journals[0],
-        isLoading: false
-      });
+      if (journals.length === 0) {
+        this.setState({
+          noJournals: true,
+          isLoading: false
+        });
+      } else {
+        this.setState({
+          journalData: journals,
+          selectedJournal: journals[0],
+          isLoading: false
+        });
+      }
     });
   }
 
@@ -75,11 +85,16 @@ class JournalListContainer extends Component {
       selectedJournal,
       isLoading,
       expand,
-      error
+      noJournals
     } = this.state;
 
-    if (error) {
-      return <ErrorMessage> {error.message} </ErrorMessage>;
+    if (noJournals) {
+      return (
+        <ErrorMessage>
+          <p>You haven't created a journal entry yet</p>
+          <a href="/dashboard/prompts">Get started</a>
+        </ErrorMessage>
+      );
     }
 
     if (isLoading) {
@@ -98,18 +113,14 @@ class JournalListContainer extends Component {
             triggerJournalList={this.triggerJournalList}
           />
         </JournalListWrapper>
-        {isLoading ? (
-          <Loading />
-        ) : (
-          <JournalSelected
-            journal={selectedJournal}
-            changeJournal={this.changeSelectedJournal}
-            journalData={journalData}
-            updateJournalData={this.updateJournalData}
-            expand={expand}
-            triggerJournalList={this.triggerJournalList}
-          />
-        )}
+        <JournalSelected
+          journal={selectedJournal}
+          changeJournal={this.changeSelectedJournal}
+          journalData={journalData}
+          updateJournalData={this.updateJournalData}
+          expand={expand}
+          triggerJournalList={this.triggerJournalList}
+        />
       </Container>
     );
   }

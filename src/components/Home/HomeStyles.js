@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { colors } from "../../globalStyles";
+
 export const HomeContainer = styled.div`
   display: flex;
   position: relative;
@@ -11,14 +12,14 @@ export const HomeContainer = styled.div`
 
   @media only screen and (max-width: 1024px) {
     height: 100%;
+    max-width: 100%;
     flex-direction: column;
     justify-content: flex-start;
     overflow-y: scroll;
   }
 `;
 export const ContentContainer = styled.div`
-  width: 40%;
-  min-width: 450px;
+  width: 450px;
   height: 500px;
   padding: 15px 20px;
   border: 1px solid #ddd;
@@ -34,12 +35,14 @@ export const ContentContainer = styled.div`
   }
 
   @media only screen and (max-width: 768px) {
+    width: 95%;
     min-width: 95%;
   }
 
   @media only screen and (max-width: 480px) {
     height: auto;
     min-height: auto;
+    width: 100%;
     min-width: 100%;
     border-radius: 0px;
     padding: 5px 10px;
@@ -48,22 +51,35 @@ export const ContentContainer = styled.div`
 
 export const ChartContainer = styled(ContentContainer)`
   padding: 0px;
-  max-width: auto;
-  min-width: 300px;
+  min-width: 50%;
   margin-left: 5px;
-  div {
+  position: relative;
+  .recharts-wrapper {
+    position: relative;
     padding: 5px;
     svg {
-      max-width: 100%;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      max-height: 80%;
+      min-width: 100%;
+
+      .recharts-label {
+        tspan {
+          font-size: 18px;
+        }
+      }
     }
   }
   @media only screen and (max-width: 768px) {
+    margin-left: 0;
     min-width: 95%;
   }
 
   @media only screen and (max-width: 480px) {
-    height: auto;
-    min-height: auto;
+    min-height: 300px;
     min-width: 100%;
     border-radius: 0px;
     padding: 5px;
@@ -75,7 +91,7 @@ export const RecentJournalHeader = styled.div`
   width: 100%;
 `;
 export const RecentJournalTitle = styled.h2`
-  font-size: 1.25rem;
+  font-size: 1rem;
   color: #5b5b5b;
   @media only screen and (max-width: 480px) {
     font-size: 16px;
@@ -84,7 +100,7 @@ export const RecentJournalTitle = styled.h2`
 export const RecentJournalDate = styled.p`
   display: block;
   margin: auto 0;
-  font-size: 1.25rem;
+  font-size: 1rem;
   color: #888;
   @media only screen and (max-width: 480px) {
     font-size: 16px;
@@ -103,7 +119,7 @@ export const RecentJournalData = styled.div`
 export const JournalQuestion = styled.div`
   h4 {
     display: inline-block;
-    font-size: 0.75rem;
+    font-size: 11px;
     background-color: ${colors.main};
     color: #fff;
     border-radius: 25px;
@@ -119,14 +135,15 @@ export const JournalQuestion = styled.div`
   }
   @media only screen and (max-width: 480px) {
     h4 {
-      padding: 10px 20px;
+      font-size: 10px;
+      padding: 5px 10px;
     }
   }
 `;
 export const JournalAnswer = styled.div`
   h4 {
     display: inline-block;
-    font-size: 0.75rem;
+    font-size: 11px;
     background-color: #eee;
     color: #555;
     border-radius: 25px;
@@ -140,7 +157,8 @@ export const JournalAnswer = styled.div`
   }
   @media only screen and (max-width: 480px) {
     h4 {
-      padding: 5px 20px;
+      font-size: 10px;
+      padding: 5px 10px;
     }
   }
 `;
