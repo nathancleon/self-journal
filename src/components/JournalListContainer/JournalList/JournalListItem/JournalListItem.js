@@ -11,7 +11,7 @@ class JournalListItem extends Component {
           this.props.triggerJournalList();
         }}
       >
-        <h4>{moment(this.props.journal.created).format("LL")}</h4>
+        <p>{moment(this.props.journal.created).format("LL")}</p>
       </JListItem>
     );
   }

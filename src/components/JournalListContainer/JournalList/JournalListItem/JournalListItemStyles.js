@@ -11,21 +11,15 @@ export const JListItem = styled.li`
   &:last-of-type {
     border-bottom: 1px solid #ddd;
   }
-  h4 {
+  p {
     text-align: center;
-    color: #222;
-    font-size: 14px;
+    color: #555;
+    font-size: 1rem;
   }
   @media only screen and (max-width: 1024px) {
     padding: 20px;
-    h4 {
-      font-size: 12px;
-    }
   }
   @media only screen and (max-width: 768px) {
     padding: 30px 5px;
-    h4 {
-      font-size: 14px;
-    }
   }
 `;

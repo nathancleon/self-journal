@@ -15,6 +15,7 @@ import moment from "moment";
 import { fetchAllJournalData } from "../../actions/JournalActions";
 import { Loading } from "../Loading/Loading";
 import { promptData } from "../JournalListContainer/JournalSelected/PromptResponses/promptData";
+import { data } from "./data";
 import {
   HomeContainer,
   ContentContainer,
@@ -30,38 +31,6 @@ import {
   NoJournal
 } from "./HomeStyles";
 
-const data = [
-  { self: Math.floor(Math.random() * 5) + 1, date: "07/1/19" },
-  { self: Math.floor(Math.random() * 5) + 1, date: "07/2/19" },
-  { self: Math.floor(Math.random() * 5) + 1, date: "07/3/19" },
-  { self: Math.floor(Math.random() * 5) + 1, date: "07/4/19" },
-  { self: Math.floor(Math.random() * 5) + 1, date: "07/5/19" },
-  { self: Math.floor(Math.random() * 5) + 1, date: "07/6/19" },
-  { self: Math.floor(Math.random() * 5) + 1, date: "07/7/19" },
-  { self: Math.floor(Math.random() * 5) + 1, date: "07/8/19" },
-  { self: Math.floor(Math.random() * 5) + 1, date: "07/9/19" },
-  { self: Math.floor(Math.random() * 5) + 1, date: "07/10/19" },
-  { self: Math.floor(Math.random() * 5) + 1, date: "07/11/19" },
-  { self: Math.floor(Math.random() * 5) + 1, date: "07/12/19" },
-  { self: Math.floor(Math.random() * 5) + 1, date: "07/13/19" },
-  { self: Math.floor(Math.random() * 5) + 1, date: "07/14/19" },
-  { self: Math.floor(Math.random() * 5) + 1, date: "07/15/19" },
-  { self: Math.floor(Math.random() * 5) + 1, date: "07/16/19" },
-  { self: Math.floor(Math.random() * 5) + 1, date: "07/17/19" },
-  { self: Math.floor(Math.random() * 5) + 1, date: "07/18/19" },
-  { self: Math.floor(Math.random() * 5) + 1, date: "07/19/19" },
-  { self: Math.floor(Math.random() * 5) + 1, date: "07/20/19" },
-  { self: Math.floor(Math.random() * 5) + 1, date: "07/21/19" },
-  { self: Math.floor(Math.random() * 5) + 1, date: "07/22/19" },
-  { self: Math.floor(Math.random() * 5) + 1, date: "07/23/19" },
-  { self: Math.floor(Math.random() * 5) + 1, date: "07/24/19" },
-  { self: Math.floor(Math.random() * 5) + 1, date: "07/25/19" },
-  { self: Math.floor(Math.random() * 5) + 1, date: "07/26/19" },
-  { self: Math.floor(Math.random() * 5) + 1, date: "07/27/19" },
-  { self: Math.floor(Math.random() * 5) + 1, date: "07/28/19" },
-  { self: Math.floor(Math.random() * 5) + 1, date: "07/29/19" },
-  { self: Math.floor(Math.random() * 5) + 1, date: "07/30/19" }
-];
 const yAxis = [1, 2, 3, 4, 5];
 
 class Home extends Component {
@@ -74,7 +43,8 @@ class Home extends Component {
       answerTextValues: {},
       createdDate: "",
       isLoading: false,
-      noJournal: true
+      noJournal: true,
+      lastMonth: []
     };
   }
 
@@ -89,13 +59,23 @@ class Home extends Component {
         this.setState({ noJournal: true, isLoading: false });
       } else {
         let journal = this.props.journal[0];
+        const startOfMonth = moment().startOf("month");
+        const today = moment();
+        const dataLastMonth = data.filter(item => {
+          return (
+            new Date(item.date) <= new Date(today) &&
+            new Date(item.date) >= new Date(startOfMonth)
+          );
+        });
+        console.log(today);
         this.setState({
           recentJournal: journal,
           createdDate: journal.created,
           answerValues: journal.answerValues,
           answerTextValues: journal.answerTextValues,
           isLoading: false,
-          noJournal: false
+          noJournal: false,
+          lastMonth: dataLastMonth
         });
       }
     });
@@ -156,7 +136,7 @@ class Home extends Component {
               <SelectDate>
                 <select>
                   <option value="CurrentMonth">Current Month</option>
-                  <option value="PastMonth">Past Month</option>
+                  <option value="LastMonth">Last Month</option>
                   <option value="PastThreeMonths">Past Three Months</option>
                   <option value="PastSixMonths">Past Six Months</option>
                   <option value="PastYear">Past Year</option>
@@ -164,7 +144,7 @@ class Home extends Component {
               </SelectDate>
               <ResponsiveContainer>
                 <LineChart
-                  data={data}
+                  data={this.state.lastMonth}
                   yAxis={yAxis}
                   margin={{ top: 10, right: 0, bottom: 40, left: 0 }}
                 >
