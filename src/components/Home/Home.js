@@ -1,26 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { colors } from "../../globalStyles";
-import {
-  ResponsiveContainer,
-  LineChart,
-  Line,
-  Label,
-  CartesianGrid,
-  Tooltip,
-  XAxis,
-  YAxis
-} from "recharts";
 import moment from "moment";
 import { fetchAllJournalData } from "../../actions/JournalActions";
 import { Loading } from "../Loading/Loading";
 import { promptData } from "../JournalListContainer/JournalSelected/PromptResponses/promptData";
-import { data } from "./data";
 import {
   HomeContainer,
   ContentContainer,
   ChartContainer,
-  SelectDate,
   RecentJournalHeader,
   RecentJournalTitle,
   RecentJournalDate,
@@ -30,8 +17,7 @@ import {
   JournalAnswer,
   NoJournal
 } from "./HomeStyles";
-
-const yAxis = [1, 2, 3, 4, 5];
+import Chart from "./Chart";
 
 class Home extends Component {
   constructor(props) {
@@ -59,23 +45,13 @@ class Home extends Component {
         this.setState({ noJournal: true, isLoading: false });
       } else {
         let journal = this.props.journal[0];
-        const startOfMonth = moment().startOf("month");
-        const today = moment();
-        const dataLastMonth = data.filter(item => {
-          return (
-            new Date(item.date) <= new Date(today) &&
-            new Date(item.date) >= new Date(startOfMonth)
-          );
-        });
-        console.log(today);
         this.setState({
           recentJournal: journal,
           createdDate: journal.created,
           answerValues: journal.answerValues,
           answerTextValues: journal.answerTextValues,
           isLoading: false,
-          noJournal: false,
-          lastMonth: dataLastMonth
+          noJournal: false
         });
       }
     });
@@ -133,41 +109,7 @@ class Home extends Component {
               </RecentJournal>
             </ContentContainer>
             <ChartContainer>
-              <SelectDate>
-                <select>
-                  <option value="CurrentMonth">Current Month</option>
-                  <option value="LastMonth">Last Month</option>
-                  <option value="PastThreeMonths">Past Three Months</option>
-                  <option value="PastSixMonths">Past Six Months</option>
-                  <option value="PastYear">Past Year</option>
-                </select>
-              </SelectDate>
-              <ResponsiveContainer>
-                <LineChart
-                  data={this.state.lastMonth}
-                  yAxis={yAxis}
-                  margin={{ top: 10, right: 0, bottom: 40, left: 0 }}
-                >
-                  <Line
-                    type="monotone"
-                    stroke={colors.main}
-                    dataKey="self"
-                    activeDot={{ r: 8 }}
-                    strokeWidth={3}
-                    isAnimationActive={false}
-                  />
-                  <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
-                  <Tooltip viewBox={{ x: 0, y: 0, width: 10, height: 10 }} />
-                  <XAxis dataKey="date" tick={false}>
-                    <Label
-                      value="Overall Mental Health"
-                      offset={-10}
-                      position="bottom"
-                    />
-                  </XAxis>
-                  <YAxis type="number" domain={yAxis} allowDecimals={false} />
-                </LineChart>
-              </ResponsiveContainer>
+              <Chart />
             </ChartContainer>
           </>
         )}
