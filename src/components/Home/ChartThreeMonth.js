@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+aimport React, { Component } from "react";
 import moment from "moment";
 import { colors } from "../../globalStyles";
 import {
@@ -14,18 +14,31 @@ import {
 import { data } from "./data";
 import { SelectDate } from "./HomeStyles";
 
-let yAxis = [1, 2, 3, 4, 5];
-
 export class Chart extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      yAxis: [0, 25, 50, 75, 100, 150],
       currentMonth: [],
       lastMonth: [],
       lastThreeMonths: [],
+      threeMonthFilter: false,
       lastSixMonths: [],
       lastYear: [],
-      data: []
+      data: [
+        {
+          self: 0,
+          month: "january"
+        },
+        {
+          self: 28,
+          month: "february"
+        },
+        {
+          self: 68,
+          month: "march"
+        }
+      ]
     };
 
     this.getCurrentMonthData = this.getCurrentMonthData.bind(this);
@@ -35,7 +48,6 @@ export class Chart extends Component {
   }
 
   getCurrentMonthData() {
-    yAxis = [1, 2, 3, 4, 5];
     const startOfMonth = moment().startOf("month");
     const today = moment();
     const currentMonthData = data.filter(item => {
@@ -48,10 +60,10 @@ export class Chart extends Component {
       currentMonth: currentMonthData,
       data: currentMonthData
     });
+    console.log(currentMonthData);
   }
 
   getLastMonthData() {
-    yAxis = [1, 2, 3, 4, 5];
     const firstOfLastMonth = moment()
       .subtract(1, "months")
       .startOf("month");
@@ -130,10 +142,11 @@ export class Chart extends Component {
       secondMonthData,
       thirdMonthData
     ]);
-    yAxis = [1, 25, 50, 75, 100, 125, 150];
     console.log(totalDataArray);
     this.setState({
-      data: totalDataArray
+      threeMonthFilter: true,
+      data: totalDataArray,
+      yAxis: [1, 25, 50, 75, 100, 125, 150]
     });
   }
 
@@ -149,13 +162,13 @@ export class Chart extends Component {
   }
 
   componentDidMount() {
-    this.getCurrentMonthData();
+    // this.getCurrentMonthData();
   }
 
   render() {
     return (
       <>
-        <SelectDate>
+        {/* <SelectDate>
           <select
             name="selectDate"
             onChange={event => this.updateDateData(event)}
@@ -166,11 +179,11 @@ export class Chart extends Component {
             <option value="lastSixMonths">Last Six Months</option>
             <option value="lastYear">Last Year</option>
           </select>
-        </SelectDate>
+        </SelectDate> */}
         <ResponsiveContainer>
           <LineChart
             data={this.state.data}
-            yAxis={yAxis}
+            yAxis={this.state.yAxis}
             margin={{ top: 10, right: 0, bottom: 40, left: 0 }}
           >
             <Line
@@ -183,14 +196,15 @@ export class Chart extends Component {
             />
             <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
             <Tooltip viewBox={{ x: 0, y: 0, width: 10, height: 10 }} />
-            <XAxis dataKey="date" tick={false}>
+            <XAxis dataKey="month" tick={false}>
               <Label
                 value="Overall Mental Health"
                 offset={-10}
                 position="bottom"
               />
             </XAxis>
-            <YAxis type="number" domain={yAxis} allowDecimals={false} />
+
+            <YAxis type="number" domain={[0, 150]} allowDecimals={false} />
           </LineChart>
         </ResponsiveContainer>
       </>
@@ -198,4 +212,4 @@ export class Chart extends Component {
   }
 }
 
-export default Chart;
+export default ChartThreeMonth;
