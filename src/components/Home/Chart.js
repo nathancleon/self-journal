@@ -23,9 +23,6 @@ export class Chart extends Component {
       rangeIsMoreThanThreeMonths: false
     };
 
-    this.getCurrentMonthData = this.getCurrentMonthData.bind(this);
-    this.getLastMonthData = this.getLastMonthData.bind(this);
-    this.getLastThreeMonthsData = this.getLastThreeMonthsData.bind(this);
     this.updateDateData = this.updateDateData.bind(this);
   }
 
