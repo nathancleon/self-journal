@@ -25,6 +25,19 @@ export const ContentContainer = styled.div`
   border: 1px solid #ddd;
   border-radius: 8px;
   background-color: #fff;
+  .recharts-tooltip-wrapper {
+    display: block !important;
+    padding: 10px !important;
+    background-color: #fff !important;
+    border: 1px solid #ddd !important;
+    box-shadow: 0 1px 6px 0 rgba(21, 27, 38, 0.15) !important;
+    p:first-of-type {
+      color: #555;
+    }
+    p:last-of-type {
+      color: ${colors.main};
+    }
+  }
 
   @media only screen and (max-width: 1024px) {
     min-width: 80%;
@@ -97,6 +110,19 @@ export const SelectDate = styled.div`
     height: 35px;
     border: none;
     border: 1px solid #ddd;
+  }
+`;
+
+export const StyledTooltip = styled.div`
+  .tooltip-wrapper {
+    display: block;
+    width: 80px;
+    height: 50px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+  }
+  p {
+    font-size: 12px;
   }
 `;
 

@@ -14,18 +14,13 @@ import {
 import { data } from "./data";
 import { SelectDate } from "./HomeStyles";
 
-let yAxis = [1, 2, 3, 4, 5];
-
 export class Chart extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentMonth: [],
-      lastMonth: [],
-      lastThreeMonths: [],
-      lastSixMonths: [],
-      lastYear: [],
-      data: []
+      data: [],
+      yAxis: [1, 2, 3, 4, 5],
+      rangeIsMoreThanThreeMonths: false
     };
 
     this.getCurrentMonthData = this.getCurrentMonthData.bind(this);
@@ -35,7 +30,6 @@ export class Chart extends Component {
   }
 
   getCurrentMonthData() {
-    yAxis = [1, 2, 3, 4, 5];
     const startOfMonth = moment().startOf("month");
     const today = moment();
     const currentMonthData = data.filter(item => {
@@ -45,13 +39,13 @@ export class Chart extends Component {
       );
     });
     this.setState({
-      currentMonth: currentMonthData,
-      data: currentMonthData
+      data: currentMonthData,
+      yAxis: [1, 2, 3, 4, 5],
+      rangeIsMoreThanThreeMonths: false
     });
   }
 
   getLastMonthData() {
-    yAxis = [1, 2, 3, 4, 5];
     const firstOfLastMonth = moment()
       .subtract(1, "months")
       .startOf("month");
@@ -65,86 +59,88 @@ export class Chart extends Component {
       );
     });
     this.setState({
-      lastMonth: lastMonthData,
-      data: lastMonthData
+      data: lastMonthData,
+      yAxis: [1, 2, 3, 4, 5],
+      rangeIsMoreThanThreeMonths: false
     });
   }
 
+  filterByRange(data, range) {
+    const startOfRange = moment()
+      .subtract(range, "months")
+      .startOf("month");
+    const endofRange = moment()
+      .subtract(range, "months")
+      .endOf("month");
+    const filterByDateRange = data.filter(item => {
+      return (
+        new Date(item.date) >= new Date(startOfRange) &&
+        new Date(item.date) <= new Date(endofRange)
+      );
+    });
+    let filteredData;
+
+    if (filterByDateRange.length === 0 || filterByDateRange === undefined) {
+      return;
+    } else {
+      filteredData = filterByDateRange
+        .map(item => item.self)
+        .reduce((a, b) => a + b);
+    }
+
+    let result = {
+      self: filteredData,
+      month: moment(startOfRange).format("MMMM")
+    };
+
+    return result;
+  }
+
+  getDataByRange(data, range) {
+    let filteredData = [];
+    for (let i = 0; i < range; i++) {
+      if (this.filterByRange(data, i) !== undefined) {
+        filteredData.push(this.filterByRange(data, i));
+      }
+    }
+    return filteredData;
+  }
+
   getLastThreeMonthsData() {
-    const lastMonthArray = [];
-    const secondMonthArray = [];
-    const thirdMonthArray = [];
-    const totalDataArray = [];
-    const firstOfLastMonth = moment()
-      .subtract(1, "months")
-      .startOf("month");
-    const endofLastMonth = moment()
-      .subtract(1, "months")
-      .endOf("month");
-    const firstOfSecondMonth = moment()
-      .subtract(2, "months")
-      .startOf("month");
-    const endofSecondMonth = moment()
-      .subtract(2, "months")
-      .endOf("month");
-    const firstOfThirdMonth = moment()
-      .subtract(3, "months")
-      .startOf("month");
-    const endofThirdMonth = moment()
-      .subtract(3, "months")
-      .endOf("month");
-
-    const currentDate = moment();
-
-    data
-      .filter(item => {
-        return (
-          new Date(item.date) >= new Date(firstOfLastMonth) &&
-          new Date(item.date) <= new Date(endofLastMonth)
-        );
-      })
-      .map(item => lastMonthArray.push(item.self));
-
-    data
-      .filter(item => {
-        return (
-          new Date(item.date) >= new Date(firstOfSecondMonth) &&
-          new Date(item.date) <= new Date(endofSecondMonth)
-        );
-      })
-      .map(item => secondMonthArray.push(item.self));
-
-    data
-      .filter(item => {
-        return (
-          new Date(item.date) >= new Date(firstOfThirdMonth) &&
-          new Date(item.date) <= new Date(endofThirdMonth)
-        );
-      })
-      .map(item => thirdMonthArray.push(item.self));
-    let lastMonthData = lastMonthArray.reduce((a, b) => a + b);
-    let secondMonthData = secondMonthArray.reduce((a, b) => a + b);
-    let thirdMonthData = thirdMonthArray.reduce((a, b) => a + b);
-    totalDataArray.push.apply(totalDataArray, [
-      lastMonthData,
-      secondMonthData,
-      thirdMonthData
-    ]);
-    yAxis = [1, 25, 50, 75, 100, 125, 150];
-    console.log(totalDataArray);
     this.setState({
-      data: totalDataArray
+      data: this.getDataByRange(data, 3).reverse(),
+      rangeIsMoreThanThreeMonths: true,
+      yAxis: [0, 155]
+    });
+  }
+
+  getLastSixMonthsData() {
+    this.setState({
+      data: this.getDataByRange(data, 6).reverse(),
+      rangeIsMoreThanThreeMonths: true,
+      yAxis: [0, 155]
+    });
+  }
+
+  getPastYearData() {
+    this.setState({
+      data: this.getDataByRange(data, 12).reverse(),
+      rangeIsMoreThanThreeMonths: true,
+      yAxis: [0, 155]
     });
   }
 
   updateDateData(event) {
-    console.log("this ran");
     if (event.target.value === "currentMonth") {
       this.getCurrentMonthData();
     } else if (event.target.value === "lastMonth") {
       this.getLastMonthData();
     } else if (event.target.value === "lastThreeMonths") {
       this.getLastThreeMonthsData();
+    } else if (event.target.value === "lastSixMonths") {
+      this.getLastSixMonthsData();
+    } else if (event.target.value === "lastYear") {
+      this.getPastYearData();
     }
   }
 
@@ -170,20 +166,33 @@ export class Chart extends Component {
         <ResponsiveContainer>
           <LineChart
             data={this.state.data}
-            yAxis={yAxis}
+            yAxis={this.state.yAxis}
             margin={{ top: 10, right: 0, bottom: 40, left: 0 }}
           >
             <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
+            {this.state.rangeIsMoreThanThreeMonths ? (
+              <XAxis dataKey="month" tick={false}>
+                <Label
+                  value="Overall Mental Health"
+                  offset={-10}
+                  position="bottom"
+                />
+              </XAxis>
+            ) : (
+              <XAxis dataKey="date" tick={false}>
+                <Label
+                  value="Overall Mental Health"
+                  offset={-10}
+                  position="bottom"
+                />
+              </XAxis>
+            )}
 
-            <XAxis dataKey="date" tick={false}>
-              <Label
-                value="Overall Mental Health"
-                offset={-10}
-                position="bottom"
-              />
-            </XAxis>
-            <YAxis type="number" domain={yAxis} allowDecimals={false} />
-            <Tooltip viewBox={{ x: 0, y: 0, width: 10, height: 10 }} />
+            <YAxis domain={this.state.yAxis} allowDecimals={false} />
+            <Tooltip
+              viewBox={{ x: 0, y: 0, width: 10, height: 10 }}
+              content={<CustomTooltip />}
+            />
             <Line
               type="monotone"
               stroke={colors.main}
@@ -198,5 +207,18 @@ export class Chart extends Component {
     );
   }
 }
+
+const CustomTooltip = ({ active, payload, label }) => {
+  if (active) {
+    return (
+      <div>
+        <p>{`${label}`}</p>
+        <p>{`score: ${payload[0].value}`}</p>
+      </div>
+    );
+  }
+
+  return null;
+};
 
 export default Chart;
