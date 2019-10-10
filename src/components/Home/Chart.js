@@ -173,16 +173,8 @@ export class Chart extends Component {
             yAxis={yAxis}
             margin={{ top: 10, right: 0, bottom: 40, left: 0 }}
           >
-            <Line
-              type="monotone"
-              stroke={colors.main}
-              dataKey="self"
-              activeDot={{ r: 8 }}
-              strokeWidth={3}
-              isAnimationActive={false}
-            />
             <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
-            <Tooltip viewBox={{ x: 0, y: 0, width: 10, height: 10 }} />
+
             <XAxis dataKey="date" tick={false}>
               <Label
                 value="Overall Mental Health"
@@ -191,6 +183,15 @@ export class Chart extends Component {
               />
             </XAxis>
             <YAxis type="number" domain={yAxis} allowDecimals={false} />
+            <Tooltip viewBox={{ x: 0, y: 0, width: 10, height: 10 }} />
+            <Line
+              type="monotone"
+              stroke={colors.main}
+              dataKey="self"
+              activeDot={{ r: 8 }}
+              strokeWidth={3}
+              isAnimationActive={false}
+            />
           </LineChart>
         </ResponsiveContainer>
       </>
