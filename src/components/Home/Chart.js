@@ -75,8 +75,8 @@ export class Chart extends Component {
         new Date(item.date) <= new Date(endofRange)
       );
     });
-    let filteredData;
 
+    let filteredData;
     if (filterByDateRange.length === 0 || filterByDateRange === undefined) {
       return;
     } else {
@@ -107,7 +107,7 @@ export class Chart extends Component {
     this.setState({
       data: this.getDataByRange(data, 3).reverse(),
       rangeIsMoreThanThreeMonths: true,
-      yAxis: [0, 155]
+      yAxis: ["dataMin", "dataMax"]
     });
   }
 
@@ -115,7 +115,7 @@ export class Chart extends Component {
     this.setState({
       data: this.getDataByRange(data, 6).reverse(),
       rangeIsMoreThanThreeMonths: true,
-      yAxis: [0, 155]
+      yAxis: ["dataMin", "dataMax"]
     });
   }
 
@@ -123,7 +123,7 @@ export class Chart extends Component {
     this.setState({
       data: this.getDataByRange(data, 12).reverse(),
       rangeIsMoreThanThreeMonths: true,
-      yAxis: [0, 155]
+      yAxis: ["dataMin", "dataMax"]
     });
   }
 
@@ -170,7 +170,7 @@ export class Chart extends Component {
             {this.state.rangeIsMoreThanThreeMonths ? (
               <XAxis dataKey="month" tick={false}>
                 <Label
-                  value="Overall Mental Health"
+                  value="Overall Mental Health (example data)"
                   offset={-10}
                   position="bottom"
                 />
@@ -178,7 +178,7 @@ export class Chart extends Component {
             ) : (
               <XAxis dataKey="date" tick={false}>
                 <Label
-                  value="Overall Mental Health"
+                  value="Overall Mental Health (example data)"
                   offset={-10}
                   position="bottom"
                 />

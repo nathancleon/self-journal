@@ -79,7 +79,7 @@ export const ChartContainer = styled(ContentContainer)`
 
       .recharts-label {
         tspan {
-          font-size: 18px;
+          font-size: 20px;
         }
       }
     }
