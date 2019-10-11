@@ -134,7 +134,7 @@ export const NoteCount = styled.p`
   color: #fff;
   text-align: center;
   background-color: ${colors.main};
-  border-radius: 10px;
+  border-radius: 25px;
   @media only screen and (max-width: 768px) {
     max-width: 100%;
   }
