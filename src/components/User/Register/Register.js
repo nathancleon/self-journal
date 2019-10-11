@@ -70,6 +70,7 @@ class Register extends Component {
   }
 
   handleSubmit(event) {
+    console.log("this ran");
     event.preventDefault();
     this.emailAndPasswordValidation();
 
@@ -80,7 +81,8 @@ class Register extends Component {
         this.state.passwordLengthError === false
       ) {
         this.setState({
-          isLoading: false
+          isLoading: false,
+          toDashboard: true
         });
       }
     });
