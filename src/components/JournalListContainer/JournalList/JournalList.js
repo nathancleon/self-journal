@@ -9,6 +9,7 @@ class JournalList extends Component {
       return (
         <JournalListItem
           onJournalSelect={this.props.onJournalSelect}
+          triggerJournalList={this.props.triggerJournalList}
           key={index}
           journal={element}
           position={index}

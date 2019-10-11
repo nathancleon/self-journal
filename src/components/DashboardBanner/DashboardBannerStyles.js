@@ -7,11 +7,11 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 200px;
+  min-height: 200px;
   background-color: #fff;
   border-bottom: 1px solid #ddd;
   @media only screen and (max-width: 768px) {
-    height: 240px;
+    min-height: 240px;
   }
 `;
 
@@ -23,11 +23,9 @@ export const ContentContainer = styled.div`
   height: auto;
   @media only screen and (max-width: 1024px) {
     width: 90%;
-    border: 1px solid red;
   }
   @media only screen and (max-width: 768px) {
     width: 99%;
-    border: 1px solid red;
   }
 `;
 

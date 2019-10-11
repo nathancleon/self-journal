@@ -16,7 +16,28 @@ export const DataContainer = styled.div`
   height: 100%;
   padding: 20px 40px;
   @media only screen and (max-width: 768px) {
-    padding: 20px 15px 20px 70px;
+    padding: 20px 15px 20px 20px;
+  }
+`;
+
+export const HamburgerIcon = styled.div`
+  display: none;
+  svg {
+    width: 22px;
+    position: absolute;
+    top: 36px;
+    left: 15px;
+    cursor: pointer;
+  }
+  @media only screen and (max-width: 1024px) {
+    display: block;
+  }
+  @media only screen and (max-width: 400px) {
+    svg {
+      width: 18px;
+      top: 40px;
+      left: 20px;
+    }
   }
 `;
 
@@ -26,8 +47,9 @@ export const SelectedPromptHeader = styled.div`
   position: relative;
   height: 50px;
   margin-bottom: 20px;
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 1024px) {
     margin-bottom: 10px;
+    margin-left: 40px;
   }
 `;
 
@@ -49,6 +71,17 @@ export const HeaderContent = styled.div`
     line-height: 15px;
     color: #888;
   }
+  @media only screen and (max-width: 1024px) {
+    justify-content: center;
+    width: 100%;
+    h1 {
+      display: none;
+    }
+    h2 {
+      font-size: 1rem;
+      margin-left: 0;
+    }
+  }
 `;
 
 export const PromptIcons = styled.div`
@@ -68,6 +101,19 @@ export const PromptIcons = styled.div`
   svg:nth-of-type(2) {
     fill: #5b5b5b;
     width: 22px;
+  }
+  @media only screen and (max-width: 1024px) {
+    margin-bottom: 5px;
+  }
+  @media only screen and (max-width: 420px) {
+    margin-bottom: 8px;
+    svg {
+      width: 20px;
+    }
+    svg:nth-of-type(2) {
+      fill: #5b5b5b;
+      width: 18px;
+    }
   }
 `;
 

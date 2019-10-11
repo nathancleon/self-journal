@@ -12,7 +12,8 @@ class JournalSelected extends Component {
       return (
         <JournalSelectedContainer>
           <NoJournalEntries>
-            You haven't created a journal entry yet
+            <p>You haven't created a journal entry yet</p>
+            <a href="/dashboard/prompts">Get Started</a>
           </NoJournalEntries>
         </JournalSelectedContainer>
       );
@@ -25,6 +26,7 @@ class JournalSelected extends Component {
           changeJournal={this.props.changeJournal}
           journalData={this.props.journalData}
           updateJournalData={this.props.updateJournalData}
+          triggerJournalList={this.props.triggerJournalList}
         />
       </JournalSelectedContainer>
     );

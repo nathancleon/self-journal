@@ -10,7 +10,6 @@ export const Banner = styled.div`
   background-color: #fff;
   z-index: 0;
   padding-top: 20vw;
-  padding-bottom: 10vw;
   svg {
     width: 35vw;
     min-width: 400px;

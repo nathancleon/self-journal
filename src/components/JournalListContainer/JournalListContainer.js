@@ -20,27 +20,37 @@ class JournalListContainer extends Component {
     this.state = {
       journalData: [],
       selectedJournal: null,
-      isLoading: false
+      isLoading: false,
+      expand: false,
+      noJournals: false
     };
 
     this.changeSelectedJournal = this.changeSelectedJournal.bind(this);
+    this.triggerJournalList = this.triggerJournalList.bind(this);
   }
 
   componentDidMount() {
     this.props.currentComponent("journals");
+
     this.setState({
       isLoading: true
     });
+
     this.props.fetchAllJournalData().then(() => {
-      console.log(this.props.journal);
       //reversed the order of journal items so most recent journal entry displays in selectedJournal
       const journals = this.props.journal.all;
-      console.log(journals[0]);
-      this.setState({
-        journalData: journals,
-        selectedJournal: journals[0],
-        isLoading: false
-      });
+      if (journals.length === 0) {
+        this.setState({
+          noJournals: true,
+          isLoading: false
+        });
+      } else {
+        this.setState({
+          journalData: journals,
+          selectedJournal: journals[0],
+          isLoading: false
+        });
+      }
     });
   }
 
@@ -57,11 +67,34 @@ class JournalListContainer extends Component {
     });
   }
 
-  render() {
-    const { journalData, selectedJournal, isLoading, error } = this.state;
+  triggerJournalList() {
+    if (this.state.expand === false) {
+      this.setState({
+        expand: true
+      });
+    } else {
+      this.setState({
+        expand: false
+      });
+    }
+  }
 
-    if (error) {
-      return <ErrorMessage> {error.message} </ErrorMessage>;
+  render() {
+    const {
+      journalData,
+      selectedJournal,
+      isLoading,
+      expand,
+      noJournals
+    } = this.state;
+
+    if (noJournals) {
+      return (
+        <ErrorMessage>
+          <p>You haven't created a journal entry yet</p>
+          <a href="/dashboard/prompts">Get started</a>
+        </ErrorMessage>
+      );
     }
 
     if (isLoading) {
@@ -70,25 +103,24 @@ class JournalListContainer extends Component {
 
     return (
       <Container>
-        <JournalListWrapper>
+        <JournalListWrapper expand={expand}>
           <JournalList
             onJournalSelect={(selectedJournal, positionKey) => {
               selectedJournal.position = positionKey;
               this.props.saveSelectedJournal(selectedJournal);
             }}
             journals={journalData}
+            triggerJournalList={this.triggerJournalList}
           />
         </JournalListWrapper>
-        {isLoading ? (
-          <Loading />
-        ) : (
-          <JournalSelected
-            journal={selectedJournal}
-            changeJournal={this.changeSelectedJournal}
-            journalData={journalData}
-            updateJournalData={this.updateJournalData}
-          />
-        )}
+        <JournalSelected
+          journal={selectedJournal}
+          changeJournal={this.changeSelectedJournal}
+          journalData={journalData}
+          updateJournalData={this.updateJournalData}
+          expand={expand}
+          triggerJournalList={this.triggerJournalList}
+        />
       </Container>
     );
   }

@@ -6,22 +6,20 @@ import {
 } from "../../../../actions/JournalActions";
 import { connect } from "react-redux";
 import { promptData } from "./promptData";
+import { colors } from "../../../../globalStyles";
+import { TriggerListIcon } from "../../../../SvgComponents/NavIcons";
 import {
   SelectedPromptContainer,
   DataContainer,
+  HamburgerIcon,
   SelectedPromptHeader,
   HeaderContent,
   PromptIcons,
   SelectedPromptData,
   UserAnswers,
   UserTextAnswers,
-  SubmitButton,
-  NavigateLeft,
-  NavigateRight,
-  NavigationDisabled
+  SubmitButton
 } from "./PromptResponsesStyles";
-import LeftArrow from "../../../../Assets/angle-left.svg";
-import RightArrow from "../../../../Assets/angle-right.svg";
 
 class PromptResponses extends Component {
   constructor(props) {
@@ -49,8 +47,6 @@ class PromptResponses extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props.journal);
-
     this.setState({
       id: this.props.journal._id
     });
@@ -115,7 +111,7 @@ class PromptResponses extends Component {
       <UserAnswers>
         <p>Answer: </p>
         <select
-          onChange={this.saveAnswerEditValue.bind(this)}
+          onBlur={this.saveAnswerEditValue.bind(this)}
           defaultValue={journalAnswerArray[questionIndex]}
           name={responsePropertiesArray[questionIndex]}
         >
@@ -131,7 +127,7 @@ class PromptResponses extends Component {
     let userTextValue = journalTextArray[questionIndex];
     return (
       <textarea
-        onChange={this.saveAnswerEditTextValue.bind(this)}
+        onBlur={this.saveAnswerEditTextValue.bind(this)}
         rows="4"
         cols="50"
         key={questionKey}
@@ -199,8 +195,6 @@ class PromptResponses extends Component {
     this.setState({
       makeEdit: false
     });
-    console.log(newData);
-    console.log(id);
 
     return this.props.updateJournalData(newData, id);
   }
@@ -270,6 +264,9 @@ class PromptResponses extends Component {
     return (
       <SelectedPromptContainer>
         <DataContainer>
+          <HamburgerIcon onClick={this.props.triggerJournalList}>
+            <TriggerListIcon fill={colors.backgroundDark} alt="trigger list" />
+          </HamburgerIcon>
           <SelectedPromptHeader>
             <HeaderContent>
               <h1>Journal</h1>
