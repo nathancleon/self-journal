@@ -7,6 +7,7 @@ import { promptData } from "../JournalListContainer/JournalSelected/PromptRespon
 import {
   HomeContainer,
   ContentContainer,
+  ChartContentContainer,
   ChartContainer,
   RecentJournalHeader,
   RecentJournalTitle,
@@ -37,7 +38,7 @@ class Home extends Component {
   componentDidMount() {
     this.props.currentComponent("home");
     this.setState({
-      isLoading: true
+      isLoading: false
     });
     this.props.fetchAllJournalData().then(() => {
       //reversed the order of journal items so most recent journal entry displays in selectedJournal
@@ -76,10 +77,9 @@ class Home extends Component {
     return (
       <HomeContainer>
         {this.state.noJournal ? (
-          <NoJournal>
-            <p>No Journal Entries yet, click below to get started!</p>
-            <a href="/dashboard/prompts">Get Started</a>
-          </NoJournal>
+          <ChartContainer>
+            <Chart />
+          </ChartContainer>
         ) : (
           <>
             <ContentContainer>
@@ -108,9 +108,11 @@ class Home extends Component {
                 })}
               </RecentJournal>
             </ContentContainer>
-            <ChartContainer>
-              <Chart />
-            </ChartContainer>
+            <ChartContentContainer>
+              <ChartContainer>
+                <Chart />
+              </ChartContainer>
+            </ChartContentContainer>
           </>
         )}
       </HomeContainer>

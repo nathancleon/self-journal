@@ -62,46 +62,63 @@ export const ContentContainer = styled.div`
   }
 `;
 
-export const ChartContainer = styled(ContentContainer)`
+export const ChartContentContainer = styled(ContentContainer)`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: 0px;
   min-width: 50%;
   margin-left: 5px;
   position: relative;
-  .recharts-wrapper {
-    position: relative;
-    svg {
-      position: absolute;
-      bottom: 0;
-      left: -20px;
-      right: 0;
-      max-height: 80%;
-      min-width: 100%;
-
-      .recharts-label {
-        tspan {
-          font-size: 20px;
-        }
-      }
-    }
-  }
   @media only screen and (max-width: 768px) {
     margin-left: 0;
     min-width: 95%;
   }
-
   @media only screen and (max-width: 480px) {
-    min-height: 300px;
+    min-height: auto;
     min-width: 100%;
+    height: auto;
     border-radius: 0px;
-    padding: 5px;
+    padding: 0;
+    .recharts-wrapper svg tspan {
+      font-size: 12px !important;
+    }
+  }
+`;
+
+export const ChartContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  margin-top: 15px;
+  .recharts-wrapper {
+    svg {
+      width: 100%;
+      height: 80%;
+      .recharts-label {
+        tspan {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+  @media only screen and (max-width: 480px) {
+    .recharts-responsive-container {
+      max-width: 100%;
+      max-height: 80%;
+    }
+      .recharts-wrapper svg tspan {
+        font-size: 12px !important;
+      }
+    }
   }
 `;
 
 export const SelectDate = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 20px;
-  margin-bottom: -50px;
+  align-items: center;
+  margin-bottom: 50px;
   position: relative;
   z-index: 100;
   select {

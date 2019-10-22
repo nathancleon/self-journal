@@ -161,12 +161,12 @@ export class Chart extends Component {
           </select>
         </SelectDate>
         <ResponsiveContainer>
+          <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
           <LineChart
             data={this.state.data}
             yAxis={this.state.yAxis}
             margin={{ top: 10, right: 0, bottom: 40, left: 0 }}
           >
-            <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
             {this.state.rangeIsMoreThanThreeMonths ? (
               <XAxis dataKey="month" tick={false}>
                 <Label
