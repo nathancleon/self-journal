@@ -4,6 +4,7 @@ import Landing from "../Landing/Landing";
 import Login from "../User/Login/Login";
 import Register from "../User/Register/Register";
 import Dashboard from "../Dashboard/Dashboard";
+import Analytics from "../Analytics/Analytics";
 
 export default class Main extends Component {
   render() {
@@ -13,6 +14,7 @@ export default class Main extends Component {
         <Route path="/dashboard" component={Dashboard} />
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
+        <Route path="/analytics" component={Analytics} />
       </Switch>
     );
   }

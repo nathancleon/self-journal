@@ -64,6 +64,19 @@ class Nav extends Component {
               </Link>
             </NavIcon>
           )}
+          {this.props.currentPath === "analytics" ? (
+            <NavIconActive id="analytics" title="analytics">
+              <Link to="/dashboard/analytics">
+                <AnalyticsIcon fill="rgba(255, 255, 255, 1)" />
+              </Link>
+            </NavIconActive>
+          ) : (
+            <NavIcon id="analytics" title="analytics">
+              <Link to="/dashboard/analytics">
+                <AnalyticsIcon fill="rgba(255, 255, 255, 0.8)" />
+              </Link>
+            </NavIcon>
+          )}
           {this.props.currentPath === "prompts" ? (
             <NavIconActive id="prompts" title="prompts">
               <Link to="/dashboard/prompts">
