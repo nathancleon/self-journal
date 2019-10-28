@@ -62,7 +62,7 @@ class Analytics extends Component {
         <div
           style={{ width: `500px`, height: `500px`, backgroundColor: "#fff" }}
         >
-          <Chart />
+          <span>hello</span>
         </div>
       </div>
     );

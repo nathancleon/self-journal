@@ -89,12 +89,13 @@ export const ChartContentContainer = styled(ContentContainer)`
 
 export const ChartContainer = styled.div`
   width: 100%;
-  height: 100%;
+  height: 80%;
   margin-top: 15px;
   .recharts-wrapper {
     svg {
       width: 100%;
       height: 80%;
+      margin-left: -20px;
       .recharts-label {
         tspan {
           font-size: 16px;
