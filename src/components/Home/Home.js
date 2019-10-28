@@ -18,7 +18,7 @@ import {
   JournalAnswer,
   NoJournal
 } from "./HomeStyles";
-import Chart from "./Chart";
+import Chart from "../Chart/Chart";
 
 class Home extends Component {
   constructor(props) {
