@@ -29,7 +29,6 @@ export class Chart extends Component {
       yAxis: newState.yAxis,
       rangeIsMoreThanThreeMonths: newState.rangeIsMoreThanThreeMonths
     });
-    // console.log(newState);
   }
 
   render() {
